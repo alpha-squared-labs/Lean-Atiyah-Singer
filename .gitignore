@@ -1,0 +1,7 @@
+/.lake
+AGENTS.md
+__pycache__/
+*.pyc
+/evidence
+/scripts
+/notes

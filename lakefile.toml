@@ -1,0 +1,33 @@
+name = "lean-atiyah-singer"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["AtiyahSinger"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+weak.linter.style.header.license = "Released under Apache 2.0 license as described in LICENSE."
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.35.0"
+
+[[lean_lib]]
+name = "AtiyahSinger"
+globs = ["AtiyahSinger.*"]
+
+# Comparator challenge and solution are intentionally separate environments.
+[[lean_lib]]
+name = "Statements"
+srcDir = "Comparator"
+
+[[lean_lib]]
+name = "Challenge"
+srcDir = "Comparator"
+
+[[lean_lib]]
+name = "Solution"
+srcDir = "Comparator"

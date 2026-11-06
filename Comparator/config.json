@@ -1,0 +1,24 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "AtiyahSinger.ComparatorTargets.t01_atlas",
+    "AtiyahSinger.ComparatorTargets.t01_native",
+    "AtiyahSinger.ComparatorTargets.t02_atlas",
+    "AtiyahSinger.ComparatorTargets.t02_native",
+    "AtiyahSinger.ComparatorTargets.t03_atlas",
+    "AtiyahSinger.ComparatorTargets.t03_native",
+    "AtiyahSinger.ComparatorTargets.t04"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "external_kernels": {
+    "nanoda": [
+      "nanoda_bin"
+    ]
+  }
+}
