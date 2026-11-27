@@ -34,6 +34,9 @@ universe u
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The original Thom defect and its relation to the Euler class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original defect times its canonical Euler class equals the exterior character. -/
 theorem complexThomDefectComponent_mul_euler
     {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]

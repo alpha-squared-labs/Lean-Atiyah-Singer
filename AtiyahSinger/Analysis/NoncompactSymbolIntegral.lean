@@ -233,6 +233,9 @@ theorem symbolDerivative_integral_of_locally_dominated_jets (i j : ℕ)
     Filter.eventuallyEq_of_mem (hU.mem_nhds hx) hfrequency
   exact ((hnear.iteratedFDeriv ℝ i).eq_of_nhds).trans hbase
 
+-- Human-verified.
+-- - Parameters from the given atlas and integral estimates on noncompact domains. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Frequency-dependent integrable scalar majorants give the order of the integral symbol. -/
 theorem isSymbol_integral_of_locally_dominated_jets {m : ℝ}
     (hmeasJoint : ∀ (k : ℕ)

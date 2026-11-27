@@ -38,6 +38,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [TopologicalSpace (TotalSpace Unit E)]
 
 set_option maxSynthPendingDepth 30 in
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- A fixed-rank specified atlas has a small native model with both original maps smooth. -/
 theorem exists_native_model_with_atlasMaps
     (A : SmoothComplexBundleAtlas (n := n) E) (r : ℕ)

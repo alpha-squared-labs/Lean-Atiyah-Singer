@@ -57,11 +57,17 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
   [IsSmoothComplexBundle (n := n) (r := q) F]
 
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the documented
+--   definition or construction.
 /-- Forget only the fiberwise continuity certificate of the original symbol values. -/
 def nativeAtlasSymbolFunction (p : GlobalSymbolFunction (n := n) E F) :
     AtlasSymbolFunction (n := n) E F :=
   fun x ξ ↦ (p x ξ).toLinearMap
 
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The original symbol estimates are exactly those tested by the native smooth atlases. -/
 theorem isAtlasGlobalSymbol_native_iff (m : ℝ) (p : GlobalSymbolFunction (n := n) E F) :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
@@ -158,6 +164,9 @@ theorem isAtlasGlobalSymbol_native_iff (m : ℝ) (p : GlobalSymbolFunction (n :=
     rw [hcoord]
     exact hp c hc e f
 
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the documented
+--   definition or construction.
 /-- An original global symbol in the atlas symbol space, with its actual action unchanged. -/
 def nativeAtlasGlobalSymbol (m : ℝ)
     (p : globalSymbolSpace (n := n) (r := r) (q := q) E F m) :
@@ -372,6 +381,9 @@ end PseudodifferentialPiece
 set_option maxHeartbeats 1400000 in
 -- The extended limit accommodates the native bundle conjugation and original smooth-section
 -- transport.
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The original PDO class is unchanged by the identity transport of actual smooth sections. -/
 theorem isAtlasPseudodifferentialOperator_native_iff (m : ℝ)
     (P : smoothSections (n := n) (r := r) E →ₗ[ℂ]
@@ -527,6 +539,11 @@ namespace PseudodifferentialOperator
 variable {μ} {m : ℝ}
   (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
 
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the documented
+--   definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- The original PDO transported by the literal identity on each original section value. -/
 def toAtlasPseudodifferentialOperator :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
@@ -543,6 +560,9 @@ def toAtlasPseudodifferentialOperator :
       (isAtlasPseudodifferentialOperator_native_iff μ m P.toLinearMap).mpr
         P.isPseudodifferentialOperator }
 
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Every specified native principal representative gives the same atlas principal class. -/
 theorem principalSymbol_toAtlasPseudodifferentialOperator
     (p : globalSymbolSpace (n := n) (r := r) (q := q) E F m)

@@ -40,6 +40,9 @@ set_option maxHeartbeats 1000000 in
 -- All maps retain the native tangent topology and the original continuous-dual Hom atlas.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A smooth metric gives the native musical diffeomorphism with its exact flat formula. -/
 theorem exists_tangentMusical_diffeomorph
     (g : ContMDiffRiemannianMetric 𝓘(ℝ, E) ∞ E (TangentSpace 𝓘(ℝ, E) : M → Type _)) :

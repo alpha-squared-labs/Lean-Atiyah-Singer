@@ -509,11 +509,17 @@ theorem exists_atlasTensorConnection (covE : AtlasComplexConnection A)
       (chart_mem_atlas H x) p x ⟨mem_chart_source H x, hp⟩ X]
     exact hpure (chartAt H x) (chart_mem_atlas H x) p s t x ⟨mem_chart_source H x, hp⟩ X
 
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the
+--   documented definition or construction.
 /-- The product connection selected with its exact pure-section Leibniz formula. -/
 def atlasTensorConnection (covE : AtlasComplexConnection A)
     (covF : AtlasComplexConnection B) : AtlasComplexConnection (tensorSmoothAtlas A B) :=
   (exists_atlasTensorConnection covE covF).choose
 
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The selected connection differentiates the original pure tensor by the same two factors. -/
 theorem atlasTensorConnection_apply (covE : AtlasComplexConnection A)
     (covF : AtlasComplexConnection B) (s : A.smoothSections) (t : B.smoothSections)

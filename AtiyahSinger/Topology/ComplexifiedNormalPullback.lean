@@ -41,10 +41,16 @@ variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
   [IsManifold 𝓘(ℝ, E) ∞ M] [IsManifold 𝓘(ℝ, F) ∞ N]
   (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, F) M N ∞)
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The actual complexification of the normal bundle pulled back to the tangent bundle. -/
 abbrev ComplexifiedNormalPullback (z : TangentBundle 𝓘(ℝ, E) M) : Type _ :=
   ℂ ⊗[ℝ] NormalBundle 𝓘(ℝ, E) 𝓘(ℝ, F) f z.proj
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The original complexification topology on the native real normal pullback. -/
 @[reducible]
 def complexifiedNormalPullbackTopology :
@@ -58,6 +64,9 @@ def complexifiedNormalPullbackTopology :
 attribute [local instance] complexifiedNormalPullbackTopology
 
 set_option linter.defProp false in
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- Finite complex rank uses the same chosen real normal atlas, pulled back along projection. -/
 @[instance_reducible]
 def isFiniteRank_complexifiedNormalPullback

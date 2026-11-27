@@ -67,6 +67,9 @@ variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
   (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, F) M N ∞)
   (hf : IsImmersion 𝓘(ℝ, E) 𝓘(ℝ, F) ∞ f)
 
+-- Human-verified.
+-- - Tubular neighborhoods and the actual pushforward. The review covers the documented definition
+--   or construction.
 /-- A standard tubular neighborhood, normalized on the actual quotient normal fibers. -/
 structure TubularNeighborhood where
   /-- The open neighborhood in the original ambient manifold. -/
@@ -97,6 +100,9 @@ structure TubularNeighborhood where
 
 namespace TubularNeighborhood
 
+-- Human-verified.
+-- - Tubular neighborhoods and the actual pushforward. The review covers the documented definition
+--   or construction.
 /-- The actual continuous tubular map into the original ambient manifold. -/
 def totalMap (T : TubularNeighborhood f hf) :
     C(TotalSpace (NormalModel E F) (NormalBundle 𝓘(ℝ, E) 𝓘(ℝ, F) f), N) := by
@@ -296,6 +302,9 @@ end GermCompression
 
 variable [T2Space M] [T2Space N] [SecondCountableTopology M] [SecondCountableTopology N]
 
+-- Human-verified.
+-- - Tubular neighborhoods and the actual pushforward. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The tubular neighborhood theorem for a proper smooth embedding and its quotient normal. -/
 theorem nonempty_tubularNeighborhood (he : IsEmbedding f) (hp : IsProperMap f) :
     Nonempty (TubularNeighborhood f hf) := by

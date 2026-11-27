@@ -36,6 +36,9 @@ universe u
 
 variable (R : Type u) [CommRing R]
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- A finite idempotent matrix presents a finitely generated projective module. -/
 structure IdempotentMatrix where
   /-- Dimension of the ambient finite free module, not the rank of the image. -/
@@ -49,16 +52,25 @@ namespace IdempotentMatrix
 
 variable {R}
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- The image module of the specified idempotent. -/
 def image (p : IdempotentMatrix R) : Submodule R (Fin p.size → R) :=
   p.matrix.mulVecLin.range
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- The standard rectangular-matrix equivalence of finite idempotents. -/
 def IsEquivalent (p q : IdempotentMatrix R) : Prop :=
   ∃ a : Matrix (Fin p.size) (Fin q.size) R,
     ∃ b : Matrix (Fin q.size) (Fin p.size) R,
       a * b = p.matrix ∧ b * a = q.matrix ∧ p.matrix * a = a ∧ q.matrix * b = b
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- The concrete block-diagonal matrix, reindexed by Fin(size(p)+size(q)). -/
 def blockMatrix (p q : IdempotentMatrix R) :
     Matrix (Fin (p.size + q.size)) (Fin (p.size + q.size)) R :=
@@ -72,6 +84,9 @@ theorem blockMatrix_mul_self (p q : IdempotentMatrix R) :
   simp [blockMatrix, Matrix.reindex_apply, Matrix.submatrix_mul_equiv,
     Matrix.fromBlocks_multiply, p.mul_self, q.mul_self]
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- Direct sum of finite projective presentations. -/
 def blockSum (p q : IdempotentMatrix R) : IdempotentMatrix R where
   size := p.size + q.size
@@ -96,6 +111,9 @@ theorem projective_image (p : IdempotentMatrix R) : Module.Projective R p.image 
   change p.matrix.mulVecLin (x : Fin p.size → R) = x
   rw [← hy, ← LinearMap.comp_apply, ← Matrix.mulVecLin_mul, p.mul_self]
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Rectangular equivalence means exactly isomorphism of the presented modules. -/
 theorem isEquivalent_iff_nonempty_linearEquiv (p q : IdempotentMatrix R) :
     p.IsEquivalent q ↔ Nonempty (p.image ≃ₗ[R] q.image) := by
@@ -170,6 +188,9 @@ theorem isEquivalent_iff_nonempty_linearEquiv (p q : IdempotentMatrix R) :
 
 end IdempotentMatrix
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- every finite projective module is the image of a finite idempotent matrix. -/
 theorem exists_idempotentMatrix_of_finite_projective (P : Type*) [AddCommGroup P]
     [Module R P] [Module.Finite R P] [Module.Projective R P] :
@@ -212,6 +233,9 @@ theorem exists_idempotentMatrix_of_finite_projective (P : Type*) [AddCommGroup P
     change f (g (f (g x))) = x
     rw [hfg_apply, hfg_apply]
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- The isomorphism and direct-sum relations in the free group of projective presentations. -/
 def kZeroRelations : AddSubgroup (FreeAbelianGroup (IdempotentMatrix R)) :=
   AddSubgroup.closure
@@ -220,10 +244,16 @@ def kZeroRelations : AddSubgroup (FreeAbelianGroup (IdempotentMatrix R)) :=
     {x | ∃ p q : IdempotentMatrix R,
       x = FreeAbelianGroup.of (p.blockSum q) - FreeAbelianGroup.of p - FreeAbelianGroup.of q})
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- The ordinary algebraic K₀ group of a commutative ring in the idempotent model. -/
 abbrev KZero : Type u :=
   FreeAbelianGroup (IdempotentMatrix R) ⧸ kZeroRelations R
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- The K₀ class of a finite projective presentation. -/
 def kZeroClass (p : IdempotentMatrix R) : KZero R :=
   QuotientAddGroup.mk' (kZeroRelations R) (FreeAbelianGroup.of p)
@@ -252,6 +282,9 @@ theorem kZeroClass_blockSum (p q : IdempotentMatrix R) :
   right
   exact ⟨p, q, by abel⟩
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- the defining universal property of the Grothendieck group. -/
 theorem kZero_universal_property {A : Type*} [AddCommGroup A]
     (v : IdempotentMatrix R → A)
@@ -288,6 +321,9 @@ theorem kZero_universal_property {A : Type*} [AddCommGroup A]
   obtain ⟨y, rfl⟩ := QuotientAddGroup.mk'_surjective (kZeroRelations R) x
   exact DFunLike.congr_fun hcomp y
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the documented definition
+--   or construction.
 /-- The standard finite-projective model for absolute complex K⁰ of a compact Hausdorff space.
 Its equivalence to the geometric bundle definition is not asserted by this abbreviation. -/
 abbrev ComplexKZero (X : Type*) [TopologicalSpace X] [CompactSpace X] [T2Space X] : Type _ :=

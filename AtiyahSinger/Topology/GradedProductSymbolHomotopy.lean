@@ -560,6 +560,9 @@ def gradedProductCutoffTriple (t : unitInterval) :
           (gradedProductCutoffSymbol_boundary_continuity a b R hR ha hb ε hε hε₁).2.comp
             (continuous_const.prodMk continuous_id) } }
 
+-- Human-verified.
+-- - Kernels and cokernels of tensor products and truncation of products. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The specified affine family is a homotopy of the original uncut and cutoff triples. -/
 theorem gradedProductCutoffTriple_homotopic :
     letI := modelTopology Even (Bundle.Trivial Base Even)

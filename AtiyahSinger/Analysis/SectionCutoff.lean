@@ -41,6 +41,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Support in two-sided truncation and excision. The review covers the documented definition or
+--   construction.
 /-- The actual operator u ↦ χ · R(χ · u), with the same real cutoff on both bundles. -/
 def twoSidedSectionCutoff
     (R : smoothSections (n := n) (r := r) E →ₗ[ℂ] smoothSections (n := n) (r := q) F)
@@ -50,6 +53,9 @@ def twoSidedSectionCutoff
     (R.comp (smoothSectionMul E (fun x ↦ (χ x : ℂ))
       (Complex.ofRealCLM.contMDiff.comp hχ)))
 
+-- Human-verified.
+-- - Support in two-sided truncation and excision. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The sandwich controls both output support and dependence on input values. -/
 theorem twoSidedSectionCutoff_support
     (R : smoothSections (n := n) (r := r) E →ₗ[ℂ] smoothSections (n := n) (r := q) F)
@@ -237,6 +243,9 @@ theorem isPseudodifferentialOperator_twoSidedSectionCutoff {m : ℝ}
   simp
 
 
+-- Human-verified.
+-- - Support in two-sided truncation and excision. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Real cutoffs commute with taking the actual explicit-metric formal adjoint. -/
 theorem PseudodifferentialOperator.metricFormalAdjoint_twoSidedSectionCutoff {m : ℝ}
     (P Q : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)

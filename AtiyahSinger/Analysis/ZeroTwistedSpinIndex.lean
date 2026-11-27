@@ -65,6 +65,9 @@ set_option maxHeartbeats 800000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Comparison of ranks at points and characteristic numbers in dimension zero. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The native zero-dimensional twisted index is the original degree-zero characteristic number. -/
 theorem zeroTwistedDiracPlus_index
     (hV : letI := complexificationTopology (EuclideanSpace ℝ (Fin 0)) TM

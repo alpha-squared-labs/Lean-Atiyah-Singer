@@ -55,6 +55,9 @@ variable {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E 
   (A : SmoothBundlePresentation (n := n) (r := r) E)
   (B : SmoothBundlePresentation (n := n) (r := q) F)
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The target embedding carries the original smooth range into the Sobolev range. -/
 theorem range_le_comap_smoothToSobolev (s : ℝ) :
     P.toLinearMap.range ≤
@@ -65,6 +68,9 @@ theorem range_le_comap_smoothToSobolev (s : ℝ) :
   rintro v ⟨u, rfl⟩
   exact ⟨A.smoothToSobolev s u, P.sobolevExtension_smoothToSobolev A B s u⟩
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   documented definition or construction.
 /-- The original target embedding descends to the algebraic cokernels. -/
 def sobolevCokerMap (s : ℝ) :
     (smoothSections (n := n) (r := q) F ⧸ P.toLinearMap.range) →ₗ[ℂ]
@@ -72,6 +78,9 @@ def sobolevCokerMap (s : ℝ) :
   P.toLinearMap.range.mapQ (P.sobolevExtension A B s).range
     (B.smoothToSobolev (s - m)) (P.range_le_comap_smoothToSobolev A B s)
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The induced map sends the class of a section to the class of its actual embedding. -/
 theorem sobolevCokerMap_mkQ (s : ℝ) (v : smoothSections (n := n) (r := q) F) :
     P.sobolevCokerMap A B s (P.toLinearMap.range.mkQ v) =
@@ -82,6 +91,9 @@ theorem sobolevCokerMap_mkQ (s : ℝ) (v : smoothSections (n := n) (r := q) F) :
 
 variable (Q : PseudodifferentialOperator (n := n) (r := q) (q := r) F E μ (-m))
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- A left smoothing inverse suffices for injectivity of the cokernel comparison. -/
 theorem sobolevCokerMap_injective_of_isSmoothingOperator
     (hQ : IsSmoothingOperator μ (Q.toLinearMap.comp P.toLinearMap - LinearMap.id))
@@ -101,6 +113,9 @@ theorem sobolevCokerMap_injective_of_isSmoothingOperator
     P.existsUnique_smooth_lift_of_isSmoothingOperator Q A B hQ s u v hu
   exact (Submodule.Quotient.mk_eq_zero _).mpr ⟨w, hPw⟩
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- A two-sided parametrix makes smooth classes cover the Sobolev cokernel. -/
 theorem sobolevCokerMap_surjective_of_isParametrix
     (hQ : IsParametrix μ P.toLinearMap Q.toLinearMap) (s : ℝ) :
@@ -139,6 +154,9 @@ theorem sobolevCokerMap_surjective_of_isParametrix
     _ = -proj (S u) := map_neg proj _
     _ = proj u := (congrArg Neg.neg hclass).trans (neg_neg _)
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   documented definition or construction.
 /-- The canonical cokernel equivalence induced by the original smooth embedding. -/
 def sobolevCokerEquiv (hQ : IsParametrix μ P.toLinearMap Q.toLinearMap) (s : ℝ) :
     (smoothSections (n := n) (r := q) F ⧸ P.toLinearMap.range) ≃ₗ[ℂ]
@@ -199,6 +217,9 @@ theorem index_eq_finrank_sub_of_isParametrix
   finite dimensions do not by themselves certify a Fredholm operator. -/
   exact LinearMap.index_eq_finrank_sub
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Real Sobolev order and finite presentations do not change this index. -/
 theorem index_sobolevExtension_eq_of_isParametrix_of_presentations
     (hQ : IsParametrix μ P.toLinearMap Q.toLinearMap)

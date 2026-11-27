@@ -65,6 +65,9 @@ local notation "T" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
 namespace SmoothTangentMetric
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the documented definition or construction.
 /-- The original supported character on TM, with the supplied metric's native fiber instances. -/
 def tangentCompactSupportChernCharacterComponent
     (g : SmoothTangentMetric (n := n) (M := M)) (k : ℕ) :
@@ -76,6 +79,9 @@ def tangentCompactSupportChernCharacterComponent
     ⟨⟨g.inner, g.contMDiff.continuous, fun _ _ _ ↦ rfl⟩⟩
   exact bundleCompactSupportChernCharacterComponent n T k
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The tangent character maps to the reduced character of exactly its original supported class. -/
 theorem tangentCompactSupportChernCharacterComponent_toOnePoint
     (g : SmoothTangentMetric (n := n) (M := M)) (k : ℕ) (a : CompactSupportKZero TM) :
@@ -96,6 +102,9 @@ theorem tangentCompactSupportChernCharacterComponent_toOnePoint
 
 end SmoothTangentMetric
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the documented definition or construction.
 /-- The degree-2k component of the square of the original tangent bundle's A-hat class. -/
 def tangentAHatSquareComponent
     (hV : letI := complexificationTopology V T
@@ -113,6 +122,9 @@ def tangentAHatSquareComponent
 
 -- Retain the original compact Hausdorff hypotheses in the public type.
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Changing the auxiliary Hermitian metric does not change the original tangent A-hat square. -/
 theorem tangentAHatSquareComponent_metric_independent
     (hV hV' : letI := complexificationTopology V T

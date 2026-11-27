@@ -32,6 +32,9 @@ variable {X : Type*} [TopologicalSpace X]
   {G : X → Type*} [∀ x, AddCommGroup (G x)] [∀ x, Module ℂ (G x)]
   [TopologicalSpace (TotalSpace Unit G)]
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- The standard direct-sum total-space topology, with a fixed phantom parameter. -/
 @[instance_reducible]
 def sumTopology : TopologicalSpace (TotalSpace Unit (E ×ᵇ F)) :=

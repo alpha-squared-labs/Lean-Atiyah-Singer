@@ -34,6 +34,9 @@ open OnePoint
 
 variable {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Reduced complex K⁰ at a specified base point, using the actual evaluation map. -/
 def reducedComplexKZero [CompactSpace X] [T2Space X] (x₀ : X) :
     AddSubgroup (ComplexKZero X) :=
@@ -59,6 +62,9 @@ theorem complexKZeroPullback_mem_reduced [CompactSpace X] [T2Space X]
   rw [← AddMonoidHom.comp_apply, ← kZeroMap_comp, heval]
   exact ha
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Pullback between reduced groups, restricted from the previously defined absolute pullback. -/
 def reducedComplexKZeroPullback [CompactSpace X] [T2Space X]
     [CompactSpace Y] [T2Space Y] (x₀ : X) (y₀ : Y) (f : C(X, Y)) (hf : f x₀ = y₀) :
@@ -68,6 +74,9 @@ def reducedComplexKZeroPullback [CompactSpace X] [T2Space X]
   map_zero' := Subtype.ext (map_zero (complexKZeroPullback f))
   map_add' a b := Subtype.ext (map_add (complexKZeroPullback f) a.val b.val)
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Compactly supported K⁰ of a locally compact Hausdorff space. -/
 abbrev CompactSupportKZero (X : Type*) [TopologicalSpace X]
     [LocallyCompactSpace X] [T2Space X] : Type _ :=
@@ -89,12 +98,18 @@ theorem continuous_onePointMap_of_proper [LocallyCompactSpace X] [T2Space X]
   exact (hf.isCompact_preimage hK.2).compl_mem_coclosedCompact_of_isClosed
       (hK.1.preimage f.continuous)
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The actual extension of a proper map to the one-point compactifications. -/
 def properOnePointMap [LocallyCompactSpace X] [T2Space X]
     [LocallyCompactSpace Y] [T2Space Y] (f : C(X, Y)) (hf : IsProperMap f) :
     C(OnePoint X, OnePoint Y) :=
   ⟨OnePoint.map f, continuous_onePointMap_of_proper f hf⟩
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- Proper pullback in compactly supported K⁰. -/
 def compactSupportKZeroPullback [LocallyCompactSpace X] [T2Space X]
     [LocallyCompactSpace Y] [T2Space Y] (f : C(X, Y)) (hf : IsProperMap f) :
@@ -102,6 +117,9 @@ def compactSupportKZeroPullback [LocallyCompactSpace X] [T2Space X]
   reducedComplexKZeroPullback ∞ ∞ (properOnePointMap f hf) rfl
 
 open scoped Classical in
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- Collapse the complement of U, including the point at infinity, to infinity in U⁺. -/
 def onePointCollapse (U : Set X) : OnePoint X → OnePoint U :=
   fun z ↦ z.elim ∞ (fun x ↦ if hx : x ∈ U then ((⟨x, hx⟩ : U) : OnePoint U) else ∞)
@@ -139,6 +157,9 @@ theorem continuous_onePointCollapse [LocallyCompactSpace X] [T2Space X]
     rw [hpre]
     exact hU.isOpenMap_subtype_val _ hopen
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- K02: extension by an open inclusion, induced contravariantly by the collapse map. -/
 def compactSupportKZeroOpenExtension [LocallyCompactSpace X] [T2Space X]
     (U : Set X) (hU : IsOpen U) :
@@ -148,6 +169,9 @@ def compactSupportKZeroOpenExtension [LocallyCompactSpace X] [T2Space X]
   reducedComplexKZeroPullback ∞ ∞
     ⟨onePointCollapse U, continuous_onePointCollapse U hU⟩ rfl
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- On a compact base, restriction from X⁺ gives the comparison with absolute K⁰. -/
 def compactSupportKZeroToAbsolute [CompactSpace X] [T2Space X] :
     CompactSupportKZero X →+ ComplexKZero X :=
@@ -155,6 +179,9 @@ def compactSupportKZeroToAbsolute [CompactSpace X] [T2Space X] :
     (reducedComplexKZero (∞ : OnePoint X)).subtype
 
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Compactly supported and absolute K⁰ agree on compact Hausdorff spaces. -/
 theorem compactSupportKZeroToAbsolute_bijective [CompactSpace X] [T2Space X] :
     Function.Bijective (compactSupportKZeroToAbsolute (X := X)) := by

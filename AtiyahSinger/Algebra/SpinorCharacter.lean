@@ -41,6 +41,9 @@ All formulas include m=0: the positive trace is one and the negative trace zero.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   documented definition or construction.
 /-- The character of the existing positive or negative half-spin representation. -/
 def complexHalfSpinCharacter (m : ℕ) (i : ZMod 2)
     (g : spinGroup (realSpinorQuadraticForm m)) : ℂ :=
@@ -48,6 +51,9 @@ def complexHalfSpinCharacter (m : ℕ) (i : ZMod 2)
     (CliffordAlgebra.evenOdd (0 : QuadraticForm ℂ (EuclideanSpace ℂ (Fin m))) i)
     (complexSpinParityRepresentation m i g).toLinearMap
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The actual half-spin trace is the sum of its exterior-basis weights. -/
 theorem complexHalfSpinCharacter_spinTorusElement_sum (m : ℕ) (i : ZMod 2)
     (theta : Fin m → ℝ) :
@@ -153,6 +159,9 @@ theorem complexHalfSpinCharacter_spinTorusElement (m : ℕ) (i : ZMod 2)
             spinorWeight m s theta by ring, hselector]
       split_ifs <;> simp
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The positive-minus-negative spin character has the fixed SG chirality sign. -/
 theorem complexHalfSpinCharacter_sub_spinTorusElement (m : ℕ)
     (theta : Fin m → ℝ) :

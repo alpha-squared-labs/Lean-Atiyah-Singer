@@ -37,6 +37,9 @@ attribute [local instance] sumTopology isFiniteRank_sum
 set_option backward.isDefEq.respectTransparency false
 
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Form the relative difference on a compact window and extend its interior class. -/
 def SupportBundleTriple.windowClass (a : SupportBundleTriple X) (L : Set X)
     (hL : IsCompact L) (h : a.datum.control ⊆ interior L) : CompactSupportKZero X :=
@@ -317,12 +320,18 @@ theorem SupportBundleTriple.windowClass_eq (a : SupportBundleTriple X)
       (a.windowClass_eq_of_subset M (L ∪ M) hM (hL.union hM) haM haU
         Set.subset_union_right).symm
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Choose a compact window only after establishing its independence. -/
 def SupportBundleTriple.compactSupportClass (a : SupportBundleTriple X) : CompactSupportKZero X :=
   a.windowClass (supportNeighborhood a.datum.control a.datum.isCompact_control)
     (isCompact_supportNeighborhood a.datum.control a.datum.isCompact_control)
     (subset_interior_supportNeighborhood a.datum.control a.datum.isCompact_control)
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Every admissible compact window computes the chosen class. -/
 theorem SupportBundleTriple.compactSupportClass_eq_windowClass (a : SupportBundleTriple X)
     (L : Set X) (hL : IsCompact L) (h : a.datum.control ⊆ interior L) :

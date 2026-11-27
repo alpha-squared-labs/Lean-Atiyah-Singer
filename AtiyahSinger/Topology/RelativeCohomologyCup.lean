@@ -47,6 +47,9 @@ def relativeSingularCocycleClass (A : Set X) (n : ℕ) :
   (((relativeSingularCochains R A).sc n).moduleCatHomologyIso.inv.hom).comp
     (relativeSingularCoboundaries R A n).mkQ
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the documented
+--   definition or construction.
 /-- Ordinary cohomology acts on the original relative cohomology by the descended cup product. -/
 def relativeSingularCohomologyAction (A : Set X) (p q : ℕ) :
     singularCohomology R X p →ₗ[R] relativeSingularCohomology R A q →ₗ[R]
@@ -78,6 +81,9 @@ def relativeSingularCohomologyAction (A : Set X) (p q : ℕ) :
   exact (comparison.compl₂ ((relativeSingularCochains R A).sc q).moduleCatHomologyIso.hom.hom).comp
     ((singularCochains R X).sc p).moduleCatHomologyIso.hom.hom
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The action is represented by the actual product of the given ordinary and relative cocycles. -/
 theorem relativeSingularCohomologyAction_cocycleClass (A : Set X) (p q : ℕ)
     (a : singularCocycles R X p) (b : relativeSingularCocycles R A q) :

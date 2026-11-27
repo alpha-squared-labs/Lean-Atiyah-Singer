@@ -77,6 +77,9 @@ theorem bottLine_boundary_continuity :
     apply continuous_induced_rng.mpr
     exact hpoint.prodMk (hinverse.smul hvector)
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The complex-line exterior symbol with its actual multiplication boundary. -/
 def bottLineTriple : CompactSupportTriple
     (Bundle.Trivial ℂ (Fin 1 → ℂ)) (Bundle.Trivial ℂ (Fin 1 → ℂ)) where
@@ -88,10 +91,16 @@ def bottLineTriple : CompactSupportTriple
       continuous_total := bottLine_boundary_continuity.1
       continuous_symm := bottLine_boundary_continuity.2 }
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The compact-support class of the specified complex-line exterior triple. -/
 def bottLineClass : CompactSupportKZero ℂ :=
   bottLineTriple.compactSupportClass
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Wedge minus contraction on the complex line has blocks z and -conj(z). -/
 theorem cliffordSymbol_complex_line (z a b : ℂ) :
     cliffordSymbol z (algebraMap ℂ (ExteriorAlgebra ℂ ℂ) a + ExteriorAlgebra.ι ℂ b) =
@@ -126,6 +135,9 @@ theorem cliffordSymbol_complex_line (z a b : ℂ) :
   simp only [innerₛₗ_apply_apply, RCLike.inner_apply', RCLike.star_def]
 
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Conjugating the base of the actual line symbol reverses its support class. -/
 theorem compactSupportKZeroHomeomorph_conj_bottLineClass :
     compactSupportKZeroHomeomorph Complex.conjCLE.toHomeomorph bottLineClass =

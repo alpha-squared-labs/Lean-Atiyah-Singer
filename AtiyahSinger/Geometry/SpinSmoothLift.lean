@@ -911,6 +911,9 @@ variable {m : ℕ} {P : Type*} [TopologicalSpace P]
   {projection : P → B} {hm : 0 < m}
   {hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm m)) projection}
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the documented
+--   definition or construction.
 /-- Compatibility means smoothness of the actual lifted frame columns in the original bundle. -/
 def TopologicalSpinStructure.IsCompatibleSmoothAtlas
     (S : TopologicalSpinStructure m E o hm hP)
@@ -924,6 +927,9 @@ def TopologicalSpinStructure.IsCompatibleSmoothAtlas
           TotalSpace (EuclideanSpace ℝ (Fin (2 * m))) E))
       (A.trivialization b).baseSet
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every original topological spin lift has a smooth principal atlas compatible with its frames. -/
 theorem TopologicalSpinStructure.exists_compatible_smoothPrincipalAtlas
     (S : TopologicalSpinStructure m E o hm hP) :
@@ -991,6 +997,9 @@ theorem TopologicalSpinStructure.exists_compatible_smoothPrincipalAtlas
       TotalSpace (EuclideanSpace ℝ (Fin (2 * m))) E))
     (hframe S ((u b).toOpenPartialHomeomorph.symm (x, 1))).symm
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the documented
+--   definition or construction.
 /-- The compatible smooth atlas selected on this very original spin principal bundle. -/
 def TopologicalSpinStructure.smoothPrincipalAtlas
     (S : TopologicalSpinStructure m E o hm hP) :

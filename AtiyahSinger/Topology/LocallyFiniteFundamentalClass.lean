@@ -57,6 +57,9 @@ theorem relativeSingularHomology_subsingleton_above_dim (R : Type) [CommRing R]
   exact relativeSingularHomology_subsingleton_compact_manifold
     R n (K : Set M) K.isCompact k h
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The prescribed compact-relative generators determine one actual locally finite class. -/
 theorem existsUnique_locallyFiniteFundamentalClass (O : HomologicalOrientation n M) :
     ∃! z : locallyFiniteSingularHomology ℤ M n,
@@ -96,6 +99,9 @@ theorem existsUnique_locallyFiniteFundamentalClass (O : HomologicalOrientation n
   · intro w hw
     exact huniq w (fun i ↦ hw (C i))
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the documented definition or
+--   construction.
 /-- The actual integral locally finite class with the specified local orientation. -/
 def locallyFiniteFundamentalClass (O : HomologicalOrientation n M) :
     locallyFiniteSingularHomology ℤ M n :=
@@ -109,11 +115,17 @@ theorem locallyFiniteFundamentalClass_restriction (O : HomologicalOrientation n 
   -- The selected class is the very witness whose compact restrictions were prescribed.
   exact (Classical.choose_spec (existsUnique_locallyFiniteFundamentalClass O).exists) K
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the documented definition or
+--   construction.
 /-- The rational fundamental class is the actual image of the same integral LF class. -/
 def rationalLocallyFiniteFundamentalClass (O : HomologicalOrientation n M) :
     locallyFiniteSingularHomology ℚ M n :=
   locallyFiniteSingularHomologyRationalization M n (locallyFiniteFundamentalClass O)
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Rational restriction agrees with the already normalized compact-relative fundamental class. -/
 theorem rationalLocallyFiniteFundamentalClass_restriction
     (O : HomologicalOrientation n M) (K : Compacts M) :

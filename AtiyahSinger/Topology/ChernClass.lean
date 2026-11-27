@@ -52,6 +52,9 @@ variable (r : ℕ) {X : Type u} [TopologicalSpace X]
 attribute [local instance] hermitianFlagTopology hermitianFlagLineTopology
   hermitianProjectiveTopology
 
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the documented
+--   definition or construction.
 /-- An actual Chern root is the normalized first Chern class of a tautological flag line. -/
 def flagChernRoot (i : Fin r) :
     singularCohomology ℤ (HermitianFlagBundle r E h) 2 :=
@@ -61,6 +64,9 @@ def flagChernRoot (i : Fin r) :
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The elementary symmetric classes of the actual flag lines descend uniquely to the base. -/
 theorem existsUnique_chernClass (k : ℕ) :
     ∃! c : singularCohomology ℤ X (2 * k),
@@ -92,6 +98,9 @@ theorem existsUnique_chernClass (k : ℕ) :
   intro a ha
   exact hermitianFlagProjection_cohomology_injective ℤ r E h (2 * k) (ha.trans hc.symm)
 
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the documented
+--   definition or construction.
 /-- The integral Chern class determined by the actual normalized roots and original projection. -/
 def chernClass (k : ℕ) : singularCohomology ℤ X (2 * k) :=
   (existsUnique_chernClass r E h k).exists.choose
@@ -137,6 +146,9 @@ theorem chernClass_eq_projectiveChernCoefficient
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The integral classes are independent of the auxiliary continuous Hermitian metric. -/
 theorem chernClass_metric_independent
     (h' : letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
@@ -170,12 +182,18 @@ theorem chernClass_metric_independent
   · exact hflag
   · exact chernClass_flag_pullback r E h' k
 
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The degree-zero Chern class is the original unit. -/
 theorem chernClass_zero : chernClass r E h 0 = singularCohomologyOne ℤ X := by
   apply hermitianFlagProjection_cohomology_injective ℤ r E h 0
   rw [chernClass_flag_pullback r E h 0, singularCohomologyPullback_one]
   cases List.ofFn (flagChernRoot r E h) <;> rfl
 
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Chern classes vanish above the complex rank, including the zero-rank bundle. -/
 theorem chernClass_eq_zero_of_rank_lt (k : ℕ) (hk : r < k) :
     chernClass r E h k = 0 := by

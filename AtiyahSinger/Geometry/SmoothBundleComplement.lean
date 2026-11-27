@@ -48,6 +48,9 @@ include hM hT hS hC
 set_option maxRecDepth 6000 in
 set_option maxHeartbeats 0 in
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every smooth finite-rank complex bundle on a compact Hausdorff second-countable
 smooth manifold has a smooth complement.
 The same fiber equivalence occurs in all four smoothness assertions. -/

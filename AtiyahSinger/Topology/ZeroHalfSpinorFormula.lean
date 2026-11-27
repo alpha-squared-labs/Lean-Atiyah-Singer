@@ -162,6 +162,9 @@ theorem halfSpinorCharacterComponent_zero_eq_euler_mul_inverseAHat
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original compact-base virtual half-spin class satisfies the rank-zero character formula. -/
 theorem chernCharacter_halfSpinor_zero_difference [CompactSpace B] [T2Space B]
     (hV : letI := complexificationTopology RealModel E

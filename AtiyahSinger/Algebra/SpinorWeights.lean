@@ -39,6 +39,9 @@ namespace AtiyahSinger
 def complexSpinorBasis (m : ℕ) : Module.Basis (Finset (Fin m)) ℂ (ComplexSpinor m) :=
   (EuclideanSpace.basisFun (Fin m) ℂ).toBasis.ExteriorAlgebra
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   documented definition or construction.
 /-- The spin weight of an exterior monomial for the specified half-angle parameters. -/
 def spinorWeight (m : ℕ) (s : Finset (Fin m)) (theta : Fin m → ℝ) : ℂ :=
   Complex.exp (Complex.I * ∑ j : Fin m, if j ∈ s then (theta j : ℂ) else -(theta j : ℂ))

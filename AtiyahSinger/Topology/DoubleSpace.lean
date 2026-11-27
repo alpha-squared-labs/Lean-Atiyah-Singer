@@ -268,6 +268,9 @@ theorem DoubleSpace.left_mapsTo (A : Set X) :
   intro x hx
   exact ⟨x, (DoubleSpace.left_eq_right A ⟨x, hx⟩).symm⟩
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Restrict relative classes on the double along its actual left inclusion. -/
 def DoubleSpace.relativeRestriction [CompactSpace X] [T2Space X]
     (A : Set X) (hA : IsClosed A) :

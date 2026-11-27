@@ -55,6 +55,9 @@ set_option maxRecDepth 4096 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The specified Bott class and the Spin Thom isomorphism. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The supported spin class in the specified spin frame is exactly the exterior Bott class. -/
 theorem TopologicalSpinStructure.spinorThomClass_pullback_frame
     (S : TopologicalSpinStructure m E o hm hP) (p : P) (b : B) (hp : projection p = b) :

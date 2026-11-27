@@ -135,6 +135,9 @@ set_option maxHeartbeats 800000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Cancellation of the normal-bundle Todd class and integration after the tangent pushforward. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- The actual tangent and quotient normal complexifications have their stable trivialization. -/
 theorem nonempty_tangentNormal_complexification_iso
     (f : ContMDiffMap 𝓘(ℝ, V) 𝓘(ℝ, W) M W ∞)
@@ -256,6 +259,9 @@ theorem nonempty_tangentNormal_complexification_iso
   exact ⟨(RealBundle.complexificationSumIso V T Q ν).symm.trans
     ((H.toIso hH).trans (C.toIso (fun _ ↦ eW.bijective)))⟩
 
+-- Human-verified.
+-- - Cancellation of the normal-bundle Todd class and integration after the tangent pushforward. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- The original quotient normal complement has the Todd class of the original tangent bundle. -/
 theorem inverseTodd_normalComplexification_eq_todd
     (f : ContMDiffMap 𝓘(ℝ, V) 𝓘(ℝ, W) M W ∞)
@@ -301,6 +307,9 @@ set_option maxHeartbeats 600000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Cancellation of the normal-bundle Todd class and integration after the tangent pushforward. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- The original normal bundle over TM has the pulled-back tangent Todd component. -/
 theorem inverseTodd_complexifiedNormalPullback_eq
     (f : ContMDiffMap 𝓘(ℝ, V) 𝓘(ℝ, W) M W ∞)

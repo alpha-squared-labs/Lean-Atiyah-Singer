@@ -51,6 +51,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
   [IsSmoothComplexBundle (n := n) (r := q) F]
 
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Full-symbol inverse bounds are identical in the original native and atlas frames. -/
 theorem isEllipticFullAtlasSymbol_native_iff (m : ℝ)
     (p : GlobalSymbolFunction (n := n) E F) :
@@ -154,6 +157,9 @@ variable [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
 
 set_option maxHeartbeats 1000000 in
 -- The extended limit accommodates the atlas all-order and native smooth-kernel comparisons.
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The all-order atlas smoothing condition is the native smooth-kernel condition. -/
 theorem isAtlasSmoothingOperator_native_iff
     (R : smoothSections (n := n) (r := r) E →ₗ[ℂ]
@@ -232,6 +238,9 @@ namespace PseudodifferentialOperator
 variable {μ} {m : ℝ}
   (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
 
+-- Human-verified.
+-- - Comparison between the native and atlas presentations. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Transport of the original section operator preserves its full-symbol ellipticity. -/
 theorem isElliptic_toAtlas_iff :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E

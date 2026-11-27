@@ -33,10 +33,16 @@ variable {X : Type*} [TopologicalSpace X]
   {G : X → Type*} [∀ x, AddCommGroup (G x)] [∀ x, Module ℂ (G x)]
   [TopologicalSpace (TotalSpace Unit G)]
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- Restriction is the actual pullback to the subspace. -/
 abbrev Restrict (E : X → Type*) (A : Set X) : A → Type _ :=
   (Subtype.val : A → X) *ᵖ E
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Restrictions preserve locally finite rank. -/
 theorem isFiniteRank_restrict [IsFiniteRank E] (A : Set X) :
     IsFiniteRank (Restrict E A) := by

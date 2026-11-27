@@ -57,6 +57,9 @@ variable (R : Type) [CommRing R] {X : Type u} [TopologicalSpace X]
 
 attribute [local instance] hermitianFlagTopology
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The original complete-flag projection is injective on singular cohomology in every degree. -/
 theorem hermitianFlagProjection_cohomology_injective (n : ℕ) :
     Function.Injective (singularCohomologyPullback R (hermitianFlagProjection r E h) n) := by

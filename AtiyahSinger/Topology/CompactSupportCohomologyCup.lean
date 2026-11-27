@@ -49,6 +49,9 @@ universe u
 
 variable (R : Type) [CommRing R] (X : Type u) [TopologicalSpace X]
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- The compact-support cup is the actual action after forgetting only its first support. -/
 def compactSupportCohomologyCup (p q : ℕ) :
     compactSupportCohomology R X p →ₗ[R] compactSupportCohomology R X q →ₗ[R]
@@ -56,6 +59,9 @@ def compactSupportCohomologyCup (p q : ℕ) :
   (compactSupportCohomologyAction R X p q).comp
     (compactSupportCohomologyToOrdinary R X p).hom
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Two original supported representatives multiply at their exact intersection support. -/
 theorem compactSupportCohomologyCup_representative [T2Space X]
     (K L : Compacts X) (p q : ℕ)

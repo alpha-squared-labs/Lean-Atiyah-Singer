@@ -212,6 +212,9 @@ private theorem exists_unitary_path (T : E →L[ℂ] E) (hT : T.IsInvertible) :
       smul_nonneg (sub_nonneg.mpr t.property.2) zero_le_one
     exact (IsStrictlyPositive.nonneg_add hleft (hinv.smul htpos)).isUnit
 
+-- Human-verified.
+-- - Fredholm operators and paths of invertible operators. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- the invertible group of a complex Hilbert space is path connected in norm. -/
 theorem exists_invertible_path_to_id (T : E →L[ℂ] E) (hT : T.IsInvertible) :
     ∃ γ : Path T (ContinuousLinearMap.id ℂ E), ∀ t, (γ t).IsInvertible := by
@@ -286,6 +289,9 @@ private theorem exists_isInvertible_sub_isCompactOperator_of_index_eq_zero (T : 
   refine ⟨C, ⟨C, rfl⟩, ?_⟩
   rwa [hCT]
 
+-- Human-verified.
+-- - Fredholm operators and paths of invertible operators. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- equal-index Fredholm operators lie in the same norm path component. -/
 theorem exists_fredholm_path_of_index_eq (T₀ T₁ : E →L[ℂ] F)
     (hT₀ : T₀.IsFredholm) (hT₁ : T₁.IsFredholm) (hind : T₀.index = T₁.index) :

@@ -70,6 +70,9 @@ theorem mkQ_complementQuotientCoordinate (z : F ⧸ V.map T.toLinearMap) :
     (complementProjection_add_image_solution hT y)
   simpa only [map_add, hsolution, add_zero] using hdecomposition
 
+-- Human-verified.
+-- - A fixed Fredholm complement and the original quotient family. The review covers the documented
+--   definition or construction.
 /-- The natural inclusion W → F → F/T(V), with its explicit continuous inverse. -/
 def complementQuotientEquiv : W ≃L[ℂ] (F ⧸ V.map T.toLinearMap) where
   toFun w := (V.map T.toLinearMap).mkQ (w : F)
@@ -203,6 +206,9 @@ theorem continuous_complementQuotientCoordinates :
   have hcoordinates := continuous_fst.prodMk (hprojection.clm_apply continuous_snd)
   exact hcoordinates
 
+-- Human-verified.
+-- - A fixed Fredholm complement and the original quotient family. The review covers the documented
+--   definition or construction.
 /-- The actual quotient family is a trivial bundle over its open block chart. -/
 def complementQuotientTrivialization :
     ComplementQuotientTotalSpace V W ≃ₜ (complementChartDomain V W × W) where
@@ -213,6 +219,9 @@ def complementQuotientTrivialization :
   continuous_toFun := continuous_complementQuotientCoordinates V W
   continuous_invFun := continuous_complementQuotientInclusion V W
 
+-- Human-verified.
+-- - A fixed Fredholm complement and the original quotient family. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The trivialization lies over the identity of the parameter chart. -/
 theorem complementQuotientTrivialization_proj (z : ComplementQuotientTotalSpace V W) :
     (complementQuotientTrivialization V W z).1 = z.proj := by
@@ -220,6 +229,9 @@ theorem complementQuotientTrivialization_proj (z : ComplementQuotientTotalSpace 
   together with the fiberwise linear formula, makes the homeomorphism a bundle comparison. -/
   rfl
 
+-- Human-verified.
+-- - A fixed Fredholm complement and the original quotient family. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The inverse trivialization is precisely the natural quotient inclusion. -/
 theorem complementQuotientTrivialization_symm_apply (T : complementChartDomain V W) (w : W) :
     (complementQuotientTrivialization V W).symm (T, w) =

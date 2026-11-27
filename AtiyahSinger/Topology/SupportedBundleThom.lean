@@ -77,6 +77,9 @@ local notation "d'" => a.datum.inverse.cutoffLinearMap ρ
 
 include hinner hU hcontrol hzero hL hone in
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The tensor symbol and its explicit inverse are continuous off the compact zero control. -/
 theorem supportedThom_symbol_properties :
     (∀ z : (Controlᶜ : Set (TotalSpace Unit E)),
@@ -260,6 +263,9 @@ theorem supportedThom_symbol_properties :
   intro z
   rfl
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The prescribed graded tensor symbol on the complement of the zero control. -/
 def supportedThomBoundary : RelativeTriple PullSource PullTarget Controlᶜ where
   linearEquiv z := thomTensorSymbolEquiv (d z.val.proj) (d' z.val.proj)
@@ -272,6 +278,9 @@ def supportedThomBoundary : RelativeTriple PullSource PullTarget Controlᶜ wher
   continuous_symm :=
     (supportedThom_symbol_properties E hinner a ρ U hU hcontrol hzero L hL hone).2.2
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The supported Thom product has exactly the zero section over the enlarged base control. -/
 def supportedThomTriple : CompactSupportTriple PullSource PullTarget where
   control := Control
@@ -290,6 +299,9 @@ def supportedThomTriple : CompactSupportTriple PullSource PullTarget where
       exact ⟨hx, rfl⟩
   boundary := supportedThomBoundary E hinner a ρ U hU hcontrol hzero L hL hone
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The actual compact-support class of the tensor triple, with the original total-space target. -/
 def supportedThomProductClass : CompactSupportKZero (TotalSpace Unit E) :=
   let proj : C(TotalSpace Unit E, X) := ⟨π Unit E, continuous_proj (E := E)⟩
@@ -1015,6 +1027,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1200000 in
 -- Descend the prescribed tensor representatives through all support-triple relations.
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- KA IV.1.10: tensoring every support representative defines one specified Thom operator. -/
 theorem existsUnique_supportedThomHom :
     ∃! τ : CompactSupportKZero X →+ CompactSupportKZero (TotalSpace Unit E),
@@ -1217,10 +1232,16 @@ theorem existsUnique_supportedThomHom :
       (c a).property.2.2.2.2).symm
 
 omit a in
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The actual noncompact-base Thom homomorphism, fixed by all tensor representatives. -/
 def supportedThomHom : CompactSupportKZero X →+ CompactSupportKZero (TotalSpace Unit E) :=
   (existsUnique_supportedThomHom E hinner).choose
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The Thom operator evaluates to the specified tensor triple for any admissible cutoff. -/
 theorem supportedThomHom_class (ρ : C(X, I)) (U : Set X) (hU : IsOpen U)
     (hcontrol : a.datum.control ⊆ U) (hzero : ∀ x ∈ U, ρ x = 0)
@@ -1238,6 +1259,9 @@ set_option maxHeartbeats 600000 in
 omit a in
 attribute [local instance] trivialTopology isFiniteRank_trivial
   IdempotentMatrix.fiberTotalSpaceTopology IdempotentMatrix.isFiniteRank_fiber in
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- On a compact base, the specified operator is the old action on the actual Thom class. -/
 theorem supportedThomHom_compact [CompactSpace X] :
     supportedThomHom E hinner = (exteriorThomHom E hinner).comp

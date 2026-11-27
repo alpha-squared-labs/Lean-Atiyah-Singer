@@ -55,6 +55,9 @@ variable {VH H : Type*} [NormedAddCommGroup VH] [NormedSpace ℝ VH]
 
 variable [FiniteDimensional ℝ VH] [CompactSpace H] [T2Space H]
 
+-- Human-verified.
+-- - Equivariant Bott classes in dimension zero and injectivity on the specified domain. The review
+--   covers the documented definition or construction.
 /-- The original H-index after open extension through the specified native cotangent pole chart. -/
 def restrictedOrthogonalBottIndex (r : ℕ) (atInfinity : Bool)
     (φ : H →ₜ* Matrix.orthogonalGroup (Fin r) ℝ)
@@ -118,6 +121,9 @@ set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1200000 in
 -- The extended limit accommodates the native restricted index and all original representation
 -- coefficients.
+-- Human-verified.
+-- - Equivariant Bott classes in dimension zero and injectivity on the specified domain. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The native restricted index recovers every original R(H) coefficient of the Bott map. -/
 theorem restrictedOrthogonalBottIndex_bott (r : ℕ) (atInfinity : Bool)
     (φ : H →ₜ* Matrix.orthogonalGroup (Fin r) ℝ)
@@ -239,6 +245,9 @@ theorem restrictedOrthogonalBottIndex_bott (r : ℕ) (atInfinity : Bool)
     equivariantAnalyticIndexMap_smul, hunit]
   exact mul_one a
 
+-- Human-verified.
+-- - Equivariant Bott classes in dimension zero and injectivity on the specified domain. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original Bott map for a specified restricted orthogonal complexification is injective. -/
 theorem equivariantBottLinearMap_orthogonalRestriction_injective (r : ℕ)
     (φ : H →ₜ* Matrix.orthogonalGroup (Fin r) ℝ)

@@ -47,6 +47,11 @@ variable {X : Type*} [TopologicalSpace X]
   [TopologicalSpace (TotalSpace Unit F)]
 
 open scoped Classical in
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- Multiply the given boundary map by the cutoff and set it to zero on the control. -/
 def CompactSupportTriple.cutoffLinearMap (a : CompactSupportTriple E F)
     (ρ : C(X, I)) (x : X) : E x →ₗ[ℂ] F x :=

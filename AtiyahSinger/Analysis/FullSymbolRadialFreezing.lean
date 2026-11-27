@@ -46,6 +46,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [IsSmoothComplexBundle (n := n) (r := r) E]
   [IsSmoothComplexBundle (n := n) (r := q) F]
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the documented
+--   definition or construction.
 /-- The original full-symbol maps on a radius-R metric sphere, normalized to degree m. -/
 def fullSymbolRadialCosphereSymbol {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -86,6 +89,9 @@ theorem isSmoothCosphereSymbol_fullSymbolRadialCosphereSymbol {m : ℝ}
   exact IsSmoothCosphereSymbol.smul g ((R ^ (-m) : ℝ) : ℂ)
     (isSmoothCosphereSymbol_restriction g b hs)
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the documented
+--   definition or construction.
 /-- The smooth homogeneous model obtained from the original full-symbol sphere data. -/
 def fullSymbolRadialPrincipalSymbol {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -131,6 +137,9 @@ omit [IsSmoothComplexBundle (n := n) (r := r) E]
   [IsSmoothComplexBundle (n := n) (r := q) F]
   [T2Space M] [SecondCountableTopology M] [CompactSpace M]
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the documented
+--   definition or construction.
 /-- The radial factor is one below radius 2R and R/r beyond radius 4R. -/
 def fullSymbolFreezeScale (R r : ℝ) : ℝ :=
   let k := Real.smoothTransition ((r - 2 * R) / (2 * R))
@@ -157,6 +166,9 @@ theorem fullSymbolFreezeScale_pos (R r : ℝ) (hR : 0 < R) (hr : 0 < r) :
   · exact add_pos_of_pos_of_nonneg (sub_pos.mpr (lt_of_le_of_ne hk₁ hk))
       (mul_nonneg hk₀ (div_pos hR hr).le)
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the documented
+--   definition or construction.
 /-- Freeze the actual full symbol along rays, retaining its original maps on the inner disk. -/
 def fullSymbolFrozenFunction {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -166,6 +178,9 @@ def fullSymbolFrozenFunction {m : ℝ}
     let l := fullSymbolFreezeScale R (g.length x ξ)
     ((l ^ (-m) : ℝ) : ℂ) • a.val x (l • ξ)
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The freezing uses exactly the original full symbol at all frequencies in the inner disk. -/
 theorem fullSymbolFrozenFunction_eq_of_length_le {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -368,6 +383,9 @@ theorem exists_fullSymbolFrozenSymbol {m : ℝ}
   exact globalPrincipalSymbolClass_eq_of_eq_metric_high_frequency b c g L hagree
 
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A general elliptic symbol admits an actual elliptic freezing with its radial principal class. -/
 theorem IsEllipticFullGlobalSymbol.exists_fullSymbolFrozenEllipticSymbol {m : ℝ}
     {a : globalSymbolSpace (n := n) (r := r) (q := q) E F m}

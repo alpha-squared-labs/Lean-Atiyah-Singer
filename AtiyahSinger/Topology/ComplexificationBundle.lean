@@ -35,6 +35,9 @@ open scoped TensorProduct
 variable {X : Type*} (V : Type*)
   (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℝ (E x)]
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The fiberwise real/imaginary equivalence preserves the actual base point. -/
 def complexificationDoubleTotalEquiv :
     TotalSpace Unit (fun x ↦ ℂ ⊗[ℝ] E x) ≃ TotalSpace (V × V) (E ×ᵇ E) where
@@ -49,12 +52,18 @@ def complexificationDoubleTotalEquiv :
 
 variable [TopologicalSpace (TotalSpace V E)]
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The complexification topology induced from the native real double bundle. -/
 @[reducible]
 def complexificationTopology :
     TopologicalSpace (TotalSpace Unit (fun x ↦ ℂ ⊗[ℝ] E x)) :=
   TopologicalSpace.induced (complexificationDoubleTotalEquiv V E) inferInstance
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The explicit real/imaginary map is a homeomorphism for the transported topology. -/
 def complexificationDoubleTotalHomeomorph :
     letI := complexificationTopology V E

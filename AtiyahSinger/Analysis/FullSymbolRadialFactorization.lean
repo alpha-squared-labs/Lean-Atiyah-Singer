@@ -374,6 +374,9 @@ attribute [local instance] ComplexBundle.isFiniteRank_pullback
 variable [T2Space M] [SecondCountableTopology M] [CompactSpace M]
   [IsSmoothComplexBundle (n := n) (r := r) E]
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A general elliptic symbol factors through an actual homogeneous model with the same K class. -/
 theorem IsEllipticFullGlobalSymbol.exists_radialFactorization {m : ℝ}
     {a : globalSymbolSpace (n := n) (r := r) (q := q) E F m}

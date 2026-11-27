@@ -753,6 +753,9 @@ def productCutoffErrorOperator (a : SymbolFunction n r q)
         (volume : Measure (EuclideanSpace ℝ (Fin (n + m)))) :=
   Classical.choose (existsUnique_productCutoffErrorOperator a ha haK χ hχ hχK ε).exists
 
+-- Human-verified.
+-- - Kernels and cokernels of tensor products and truncation of products. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG's local approximation has a uniform linear error bound and tends to zero in operator norm. -/
 theorem productCutoffErrorOperator_approximation (a : SymbolFunction n r q)
     (ha : IsSymbol Set.univ 1 a) (haK : HasCompactSupport a)

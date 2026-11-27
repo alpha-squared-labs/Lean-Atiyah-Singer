@@ -42,11 +42,17 @@ attribute [local instance] isFiniteRank_pullback
 
 variable [IsFiniteRank E] [IsFiniteRank F] [CompactSpace X] [T2Space X]
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the documented definition
+--   or construction.
 /-- The K⁰ class of the given continuous finite-rank complex bundle. -/
 def kZeroClass (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
     [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E] : ComplexKZero X :=
   AtiyahSinger.kZeroClass C(X, ℂ) (idempotentPresentation (E := E))
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Any actual image-bundle presentation computes the same geometric class. -/
 theorem kZeroClass_eq_of_presentation (p : IdempotentMatrix C(X, ℂ))
     (e : Iso E (fun x ↦ p.fiber x)) :
@@ -94,6 +100,9 @@ theorem kZeroClass_trivial (n : ℕ) :
     ((LinearEquiv.ofTop p.image hp).symm.trans p.imageSectionEquiv)
   exact kZeroClass_eq_of_presentation p (isoOfSectionEquiv a)
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Direct sum of actual bundles becomes addition in the existing quotient. -/
 theorem kZeroClass_sum : kZeroClass (E ×ᵇ F) = kZeroClass E + kZeroClass F := by
   /- The chosen presentations identify the geometric classes of E,
@@ -198,6 +207,9 @@ theorem kZeroClass_eq_of_sectionEquiv
   the geometric class then proves equality in the existing quotient. -/
   exact kZeroClass_eq_of_iso (isoOfSectionEquiv e)
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Equality of bundle classes is exactly stabilization by a common trivial bundle. -/
 theorem kZeroClass_eq_iff_stable_iso :
     kZeroClass E = kZeroClass F ↔
@@ -242,6 +254,9 @@ theorem kZeroClass_eq_iff_stable_iso :
     rw [kZeroClass_sum, kZeroClass_sum] at h
     exact add_right_cancel h
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Every element has the geometric form of an image bundle minus a trivial bundle. -/
 theorem exists_class_sub_trivial (a : ComplexKZero X) :
     ∃ p : IdempotentMatrix C(X, ℂ), ∃ n : ℕ,
@@ -329,6 +344,9 @@ private theorem nonempty_pullback_image_iso (p : IdempotentMatrix C(Y, ℂ))
       exact (f.continuous.comp (continuous_fst.comp hq)).prodMk (continuous_snd.comp hq) }
   exact ⟨e⟩
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Pullback of the actual bundle agrees with precomposition on matrix classes. -/
 theorem kZeroClass_pullback (f : C(X, Y)) :
     kZeroClass ((f : X → Y) *ᵖ V) = complexKZeroPullback f (kZeroClass V) := by
@@ -417,6 +435,9 @@ theorem nonempty_pullback_iso_of_homotopy (f g : C(X, Y)) (H : ContinuousMap.Hom
   exact ⟨(((presentationIso (E := V)).pullback f).trans e₀).trans
     (e.trans (((presentationIso (E := V)).pullback g).trans e₁).symm)⟩
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Geometric bundle classes agree along the same homotopy. -/
 theorem kZeroClass_pullback_eq_of_homotopy (f g : C(X, Y))
     (H : ContinuousMap.Homotopy f g) :

@@ -35,6 +35,9 @@ instance pullbackAddCommGroup (f : X → Y) (x : X) : AddCommGroup ((f *ᵖ E) x
 
 variable (f : C(X, Y))
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Continuous pullback preserves local finite complex rank. -/
 theorem isFiniteRank_pullback [IsFiniteRank E] : IsFiniteRank ((f : X → Y) *ᵖ E) := by
   /- Pull each local linear trivialization back along f. Its open base set is the
@@ -129,17 +132,26 @@ theorem Hom.continuous_pullback (a : Hom E F) :
   exact (Pullback.continuous_proj Unit E f).prodMk
     (a.continuous_total.comp (Pullback.continuous_lift Unit E f))
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- Pull a bundle map back by applying its fiber map at f(x). -/
 def Hom.pullback (a : Hom E F) : Hom ((f : X → Y) *ᵖ E) ((f : X → Y) *ᵖ F) where
   linearMap x := a.linearMap (f x)
   continuous_total := a.continuous_pullback f
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- Pullback of a bundle isomorphism, with both directions specified. -/
 def Iso.pullback (e : Iso E F) : Iso ((f : X → Y) *ᵖ E) ((f : X → Y) *ᵖ F) where
   linearEquiv x := e.linearEquiv (f x)
   continuous_total := e.toHom.continuous_pullback f
   continuous_symm := e.symm.toHom.continuous_pullback f
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Pullback keeps the original map on the fiber at the image point. -/
 theorem Hom.pullback_apply (a : Hom E F) (x : X) (v : E (f x)) :
     (a.pullback f).linearMap x v = a.linearMap (f x) v := by

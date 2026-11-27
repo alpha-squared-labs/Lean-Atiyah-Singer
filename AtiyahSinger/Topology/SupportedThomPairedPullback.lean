@@ -95,6 +95,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1200000 in
 -- Normalize the proper paired base-change map on the whole supported product.
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Arbitrary nonproper base change uses the proper paired map on the whole supported product. -/
 theorem supportedThomHom_eq_pairedPullback
     {X B : Type*} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X]

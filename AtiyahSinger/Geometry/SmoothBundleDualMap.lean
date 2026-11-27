@@ -32,6 +32,9 @@ open scoped ContDiff
 set_option maxSynthPendingDepth 40 in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - The original smooth dual and adjoint sections. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Composition with the actual smooth fiber map is smooth on the native dual bundles. -/
 theorem contMDiff_dualMap_of_bundleMap
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]

@@ -56,6 +56,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]
   [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- A smooth positive definite metric on the original tangent fibers and their topology. -/
 abbrev SmoothTangentMetric : Type _ :=
   ContMDiffRiemannianMetric 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞
@@ -64,6 +67,9 @@ abbrev SmoothTangentMetric : Type _ :=
 
 namespace SmoothTangentMetric
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- A second-countable Hausdorff smooth manifold admits a smooth tangent metric. -/
 theorem nonempty [T2Space M] [SecondCountableTopology M] :
     Nonempty (SmoothTangentMetric (n := n) (M := M)) := by
@@ -236,11 +242,17 @@ theorem nonempty [T2Space M] [SecondCountableTopology M] :
 
 variable (g : SmoothTangentMetric (n := n) (M := M))
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the documented
+--   definition or construction.
 /-- The flat musical map sends an original tangent vector to its metric covector. -/
 def flatMap : TangentBundle 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) M →
     CotangentTotalSpace (n := n) (M := M) :=
   fun z ↦ ⟨z.proj, g.inner z.proj z.snd⟩
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual flat map is a homeomorphism of the original total-space topologies. -/
 theorem isHomeomorph_flatMap : IsHomeomorph g.flatMap := by
   classical
@@ -323,6 +335,9 @@ theorem isHomeomorph_flatMap : IsHomeomorph g.flatMap := by
       continuous_invFun := hinverse }
   exact h.isHomeomorph
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the documented
+--   definition or construction.
 /-- The musical homeomorphism with exactly the specified metric flat map as its forward map. -/
 def flatHomeomorph : TangentBundle 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) M ≃ₜ
     CotangentTotalSpace (n := n) (M := M) :=

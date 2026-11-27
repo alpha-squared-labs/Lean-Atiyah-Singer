@@ -44,6 +44,9 @@ variable {E F G : Type*}
   [InnerProductSpace ℂ E] [InnerProductSpace ℂ F] [InnerProductSpace ℂ G]
   [CompleteSpace E] [CompleteSpace F] [CompleteSpace G]
 
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- the Hilbert-space definition agrees with mathlib's topological definition. -/
 theorem isFredholm_iff_closed_range_finite (T : E →L[ℂ] F) :
     T.IsFredholm ↔ IsClosed (T.range : Set F) ∧
@@ -65,6 +68,9 @@ theorem isFredholm_iff_closed_range_finite (T : E →L[ℂ] F) :
       finite_coker := hcoker
       closedComplemented_ker := .of_finiteDimensional T.ker }
 
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- for closed range, the cokernel is the kernel of the Hilbert adjoint. -/
 theorem nonempty_coker_equiv_ker_adjoint (T : E →L[ℂ] F)
     (hT : IsClosed (T.range : Set F)) :
@@ -74,6 +80,9 @@ theorem nonempty_coker_equiv_ker_adjoint (T : E →L[ℂ] F)
   exact ⟨T.range.quotientEquivOrthogonal.toLinearEquiv.trans
     (LinearEquiv.ofEq _ _ T.orthogonal_range)⟩
 
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- the usual kernel-minus-adjoint-kernel formula, with finiteness certified. -/
 theorem index_eq_finrank_ker_sub_finrank_ker_adjoint (T : E →L[ℂ] F)
     (hT : T.IsFredholm) :
@@ -141,6 +150,9 @@ theorem index_adjoint (T : E →L[ℂ] F) (hT : T.IsFredholm) :
     adjoint_adjoint, index_eq_finrank_ker_sub_finrank_ker_adjoint T hT]
   ring
 
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Atkinson's criterion: Fredholmness is equivalent to a two-sided inverse modulo compacts.
 The two Hilbert spaces need not be equal or separable. -/
 theorem atkinson (T : E →L[ℂ] F) :
@@ -265,6 +277,9 @@ theorem isFredholm_parametrix (T : E →L[ℂ] F) (Q : F →L[ℂ] E)
   -- Exchange the two spaces and the two compact errors in Atkinson's criterion.
   exact (atkinson Q).mpr ⟨T, hF, hE⟩
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- index is constant on operator-norm-continuous Fredholm paths. -/
 theorem index_eq_of_fredholm_path {T₀ T₁ : E →L[ℂ] F} (γ : Path T₀ T₁)
     (hγ : ∀ t, (γ t).IsFredholm) : T₀.index = T₁.index := by
@@ -296,6 +311,9 @@ theorem isFredholm_add_compact (T K : E →L[ℂ] F) (hT : T.IsFredholm)
       Pi.add_apply, Function.comp_apply]
     abel
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- compact perturbations preserve the integer index. -/
 theorem index_add_compact (T K : E →L[ℂ] F) (hT : T.IsFredholm)
     (hK : IsCompactOperator K) : (T + K).index = T.index := by
@@ -311,6 +329,9 @@ theorem index_add_compact (T K : E →L[ℂ] F) (hT : T.IsFredholm)
   -- The same path connects the original operator to the specified perturbation.
   exact (index_eq_of_fredholm_path γ hγ).symm
 
+-- Human-verified.
+-- - A fixed Fredholm complement and the original quotient family. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- a fixed finite-codimension domain complement works for all small perturbations.
 The quotient is identified by the natural inclusion of the *fixed* orthogonal complement. -/
 theorem exists_radius_fixed_complement (T₀ : E →L[ℂ] F) (hT₀ : T₀.IsFredholm)

@@ -178,6 +178,9 @@ theorem IsAtlasGlobalSymbol.continuous_totalMap {m : ℝ}
   rw [(inducing_pullbackTotalSpaceEmbedding Unit F p).continuous_iff]
   exact hproj.prodMk houtput
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the documented
+--   definition or construction.
 /-- The specified full atlas symbol as an actual Hom of the original pullbacks. -/
 def atlasFullSymbolBundleHom {m : ℝ} (a : atlasGlobalSymbolSpace A B m) :
     Hom ((cotangentProjection (n := n) (M := M) : _ → M) *ᵖ E)

@@ -33,6 +33,9 @@ variable {X Y Z : Type*} [TopologicalSpace X] [TopologicalSpace Y] [TopologicalS
 
 attribute [local instance] PointedQuotient.compactSpace
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Reduced K⁰ of the pointed quotient, for a closed pair in a compact Hausdorff space. -/
 abbrev RelativeKZero [CompactSpace X] [T2Space X] (A : Set X) (hA : IsClosed A) : Type _ :=
   letI := PointedQuotient.t2Space A hA
@@ -99,6 +102,9 @@ theorem relativeKZeroPullback_comp [CompactSpace X] [T2Space X]
   rw [hcomp, complexKZeroPullback_comp]
   rfl
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Forget the relative condition by pulling a reduced quotient class back to X. -/
 def relativeKZeroForget [CompactSpace X] [T2Space X] (A : Set X) (hA : IsClosed A) :
     RelativeKZero A hA →+ ComplexKZero X :=
@@ -709,6 +715,9 @@ theorem PointedQuotient.onePointHomeomorph_symm_infty [CompactSpace X] [T2Space 
   exact (PointedQuotient.onePointHomeomorph A hA).symm_apply_eq.mpr
     (PointedQuotient.onePointHomeomorph_basepoint A hA).symm
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Map relative classes to compactly supported classes on the open complement. -/
 def relativeKZeroToCompactSupport [CompactSpace X] [T2Space X]
     (A : Set X) (hA : IsClosed A) :
@@ -760,6 +769,9 @@ theorem relativeKZeroToCompactSupport_bijective [CompactSpace X] [T2Space X]
     rfl
   exact ⟨hleft.injective, hright.surjective⟩
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Relative K⁰ is canonically isomorphic to compactly supported K⁰ of the open complement. -/
 def relativeKZeroCompactSupportEquiv [CompactSpace X] [T2Space X]
     (A : Set X) (hA : IsClosed A) :
@@ -768,6 +780,9 @@ def relativeKZeroCompactSupportEquiv [CompactSpace X] [T2Space X]
   letI := hA.isOpen_compl.locallyCompactSpace
   AddEquiv.ofBijective _ (relativeKZeroToCompactSupport_bijective A hA)
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Open extension on the complement agrees with forgetting the relative class. -/
 theorem relativeKZeroToCompactSupport_extension [CompactSpace X] [T2Space X]
     (A : Set X) (hA : IsClosed A) (a : RelativeKZero A hA) :

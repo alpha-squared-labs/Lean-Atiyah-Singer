@@ -42,6 +42,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 
 attribute [local instance] ComplexBundle.tensorTopology
 
+-- Human-verified.
+-- - The positive i convention and ellipticity of the original principal symbol. The review covers
+--   the documented definition or construction.
 /-- The actual original symbol tensored on the right with the identity of the twisting fiber. -/
 def tensorAtlasSymbol (c : AtlasSymbolFunction (n := n) E F) :
     AtlasSymbolFunction (n := n) (fun x ↦ E x ⊗[ℂ] W x) (fun x ↦ F x ⊗[ℂ] W x) :=

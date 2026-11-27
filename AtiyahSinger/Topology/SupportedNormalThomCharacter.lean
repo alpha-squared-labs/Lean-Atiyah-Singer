@@ -229,6 +229,9 @@ theorem compactSupportCohomologyToOnePoint_normal_bijective
     exact (hsquare a).symm.trans ((congrArg _ ha).trans hx)
 
 
+-- Human-verified.
+-- - Comparison of the normal-bundle Thom construction over a noncompact tangent base. The review
+--   covers the documented definition or construction.
 /-- The original reduced character lifted by the exact normal-total comparison. -/
 def normalCompactSupportChernCharacterComponent (k : ℕ) :
     letI := isFiniteRank_complexifiedNormalPullback f hf
@@ -243,6 +246,9 @@ def normalCompactSupportChernCharacterComponent (k : ℕ) :
       (reducedChernCharacterComponent
         (OnePoint.infty : OnePoint (TotalSpace Unit (ComplexifiedNormalPullback f))) k)
 
+-- Human-verified.
+-- - Comparison of the normal-bundle Thom construction over a noncompact tangent base. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The normal-total supported character maps to the reduced character of the same K class. -/
 theorem normalCompactSupportChernCharacterComponent_toOnePoint (k : ℕ) :
     letI := isFiniteRank_complexifiedNormalPullback f hf
@@ -282,6 +288,9 @@ theorem normalCompactSupportChernCharacter_supportedThom_eq_zero_of_lt
     (by omega)
   exact Subsingleton.elim _ _
 
+-- Human-verified.
+-- - Comparison of the normal-bundle Thom construction over a noncompact tangent base. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- SG p.255: (12.9)--(12.11) for the original K_c(TM) coefficients of the normal Thom map. -/
 theorem supportedIntegral_normalChernCharacter_supportedThom
     (g : SmoothTangentMetric (n := n) (M := M))

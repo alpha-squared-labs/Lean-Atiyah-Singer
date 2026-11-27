@@ -53,6 +53,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 attribute [local instance] isFiniteRank_pullback isFiniteRank_restrict
   t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual boundary square preserves the general full-symbol class across bundle atlases. -/
 theorem atlasFullSymbolKClass_eq_of_bundleIso {m : ℝ} (e : Iso E G) (f : Iso F H)
     (a : atlasGlobalSymbolSpace A B m) (b : atlasGlobalSymbolSpace C D m)
@@ -131,6 +134,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
 attribute [local instance] isFiniteRank_pullback isFiniteRank_restrict
   t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The native atlas and native full-symbol constructions retain exactly the same K class. -/
 theorem atlasFullSymbolKClass_native {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)

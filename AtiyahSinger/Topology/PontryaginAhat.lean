@@ -52,12 +52,18 @@ variable {X : Type u} [TopologicalSpace X]
   (h : letI := ComplexBundle.complexificationTopology G V
     ComplexBundle.ContinuousHermitianMetric (fun x ↦ ℂ ⊗[ℝ] V x))
 
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the documented definition or construction.
 /-- The integral Pontryagin class of the original real bundle, in cohomological degree 4k. -/
 def pontryaginClass (k : ℕ) : singularCohomology ℤ X (2 * (2 * k)) :=
   letI := ComplexBundle.complexificationTopology G V
   letI := isFiniteRank_complexification G V
   (-1 : ℤ) ^ k • ComplexBundle.globalChernClass (fun x ↦ ℂ ⊗[ℝ] V x) h (2 * k)
 
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the documented definition or construction.
 /-- The degree-4k A-hat class evaluates its universal polynomial on actual Pontryagin classes. -/
 def aHatClassComponent (k : ℕ) : singularCohomology ℚ X (2 * (2 * k)) :=
   singularCohomologyWeightedPolynomial X (fun i : Fin k ↦ 2 * (i.val + 1))
@@ -66,6 +72,9 @@ def aHatClassComponent (k : ℕ) : singularCohomology ℚ X (2 * (2 * k)) :=
     (MultiplicativeSequence.polynomial aHatCharacteristicSeries k) (2 * k)
 
 open Classical in
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the documented definition or construction.
 /-- The same A-hat class as an even-degree family, zero outside degrees divisible by four. -/
 def aHatEvenComponent (k : ℕ) : singularCohomology ℚ X (2 * k) :=
   if hk : Even k then
@@ -76,6 +85,9 @@ def aHatEvenComponent (k : ℕ) : singularCohomology ℚ X (2 * k) :=
         singularCohomology ℚ X (2 * k)).hom (aHatClassComponent G V h (k / 2))
   else 0
 
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original Pontryagin and A-hat constructions do not depend on the presentation metric. -/
 theorem pontryagin_aHat_metric_independent
     (h' : letI := ComplexBundle.complexificationTopology G V
@@ -100,6 +112,9 @@ theorem pontryagin_aHat_metric_independent
   · rw [ha]
   · rfl
 
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- MS section 15, p.174: odd Chern classes of the actual complexification are 2-torsion.
 This is the consequence following the self-conjugacy lemma 15.1, not its literal statement. -/
 theorem two_smul_globalChernClass_complexification_odd (k : ℕ) :
@@ -322,6 +337,9 @@ theorem aHatClassComponent_sum
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The Todd class of the genuine complexification is the square of the A-hat class.
 This is the unoriented rational extension of SG Proposition 11.14, in every even degree. -/
 theorem todd_complexification_eq_aHat_sq (k : ℕ) :

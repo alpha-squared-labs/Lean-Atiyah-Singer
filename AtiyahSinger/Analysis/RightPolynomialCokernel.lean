@@ -49,12 +49,18 @@ variable {n : ℕ}
 local instance : CompleteSpace (Matrix (Fin n) (Fin n) A) :=
   inferInstanceAs (CompleteSpace (Fin n → Fin n → A))
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers on right modules. The review covers the documented
+--   definition or construction.
 /-- The specified polynomial acting on the original positive columns as a right-linear map. -/
 def polynomialMultiplier (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     (_hf : ∀ k : ℤ, k < 0 → f.coeff k = 0) :
     PositiveWienerModule A n →ₗ[Aᵐᵒᵖ] PositiveWienerModule A n :=
   toeplitz (laurentPolynomialWiener f)
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers on right modules. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The right-linear multiplier retains the usual ordered matrix-convolution coefficients. -/
 theorem polynomialMultiplier_coeff (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     (hf : ∀ k : ℤ, k < 0 → f.coeff k = 0) (x : PositiveWienerModule A n) (k : ℕ) :
@@ -92,6 +98,9 @@ theorem polynomialMultiplier_coeff (f : LaurentPolynomial (Matrix (Fin n) (Fin n
         have hcast : ((k - j : ℕ) : ℤ) = (k : ℤ) - j := by omega
         rw [hcast, show k - (k - j) = j by omega]
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers on right modules. The review covers the documented
+--   definition or construction.
 /-- The actual range quotient as a right A-module, expressed as a left Aᵐᵒᵖ-module. -/
 abbrev PolynomialCokernel (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     (hf : ∀ k : ℤ, k < 0 → f.coeff k = 0) : Type u :=
@@ -103,6 +112,9 @@ def polynomialCokernelMk (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     PositiveWienerModule A n →ₗ[Aᵐᵒᵖ] PolynomialCokernel f hf :=
   (LinearMap.range (polynomialMultiplier f hf)).mkQ
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers on right modules. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The specified left bilateral inverse yields the actual positive Toeplitz left inverse. -/
 theorem polynomialMultiplier_leftInverse
     (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
@@ -248,6 +260,9 @@ theorem polynomialMultiplier_isClosed_range
   rw [hrange]
   exact isClosed_eq (T.continuous.comp S.continuous) continuous_id
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers on right modules. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- UL04: the first d columns split-surject onto the actual right-module cokernel. -/
 theorem polynomialCokernel_exists_lowDegree_section
     (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
@@ -419,6 +434,9 @@ theorem polynomialCokernel_exists_lowDegree_section
   change Q (lowPolynomialEmbedding A n d (C x)) = Q x
   rw [hembed, hquot]
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers on right modules. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The specified invertible polynomial has a finitely generated right-module cokernel. -/
 theorem polynomialCokernel_finite
     (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
@@ -459,6 +477,9 @@ theorem polynomialCokernel_finite
   intro q
   exact ⟨s q, DFunLike.congr_fun hs q⟩
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers on right modules. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The specified invertible polynomial has a projective right-module cokernel. -/
 theorem polynomialCokernel_projective
     (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))

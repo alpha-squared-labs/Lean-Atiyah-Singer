@@ -251,6 +251,9 @@ theorem supportedThomHom_complexKZeroCompactSupportAction
   simp only [map_sub, AddMonoidHom.sub_apply]
   exact congrArg₂ (· - ·) (positive W) (positive (FiniteBundle.trivial B n))
 
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The supported Thom operator commutes with the original compact-support graph action. -/
 theorem supportedThomHom_action
     {X : Type u} {Y : Type v} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X]

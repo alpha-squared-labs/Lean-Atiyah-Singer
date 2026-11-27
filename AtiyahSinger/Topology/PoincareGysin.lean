@@ -50,6 +50,9 @@ variable {n m : ℕ} {X Y : Type u} [TopologicalSpace X] [TopologicalSpace Y]
   [ChartedSpace (EuclideanSpace ℝ (Fin m)) Y]
   [T2Space X] [T2Space Y] [SecondCountableTopology X] [SecondCountableTopology Y]
 
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the documented definition or construction.
 /-- The original PD-defined Gysin map in every compatible pair of nonnegative degrees. -/
 def compactSupportGysin (OX : HomologicalOrientation n X) (OY : HomologicalOrientation m Y)
     (f : C(Y, X)) (p q : ℕ) (h : p + n = q + m) :
@@ -96,6 +99,9 @@ theorem compactSupportGysin_comp {l : ℕ} {Z : Type u} [TopologicalSpace Z]
   · -- Above the source dimension both expressions use the original zero branch.
     simp only [compactSupportGysin, dite_eq_right hp, LinearMap.comp_zero]
 
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Continuous Gysin pushforward preserves the original top-degree integral. -/
 theorem compactSupportCohomologyIntegral_gysin
     (OX : HomologicalOrientation n X) (OY : HomologicalOrientation m Y)
@@ -129,6 +135,9 @@ variable {U : Type u} [TopologicalSpace U]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) U]
   [T2Space U] [SecondCountableTopology U]
 
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- For an orientation-preserving open embedding, Gysin is the actual excision extension. -/
 theorem compactSupportGysin_eq_openExtension (OX : HomologicalOrientation n X)
     (OU : HomologicalOrientation n U) (f : C(U, X)) (hf : IsOpenEmbedding f)

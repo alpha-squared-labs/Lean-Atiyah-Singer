@@ -309,11 +309,17 @@ theorem existsUnique_associatedRepresentationKZero (hP : IsPrincipalBundle G pro
   apply RingHom.toAddMonoidHom_injective
   exact hunique c.toAddMonoidHom hc
 
+-- Human-verified.
+-- - Twisted multiplication on sphere bundles and coefficients in the actual associated bundles. The
+--   review covers the documented definition or construction.
 /-- SG's a_P, chosen by its unique value on every actual representation generator. -/
 def associatedRepresentationKZero (hP : IsPrincipalBundle G projection) :
     RepresentationGrothendieckGroup G →+* ComplexKZero B :=
   Classical.choose (existsUnique_associatedRepresentationKZero hP).exists
 
+-- Human-verified.
+-- - Twisted multiplication on sphere bundles and coefficients in the actual associated bundles. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- The selected map sends each representation to the K class of its original associated bundle. -/
 theorem associatedRepresentationKZero_finiteClass (hP : IsPrincipalBundle G projection)
     (ρ : FiniteContinuousRepresentation G) :

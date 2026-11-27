@@ -697,6 +697,9 @@ variable {W : Type} [NormedAddCommGroup W] [InnerProductSpace ℂ W]
   [FiniteDimensional ℂ W] [DistribMulAction G W] [SMulCommClass G ℂ W]
   [ContinuousSMul G W]
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- On a unitary representation the general construction recovers the same original class. -/
 theorem equivariantRepresentationBottClass_eq_exterior
     (hW : ∀ (g : G) (x y : W), inner ℂ (g • x) (g • y) = inner ℂ x y) :
@@ -756,6 +759,9 @@ variable {H : Type*} [Group H] [TopologicalSpace H] [IsTopologicalGroup H]
   [hHCompact : CompactSpace H] [hHHausdorff : T2Space H]
 
 include hHCompact hHHausdorff in
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Group restriction preserves the general class, independently of the two averaging choices. -/
 theorem equivariantRepresentationBottClass_restrict (φ : H →ₜ* G) :
     letI : DistribMulAction H V := DistribMulAction.compHom V φ.toMonoidHom

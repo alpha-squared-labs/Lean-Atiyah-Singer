@@ -39,6 +39,9 @@ attribute [local instance] exteriorAlgebraNormedAddCommGroup exteriorAlgebraNorm
 
 set_option maxHeartbeats 1200000 in
 
+-- Human-verified.
+-- - Two-pole symbols and low-dimensional normalization. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Conjugation of the original sign-line Bott generator is its negative determinant twist. -/
 theorem orthogonalLineConjugationPullback_bott :
     orthogonalComplexificationConjugationPullback 1

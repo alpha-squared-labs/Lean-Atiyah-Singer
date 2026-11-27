@@ -48,6 +48,9 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
 
 include hM hT hSC hE
 
+-- Human-verified.
+-- - Smooth complex connections. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- A smooth complex bundle on the given manifold admits a smooth complex connection. -/
 theorem exists_smooth_complex_connection :
     ∃ cov : CovariantDerivative 𝓘(ℝ, EuclideanSpace ℝ (Fin n))

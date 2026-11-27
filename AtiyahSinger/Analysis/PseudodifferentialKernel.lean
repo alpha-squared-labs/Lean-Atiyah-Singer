@@ -54,6 +54,9 @@ variable {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E 
   (A : SmoothBundlePresentation (n := n) (r := r) E)
   (B : SmoothBundlePresentation (n := n) (r := q) F)
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original smooth embedding takes smooth kernel vectors to Sobolev kernel vectors. -/
 theorem smoothToSobolev_mem_ker (s : ℝ) (u : P.toLinearMap.ker) :
     A.smoothToSobolev s u.val ∈ (P.sobolevExtension A B s).ker := by
@@ -63,12 +66,18 @@ theorem smoothToSobolev_mem_ker (s : ℝ) (u : P.toLinearMap.ker) :
   rw [P.sobolevExtension_smoothToSobolev, show P.toLinearMap u.val = 0 from u.property,
     map_zero]
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   documented definition or construction.
 /-- Restrict the actual smooth embedding to the two kernels. -/
 def sobolevKerMap (s : ℝ) :
     P.toLinearMap.ker →ₗ[ℂ] (P.sobolevExtension A B s).ker :=
   ((A.smoothToSobolev s).comp P.toLinearMap.ker.subtype).codRestrict
     (P.sobolevExtension A B s).ker (P.smoothToSobolev_mem_ker A B s)
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The restricted kernel map still embeds the original section. -/
 theorem sobolevKerMap_apply (s : ℝ) (u : P.toLinearMap.ker) :
     (P.sobolevKerMap A B s u).val = A.smoothToSobolev s u.val := by
@@ -76,6 +85,9 @@ theorem sobolevKerMap_apply (s : ℝ) (u : P.toLinearMap.ker) :
   The membership proof contributes no change to the section or its embedding. -/
   rfl
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The smooth embedding is injective on kernels without ellipticity. -/
 theorem sobolevKerMap_injective (s : ℝ) :
     Function.Injective (P.sobolevKerMap A B s) := by
@@ -88,6 +100,9 @@ theorem sobolevKerMap_injective (s : ℝ) :
 
 variable (Q : PseudodifferentialOperator (n := n) (r := q) (q := r) F E μ (-m))
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- A left smoothing inverse gives a smooth representative of every Sobolev kernel vector. -/
 theorem sobolevKerMap_surjective_of_isSmoothingOperator
     (hQ : IsSmoothingOperator μ (Q.toLinearMap.comp P.toLinearMap - LinearMap.id))
@@ -105,6 +120,9 @@ theorem sobolevKerMap_surjective_of_isSmoothingOperator
   apply Subtype.ext
   exact hw
 
+-- Human-verified.
+-- - The specified kernel and cokernel comparisons in the native presentation. The review covers the
+--   documented definition or construction.
 /-- The natural kernel equivalence furnished by a left smoothing inverse. -/
 def sobolevKerEquiv
     (hQ : IsSmoothingOperator μ (Q.toLinearMap.comp P.toLinearMap - LinearMap.id))

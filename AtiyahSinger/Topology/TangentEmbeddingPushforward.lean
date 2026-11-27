@@ -54,6 +54,9 @@ local notation "ν" => NormalBundle 𝓘(ℝ, E) 𝓘(ℝ, F) f
 local notation "νT" => NormalBundle 𝓘(ℝ, E × E) 𝓘(ℝ, F × F) (smoothTangentMap f)
 local notation "VT" => NormalModel (E × E) (F × F)
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The actual real identification of the fixed complexification with the tangent normal bundle. -/
 def complexifiedNormalTotalHomeomorph (S : TangentNormalSplitting f hf) :
     TotalSpace Unit (ComplexifiedNormalPullback f) ≃ₜ TotalSpace VT νT := by
@@ -67,6 +70,9 @@ def complexifiedNormalTotalHomeomorph (S : TangentNormalSplitting f hf) :
       ((proj : TM → M) *ᵖ ν)
   exact e.trans (S.totalHomeomorph f hf).symm
 
+-- Human-verified.
+-- - Tubular neighborhoods and the actual pushforward. The review covers the documented definition
+--   or construction.
 /-- Complexification, the inverse normalized splitting, and the original tube as one actual map. -/
 def tangentEmbeddingTubularMap (S : TangentNormalSplitting f hf)
     (T : TubularNeighborhood (smoothTangentMap f) (isImmersion_smoothTangentMap f hf)) :
@@ -76,6 +82,9 @@ def tangentEmbeddingTubularMap (S : TangentNormalSplitting f hf)
       (complexifiedNormalTotalHomeomorph f hf S).continuous⟩
 
 set_option linter.defProp false in
+-- Human-verified.
+-- - Tubular neighborhoods and the actual pushforward. The review covers the documented definition
+--   or construction.
 /-- The open-embedding certificate is composed from the same three actual maps. -/
 def isOpenEmbedding_tangentEmbeddingTubularMap (S : TangentNormalSplitting f hf)
     (T : TubularNeighborhood (smoothTangentMap f) (isImmersion_smoothTangentMap f hf)) :
@@ -88,6 +97,9 @@ def isOpenEmbedding_tangentEmbeddingTubularMap (S : TangentNormalSplitting f hf)
 variable [T2Space M] [T2Space N]
   [SecondCountableTopology M] [SecondCountableTopology N]
 
+-- Human-verified.
+-- - Tubular neighborhoods and the actual pushforward. The review covers the documented definition
+--   or construction.
 /-- The geometric pushforward with its splitting, tube and continuous Hermitian metric explicit. -/
 def tangentEmbeddingPushforwardWith (S : TangentNormalSplitting f hf)
     (T : TubularNeighborhood (smoothTangentMap f) (isImmersion_smoothTangentMap f hf))
@@ -109,6 +121,9 @@ def tangentEmbeddingPushforwardWith (S : TangentNormalSplitting f hf)
     h.supportedThomHom
 
 
+-- Human-verified.
+-- - Tubular neighborhoods and the actual pushforward. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The actual Thom-to-tube pushforward is independent of all three auxiliary choices. -/
 theorem tangentEmbeddingPushforwardWith_eq (S₀ S₁ : TangentNormalSplitting f hf)
     (T₀ T₁ : TubularNeighborhood (smoothTangentMap f) (isImmersion_smoothTangentMap f hf))
@@ -167,6 +182,9 @@ theorem tangentEmbeddingPushforwardWith_eq (S₀ S₁ : TangentNormalSplitting f
     (compactSupportKZeroOpenPushforward _ h₁₁).comp h₁.supportedThomHom
   rw [hS, hT, h₀.supportedThomHom_eq h₁]
 
+-- Human-verified.
+-- - Tubular neighborhoods and the actual pushforward. The review covers the documented definition
+--   or construction.
 /-- The tangent embedding pushforward for a proper smooth embedding, using actual chosen data. -/
 def tangentEmbeddingPushforward (hp : IsProperMap f) :
     letI : T2Space TM := (tangentBundle_topology E M).1

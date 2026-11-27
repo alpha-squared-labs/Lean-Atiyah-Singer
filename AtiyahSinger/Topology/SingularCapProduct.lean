@@ -93,6 +93,9 @@ def singularCochainCap (p q : ℕ) :
         intro b
         simp [map_smul, smul_smul, mul_comm] }
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- On a generator, cap is precisely front-face evaluation times the back-face generator. -/
 theorem singularCochainCap_simplex (p q : ℕ)
     (φ : (singularCochains R X).X p)

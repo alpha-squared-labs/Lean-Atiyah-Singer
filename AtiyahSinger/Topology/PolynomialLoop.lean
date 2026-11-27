@@ -59,6 +59,9 @@ def affine {n : ℕ} (a₀ a₁ : Matrix (Fin n) (Fin n) A) (hnorm : a₀ + a₁
 
 variable [CompleteSpace A]
 
+-- Human-verified.
+-- - Polynomial loops and affine coefficients. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- KA III.1.22: every polynomial matrix loop has an affine representative after
 finite stabilization and based homotopy. The affine coefficients and their normalization
 and invertibility certificates belong to the same representative. -/

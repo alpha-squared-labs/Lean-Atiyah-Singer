@@ -48,6 +48,9 @@ variable {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]
 
 namespace ComplexBundle
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the documented definition or
+--   construction.
 /-- The original component of a bundled finite-rank bundle, using an auxiliary chosen metric. -/
 def FiniteBundle.chernCharacterComponent (E : FiniteBundle X) (k : ℕ) :
     singularCohomology ℚ X (2 * k) :=
@@ -80,6 +83,9 @@ theorem finiteBundleChernCharacterComponent_properties (k : ℕ) :
 
 end ComplexBundle
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the documented definition or
+--   construction.
 /-- The actual additive Chern-character component on the existing complex Grothendieck group. -/
 def chernCharacterKZeroComponent (X : Type u) [TopologicalSpace X]
     [CompactSpace X] [T2Space X] (k : ℕ) :
@@ -89,6 +95,9 @@ def chernCharacterKZeroComponent (X : Type u) [TopologicalSpace X]
     (ComplexBundle.finiteBundleChernCharacterComponent_properties (X := X) k).1
     (ComplexBundle.finiteBundleChernCharacterComponent_properties (X := X) k).2
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The character of every original bundle class is its actual metric-independent component. -/
 theorem chernCharacterKZeroComponent_bundle
     (E : X → Type v) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
@@ -133,6 +142,9 @@ theorem chernCharacterKZeroComponent_unique (k : ℕ)
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG Corollary 11.17: multiplication is the finite even-cup convolution in every degree. -/
 theorem chernCharacterKZeroComponent_mul (a b : ComplexKZero X) (k : ℕ) :
     chernCharacterKZeroComponent X k (a * b) =
@@ -194,6 +206,9 @@ theorem chernCharacterKZeroComponent_mul (a b : ComplexKZero X) (k : ℕ) :
   rw [ha, hb, sub_mul, mul_sub, mul_sub, map_sub, map_sub, map_sub,
     hbundle, hbundle, hbundle, hbundle, hleft, hright, hright]
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The free line is sent to the cohomological unit, with zero higher components. -/
 theorem chernCharacterKZeroComponent_one (k : ℕ) :
     chernCharacterKZeroComponent X k (1 : ComplexKZero X) =
@@ -213,6 +228,9 @@ theorem chernCharacterKZeroComponent_one (k : ℕ) :
   rw [hunit, chernCharacterKZeroComponent_bundle E h k]
   exact ComplexBundle.globalChernCharacterComponent_trivial_line h k
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The same degreewise character commutes with the original K-theory and cohomology pullbacks. -/
 theorem chernCharacterKZeroComponent_pullback
     {Y : Type u} [TopologicalSpace Y] [CompactSpace Y] [T2Space Y]

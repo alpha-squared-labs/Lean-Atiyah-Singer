@@ -46,6 +46,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [TopologicalSpace (TotalSpace Unit E)]
   (A : SmoothComplexBundleAtlas (n := n) E)
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- Finite manifold charts and original atlas frames with a subordinate smooth partition. -/
 structure AtlasBundlePresentation where
   /-- The number of localizations; it may be zero when the base is empty. -/
@@ -77,6 +80,9 @@ include hM hT hSC
 
 -- Compactness supplies sigma-compactness for the partition-of-unity construction.
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- A compact smooth base admits finite localization data in the specified bundle atlas. -/
 theorem nonempty_atlasBundlePresentation [CompactSpace M] :
     Nonempty (AtlasBundlePresentation A) := by
@@ -129,6 +135,9 @@ namespace AtlasBundlePresentation
 
 variable {A} (L : AtlasBundlePresentation A)
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- The actual cutoff section in the selected coordinates, extended by zero off the chart. -/
 def localizedFunction (j : Fin L.size) (u : A.smoothSections)
     (z : EuclideanSpace ℝ (Fin n)) :
@@ -141,6 +150,9 @@ def localizedFunction (j : Fin L.size) (u : A.smoothSections)
 
 -- The compact coordinate image of the cutoff support is closed.
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The smoothness and fixed compact support needed to package a localized Schwartz function.
 These are implementation certificates for the single localization construction. -/
 theorem localizedFunction_properties (j : Fin L.size) (u : A.smoothSections) :

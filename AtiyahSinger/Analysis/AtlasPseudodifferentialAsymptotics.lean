@@ -48,6 +48,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   (A : SmoothComplexBundleAtlas (n := n) E)
   (B : SmoothComplexBundleAtlas (n := n) F)
 
+-- Human-verified.
+-- - Asymptotic summation for local symbols and global operators. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Decreasing-order actual atlas operators have one asymptotic sum with every remainder. -/
 theorem exists_atlasPseudodifferential_expansion (m : ℕ → ℝ) (hm : StrictAnti m)
     (hlim : Tendsto m atTop atBot)
@@ -171,6 +174,9 @@ theorem exists_atlasPseudodifferential_expansion (m : ℕ → ℝ) (hm : StrictA
   change IsAtlasPseudodifferentialOperator A B (m N) _ at h
   simpa only [targets, sub_add_sub_cancel, Q'] using h
 
+-- Human-verified.
+-- - Asymptotic summation for local symbols and global operators. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Two asymptotic sums of the same actual sequence differ by an all-order smoothing map. -/
 theorem isAtlasSmoothingOperator_sub_of_atlasPseudodifferential_expansion
     (m : ℕ → ℝ) (hlim : Tendsto m atTop atBot)

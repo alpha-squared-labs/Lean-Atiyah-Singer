@@ -41,6 +41,9 @@ attribute [local instance] tangentBundleFullChartedSpace tangentBundle_full_isMa
 
 set_option maxHeartbeats 600000 in
 -- Normalize the normal-first complex coordinates and the same positive Bott coordinate.
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The complementary coordinate inclusion preserves the same positive integer Bott coordinate. -/
 theorem euclideanTangentKZeroEquivInt_pushforward_zeroPrepend (n k : ℕ) :
     (euclideanTangentKZeroEquivInt (n + k)).toAddMonoidHom.comp
@@ -146,6 +149,9 @@ variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
   {M : Type*} [TopologicalSpace M] [ChartedSpace E M] [IsManifold 𝓘(ℝ, E) ∞ M]
   [T2Space M] [CompactSpace M] [SecondCountableTopology M]
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- For a compact source, any two supplied Euclidean embeddings give the same actual index. -/
 theorem topologicalIndexOfEmbedding_eq {n k : ℕ}
     (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, EuclideanSpace ℝ (Fin n))

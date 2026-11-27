@@ -179,6 +179,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 2000000 in
 -- Retain both finite partitions and every original local action through bilinear assembly.
+-- Human-verified.
+-- - Equivariant excision and external products for different groups. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The full representation-valued analytic index respects independent-group external products. -/
 theorem equivariantAnalyticIndexMap_externalProduct :
     letI : ChartedSpace (VG × VH) (G × H) := prodChartedSpace VG G VH H

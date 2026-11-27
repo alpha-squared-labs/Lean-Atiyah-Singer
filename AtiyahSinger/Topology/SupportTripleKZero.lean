@@ -30,6 +30,9 @@ variable {X : Type*} [TopologicalSpace X]
 attribute [local instance] sumTopology isFiniteRank_sum trivialTopology isFiniteRank_trivial
 
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the documented definition
+--   or construction.
 /-- The explicit isomorphism, sum and identity relations at infinity. -/
 def supportTripleKZeroRelations (X : Type*) [TopologicalSpace X] :
     AddSubgroup (FreeAbelianGroup (SupportBundleTriple X)) :=
@@ -40,6 +43,9 @@ def supportTripleKZeroRelations (X : Type*) [TopologicalSpace X] :
       z = FreeAbelianGroup.of (a.sum b) - FreeAbelianGroup.of a - FreeAbelianGroup.of b} ∪
     {z | ∃ E : FiniteBundle X, z = FreeAbelianGroup.of (SupportBundleTriple.identity E)})
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the documented definition
+--   or construction.
 /-- The abelian group with the three explicit geometric relations. -/
 abbrev SupportTripleKZero (X : Type*) [TopologicalSpace X] : Type _ :=
   FreeAbelianGroup (SupportBundleTriple X) ⧸ supportTripleKZeroRelations X
@@ -179,6 +185,9 @@ theorem supportBundleTriple_kZeroClass_surjective :
       refine ⟨a.sum b, ?_⟩
       rw [SupportBundleTriple.kZeroClass_sum, ha, hb, map_add]
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The group presentation makes exactly the stable identifications. -/
 theorem SupportBundleTriple.kZeroClass_eq_iff_stable (a b : SupportBundleTriple X) :
     a.kZeroClass = b.kZeroClass ↔ a.IsStablyIsomorphic b := by

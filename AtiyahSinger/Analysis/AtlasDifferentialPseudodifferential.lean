@@ -141,6 +141,9 @@ theorem isAtlasGlobalSymbol_principalSymbol :
     apply mul_le_mul_of_nonneg_right _ (Real.rpow_nonneg (by positivity) _)
     exact Finset.single_le_sum (fun z _ ↦ hC z) hzt
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The same intrinsic polynomial as an element of the atlas symbol module. -/
 def principalGlobalSymbol : atlasGlobalSymbolSpace A B (k : ℝ) :=
   ⟨P.principalSymbol, P.isAtlasGlobalSymbol_principalSymbol⟩
@@ -468,11 +471,17 @@ theorem isAtlasPseudodifferentialOperator :
   intro T S s t
   exact ⟨0, by intro u; simp⟩
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The actual differential action regarded as a pseudodifferential operator. -/
 def toAtlasPseudodifferentialOperator : AtlasPseudodifferentialOperator A B (k : ℝ) where
   toLinearMap := P.toLinearMap
   isPseudodifferentialOperator := P.isAtlasPseudodifferentialOperator
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The PDO principal class is precisely the class of the original leading polynomial. -/
 theorem principalSymbol_toAtlasPseudodifferentialOperator :
     P.toAtlasPseudodifferentialOperator.principalSymbol =

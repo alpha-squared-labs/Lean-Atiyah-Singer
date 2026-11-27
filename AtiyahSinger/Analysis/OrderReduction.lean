@@ -49,6 +49,11 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   (μ : Measure M) [hμ : IsSmoothPositiveMeasure (n := n) μ]
 
 include hM hT hSC hC hE hB hμ in
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Order reduction for the given real-order operator and its cotangent symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- An elliptic order shift is an actual smooth and all-orders Sobolev isomorphism.
 
 The same operator has principal symbol `length^l` times the identity off zero.

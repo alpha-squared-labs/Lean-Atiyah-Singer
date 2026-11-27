@@ -48,6 +48,9 @@ variable {X : Type u} [TopologicalSpace X]
 
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The original integral Chern classes are independent of the auxiliary Hermitian metric. -/
 theorem globalChernClass_metric_independent (hE' : ContinuousHermitianMetric E) (k : ℕ) :
     globalChernClass E hE k = globalChernClass E hE' k := by
@@ -305,6 +308,9 @@ variable (G : X → Type z) [∀ x, AddCommGroup (G x)] [∀ x, Module ℂ (G x)
   [TopologicalSpace (TotalSpace Unit G)] [IsFiniteRank G]
   (hG : ContinuousHermitianMetric G)
 
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The Whitney sum formula on the original possibly varying-rank complex bundles. -/
 theorem globalChernClass_sum
     (e : letI := sumTopology (E := E) (F := F)
@@ -446,6 +452,9 @@ theorem globalChernClass_sum
     singularCohomologyPullback_evenCup, hEA, hFB]
   rfl
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The actual character takes the original direct-sum bundle to addition in every degree. -/
 theorem globalChernCharacterComponent_sum
     (e : letI := sumTopology (E := E) (F := F)
@@ -569,6 +578,9 @@ set_option maxHeartbeats 1000000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The actual tensor product gives the finite cup convolution of the original character. -/
 theorem globalChernCharacterComponent_tensor
     (e : letI := tensorTopology (E := E) (F := F)
@@ -696,6 +708,9 @@ theorem globalChernCharacterComponent_tensor
     singularCohomologyPullback_evenCup, hEA, hFB]
   rfl
 
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The original integral classes commute with the specified actual bundle pullback. -/
 theorem globalChernClass_pullback
     {Y : Type u} [TopologicalSpace Y] (f : C(Y, X))

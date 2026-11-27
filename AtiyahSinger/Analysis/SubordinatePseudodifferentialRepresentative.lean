@@ -45,6 +45,9 @@ variable [SecondCountableTopology M] [CompactSpace M] [MeasurableSpace M] [Borel
 namespace PseudodifferentialOperator
 
 set_option maxSynthPendingDepth 15 in
+-- Human-verified.
+-- - Parameters from the given atlas and integral estimates on noncompact domains. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Every native PDO has an equal-principal representative formed from pieces in any open cover. -/
 theorem exists_subordinate_representative {m : ℝ}
     (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)

@@ -57,6 +57,11 @@ local notation "V" => EuclideanSpace ℝ (Fin n)
 local notation "TM" => TangentBundle 𝓘(ℝ, V) M
 local notation "T" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
+-- Human-verified.
+-- - Finite sums in top degree and the pairings in T02 and T03. The review covers the documented
+--   definition or construction.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   documented definition or construction.
 /-- The degree-n component of pi!(ch(u)) cup A-hat(TM)^2, with the prescribed Thom inverse. -/
 def baseIndexCharacteristicClass (O : HomologicalOrientation n M)
     (g : SmoothTangentMetric (n := n) (M := M))
@@ -81,6 +86,11 @@ set_option maxHeartbeats 1000000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Finite sums in top degree and the pairings in T02 and T03. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original topological index equals the oriented base characteristic number. -/
 theorem topologicalIndex_eq_base_characteristic_number (O : HomologicalOrientation n M)
     (g : SmoothTangentMetric (n := n) (M := M))

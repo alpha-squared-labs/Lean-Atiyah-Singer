@@ -63,6 +63,9 @@ attribute [local instance] t2Space_fiberBundleTotal secondCountable_fiberBundleT
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The independently defined zero-section Gysin equals the signed original ordered Thom map. -/
 theorem compactSupportGysin_zeroSection (O : HomologicalOrientation n M)
     (o : CohomologyOrientation ℤ r E) (p : ℕ) (a : compactSupportCohomology ℚ M p) :
@@ -194,6 +197,9 @@ theorem compactSupportGysin_zeroSection (O : HomologicalOrientation n M)
     have ha : a = 0 := Subsingleton.elim _ _
     rw [ha, map_zero, map_zero, smul_zero]
 
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The independently defined projection Gysin is the signed original inverse Thom map. -/
 theorem compactSupportGysin_projection (O : HomologicalOrientation n M)
     (o : CohomologyOrientation ℤ r E) (p : ℕ)
@@ -241,6 +247,9 @@ theorem compactSupportGysin_projection (O : HomologicalOrientation n M)
 
 set_option linter.unusedSectionVars false in
 set_option linter.unusedVariables false in
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Compact-support cohomology of an oriented rank-r bundle vanishes below the fiber rank. -/
 theorem compactSupportCohomology_subsingleton_below_rank
     (O : HomologicalOrientation n M) (o : CohomologyOrientation ℤ r E)
@@ -253,6 +262,9 @@ theorem compactSupportCohomology_subsingleton_below_rank
   exact compactSupportCohomology_subsingleton_below_rank_of_orientation
     ℚ r E o.rationalization k hk
 
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original Thom inverse preserves the integral of top-degree supported classes. -/
 theorem compactSupportCohomologyIntegral_thomIntegral
     (O : HomologicalOrientation n M) (o : CohomologyOrientation ℤ r E)

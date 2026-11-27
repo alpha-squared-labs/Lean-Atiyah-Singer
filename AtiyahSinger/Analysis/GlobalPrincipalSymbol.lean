@@ -59,6 +59,9 @@ namespace PseudodifferentialPiece
 
 variable {m : ℝ} (L : PseudodifferentialPiece (n := n) (r := r) (q := q) E F m)
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the documented definition or
+--   construction.
 /-- Transport the cutoff product times the local symbol to actual cotangent and bundle fibers. -/
 def globalSymbolFunction : GlobalSymbolFunction (n := n) E F := by
   classical
@@ -651,6 +654,9 @@ variable [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M] [T2Space M]
   [IsSmoothComplexBundle (n := n) (r := r) E]
   [IsSmoothComplexBundle (n := n) (r := q) F]
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the documented definition or
+--   construction.
 /-- The actual order-m symbol of a local piece, before taking its principal class. -/
 def globalSymbol : globalSymbolSpace (n := n) (r := r) (q := q) E F m :=
   ⟨L.globalSymbolFunction, L.isGlobalSymbol_globalSymbolFunction⟩
@@ -1458,6 +1464,9 @@ namespace PseudodifferentialOperator
 
 variable {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG 3.19: all finite local representations specify one unique global principal class. -/
 theorem existsUnique_principalSymbol :
     ∃! σ : GlobalPrincipalSymbolSpace (n := n) (r := r) (q := q) E F m,
@@ -1505,10 +1514,16 @@ theorem existsUnique_principalSymbol :
   intro τ hτ
   exact (hτ N L ⟨K, hK⟩).symm
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the documented definition or
+--   construction.
 /-- The global principal symbol in the actual S^m(E,F)/S^(m-1)(E,F) quotient. -/
 def principalSymbol : GlobalPrincipalSymbolSpace (n := n) (r := r) (q := q) E F m :=
   Classical.choose P.existsUnique_principalSymbol.exists
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Any valid finite local representation computes the chosen principal class. -/
 theorem principalSymbol_eq_of_representation (N : ℕ)
     (L : Fin N → PseudodifferentialPiece (n := n) (r := r) (q := q) E F m)
@@ -1534,6 +1549,9 @@ theorem principalSymbol_eq_zero_of_isSmoothingOperator
   rw [P.principalSymbol_eq_of_representation 0 L hL]
   simp only [Finset.univ_eq_empty, Finset.sum_empty, map_zero]
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The principal class depends only on the actual operator, independently of the density. -/
 theorem principalSymbol_eq_of_toLinearMap_eq
     (ν : Measure M) [IsSmoothPositiveMeasure (n := n) ν]

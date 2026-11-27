@@ -69,6 +69,9 @@ variable {m : ℕ} {M : Type} [TopologicalSpace M]
 local notation "TModel" => EuclideanSpace ℝ (Fin (2 * m))
 local notation "TM" => (TangentSpace 𝓘(ℝ, TModel) : M → Type)
 
+-- Human-verified.
+-- - The unified independent specification of T04 and its invocation in the Comparator. The review
+--   covers the documented definition or construction.
 /-- A characteristic metric on the original tangent complexification, produced internally. -/
 def evenDimensionalTangentHermitianMetric :
     letI := complexificationTopology TModel TM
@@ -95,6 +98,9 @@ local notation "I" => 𝓘(ℝ, EuclideanSpace ℝ (Fin (2 * m)))
 local notation "TM" => (TangentSpace I : M → Type)
 local notation "TModel" => EuclideanSpace ℝ (Fin (2 * m))
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the documented
+--   definition or construction.
 /-- Implementation dispatch for the original positive spin lift and its native zero endpoint.
 The carrier has no smooth-atlas, characteristic-class or desired-index certificate field. -/
 inductive EvenDimensionalSpinInput
@@ -112,6 +118,9 @@ variable {hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm m)) project
 
 namespace EvenDimensionalSpinInput
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the documented
+--   definition or construction.
 /-- Produce a smooth principal atlas on the same original total space and projection. -/
 def smoothPrincipalAtlas :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -132,6 +141,9 @@ def smoothPrincipalAtlas :
     subst m
     exact smoothSpinPrincipalAtlasZero 𝓘(ℝ, EuclideanSpace ℝ (Fin 0)) hP
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the documented
+--   definition or construction.
 /-- The same spin orientation, with the canonical positive empty-frame orientation at zero. -/
 def homologicalOrientation :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -148,6 +160,9 @@ def homologicalOrientation :
     subst m
     exact zeroTangentHomologicalOrientation g
 
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the
+--   documented definition or construction.
 /-- The actual positive cotangent Clifford map on the original associated quotient fibers. -/
 def cotangentCliffordPlus :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -169,6 +184,9 @@ def cotangentCliffordPlus :
 set_option maxHeartbeats 3000000 in
 -- Infer the original associated atlases and Clifford property maps together.
 omit [T2Space M] [SecondCountableTopology M] in
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Linearity and smoothness hold for these actual maps in the produced original atlases. -/
 theorem cotangentCliffordPlus_properties :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -218,6 +236,9 @@ theorem cotangentCliffordPlus_properties :
 
 set_option maxHeartbeats 3000000 in
 -- Infer the selected original spin connection in its exact associated atlas.
+-- Human-verified.
+-- - The Levi-Civita and half-spinor connections for the same metric g. The review covers the
+--   documented definition or construction.
 /-- The original Levi-Civita half-spin connection, with its unique zero-dimensional action. -/
 def halfSpinorConnection :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -245,6 +266,9 @@ variable {W : M → Type} [∀ x, AddCommGroup (W x)] [∀ x, Module ℂ (W x)]
   [TopologicalSpace (TotalSpace Unit W)]
   (B : SmoothComplexBundleAtlas (n := 2 * m) W) (covW : AtlasComplexConnection B)
 
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the
+--   documented definition or construction.
 /-- Tensor the original half-spin connection with the very coefficient connection supplied. -/
 def twistedHalfSpinorConnection :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -265,6 +289,9 @@ def twistedHalfSpinorConnection :
 
 set_option maxHeartbeats 3000000 in
 -- Infer the original associated tensor atlases, product connection and contraction together.
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the
+--   documented definition or construction.
 /-- One actual connection contraction on the original two half-spin tensor section spaces. -/
 def twistedDiracPlus :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -290,6 +317,9 @@ def twistedDiracPlus :
 
 set_option maxHeartbeats 3000000 in
 -- Retain that same original tensor connection and its actual section action.
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Its action uses the same product covariant derivative and the actual original Clifford map. -/
 theorem twistedDiracPlus_apply :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -320,6 +350,11 @@ theorem twistedDiracPlus_apply :
 
 set_option maxHeartbeats 3000000 in
 -- Compare the actual original tensor atlases and connection coefficients.
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - The unified independent specification of T04 and its invocation in the Comparator. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Positive specialization is the original bundled operator on the identical tensor atlases. -/
 theorem twistedDiracPlus_positive :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -371,6 +406,10 @@ set_option maxHeartbeats 3000000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The original Dirac operator in dimension zero, its empty contraction, and the index on
+--   sections. The review covers the theorem statement and its documented mathematical
+--   correspondence.
 /-- The actual zero product contraction equals the original native operator for every covW. -/
 theorem twistedDiracPlus_nativeZero :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -445,6 +484,9 @@ set_option maxHeartbeats 3000000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The unified independent specification of T04 and its invocation in the Comparator. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The actual twisted index is ch(W) times A-hat in every native even dimension. -/
 theorem twistedDiracPlus_index :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩

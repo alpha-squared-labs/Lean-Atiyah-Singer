@@ -451,6 +451,9 @@ theorem compactSupportKZeroExternalProduct_swap (a : CompactSupportKZero X)
   exact (hunique _ hpull).trans
     (hunique _ (compactSupportKZeroExternalProduct_pullback b a)).symm
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The standard positive rank-one class in compactly supported K⁰ of a point. -/
 def compactSupportKZeroPointOne : CompactSupportKZero PUnit.{1} :=
   (compactSupportKZeroCompactEquiv PUnit.{1}).symm

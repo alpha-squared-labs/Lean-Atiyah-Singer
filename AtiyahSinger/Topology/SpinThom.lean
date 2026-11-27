@@ -66,6 +66,9 @@ variable {m : ℕ} {B P : Type*} {E : B → Type*}
 
 local notation "RealModel" => EuclideanSpace ℝ (Fin (2 * m))
 
+-- Human-verified.
+-- - The specified Bott class and the Spin Thom isomorphism. The review covers the documented
+--   definition or construction.
 /-- Multiply by the original spinor symbol through the graph of the native bundle projection. -/
 def TopologicalSpinStructure.spinThomHom (S : TopologicalSpinStructure m E o hm hP) :
     ComplexKZero B →+ CompactSupportKZero (TotalSpace RealModel E) :=
@@ -78,6 +81,9 @@ set_option backward.isDefEq.respectTransparency.types false in
 set_option maxRecDepth 4096 in
 set_option maxHeartbeats 1800000 in
 
+-- Human-verified.
+-- - The specified Bott class and the Spin Thom isomorphism. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- SG C.12: the same original spinor class is a K-orientation in every nonpositive degree. -/
 theorem TopologicalSpinStructure.spinorThomClass_isKOrientation
     (S : TopologicalSpinStructure m E o hm hP) (n : ℕ) :
@@ -455,6 +461,9 @@ theorem TopologicalSpinStructure.spinorThomClass_isKOrientation
     (compactSupportKLerayHirschMap_bijective_of_closed_cover
       p (fun _ : Fin 1 ↦ S.spinorThomClass) W hW hcoverW hlocal n)
 
+-- Human-verified.
+-- - The specified Bott class and the Spin Thom isomorphism. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- SG III.12.6: the prescribed spin-symbol multiplication is a degree-zero Thom isomorphism. -/
 theorem TopologicalSpinStructure.spinThomHom_bijective
     (S : TopologicalSpinStructure m E o hm hP) : Function.Bijective S.spinThomHom := by
@@ -493,6 +502,9 @@ theorem TopologicalSpinStructure.spinThomHom_bijective
     refine ⟨source (thom.symm (target.symm y)), ?_⟩
     rw [← hcompare, thom.apply_symm_apply, target.apply_symm_apply]
 
+-- Human-verified.
+-- - The specified Bott class and the Spin Thom isomorphism. The review covers the documented
+--   definition or construction.
 /-- The spin Thom equivalence has the original graph-action multiplication as forward map. -/
 def TopologicalSpinStructure.spinThomEquiv (S : TopologicalSpinStructure m E o hm hP) :
     ComplexKZero B ≃+ CompactSupportKZero (TotalSpace RealModel E) :=

@@ -629,6 +629,9 @@ legacy_binder_names
     "inst._@.AtiyahSinger.Topology.HermitianSupportedThom.3239443600._hygCtx._hyg.24",
     "inst._@.AtiyahSinger.Topology.HermitianSupportedThom.3239443600._hygCtx._hyg.36",
     "inst._@.AtiyahSinger.Topology.HermitianSupportedThom.3239443600._hygCtx._hyg.43"] in
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The supported Thom theorem applies to the same metric-specified tensor homomorphism. -/
 theorem supportedThomHom_bijective {X : Type*} [TopologicalSpace X]
     [LocallyCompactSpace X] [T2Space X]
@@ -725,6 +728,9 @@ legacy_binder_names
     "inst._@.AtiyahSinger.Topology.HermitianSupportedThom.3984624783._hygCtx._hyg.24",
     "inst._@.AtiyahSinger.Topology.HermitianSupportedThom.3984624783._hygCtx._hyg.36",
     "inst._@.AtiyahSinger.Topology.HermitianSupportedThom.3984624783._hygCtx._hyg.43"] in
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The additive Thom equivalence retains the metric-specified tensor map as its forward map. -/
 def supportedThomEquiv {X : Type*} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X]
     {E : X → Type*} [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]

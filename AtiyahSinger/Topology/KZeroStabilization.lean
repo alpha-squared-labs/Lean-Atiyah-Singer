@@ -35,6 +35,9 @@ universe u
 variable {R : Type u} [CommRing R]
 
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Two projective classes agree exactly when one common finite projective summand
 makes their original image modules isomorphic. -/
 theorem kZeroClass_eq_iff_exists_stable_image_equiv (p q : IdempotentMatrix R) :

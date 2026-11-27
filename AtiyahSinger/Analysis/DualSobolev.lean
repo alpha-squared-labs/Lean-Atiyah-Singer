@@ -45,6 +45,9 @@ namespace SmoothBundlePresentation
 
 variable (A : SmoothBundlePresentation (n := n) (r := r) E)
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The cutoff dual coefficients, explicitly extended by zero outside the chart. -/
 def localizedDualFunction (j : Fin A.size)
     (α : smoothDualSections (n := n) (r := r) E)
@@ -141,6 +144,9 @@ theorem hasCompactSupport_localizedDualFunction (j : Fin A.size)
   exact hcompact.of_isClosed_subset (isClosed_tsupport _)
     (A.tsupport_localizedDualFunction_subset j α)
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The actual Schwartz function of localized dual coefficients. -/
 def localizeDual (j : Fin A.size)
     (α : smoothDualSections (n := n) (r := r) E) :
@@ -192,6 +198,9 @@ theorem localizeDual_smul (j : Fin A.size) (c : ℂ)
     exact smul_comm _ _ _
   · simp [localizedDualFunction, htarget]
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- Dual localization packaged as its actual complex-linear map. -/
 def localizeDualLinearMap (j : Fin A.size) :
     smoothDualSections (n := n) (r := r) E →ₗ[ℂ]
@@ -200,6 +209,9 @@ def localizeDualLinearMap (j : Fin A.size) :
   map_add' := A.localizeDual_add j
   map_smul' := A.localizeDual_smul j
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The tuple of Bessel coordinates of the localized dual coefficients. -/
 def dualSobolevCoordinates (s : ℝ) :
     smoothDualSections (n := n) (r := r) E →ₗ[ℂ] A.SobolevCoordinates :=
@@ -207,10 +219,16 @@ def dualSobolevCoordinates (s : ℝ) :
     (LinearMap.pi fun j ↦
       (schwartzSobolevCoordinateLinearMap n r s).comp (A.localizeDualLinearMap j))
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The real-order Sobolev completion of actual smooth dual sections. -/
 abbrev DualSobolevSpace (s : ℝ) : Type :=
   (A.dualSobolevCoordinates s).range.topologicalClosure
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The canonical dense map from actual smooth covector sections into their completion. -/
 def dualSmoothToSobolev (s : ℝ) :
     smoothDualSections (n := n) (r := r) E →ₗ[ℂ] A.DualSobolevSpace s :=
@@ -304,6 +322,9 @@ variable [MeasurableSpace M] [BorelSpace M] [CompactSpace M]
 
 set_option maxHeartbeats 1000000 in
 -- Both dense extensions and the local reconstruction elaborate in this single proof.
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- SG III.2.15(2): the same-point bilinear integral extends to a perfect opposite-order pairing. -/
 theorem existsUnique_sobolevEvaluationDuality (s : ℝ) :
     ∃! T : A.DualSobolevSpace (-s) ≃L[ℂ] StrongDual ℂ (A.SobolevSpace s),
@@ -855,11 +876,17 @@ theorem existsUnique_sobolevEvaluationDuality (s : ℝ) :
         (isClosed_eq (S _).continuous (Q _).continuous)
         (fun v ↦ (hS β v).trans (hT_smooth β v).symm))
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The linear duality map, specified by covector evaluation rather than Hermitian pairing. -/
 def sobolevEvaluationDuality (s : ℝ) :
     A.DualSobolevSpace (-s) ≃L[ℂ] StrongDual ℂ (A.SobolevSpace s) :=
   Classical.choose (A.existsUnique_sobolevEvaluationDuality μ s).exists
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The geometric bilinear pairing between opposite Sobolev orders of E* and E. -/
 def sobolevEvaluationPairing (s : ℝ) (α : A.DualSobolevSpace (-s))
     (u : A.SobolevSpace s) : ℂ :=

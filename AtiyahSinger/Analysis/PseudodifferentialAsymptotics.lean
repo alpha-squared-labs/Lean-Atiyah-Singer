@@ -50,6 +50,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
 
 include hM hT2 hSC hC hE hF hμ
 
+-- Human-verified.
+-- - Asymptotic summation for local symbols and global operators. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A sequence of decreasing-order global PDOs has one asymptotic sum with all remainders. -/
 theorem exists_pseudodifferential_expansion (m : ℕ → ℝ) (hm : StrictAnti m)
     (hlim : Tendsto m atTop atBot)
@@ -167,6 +170,9 @@ theorem exists_pseudodifferential_expansion (m : ℕ → ℝ) (hm : StrictAnti m
   have h := IsPseudodifferentialOperator.add (m N) _ _ (happrox.mono hk.le _) htail
   simpa only [targets, sub_add_sub_cancel, Q'] using h
 
+-- Human-verified.
+-- - Asymptotic summation for local symbols and global operators. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Any two asymptotic sums of the same actual operator sequence differ by a smooth kernel. -/
 theorem isSmoothingOperator_sub_of_pseudodifferential_expansion (m : ℕ → ℝ)
     (hlim : Tendsto m atTop atBot)

@@ -255,6 +255,9 @@ theorem principalSymbol_toAtlasPseudodifferentialOperator_eq_regularized
     (hd.mono (Set.prod_mono hint subset_rfl)) hsupp ((k : ℝ) - 1)
   exact hsmooth.2 K hKK' hK α β
 
+-- Human-verified.
+-- - The order-zero difference between connections and the scope of the original index. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Ellipticity gives finite original kernel and cokernel and the same critical Sobolev index. -/
 theorem index_sobolevExtension_of_isElliptic
     (q : SmoothCotangentMetric (n := n) (M := M)) (hi : P.IsElliptic)
@@ -282,6 +285,9 @@ section MeasuredBase
 
 variable [MeasurableSpace M] [BorelSpace M]
 
+-- Human-verified.
+-- - The order-zero difference between connections and the scope of the original index. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The existing analytic index evaluates the exact differential polynomial's support class. -/
 theorem analyticIndexOfComponents_principalSymbol
     (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]
@@ -308,6 +314,9 @@ end MeasuredBase
 local notation "V" => EuclideanSpace ℝ (Fin n)
 local notation "T" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
+-- Human-verified.
+-- - Orientation in positive even-dimensional T04 and cancellation of the two signs. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The oriented-base index formula for the actual variable-rank differential operator. -/
 theorem index_eq_base_characteristic_number
     (O : HomologicalOrientation n M)

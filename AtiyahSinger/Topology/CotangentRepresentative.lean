@@ -39,6 +39,9 @@ attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent isFin
   trivialTopology
 
 include hM hT hC in
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every compact cotangent K class has a degree-zero pullback representative off zero. -/
 theorem exists_homogeneous_cotangent_representative
     (u : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M))) :

@@ -44,6 +44,9 @@ variable {X : Type u} [TopologicalSpace X]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
   (h : ContinuousHermitianMetric E)
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- The degree-2k inverse Todd class uses the inverse series and original Chern classes. -/
 def inverseToddClassComponent (k : ℕ) : singularCohomology ℚ X (2 * k) :=
   singularCohomologyWeightedPolynomial X (fun i : Fin k ↦ i.val + 1)
@@ -80,6 +83,9 @@ theorem inverseToddClassComponent_zero :
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The existing Todd class and this specified inverse have unit finite cup convolution. -/
 theorem toddClassComponent_mul_inverse (k : ℕ) :
     (∑ i : Fin (k + 1),

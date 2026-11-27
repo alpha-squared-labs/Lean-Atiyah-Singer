@@ -23,30 +23,55 @@ namespace AtiyahSinger.ComparatorTargets
 
 open ComparatorStatements
 
+-- Human-verified.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the theorem statement and its documented mathematical correspondence.
+-- - The integer index formula in T01Atlas. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Compare the full t01 atlas endpoint. -/
 theorem t01_atlas : T01Atlas.{u, v, w, a, b} := by
   exact AtlasPseudodifferentialOperator.index_eq_cotangentTopologicalIndex_fullSymbol
 
+-- Human-verified.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the theorem statement and its documented mathematical correspondence.
+-- - The integer index formula in T01Native. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Compare the full t01 native endpoint. -/
 theorem t01_native : T01Native.{u, v, w} := by
   exact PseudodifferentialOperator.index_eq_cotangentTopologicalIndex_fullSymbol
 
+-- Human-verified.
+-- - The tangent-bundle total-space formula in T02Atlas. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Compare the full t02 atlas endpoint. -/
 theorem t02_atlas : T02Atlas.{a, b} := by
   exact AtlasPseudodifferentialOperator.index_eq_tangent_characteristic_number_fullSymbol
 
+-- Human-verified.
+-- - The tangent-bundle total-space formula in T02Native. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Compare the full t02 native endpoint. -/
 theorem t02_native : T02Native := by
   exact PseudodifferentialOperator.index_eq_tangent_characteristic_number_fullSymbol
 
+-- Human-verified.
+-- - The oriented base manifold formula in T03Atlas. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Compare the full t03 atlas endpoint. -/
 theorem t03_atlas : T03Atlas.{a, b} := by
   exact AtlasPseudodifferentialOperator.index_eq_base_characteristic_number_fullSymbol
 
+-- Human-verified.
+-- - The oriented base manifold formula in T03Native. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Compare the full t03 native endpoint. -/
 theorem t03_native : T03Native := by
   exact PseudodifferentialOperator.index_eq_base_characteristic_number_fullSymbol
 
+-- Human-verified.
+-- - The unified independent specification of T04 and its invocation in the Comparator. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Compare the full t04 endpoint. -/
 theorem t04 : T04.{a} := by
   exact EvenDimensionalSpinInput.twistedDiracPlus_index

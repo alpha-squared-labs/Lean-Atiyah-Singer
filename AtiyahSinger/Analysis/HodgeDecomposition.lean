@@ -64,10 +64,16 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 
 variable (g : SmoothTangentMetric (n := n) (M := M))
 
+-- Human-verified.
+-- - Hodge decomposition and harmonic representatives of de Rham classes. The review covers the
+--   documented definition or construction.
 /-- Harmonic p-forms are the kernel of the actual metric Hodge Laplacian. -/
 def harmonicForms (p : ℕ) : Submodule ℂ (SmoothDifferentialForm (n := n) M p) :=
   LinearMap.ker (smoothFormHodgeLaplacian g p)
 
+-- Human-verified.
+-- - Hodge decomposition and harmonic representatives of de Rham classes. The review covers the
+--   documented definition or construction.
 /-- Coexact p-forms are the image of the original metric codifferential from degree p+1. -/
 def deRhamCoexactForms (p : ℕ) : Submodule ℂ (SmoothDifferentialForm (n := n) M p) :=
   LinearMap.range (smoothFormCodifferential g p)
@@ -232,6 +238,9 @@ theorem totalFormHodgeDirac_comp :
           simp only [smoothFormHodgeLaplacian, LinearMap.add_apply, LinearMap.comp_apply, d, δ]
           exact add_comm _ _
 
+-- Human-verified.
+-- - Hodge decomposition and harmonic representatives of de Rham classes. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- On a compact manifold, d plus its metric adjoint has the same kernel as the Laplacian. -/
 theorem totalFormHodgeDirac_ker_eq [CompactSpace M] :
     LinearMap.ker (totalFormHodgeDirac g) = LinearMap.ker (totalFormHodgeLaplacian g) := by
@@ -403,6 +412,9 @@ theorem exists_harmonic_add_hodgeLaplacian [CompactSpace M] (p : ℕ)
   rw [map_add, Φ.apply_symm_apply, ← hL, Φ.apply_symm_apply, hw]
   abel
 
+-- Human-verified.
+-- - Hodge decomposition and harmonic representatives of de Rham classes. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The Hodge decomposition is the unique L2-orthogonal harmonic/exact/coexact splitting. -/
 theorem smoothForm_hodge_decomposition [CompactSpace M] (p : ℕ) :
     (∀ (harmonic : harmonicForms g p)
@@ -525,6 +537,9 @@ def harmonicDeRhamClass [CompactSpace M] (p : ℕ) :
 set_option synthInstance.maxHeartbeats 200000 in
 -- The extended limit accommodates the de Rham quotient and unique original harmonic
 -- representatives.
+-- Human-verified.
+-- - Hodge decomposition and harmonic representatives of de Rham classes. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Every actual de Rham class has one and only one harmonic representative. -/
 theorem harmonicDeRhamClass_bijective [CompactSpace M] (p : ℕ) :
     Function.Bijective (harmonicDeRhamClass g p) := by
@@ -579,6 +594,9 @@ theorem harmonicDeRhamClass_bijective [CompactSpace M] (p : ℕ) :
       exact E.neg_mem components.2.1.property
     exact hclass.trans hu
 
+-- Human-verified.
+-- - Hodge decomposition and harmonic representatives of de Rham classes. The review covers the
+--   documented definition or construction.
 /-- The canonical Hodge isomorphism from harmonic forms to the original de Rham quotient. -/
 def harmonicDeRhamEquiv [CompactSpace M] (p : ℕ) :
     harmonicForms g p ≃ₗ[ℂ] DeRhamCohomology (n := n) M p :=

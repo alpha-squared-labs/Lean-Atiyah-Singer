@@ -48,6 +48,9 @@ attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
 
 set_option maxHeartbeats 1000000 in
 -- Use the same cotangent actions in excision and in both forgetful index comparisons.
+-- Human-verified.
+-- - Excision and noncompact open sources. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Two compact environments give the same analytic index on any common open source. -/
 theorem analyticIndexOfComponents_excision_of_openSource
     (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]

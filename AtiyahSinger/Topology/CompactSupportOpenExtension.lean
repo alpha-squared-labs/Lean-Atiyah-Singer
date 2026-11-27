@@ -90,6 +90,9 @@ theorem isIso_openEmbeddingCohomologySupportPullback [T2Space Y]
   exact isIso_homologyMap_singularCochainDualFunctor_of_homotopyEquivalences R _
     (hexc (congrArg Set.compl hPre.symm) _) p
 
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the documented definition or construction.
 /-- Excision extends a representative and places it at its actual compact-image support. -/
 def openEmbeddingCompactSupportCohomologyLeg [T2Space Y]
     (f : C(X, Y)) (hf : IsOpenEmbedding f) (K : Compacts X) (p : ℕ) :
@@ -130,6 +133,9 @@ theorem openEmbeddingCompactSupportCohomologyLeg_naturality [T2Space Y]
     (asIso pL).hom_inv_id_assoc, (asIso pK).hom_inv_id_assoc]
   exact colimit.w (compactSupportCohomologyFunctor R Y p) (homOfLE hImage)
 
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the documented definition or construction.
 /-- Extension by zero along an open embedding, on the original compact-support colimit. -/
 def compactSupportCohomologyOpenExtension [T2Space Y]
     (f : C(X, Y)) (hf : IsOpenEmbedding f) (p : ℕ) :

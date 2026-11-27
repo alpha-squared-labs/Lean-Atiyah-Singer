@@ -27,10 +27,16 @@ open OnePoint
 
 variable {X Y Z : Type*} [TopologicalSpace X] [TopologicalSpace Y] [TopologicalSpace Z]
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The subset collapsed to the base point in the disjoint pointed space. -/
 def pairCollapsedSet (A : Set X) : Set (X ⊕ PUnit) :=
   Sum.inl '' A ∪ Set.range Sum.inr
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Identify equal points and identify all points in the collapsed subset. -/
 def PairCollapseRel (A : Set X) (x y : X ⊕ PUnit) : Prop :=
   x = y ∨ (x ∈ pairCollapsedSet A ∧ y ∈ pairCollapsedSet A)
@@ -54,17 +60,29 @@ theorem pairCollapseRel_equivalence (A : Set X) : Equivalence (PairCollapseRel A
     · exact Or.inr ⟨hx, hy⟩
     · exact Or.inr ⟨hx, hz⟩
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The setoid identifying exactly the collapsed subset. -/
 def pairCollapseSetoid (A : Set X) : Setoid (X ⊕ PUnit) :=
   ⟨PairCollapseRel A, pairCollapseRel_equivalence A⟩
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The pointed quotient, with a disjoint base point when A is empty. -/
 abbrev PointedQuotient (A : Set X) : Type _ := Quotient (pairCollapseSetoid A)
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The distinguished class of the added point. -/
 def PointedQuotient.basepoint (A : Set X) : PointedQuotient A :=
   Quotient.mk _ (Sum.inr PUnit.unit)
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The quotient map restricted to the original space. -/
 def PointedQuotient.of (A : Set X) (x : X) : PointedQuotient A :=
   Quotient.mk _ (Sum.inl x)
@@ -168,6 +186,9 @@ theorem PointedQuotient.map_of (A : Set X) (B : Set Y) (f : C(X, Y))
   it to Sum.inl (f x), which is precisely the stated representative in the target. -/
   rfl
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The pointed quotient is canonically the compactification of the complement. -/
 theorem PointedQuotient.exists_onePoint_homeomorph [CompactSpace X] [T2Space X]
     (A : Set X) (hA : IsClosed A) :
@@ -244,6 +265,9 @@ theorem PointedQuotient.t2Space [CompactSpace X] [T2Space X]
   obtain ⟨e, _⟩ := PointedQuotient.exists_onePoint_homeomorph A hA
   exact e.symm.t2Space
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The chosen homeomorphism is constrained on every quotient class. -/
 def PointedQuotient.onePointHomeomorph [CompactSpace X] [T2Space X]
     (A : Set X) (hA : IsClosed A) : PointedQuotient A ≃ₜ OnePoint (Aᶜ : Set X) :=

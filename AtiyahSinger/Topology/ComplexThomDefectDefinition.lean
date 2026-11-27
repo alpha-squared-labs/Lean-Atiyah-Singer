@@ -37,6 +37,9 @@ variable {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
   (h : ContinuousHermitianMetric E) (r : ℕ) (hr : ∀ x, Module.finrank ℂ (E x) = r)
 
+-- Human-verified.
+-- - The original Thom defect and its relation to the Euler class. The review covers the documented
+--   definition or construction.
 /-- SG's characteristic Thom defect, defined using the original K unit and specified integral. -/
 def complexThomDefectComponent (j : ℕ) : singularCohomology ℚ X (2 * j) :=
   h.complexCohomologyFiberIntegral r hr (2 * j)

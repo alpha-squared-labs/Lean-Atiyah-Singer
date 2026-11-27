@@ -41,6 +41,9 @@ universe u
 variable {n : ℕ} {M : Type u} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M] [T2Space M] [SecondCountableTopology M]
 
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Poincare duality for an oriented manifold, including noncompact manifolds. -/
 theorem compactPoincareDuality_bijective (O : HomologicalOrientation n M)
     (p q : ℕ) (h : p + q = n) :
@@ -58,6 +61,9 @@ theorem compactPoincareDuality_bijective (O : HomologicalOrientation n M)
     (fun p q h a ↦ compactPoincareDuality_mayerVietoris OY U V hcover' p q h a)
     hU hV hI p q h
 
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the documented definition or construction.
 /-- The linear equivalence whose forward map is precisely the constructed cap-duality map. -/
 def compactPoincareDualityEquiv (O : HomologicalOrientation n M)
     (p q : ℕ) (h : p + q = n) :

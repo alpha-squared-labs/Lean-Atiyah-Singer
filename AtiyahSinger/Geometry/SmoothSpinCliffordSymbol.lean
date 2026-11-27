@@ -64,6 +64,9 @@ local notation "TModel" => EuclideanSpace ℝ (Fin (2 * m))
 
 namespace TopologicalSpinStructure
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- The positive cotangent Clifford map is the original geometric map after the same sharp. -/
 def cotangentCliffordPlus :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -80,6 +83,9 @@ def cotangentCliffordPlus :
       HalfSpinorBundle m hP 0 x →ₗ[ℂ] HalfSpinorBundle m hP i x) (zero_add 1))
     (S.cliffordParity x (g.sharp x ξ) 0)
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- The negative-to-positive symbol is the other original parity Clifford map. -/
 def cotangentCliffordMinus :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -97,6 +103,9 @@ def cotangentCliffordMinus :
       (show (1 : ZMod 2) + 1 = 0 from rfl))
     (S.cliffordParity x (g.sharp x ξ) 1)
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original half-spin Clifford symbol is real linear in the actual covector. -/
 theorem isLinearMap_cotangentCliffordPlus :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -169,6 +178,9 @@ theorem isLinearMap_cotangentCliffordPlus :
 
 set_option maxHeartbeats 8000000 in
 -- Verify smoothness and ellipticity of the same native parity Clifford symbol in all charts.
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The same symbol is smooth, first-order homogeneous and invertible away from zero. -/
 theorem cotangentCliffordPlus_properties :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -601,6 +613,9 @@ theorem cotangentCliffordPlus_properties :
     rw [hQ] at h
     simpa only [Nat.cast_one] using h
 
+-- Human-verified.
+-- - The order-zero difference between connections and the scope of the original index. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The two original half-spin actions are mutually skew for the same Fock metrics. -/
 theorem cotangentClifford_skew :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩

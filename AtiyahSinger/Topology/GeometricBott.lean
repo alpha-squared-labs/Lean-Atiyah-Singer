@@ -38,12 +38,20 @@ namespace AtiyahSinger
 
 open OnePoint Topology
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The compact-base Bott equivalence through the actual loop and disk comparisons. -/
 def compactBottEquiv (X : Type*) [TopologicalSpace X] [CompactSpace X] [T2Space X] :
     ComplexKZero X ≃+ CompactSupportKZero (X × ℂ) :=
   ((kZeroBottLoopEquiv C(X, ℂ)).trans (stableMatrixLoopDiskRelativeEquiv X)).trans
     (complexDiskRelativeKZeroEquiv X)
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the theorem statement and its documented mathematical correspondence.
+-- - Degree-zero compactly supported K-theory and relative Bott periodicity. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Karoubi III.1.10: the specified compact Bott map is the existing geometric product. -/
 theorem compactBottEquiv_apply (X : Type*) [TopologicalSpace X] [CompactSpace X]
     [T2Space X] (a : ComplexKZero X) :
@@ -92,6 +100,9 @@ theorem bottLineExternalProduct_bijective_of_compactSpace (X : Type*) [Topologic
   rw [he]
   exact e.bijective
 
+-- Human-verified.
+-- - Degree-zero compactly supported K-theory and relative Bott periodicity. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Karoubi III.1.3 in degree zero: Bott external product for every LCH base. -/
 theorem bottLineExternalProduct_bijective (X : Type*) [TopologicalSpace X]
     [LocallyCompactSpace X] [T2Space X] :

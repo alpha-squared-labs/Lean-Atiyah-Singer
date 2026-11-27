@@ -46,6 +46,9 @@ attribute [local instance] complexUnitClosedDisc_compactSpace complexUnitClosedD
 variable {X Y : Type*} [TopologicalSpace X] [CompactSpace X] [T2Space X]
   [TopologicalSpace Y] [CompactSpace Y] [T2Space Y]
 
+-- Human-verified.
+-- - Degree-zero compactly supported K-theory and relative Bott periodicity. The review covers the
+--   documented definition or construction.
 /-- Relative Bott multiplication is external product with the specified disk-boundary class. -/
 def relativeBottProduct (A : Set X) (hA : IsClosed A) :
     RelativeKZero A hA →+
@@ -131,6 +134,9 @@ theorem relativeBottProduct_complement (A : Set X) (hA : IsClosed A)
   rw [bottDiskClass_toCompactSupport]
   rfl
 
+-- Human-verified.
+-- - Degree-zero compactly supported K-theory and relative Bott periodicity. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Relative Bott periodicity for the specified product on every compact Hausdorff closed pair. -/
 theorem relativeBottProduct_bijective (A : Set X) (hA : IsClosed A) :
     Function.Bijective (relativeBottProduct A hA) := by
@@ -168,6 +174,9 @@ def relativeBottEquiv (A : Set X) (hA : IsClosed A) :
         (isClosed_relativeProductSubset A hA complexDiskBoundary isClosed_complexDiskBoundary) :=
   AddEquiv.ofBijective (relativeBottProduct A hA) (relativeBottProduct_bijective A hA)
 
+-- Human-verified.
+-- - Degree-zero compactly supported K-theory and relative Bott periodicity. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Relative Bott multiplication is natural for arbitrary continuous maps of closed pairs. -/
 theorem relativeBottProduct_natural (A : Set X) (hA : IsClosed A)
     (B : Set Y) (hB : IsClosed B) (f : C(X, Y)) (hf : Set.MapsTo f A B)

@@ -75,6 +75,9 @@ set_option maxHeartbeats 12000000 in
 -- The original normal sphere, its two manifold models and four actual bundle maps coexist here.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Rank at a point and normalization of the analytic pushforward. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SG Property 2: the actual cotangent embedding pushforward preserves every class's index. -/
 theorem analyticIndexOfComponents_cotangentEmbeddingPushforward
     (f : ContMDiffMap (𝓡 n) (𝓡 m) M N ∞)
@@ -260,6 +263,9 @@ theorem analyticIndexOfComponents_cotangentEmbeddingPushforward
       AddEquiv.toAddMonoidHom_eq_coe, AddMonoidHom.coe_ofClass,
       AddEquiv.apply_symm_apply] using hindex
 
+-- Human-verified.
+-- - Rank at a point and normalization of the analytic pushforward. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The same compact embedding compatibility on SG's original tangent K groups. -/
 theorem tangentAnalyticIndex_tangentEmbeddingPushforward
     (f : ContMDiffMap (𝓡 n) (𝓡 m) M N ∞)

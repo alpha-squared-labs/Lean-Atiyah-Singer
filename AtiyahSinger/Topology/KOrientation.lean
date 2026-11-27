@@ -50,12 +50,18 @@ variable {X : Type*} [TopologicalSpace X] [CompactSpace X] [T2Space X]
   (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
 
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   documented definition or construction.
 /-- SG C.2: the same class generates the prescribed Thom isomorphism in every degree -n. -/
 def IsKOrientation (u : CompactSupportKZero (TotalSpace Unit E)) : Prop :=
   ∀ n : ℕ, Function.Bijective
     ((compactSupportKAction n (⟨π Unit E, continuous_proj (E := E)⟩ :
       C(TotalSpace Unit E, X))).flip u)
 
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   documented definition or construction.
 /-- SG C.6: the restricted class is an orientation on every closed trivializing subset. -/
 def HasBottPeriodicityProperty (u : CompactSupportKZero (TotalSpace Unit E)) : Prop :=
   ∀ (C : Set X) (hC : IsClosed C),
@@ -68,6 +74,9 @@ def HasBottPeriodicityProperty (u : CompactSupportKZero (TotalSpace Unit E)) : P
           (compactSupportKZeroPullback ⟨Subtype.val, continuous_subtype_val⟩
             (hC.preimage (continuous_proj (E := E))).isProperMap_subtypeVal u))
 
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG C.7: the Bott periodicity property makes the specified class a K-orientation. -/
 theorem isKOrientation_of_hasBottPeriodicityProperty
     (u : CompactSupportKZero (TotalSpace Unit E)) (hu : HasBottPeriodicityProperty E u) :
@@ -213,6 +222,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1200000 in
 -- Compare the same supported operators under restriction and arbitrary bundle isomorphism.
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original exterior Thom class has SG C.6's Bott property in all nonpositive degrees. -/
 theorem exteriorThomClass_hasBottPeriodicityProperty :
     HasBottPeriodicityProperty E (exteriorThomClass E hinner) := by
@@ -431,6 +443,9 @@ variable {X : Type*} [TopologicalSpace X]
   (hinner : Continuous (fun z : TotalSpace Unit (E ×ᵇ E) ↦ inner ℂ z.snd.1 z.snd.2))
   [CompactSpace X] [T2Space X]
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The compact-base complex Thom theorem for the prescribed exterior-symbol homomorphism. -/
 theorem exteriorThomHom_bijective : Function.Bijective (exteriorThomHom E hinner) := by
   /- The graded Thom equivalence already uses the actual exterior class and graph

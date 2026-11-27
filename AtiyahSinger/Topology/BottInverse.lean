@@ -82,6 +82,9 @@ variable {A : Type u} [NormedCommRing A] [NormedAlgebra ℂ A] [CompleteSpace A]
 
 namespace LaurentMatrixLoop
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the documented
+--   definition or construction.
 /-- The corrected class of the actual multiplier cokernel at an admissible shift. -/
 def shiftedCokernelIndex (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) : KZero A := by
@@ -93,6 +96,9 @@ def shiftedCokernelIndex (p : LaurentMatrixLoop A) (k : ℕ)
 open scoped Matrix Matrix.Norms.Operator unitInterval Topology in
 set_option maxHeartbeats 1600000 in
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KA III.1.19: the corrected cokernel class depends only on the stable Laurent class,
 including independence of the two admissible shifts and their polynomiality certificates. -/
 theorem shiftedCokernelIndex_eq_of_stablyHomotopic (p q : LaurentMatrixLoop A)
@@ -1533,6 +1539,9 @@ def stableLoopBottInverse (A : Type u) [NormedCommRing A] [NormedAlgebra ℂ A]
   map_zero' := stableLoopCokernelIndex_additive.1
   map_add' := stableLoopCokernelIndex_additive.2
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The inverse evaluates to the same corrected cokernel at every admissible shift. -/
 theorem stableLoopBottInverse_laurent (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) :
@@ -1550,6 +1559,9 @@ theorem stableLoopBottInverse_laurent (p : LaurentMatrixLoop A) (k : ℕ)
   exact p.shiftedCokernelIndex_eq_of_stablyHomotopic p _ k _ hk
     ((LaurentMatrixLoop.stableSetoid (A := A)).iseqv.refl p)
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KA III.1.20: the actual cokernel homomorphism is left inverse to the actual Bott map. -/
 theorem stableLoopBottInverse_left_inverse :
     Function.LeftInverse (stableLoopBottInverse A) (kZeroBottLoop A) := by

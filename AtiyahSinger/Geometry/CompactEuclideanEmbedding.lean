@@ -222,6 +222,9 @@ theorem isImmersion_of_injective_mfderiv
   -- The standard universe adapter treats an empty source vacuously; no point is selected.
   exact hlocal.isImmersion
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- A compact Hausdorff smooth manifold has a proper smooth embedding in some Euclidean space. -/
 theorem exists_proper_smoothEmbedding_euclidean [T2Space M] [CompactSpace M] :
     ∃ (n : ℕ)

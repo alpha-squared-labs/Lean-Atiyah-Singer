@@ -41,6 +41,8 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Ellipticity of the given operator. The review covers the documented definition or construction.
 /-- Quantitative full-symbol ellipticity in every valid cotangent chart and bundle frame. -/
 def IsEllipticFullGlobalSymbol (m : ℝ) (a : GlobalSymbolFunction (n := n) E F) : Prop :=
   ∀ (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))),
@@ -69,6 +71,9 @@ theorem IsEllipticFullGlobalSymbol.add_lowerOrder {m : ℝ}
   rw [globalSymbolInChart_add]
   exact (ha c hc e f).add_lowerOrder ε hε (hb c hc e f)
 
+-- Human-verified.
+-- - Ellipticity of the given operator. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Every representative of a principal class has the same quantitative ellipticity condition. -/
 theorem isEllipticFullGlobalSymbol_iff_of_class_eq {m : ℝ}
     (a b : globalSymbolSpace (n := n) (r := r) (q := q) E F m)

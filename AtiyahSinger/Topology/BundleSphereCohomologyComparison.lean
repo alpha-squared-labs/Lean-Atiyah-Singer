@@ -215,6 +215,9 @@ theorem compactSupportCohomologyToSphere_bijective (R : Type) [CommRing R] (k : 
     (isOpenEmbedding_sphereCompactificationInclusion (EB := EB) r V)
     (cofinal_isIso_sphereCompactificationComplementInclusion (EB := EB) r V R) k
 
+-- Human-verified.
+-- - Comparison of the normal-bundle Thom construction over a noncompact tangent base. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Ordinary cohomology of this sphere detects the original compact-support class. -/
 theorem compactSupportCohomologyToSphere_toOrdinary_injective
     (R : Type) [CommRing R] (k : ℕ) :

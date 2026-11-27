@@ -44,6 +44,10 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [TopologicalSpace (TotalSpace Unit E)]
   (A : SmoothComplexBundleAtlas (n := n) E)
 
+-- Human-verified.
+-- - Smooth complex connections. The review covers the documented definition or construction.
+-- - General smooth complex connections on the given coefficient bundle. The review covers the
+--   documented definition or construction.
 /-- The local connection formula, returned to the original fiber through the original frame.
 This is an implementation expression for the standard operation d u + Gamma u. -/
 def atlasConnectionExpression
@@ -62,6 +66,10 @@ def atlasConnectionExpression
             𝓘(ℝ, EuclideanSpace ℝ (Fin n)) c x v)
           (atlasSectionInChart A c i u.val (c x))))
 
+-- Human-verified.
+-- - Smooth complex connections. The review covers the documented definition or construction.
+-- - General smooth complex connections on the given coefficient bundle. The review covers the
+--   documented definition or construction.
 /-- A smooth complex connection given by compatible local connection one-forms. -/
 structure AtlasComplexConnection where
   /-- The complex endomorphism-valued real one-form in each original local frame. -/
@@ -91,6 +99,10 @@ namespace AtlasComplexConnection
 
 variable {A} (cov : AtlasComplexConnection A)
 
+-- Human-verified.
+-- - Smooth complex connections. The review covers the documented definition or construction.
+-- - General smooth complex connections on the given coefficient bundle. The review covers the
+--   documented definition or construction.
 /-- The actual covariant derivative of the original section, in an actual tangent direction. -/
 def covariantDerivative (u : A.smoothSections) (x : M)
     (v : TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x) : E x :=
@@ -100,6 +112,11 @@ def covariantDerivative (u : A.smoothSections) (x : M)
       (Classical.choose (A.covers x)))
     u x (Classical.choose_spec (A.covers x)) v
 
+-- Human-verified.
+-- - Smooth complex connections. The review covers the theorem statement and its documented
+--   mathematical correspondence.
+-- - General smooth complex connections on the given coefficient bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Every valid original frame computes that same covariant derivative. -/
 theorem covariantDerivative_eq (u : A.smoothSections)
     (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n)))
@@ -123,6 +140,11 @@ variable [hM : IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
   [hT : T2Space M] [hSC : SecondCountableTopology M]
 
 include hM hT hSC in
+-- Human-verified.
+-- - Smooth complex connections. The review covers the theorem statement and its documented
+--   mathematical correspondence.
+-- - General smooth complex connections on the given coefficient bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- A locally finite-rank smooth complex bundle admits a smooth complex connection. -/
 theorem nonempty_atlasComplexConnection : Nonempty (AtlasComplexConnection A) := by
   /- Stage 1: use a locally finite smooth partition subordinate to the actual

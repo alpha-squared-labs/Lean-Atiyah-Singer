@@ -51,6 +51,9 @@ variable (m : ℕ) {B : Type u} {P : Type v}
   {projection : P → B}
   (hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm m)) projection)
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   documented definition or construction.
 /-- The degree-2k Chern character of the original even-minus-odd associated spinor bundles. -/
 def halfSpinorCharacterComponent
     (hPlus : ComplexBundle.ContinuousHermitianMetric (HalfSpinorBundle m hP 0))
@@ -84,6 +87,9 @@ variable {m : ℕ} {B : Type u} {P : Type v} {E : B → Type u}
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original half-spinor difference has no Chern-character component below the real rank. -/
 theorem TopologicalSpinStructure.halfSpinorCharacterComponent_eq_zero_of_lt
     (S : TopologicalSpinStructure m E o hm hP)

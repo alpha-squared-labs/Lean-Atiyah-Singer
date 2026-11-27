@@ -71,6 +71,11 @@ local notation "V" => EuclideanSpace ℝ (Fin n)
 local notation "TM" => TangentBundle 𝓘(ℝ, V) M
 local notation "T" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
+-- Human-verified.
+-- - Finite sums in top degree and the pairings in T02 and T03. The review covers the documented
+--   definition or construction.
+-- - The same tangent-bundle class and the top-degree pairing in T02. The review covers the
+--   documented definition or construction.
 /-- The top-degree supported characteristic class ch(u) cup pi*(A-hat(TM)^2). -/
 def tangentIndexCharacteristicClass
     (g : SmoothTangentMetric (n := n) (M := M))
@@ -93,6 +98,11 @@ set_option maxHeartbeats 1600000 in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Finite sums in top degree and the pairings in T02 and T03. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - The same tangent-bundle class and the top-degree pairing in T02. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SG (13.18): the original topological index is the canonical TX characteristic number. -/
 theorem topologicalIndex_eq_tangent_characteristic_number
     (g : SmoothTangentMetric (n := n) (M := M))

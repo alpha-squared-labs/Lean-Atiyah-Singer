@@ -63,6 +63,11 @@ variable {m : ℕ} {M : Type} [TopologicalSpace M]
 local notation "V" => EuclideanSpace ℝ (Fin (2 * m))
 local notation "TM" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the documented definition or construction.
+-- - Orientation in positive even-dimensional T04 and cancellation of the two signs. The review
+--   covers the documented definition or construction.
 /-- The degree-2m component of the original ch(u) cup A-hat(TM). -/
 def spinDiracCharacteristicClass
     (hV : letI := complexificationTopology V TM
@@ -77,6 +82,11 @@ def spinDiracCharacteristicClass
         (chernCharacterKZeroComponent M i.val u)
         (RealBundle.aHatEvenComponent V TM hV (m - i.val)))
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the theorem statement and its documented mathematical correspondence.
+-- - Orientation in positive even-dimensional T04 and cancellation of the two signs. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- On an original bundle class, the characteristic factor retains its actual global character. -/
 theorem spinDiracCharacteristicClass_bundle
     (hV : letI := complexificationTopology V TM
@@ -127,6 +137,9 @@ local notation "TM" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
 -- Retain the original second-countability hypothesis in the public type.
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Orientation in positive even-dimensional T04 and cancellation of the two signs. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Both original tangent integration maps invert the same spin-normalized ordered Thom map. -/
 theorem TopologicalSpinStructure.tangentCohomologyFiberIntegral_eq :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -169,6 +182,9 @@ set_option maxHeartbeats 800000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Orientation in positive even-dimensional T04 and cancellation of the two signs. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original base-index class of a spin Thom coefficient is the signed Dirac characteristic. -/
 theorem TopologicalSpinStructure.baseIndexCharacteristicClass_spinThom
     (hV : letI := complexificationTopology V TM

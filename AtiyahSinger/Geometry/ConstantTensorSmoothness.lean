@@ -38,6 +38,9 @@ variable {n : ℕ} {M U : Type*} [TopologicalSpace M]
 attribute [local instance] ComplexBundle.tensorTopology
 
 set_option maxSynthPendingDepth 20 in
+-- Human-verified.
+-- - Schwartz parameters and smoothness of constant-coefficient tensors. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- In the original tensor atlas, all finite dual contractions detect smooth sections. -/
 theorem isSmoothSection_tensor_iff_of_constant_frame
     (C : SmoothComplexBundleAtlas (n := n) (fun _ : M ↦ U))

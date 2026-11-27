@@ -41,6 +41,9 @@ variable [hXL : LocallyCompactSpace X] [hXT : T2Space X]
 include hXL hXT hYL hYT
 
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Cylinder properness is exactly uniform compact control of inverse images. -/
 theorem isProperMap_homotopy_iff {f g : C(X, Y)} (H : ContinuousMap.Homotopy f g) :
     IsProperMap H ↔ ∀ K : Set Y, IsCompact K →
@@ -152,6 +155,9 @@ theorem properOnePointHomotopy_infty {f g : C(X, Y)} (hf : IsProperMap f) (hg : 
   selects infinity independently of time, so the homotopy stays pointed throughout. -/
   rfl
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Proper homotopies induce equal compactly supported pullbacks. -/
 theorem compactSupportKZeroPullback_eq_of_proper_homotopy {f g : C(X, Y)}
     (hf : IsProperMap f) (hg : IsProperMap g) (H : ContinuousMap.Homotopy f g)

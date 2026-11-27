@@ -40,6 +40,13 @@ variable (n : ℕ) (M : Type*) [TopologicalSpace M]
   [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
   [T2Space M] [SecondCountableTopology M] [CompactSpace M]
 
+-- Human-verified.
+-- - Relating the original symbol class to the topological index. The review covers the documented
+--   definition or construction.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the documented definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- The topological index on covectors, with its metric choice internal to the construction. -/
 def cotangentTopologicalIndex :
     CompactSupportKZero (CotangentTotalSpace (n := n) (M := M)) →+ ℤ := by
@@ -50,6 +57,13 @@ def cotangentTopologicalIndex :
 
 variable {n M}
 
+-- Human-verified.
+-- - Relating the original symbol class to the topological index. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the theorem statement and its documented mathematical correspondence.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Every supplied smooth metric gives the same cotangent topological index. -/
 theorem cotangentTopologicalIndex_eq (g : SmoothTangentMetric (n := n) (M := M)) :
     cotangentTopologicalIndex n M =
@@ -65,6 +79,9 @@ variable {m : ℕ} {N : Type*} [TopologicalSpace N]
   [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin m)) ∞ N]
   [T2Space N] [SecondCountableTopology N] [CompactSpace N]
 
+-- Human-verified.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- The cotangent topological index is natural for the transported actual embedding pushforward. -/
 theorem cotangentTopologicalIndex_pushforward
     (f : ContMDiffMap 𝓘(ℝ, EuclideanSpace ℝ (Fin n))

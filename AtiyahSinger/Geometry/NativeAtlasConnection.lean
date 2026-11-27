@@ -53,6 +53,11 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
 -- Preserve the original second-countability parameter; this local proof needs no use of it.
 set_option linter.unusedSectionVars false in
 include hT hSC in
+-- Human-verified.
+-- - Smooth complex connections. The review covers the theorem statement and its documented
+--   mathematical correspondence.
+-- - General smooth complex connections on the given coefficient bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The given native complex connection has connection forms with the same original action. -/
 theorem exists_atlasComplexConnection_native
     (covE : CovariantDerivative 𝓘(ℝ, EuclideanSpace ℝ (Fin n))

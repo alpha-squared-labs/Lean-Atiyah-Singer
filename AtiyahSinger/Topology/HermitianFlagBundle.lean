@@ -38,6 +38,9 @@ namespace AtiyahSinger.ComplexBundle
 
 open Bundle
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The standard full flag space as ordered orthogonal rank-one projections. -/
 abbrev HermitianFlagSpace (r : ℕ) (V : Type*) [NormedAddCommGroup V]
     [NormedSpace ℂ V] (h : InnerProductSpace.Core ℂ V) : Type _ :=
@@ -54,6 +57,9 @@ variable (r : ℕ) {X : Type*} [TopologicalSpace X]
   (h : letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
     ContinuousHermitianMetric E)
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- Ordered orthogonal flags in the actual original fibers of the bundle. -/
 def HermitianFlagBundle : Type _ :=
   letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
@@ -62,6 +68,9 @@ def HermitianFlagBundle : Type _ :=
 variable [FiberBundle (EuclideanSpace ℂ (Fin r)) E]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin r)) E]
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The ordinary flag topology induced by the native endomorphism-bundle topology. -/
 @[reducible]
 def hermitianFlagTopology : TopologicalSpace (HermitianFlagBundle r E h) :=
@@ -75,6 +84,9 @@ def hermitianFlagTopology : TopologicalSpace (HermitianFlagBundle r E h) :=
 
 attribute [local instance] hermitianFlagTopology
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The original base projection of the actual flag bundle. -/
 def hermitianFlagProjection : C(HermitianFlagBundle r E h, X) where
   toFun := fun p ↦ p.1

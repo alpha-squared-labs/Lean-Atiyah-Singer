@@ -29,6 +29,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   {E : M → Type*} [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)]
 
+-- Human-verified.
+-- - Atlases of smooth complex vector bundles. The review covers the documented definition or
+--   construction.
 /-- The actual fiber coordinates and inverse of an atlas trivialization on its base set. -/
 def frameLinearEquiv (A : SmoothComplexBundleAtlas (n := n) E) (i : A.Index)
     (x : M) (hx : x ∈ (A.chart i).baseSet) : E x ≃ₗ[ℂ] (Fin (A.rank i) → ℂ) where

@@ -39,6 +39,9 @@ variable {X Y : Type u} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X]
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Open extension preserves a supported lift of the original reduced Chern character. -/
 theorem compactSupportChernCharacter_openPushforward
     (f : C(X, Y)) (hf : IsOpenEmbedding f) (k : ℕ)

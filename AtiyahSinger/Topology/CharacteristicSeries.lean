@@ -36,10 +36,16 @@ namespace AtiyahSinger
 
 open CategoryTheory
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- The Todd characteristic series, interpreted as the inverse of (1-exp(-x))/x. -/
 def toddCharacteristicSeries : PowerSeries ℚ :=
   (PowerSeries.mk fun k : ℕ ↦ (-1 : ℚ) ^ k / (Nat.factorial (k + 1) : ℚ))⁻¹
 
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the documented definition or construction.
 /-- The A-hat series in a Pontryagin-root variable, the inverse of sinh(sqrt(x)/2)/(sqrt(x)/2). -/
 def aHatCharacteristicSeries : PowerSeries ℚ :=
   (PowerSeries.mk fun k : ℕ ↦
@@ -69,6 +75,9 @@ theorem characteristicSeries_normalization :
     norm_num [Finset.Nat.antidiagonal_succ, Finset.Nat.antidiagonal_zero,
       PowerSeries.coeff_zero_eq_constantCoeff, Nat.factorial]
 
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The paired-root identity underlying the geometric Todd/A-hat square formula. -/
 theorem toddCharacteristicSeries_mul_evalNeg :
     toddCharacteristicSeries * PowerSeries.evalNegHom toddCharacteristicSeries =
@@ -192,6 +201,9 @@ universe u
 
 variable (X : Type u) [TopologicalSpace X]
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- A finite list of original even classes multiplied by the actual cup product. -/
 def singularCohomologyEvenListCup {ι : Type*} (w : ι → ℕ)
     (a : ∀ i : ι, singularCohomology ℚ X (2 * w i)) :
@@ -201,6 +213,9 @@ def singularCohomologyEvenListCup {ι : Type*} (w : ι → ℕ)
       (a i) (singularCohomologyEvenListCup w a xs)
 
 open Classical in
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- The homogeneous degree-k evaluation of a finite weighted polynomial in actual even classes. -/
 def singularCohomologyWeightedPolynomial {m : ℕ} (w : Fin m → ℕ)
     (a : ∀ i : Fin m, singularCohomology ℚ X (2 * w i))

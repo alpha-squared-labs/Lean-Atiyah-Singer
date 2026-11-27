@@ -75,6 +75,9 @@ theorem exists_atlasPseudodifferentialOperator_of_homogeneousSymbol
 
 
 set_option linter.unusedVariables false in
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every original compact cotangent K class has a smooth atlas representative of any order. -/
 theorem exists_smooth_atlas_elliptic_representative
     (u : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M))) (m : ℝ) :
@@ -209,6 +212,9 @@ theorem exists_smooth_atlas_elliptic_representative
       _ = a.compactSupportClass := a.compactSupportClass_congr _ _
       _ = u := hclass
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every cotangent K class has a smooth elliptic symbol with a PDO realization. -/
 theorem exists_atlas_elliptic_pseudodifferential_representative
     (g : SmoothCotangentMetric (n := n) (M := M))

@@ -642,11 +642,17 @@ namespace AtlasQuantizationPresentation
 
 variable {A B} (C : AtlasQuantizationPresentation A B)
 
+-- Human-verified.
+-- - Parameters from the given atlas and integral estimates on noncompact domains. The review covers
+--   the documented definition or construction.
 /-- Quantize the specified homogeneous field with the same metric and finite presentation. -/
 def quantizeHomogeneous (a : homogeneousAtlasSymbolSpace A B m) :
     AtlasPseudodifferentialOperator A B m :=
   C.quantize (atlasRegularizationLinearMap A B g m a)
 
+-- Human-verified.
+-- - Parameters from the given atlas and integral estimates on noncompact domains. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- This actual operator has precisely the regularized homogeneous principal class. -/
 theorem principalSymbol_quantizeHomogeneous (a : homogeneousAtlasSymbolSpace A B m) :
     (C.quantizeHomogeneous g m a).principalSymbol =
@@ -657,6 +663,9 @@ theorem principalSymbol_quantizeHomogeneous (a : homogeneousAtlasSymbolSpace A B
   principal quotient, not a separately selected representative operator. -/
   exact C.principalSymbol_quantize (atlasRegularizationLinearMap A B g m a)
 
+-- Human-verified.
+-- - Parameters from the given atlas and integral estimates on noncompact domains. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- A fixed homogeneous quantization carries smooth-topology families to norm-continuous
 operators. -/
 theorem continuous_sobolevQuantizeHomogeneous

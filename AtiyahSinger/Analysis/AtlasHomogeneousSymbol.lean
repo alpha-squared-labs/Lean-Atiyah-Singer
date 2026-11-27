@@ -55,6 +55,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   (A : SmoothComplexBundleAtlas (n := n) E)
   (B : SmoothComplexBundleAtlas (n := n) F)
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- Smoothness of the actual coordinate Hom family on the punctured cotangent bundle. -/
 def IsSmoothOffZeroAtlasSymbol (a : AtlasSymbolFunction (n := n) E F) : Prop :=
   ∀ (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))),
@@ -62,11 +65,17 @@ def IsSmoothOffZeroAtlasSymbol (a : AtlasSymbolFunction (n := n) E F) : Prop :=
       ContDiffOn ℝ ∞ (Function.uncurry (atlasGlobalSymbolInChart A B a c i j))
         (atlasSymbolChartDomain A B c i j ×ˢ {ξ | ξ ≠ 0})
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- Positive real homogeneity of the original fiber maps, with no condition at zero. -/
 def IsHomogeneousAtlasSymbol (m : ℝ) (a : AtlasSymbolFunction (n := n) E F) : Prop :=
   ∀ x : M, ∀ ξ : TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ,
     ξ ≠ 0 → ∀ t : ℝ, 0 < t → a x (t • ξ) = ((t ^ m : ℝ) : ℂ) • a x ξ
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- Ellipticity of the displayed homogeneous data is bijectivity off the zero section. -/
 def IsEllipticAtlasSymbol (a : AtlasSymbolFunction (n := n) E F) : Prop :=
   ∀ x : M, ∀ ξ : TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ,
@@ -75,6 +84,9 @@ def IsEllipticAtlasSymbol (a : AtlasSymbolFunction (n := n) E F) : Prop :=
 variable [hM : IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
   (g : SmoothCotangentMetric (n := n) (M := M))
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- Apply the fixed one-dimensional cutoff to the actual metric covector length. -/
 def atlasRegularizedSymbolFunction (a : AtlasSymbolFunction (n := n) E F) :
     AtlasSymbolFunction (n := n) E F :=
@@ -305,6 +317,9 @@ theorem isAtlasGlobalSymbol_atlasRegularizedSymbolFunction (m : ℝ)
   rw [heq] at hsum
   exact hsum.2 K hKK' hK α β
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- The actual radial regularization packaged in the existing order-m symbol module. -/
 def atlasRegularizedSymbol (m : ℝ) (a : AtlasSymbolFunction (n := n) E F)
     (hs : IsSmoothOffZeroAtlasSymbol A B a) (hh : IsHomogeneousAtlasSymbol m a) :

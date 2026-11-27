@@ -42,6 +42,9 @@ universe u
 
 local notation "ℚRes" => ModuleCat.restrictScalars (Int.castRingHom ℚ)
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- Coefficient inclusion descended from the original relative classes at each compact support. -/
 def compactSupportCohomologyRationalization (X : Type u) [TopologicalSpace X] (n : ℕ) :
     compactSupportCohomology ℤ X n ⟶ (ℚRes).obj (compactSupportCohomology ℚ X n) :=
@@ -71,6 +74,9 @@ def compactSupportCohomologyRationalization (X : Type u) [TopologicalSpace X] (n
                 (fun g ↦ g (relativeSingularCohomologyRationalization ((K : Set X)ᶜ) n a))
                 (colimit.w (compactSupportCohomologyFunctor ℚ X n) f)) } }
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- A compact representative is rationalized on its original relative pair and same support. -/
 theorem compactSupportCohomologyRationalization_representative
     (X : Type u) [TopologicalSpace X] (K : Compacts X) (n : ℕ)

@@ -124,6 +124,9 @@ theorem IsGlobalSymbol.continuous_total {m : ℝ}
       (covectorInChart c z.proj z.snd)
   rw [globalSymbolInChart_covectorInChart E F _ c hc e f z.proj hz]
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the documented
+--   definition or construction.
 /-- The specified full symbol acts by its exact maps on the original cotangent pullbacks. -/
 def fullSymbolBundleHom {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m) :

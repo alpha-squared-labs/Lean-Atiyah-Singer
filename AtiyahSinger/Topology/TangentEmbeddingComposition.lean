@@ -113,6 +113,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 2200000 in
 -- Normalize the original complexified normal splitting and nested pushforward maps.
+-- Human-verified.
+-- - Functoriality of pushforwards and the projection formula. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual tangent embedding pushforward preserves proper smooth composition. -/
 theorem tangentEmbeddingPushforward_comp
     (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, F) M N ∞)
@@ -427,6 +430,9 @@ end Composition
 set_option maxSynthPendingDepth 40 in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Functoriality of pushforwards and the projection formula. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The identity embedding has the positively normalized identity compact-support pushforward. -/
 theorem tangentEmbeddingPushforward_id :
     letI : T2Space (TangentBundle 𝓘(ℝ, E) M) := (tangentBundle_topology E M).1

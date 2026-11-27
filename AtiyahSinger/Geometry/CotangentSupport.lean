@@ -31,11 +31,17 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]
   [hM : IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the documented
+--   definition or construction.
 /-- The actual cotangent projection as a continuous map. -/
 @[reducible]
 def cotangentProjection : C(CotangentTotalSpace (n := n) (M := M), M) :=
   ⟨Bundle.TotalSpace.proj, FiberBundle.continuous_proj (CotangentModel n) _⟩
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The cotangent projection keeps the base point. -/
 theorem cotangentProjection_apply (z : CotangentTotalSpace (n := n) (M := M)) :
     cotangentProjection z = z.proj := by
@@ -43,6 +49,9 @@ theorem cotangentProjection_apply (z : CotangentTotalSpace (n := n) (M := M)) :
   returns the original base point, independently of the covector. -/
   rfl
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the documented
+--   definition or construction.
 /-- The zero section as an actual map into the cotangent total space. -/
 def cotangentZeroSection : M → CotangentTotalSpace (n := n) (M := M) :=
   fun x ↦ ⟨x, 0⟩
@@ -54,6 +63,9 @@ theorem continuous_cotangentZeroSection :
   preserve zero, hence these continuous local formulas agree globally. -/
   exact Trivialization.continuous_zeroSection ℝ (F := CotangentModel n)
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the documented
+--   definition or construction.
 /-- Zero covectors form the control set for an elliptic symbol. -/
 @[reducible]
 def cotangentZeroSet : Set (CotangentTotalSpace (n := n) (M := M)) :=
@@ -92,6 +104,9 @@ theorem cotangentZeroSection_injective :
   intro x y hxy
   exact congrArg (fun z : CotangentTotalSpace (n := n) (M := M) ↦ z.proj) hxy
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Over a compact base the zero section gives one compact control set. -/
 theorem isCompact_cotangentZeroSet [CompactSpace M] :
     IsCompact (cotangentZeroSet (n := n) (M := M)) := by
@@ -100,6 +115,9 @@ theorem isCompact_cotangentZeroSet [CompactSpace M] :
   rw [← range_cotangentZeroSection]
   exact isCompact_range continuous_cotangentZeroSection
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The cotangent total space is Hausdorff over a Hausdorff base. -/
 theorem t2Space_cotangent [T2Space M] :
     T2Space (CotangentTotalSpace (n := n) (M := M)) := by
@@ -151,6 +169,9 @@ theorem isClosed_cotangentZeroSet [T2Space M] :
     rw [← hzero]
     rfl
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The finite-dimensional cotangent total space of a Hausdorff base is locally compact. -/
 theorem locallyCompactSpace_cotangent [T2Space M] :
     LocallyCompactSpace (CotangentTotalSpace (n := n) (M := M)) := by
@@ -192,6 +213,9 @@ theorem cotangentZeroSet_eq_univ_of_dim_zero (hn : n = 0) :
   intro z
   exact cotangentFiber_eq_zero_of_dim_zero hn z.proj z.snd
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The cotangent projection is a homeomorphism in dimension zero. -/
 theorem exists_cotangentProjection_homeomorph_of_dim_zero (hn : n = 0) :
     ∃ e : CotangentTotalSpace (n := n) (M := M) ≃ₜ M,

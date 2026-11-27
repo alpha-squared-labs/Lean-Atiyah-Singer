@@ -31,6 +31,9 @@ variable {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
   (E : X → Type*) [∀ x, NormedAddCommGroup (E x)] [∀ x, NormedSpace ℂ (E x)]
   [TopologicalSpace (TotalSpace V E)]
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- Retype the phantom model while preserving the actual point and vector. -/
 def unitTotalEquiv : TotalSpace Unit E ≃ TotalSpace V E :=
   { toFun := fun z ↦ ⟨z.proj, z.snd⟩
@@ -38,6 +41,9 @@ def unitTotalEquiv : TotalSpace Unit E ≃ TotalSpace V E :=
     left_inv := fun _ ↦ rfl
     right_inv := fun _ ↦ rfl }
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- The original total topology transported to the Unit phantom model. -/
 @[reducible]
 def modelTopology : TopologicalSpace (TotalSpace Unit E) :=
@@ -65,6 +71,9 @@ theorem continuous_unitTotalEquiv_symm :
   intro z
   exact ((unitTotalEquiv V E).apply_symm_apply z).symm
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- The actual homeomorphism between the two phantom-model conventions. -/
 def unitTotalHomeomorph :
     letI := modelTopology V E
@@ -74,6 +83,9 @@ def unitTotalHomeomorph :
     continuous_toFun := continuous_unitTotalEquiv V E
     continuous_invFun := continuous_unitTotalEquiv_symm V E }
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Retyping a vector retains both its base and value. -/
 theorem unitTotalHomeomorph_apply (x : X) (v : E x) :
     letI := modelTopology V E
@@ -83,6 +95,9 @@ theorem unitTotalHomeomorph_apply (x : X) (v : E x) :
   rfl
 
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Continuity of a map into the retyped space is exactly original continuity. -/
 theorem continuous_modelTotal_iff (f : Y → TotalSpace Unit E) :
     letI := modelTopology V E
@@ -96,6 +111,9 @@ variable [hB : FiberBundle V E] [hV : VectorBundle ℂ V E]
 
 include hB hV hD
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Finite-dimensional modeled local frames give the standard local finite-rank condition. -/
 theorem isFiniteRank_model :
     letI := modelTopology V E
@@ -126,6 +144,9 @@ theorem isFiniteRank_model :
     change c ((e ⟨y, a • v⟩).2) = a • c ((e ⟨y, v⟩).2)
     rw [hlinear.map_smul, map_smul]
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- A small bundle object isomorphic to the original modeled family. -/
 def modelFiniteBundle :
     letI := modelTopology V E
@@ -135,6 +156,9 @@ def modelFiniteBundle :
   letI := isFiniteRank_model V E
   smallBundle E
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- The original family is mapped to its chosen small model by an actual bundle isomorphism. -/
 def modelFiniteBundleIso :
     letI := modelTopology V E

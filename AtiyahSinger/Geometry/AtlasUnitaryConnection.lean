@@ -42,6 +42,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [TopologicalSpace (TotalSpace Unit E)]
   {A : SmoothComplexBundleAtlas (n := n) E}
 
+-- Human-verified.
+-- - The order-zero difference between connections and the scope of the original index. The review
+--   covers the documented definition or construction.
 /-- The original covariant derivative preserves this specified Hermitian form. -/
 def IsUnitary (cov : AtlasComplexConnection A)
     (h : ComplexBundle.ContinuousHermitianMetric E) : Prop :=
@@ -59,6 +62,9 @@ set_option maxHeartbeats 0 in
 -- The full Gram-operator and native-chart calculation exceeds the default limit.
 include hM hT hSC in
 open scoped Matrix.Norms.Elementwise in
+-- Human-verified.
+-- - The order-zero difference between connections and the scope of the original index. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Every specified smooth Hermitian metric admits a preserving connection on the same atlas. -/
 theorem exists_unitary (h : ComplexBundle.ContinuousHermitianMetric E)
     (hh : A.IsSmoothHermitianMetric h) :

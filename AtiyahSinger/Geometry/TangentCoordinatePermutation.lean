@@ -28,6 +28,9 @@ namespace AtiyahSinger
 
 open scoped BigOperators
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Interleaving two ordered blocks has the triangular-number sign, including empty blocks. -/
 theorem sign_of_interleaved_coordinates (n : ℕ) (σ : Equiv.Perm (Fin (n + n)))
     (hleft : ∀ i : Fin n, (σ (i.castAdd n)).val = 2 * i.val)

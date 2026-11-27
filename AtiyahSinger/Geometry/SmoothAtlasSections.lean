@@ -39,6 +39,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   {E : M → Type*} [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)] (A : SmoothComplexBundleAtlas (n := n) E)
 
+-- Human-verified.
+-- - The original smooth sections. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The grouped closure certificate used to construct the standard space of smooth sections.
 The three clauses are implementation fields, rather than independent mathematical nodes. -/
 theorem isSmoothSection_closure :
@@ -71,6 +74,8 @@ theorem isSmoothSection_closure :
     intro x hx
     exact (A.linear i x hx).map_smul c (s x)
 
+-- Human-verified.
+-- - The original smooth sections. The review covers the documented definition or construction.
 /-- The complex vector space of smooth sections of the original locally finite-rank bundle. -/
 def smoothSections : Submodule ℂ (∀ x : M, E x) where
   carrier := {s | A.IsSmoothSection s}
@@ -78,6 +83,9 @@ def smoothSections : Submodule ℂ (∀ x : M, E x) where
   add_mem' := fun hs ht ↦ A.isSmoothSection_closure.2.1 _ _ hs ht
   smul_mem' := fun c _ hs ↦ A.isSmoothSection_closure.2.2 c _ hs
 
+-- Human-verified.
+-- - The original smooth sections. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Smooth sections are continuous as maps into the original total space. -/
 theorem continuous_section (s : ∀ x : M, E x) (hs : A.IsSmoothSection s) :
     Continuous (fun x : M ↦ (⟨x, s x⟩ : TotalSpace Unit E)) := by

@@ -57,6 +57,9 @@ local notation "TM" => TangentBundle 𝓘(ℝ, V) M
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original tangent local generators differ by exactly the grouped/interleaved permutation. -/
 theorem bundleHomologicalOrientation_tangent_localGenerator
     (g : SmoothTangentMetric (n := n) (M := M)) (O : HomologicalOrientation n M) (z : TM) :

@@ -62,6 +62,9 @@ local notation "SpinMinus" => HalfSpinorBundle 0 hP (1 : ZMod 2)
 local notation "VectorProjection" => (π RealModel E)
 local notation "ZeroSet" => Set.range (zeroSection RealModel E)
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the documented
+--   definition or construction.
 /-- The actual zero Clifford map restricts to the unique isomorphism off the zero section. -/
 def zeroSpinCliffordParityBoundary :
     RelativeTriple (VectorProjection *ᵖ SpinPlus) (VectorProjection *ᵖ SpinMinus) ZeroSetᶜ :=
@@ -86,6 +89,9 @@ def zeroSpinCliffordParityBoundary :
 
 variable [CompactSpace B]
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the documented
+--   definition or construction.
 /-- The original rank-zero symbol with the actual compact zero section as control. -/
 def zeroSpinorSymbolTriple :
     CompactSupportTriple (VectorProjection *ᵖ SpinPlus) (VectorProjection *ᵖ SpinMinus) where
@@ -94,6 +100,9 @@ def zeroSpinorSymbolTriple :
     Bundle.Trivialization.continuous_zeroSection ℝ)
   boundary := zeroSpinCliffordParityBoundary E hP
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the documented
+--   definition or construction.
 /-- The same rank-zero spin symbol packaged in the existing isomorphic small models. -/
 def zeroSpinorSupportTriple : SupportBundleTriple (TotalSpace RealModel E) :=
   letI : IsFiniteRank SpinPlus :=
@@ -110,6 +119,9 @@ def zeroSpinorSupportTriple : SupportBundleTriple (TotalSpace RealModel E) :=
 
 variable [T2Space B]
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the documented
+--   definition or construction.
 /-- The actual compact-support spin-symbol class for the native rank-zero convention. -/
 def zeroSpinorThomClass : CompactSupportKZero (TotalSpace RealModel E) :=
   (zeroSpinorSupportTriple E hP).compactSupportClass

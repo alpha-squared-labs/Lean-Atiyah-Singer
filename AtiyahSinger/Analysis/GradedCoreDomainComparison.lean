@@ -37,6 +37,9 @@ variable {X₀ X₁ E₀ E₁ Y₀ Y₁ S₀ S₁ : Type*}
   [NormedAddCommGroup Y₁] [InnerProductSpace ℂ Y₁] [CompleteSpace Y₁]
   [AddCommGroup S₀] [Module ℂ S₀] [AddCommGroup S₁] [Module ℂ S₁]
 
+-- Human-verified.
+-- - Graded closed realizations and their domains. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Two original joint core estimates identify the domain of the same signed graded operator. -/
 theorem LinearPMap.exists_graded_graphDomainEquiv_of_joint_core_bounds
     (J₀ : X₀ →L[ℂ] E₀) (J₁ : X₁ →L[ℂ] E₁)

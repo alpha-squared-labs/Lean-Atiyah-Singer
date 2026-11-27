@@ -783,6 +783,9 @@ theorem affine_inverse_coefficients (a₀ a₁ : A) (b : WienerLoop A)
   · simpa only [hleftsum, lp.coeFn_single, Pi.single_apply] using hleftn
   · simpa only [hrightsum, lp.coeFn_single, Pi.single_apply] using hrightn
 
+-- Human-verified.
+-- - Polynomial loops and affine coefficients. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- KL05 (v), (v'): inverse coefficients commute with both normalized affine coefficients. -/
 theorem affine_inverse_commute (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)
@@ -819,6 +822,9 @@ theorem affine_inverse_commute (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
   rw [ha₁]
   exact (Commute.one_left (b n)).sub_left hcomm
 
+-- Human-verified.
+-- - Polynomial loops and affine coefficients. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- KL05 (iv): all coefficients of the inverse normalized affine loop commute. -/
 theorem affine_inverse_coefficients_commute (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)
@@ -864,6 +870,9 @@ theorem affine_inverse_coefficients_commute (a₀ a₁ : A) (hbase : a₀ + a₁
   change b i * b j = b j * b i
   simpa only [(hconst (b i) b j).1, (hconst (b i) b j).2] using hcoeff
 
+-- Human-verified.
+-- - Polynomial loops and affine coefficients. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- KL05 (i), (ii): coefficients from opposite Fourier halves annihilate across a₀ or a₁. -/
 theorem affine_inverse_cross_coefficients (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)
@@ -930,6 +939,9 @@ theorem affine_inverse_cross_coefficients (a₀ a₁ : A) (hbase : a₀ + a₁ =
     · rw [hswap a₁ hi_comm.2 hj_comm.2]
       exact hsecond j i hj hi
 
+-- Human-verified.
+-- - Polynomial loops and affine coefficients. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- KL05 (iii): the negative and nonnegative inverse coefficients annihilate each other. -/
 theorem affine_inverse_cross_mul (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)

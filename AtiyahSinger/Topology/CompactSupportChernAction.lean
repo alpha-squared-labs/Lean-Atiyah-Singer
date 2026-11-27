@@ -212,6 +212,9 @@ variable {B : Type u} [TopologicalSpace B] [CompactSpace B] [T2Space B]
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Finite detection of the Thom defect and the inverse Todd class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original supported character sends the compact-base graph action to cup convolution. -/
 theorem compactSupportChernCharacterComponent_action
     (h : ContinuousHermitianMetric E) (r : ℕ) (hr : ∀ x, Module.finrank ℂ (E x) = r)

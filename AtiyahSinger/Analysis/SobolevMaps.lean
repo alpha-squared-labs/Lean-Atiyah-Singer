@@ -88,6 +88,9 @@ theorem exists_norm_smoothToSobolev_le (s : ℝ) :
     _ ≤ (D + 1) * ‖A.smoothToSobolev s u‖ :=
       mul_le_mul_of_nonneg_right (le_add_of_nonneg_right zero_le_one) (norm_nonneg _)
 
+-- Human-verified.
+-- - Comparison of presentations and Rellich compactness. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The identity on smooth sections extends to a unique change-of-presentation equivalence. -/
 theorem existsUnique_sobolevEquiv (s : ℝ) :
     ∃! T : A.SobolevSpace s ≃L[ℂ] B.SobolevSpace s,
@@ -136,10 +139,16 @@ theorem existsUnique_sobolevEquiv (s : ℝ) :
   funext u
   exact (he' u).trans (hT u).symm
 
+-- Human-verified.
+-- - Comparison of presentations and Rellich compactness. The review covers the documented
+--   definition or construction.
 /-- The canonical equivalence extending the identity on smooth sections. -/
 def sobolevEquiv (s : ℝ) : A.SobolevSpace s ≃L[ℂ] B.SobolevSpace s :=
   Classical.choose (A.existsUnique_sobolevEquiv B s).exists
 
+-- Human-verified.
+-- - Comparison of presentations and Rellich compactness. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The presentation equivalence preserves the represented smooth section. -/
 theorem sobolevEquiv_smoothToSobolev (s : ℝ)
     (u : smoothSections (n := n) (r := r) E) :
@@ -147,6 +156,9 @@ theorem sobolevEquiv_smoothToSobolev (s : ℝ)
   /- Apply the witness specification to the actual identity on the dense smooth image. -/
   exact (Classical.choose_spec (A.existsUnique_sobolevEquiv B s).exists) u
 
+-- Human-verified.
+-- - Comparison of presentations and Rellich compactness. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The identity on smooth sections has a unique bounded extension when the order decreases. -/
 theorem existsUnique_sobolevInclusion (s t : ℝ) (hst : t ≤ s) :
     ∃! J : A.SobolevSpace s →L[ℂ] A.SobolevSpace t,
@@ -221,11 +233,17 @@ theorem existsUnique_sobolevInclusion (s t : ℝ) (hst : t ≤ s) :
   funext u
   exact (hR u).trans (hS u).symm
 
+-- Human-verified.
+-- - Comparison of presentations and Rellich compactness. The review covers the documented
+--   definition or construction.
 /-- The natural inclusion, not the identity on the weighted L² coordinate tuples. -/
 def sobolevInclusion (s t : ℝ) (hst : t ≤ s) :
     A.SobolevSpace s →L[ℂ] A.SobolevSpace t :=
   Classical.choose (A.existsUnique_sobolevInclusion s t hst).exists
 
+-- Human-verified.
+-- - Comparison of presentations and Rellich compactness. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The inclusion at two orders represents the same smooth section. -/
 theorem sobolevInclusion_smoothToSobolev (s t : ℝ) (hst : t ≤ s)
     (u : smoothSections (n := n) (r := r) E) :
@@ -290,6 +308,9 @@ theorem localDistribution_sobolevInclusion (s t : ℝ) (hst : t ≤ s)
   rw [A.sobolevInclusion_smoothToSobolev, A.localDistribution_smoothToSobolev,
     A.localDistribution_smoothToSobolev]
 
+-- Human-verified.
+-- - Comparison of presentations and Rellich compactness. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The bounded order-decreasing map is injective, including at negative orders. -/
 theorem sobolevInclusion_injective (s t : ℝ) (hst : t ≤ s) :
     Function.Injective (A.sobolevInclusion s t hst) := by
@@ -306,6 +327,9 @@ theorem sobolevInclusion_injective (s t : ℝ) (hst : t ≤ s) :
   rw [← A.localDistribution_sobolevInclusion s t hst j u,
     ← A.localDistribution_sobolevInclusion s t hst j v, huv]
 
+-- Human-verified.
+-- - Comparison of presentations and Rellich compactness. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Global Rellich theorem: a strict drop in Sobolev order gives a compact inclusion. -/
 theorem isCompactOperator_sobolevInclusion (s t : ℝ) (hst : t < s) :
     IsCompactOperator (A.sobolevInclusion s t hst.le) := by

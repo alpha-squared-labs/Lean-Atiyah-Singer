@@ -66,6 +66,9 @@ legacy_instance_names
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.3750496118._hygCtx._hyg.9",
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.3750496118._hygCtx._hyg.22",
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.3750496118._hygCtx._hyg.25"] in
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the documented definition or construction.
 /-- Cap with the rational image of the specified integral fundamental class over K. -/
 def compactRelativeDuality {n : ℕ} {M : Type u} [TopologicalSpace M]
     [ChartedSpace (EuclideanSpace ℝ (Fin n)) M] [T2Space M] [SecondCountableTopology M]
@@ -106,6 +109,9 @@ legacy_instance_names
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.4144328483._hygCtx._hyg.9",
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.4144328483._hygCtx._hyg.22",
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.4144328483._hygCtx._hyg.25"] in
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the documented definition or construction.
 /-- The actual cap-duality map descended through the original compact-support colimit. -/
 def compactPoincareDuality {n : ℕ} {M : Type u} [TopologicalSpace M]
     [ChartedSpace (EuclideanSpace ℝ (Fin n)) M] [T2Space M] [SecondCountableTopology M]
@@ -150,6 +156,9 @@ legacy_instance_names
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.1407311230._hygCtx._hyg.9",
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.1407311230._hygCtx._hyg.22",
     "inst._@.AtiyahSinger.Topology.CompactPoincareDuality.1407311230._hygCtx._hyg.25"] in
+-- Human-verified.
+-- - Finite sums in top degree and the pairings in T02 and T03. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Compactly supported cohomology vanishes above the manifold dimension. -/
 theorem compactSupportCohomology_subsingleton_above_dim {n : ℕ} {M : Type u} [TopologicalSpace M]
     [ChartedSpace (EuclideanSpace ℝ (Fin n)) M] [T2Space M] [SecondCountableTopology M]

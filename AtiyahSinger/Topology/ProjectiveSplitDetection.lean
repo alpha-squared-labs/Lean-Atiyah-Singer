@@ -48,6 +48,9 @@ set_option maxHeartbeats 1500000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Finite detection of the Thom defect and the inverse Todd class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A finite actual line family admits a common section detecting classes after its root product. -/
 theorem exists_projectiveSplitDetection (r k : ℕ)
     {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]

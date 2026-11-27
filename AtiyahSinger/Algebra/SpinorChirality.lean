@@ -37,6 +37,9 @@ are asserted only in positive even real dimension.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the documented
+--   definition or construction.
 /-- SG's normalized complex volume for the interleaved real and imaginary basis. -/
 def complexSpinorVolume (m : ℕ) : CliffordAlgebra (complexSpinorQuadraticForm m) :=
   (Complex.I ^ m) •
@@ -46,10 +49,16 @@ def complexSpinorVolume (m : ℕ) : CliffordAlgebra (complexSpinorQuadraticForm 
         CliffordAlgebra.ι (complexSpinorQuadraticForm m)
           (0, EuclideanSpace.single j (1 : ℂ)))).prod
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the documented
+--   definition or construction.
 /-- The chirality operator is the action of the specified normalized volume. -/
 def complexSpinorChirality (m : ℕ) : Module.End ℂ (ComplexSpinor m) :=
   complexSpinorRepresentation m (complexSpinorVolume m)
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the documented
+--   definition or construction.
 /-- The two half-spin spaces are the actual positive and negative chirality eigenspaces. -/
 def complexHalfSpinor (m : ℕ) (i : ZMod 2) : Submodule ℂ (ComplexSpinor m) :=
   (complexSpinorChirality m).eigenspace ((-1 : ℂ) ^ i.val)
@@ -200,6 +209,9 @@ theorem complexSpinorChirality_eq_involute (m : ℕ) :
   rw [hb, hinvmon]
   simp only [seq, List.length_ofFn]
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SG's two chirality eigenspaces are exactly the original exterior parity submodules. -/
 theorem complexHalfSpinor_eq_evenOdd (m : ℕ) (i : ZMod 2) :
     complexHalfSpinor m i =
@@ -265,6 +277,9 @@ theorem complexHalfSpinor_eq_evenOdd (m : ℕ) (i : ZMod 2) :
     · intro hx
       exact CliffordAlgebra.involute_eq_of_mem_odd hx
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- In positive even real dimension, each actual half-spin space has dimension 2^(m-1). -/
 theorem finrank_complexHalfSpinor (m : ℕ) (hm : 0 < m) (i : ZMod 2) :
     Module.finrank ℂ (complexHalfSpinor m i) = 2 ^ (m - 1) := by

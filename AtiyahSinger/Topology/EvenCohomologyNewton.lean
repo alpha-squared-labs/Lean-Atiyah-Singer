@@ -28,6 +28,9 @@ universe u
 
 variable (R : Type) [CommRing R] (X : Type u) [TopologicalSpace X]
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the documented definition or
+--   construction.
 /-- The degree-2k Newton power sum evaluated on the specified even cohomology classes. -/
 def singularCohomologyNewtonPowerSum (r : ℕ)
     (c : (j : ℕ) → singularCohomology R X (2 * j)) (k : ℕ) :

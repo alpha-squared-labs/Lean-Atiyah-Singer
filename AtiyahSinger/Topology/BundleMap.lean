@@ -33,6 +33,9 @@ variable {X : Type*} [TopologicalSpace X]
   {G : X → Type*} [∀ x, AddCommGroup (G x)] [∀ x, Module ℂ (G x)]
   [TopologicalSpace (TotalSpace Unit G)]
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- A continuous complex-linear bundle map over the identity of the base. -/
 structure Hom (E F : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
     [∀ x, AddCommGroup (F x)] [∀ x, Module ℂ (F x)]
@@ -43,6 +46,9 @@ structure Hom (E F : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ
   continuous_total : Continuous (fun z : TotalSpace Unit E ↦
     (⟨z.proj, linearMap z.proj z.snd⟩ : TotalSpace Unit F))
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- The actual map on total spaces. -/
 def Hom.totalMap (f : Hom E F) : TotalSpace Unit E → TotalSpace Unit F :=
   fun z ↦ ⟨z.proj, f.linearMap z.proj z.snd⟩

@@ -38,6 +38,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent isFiniteRank_pullback
 
 include hM hT hC hSC in
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Smooth the specified homogeneous continuous triple without changing its cotangent K class. -/
 theorem exists_smooth_homogeneousSymbol_of_continuousTriple
     (E F : SmoothFiniteComplexBundle (n := n) M) (m : ℝ) :

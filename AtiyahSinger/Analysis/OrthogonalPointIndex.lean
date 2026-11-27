@@ -146,6 +146,9 @@ theorem orthogonalSphere_point_index_eq_one_of_axioms
   simpa only [map_one, Pi.one_apply] using
     (hcast _ _ hDim _ B hB).trans (hblock a b g)
 
+-- Human-verified.
+-- - Two-pole symbols and low-dimensional normalization. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The original O(r)-equivariant analytic index of either positive pole class is one. -/
 theorem orthogonalSpherePoleIndex_eq_one (r : ℕ) (atInfinity : Bool) :
     orthogonalSphereTangentAnalyticIndex r
@@ -164,6 +167,9 @@ theorem orthogonalSpherePoleIndex_eq_one (r : ℕ) (atInfinity : Bool) :
     orthogonalSphereTangentAnalyticIndex orthogonalSpherePoleIndex_directSum
     orthogonalCirclePoleIndex_eq_one specialOrthogonalPlanePoleIndex_eq_one r atInfinity
 
+-- Human-verified.
+-- - Two-pole symbols and low-dimensional normalization. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Every representation coefficient is recovered by the original positive point pushforward. -/
 theorem orthogonalSphereTangentAnalyticIndex_polePushforward
     (r : ℕ) (atInfinity : Bool)

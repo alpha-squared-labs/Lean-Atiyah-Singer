@@ -64,6 +64,9 @@ variable {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
   (h : ContinuousHermitianMetric E) (r : ℕ) (hr : ∀ x, Module.finrank ℂ (E x) = r)
 
+-- Human-verified.
+-- - Finite detection of the Thom defect and the inverse Todd class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The supported character of any actual complex Thom image vanishes below its Thom degree. -/
 theorem compactSupportChernCharacter_supportedThom_eq_zero_of_lt
     (u : ComplexKZero X) (k : ℕ) (hk : k < r) :
@@ -84,6 +87,9 @@ theorem compactSupportChernCharacter_supportedThom_eq_zero_of_lt
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Finite detection of the Thom defect and the inverse Todd class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SG (12.11), expressed on the original bundle by the homogeneous conjugation sign. -/
 theorem complexThomDefectComponent_eq_inverseTodd (j : ℕ) :
     h.complexThomDefectComponent r hr j =
@@ -161,6 +167,9 @@ set_option maxHeartbeats 600000 in
 -- Normalize the original supported Thom graph action and its fiber-integral character.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Finite detection of the Thom defect and the inverse Todd class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SG (12.9): fiber integration of the actual Thom character is multiplication by its defect. -/
 theorem fiberIntegral_chernCharacter_supportedThom (u : ComplexKZero X) (j : ℕ) :
     h.complexCohomologyFiberIntegral r hr (2 * j)

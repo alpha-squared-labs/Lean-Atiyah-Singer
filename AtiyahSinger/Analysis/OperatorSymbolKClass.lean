@@ -46,6 +46,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
 
 attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the
+--   documented definition or construction.
 /-- The support class of explicitly smooth homogeneous elliptic data. -/
 def homogeneousSymbolKClass (m : ℝ)
     (a : homogeneousGlobalSymbolSpace (n := n)
@@ -149,6 +152,9 @@ theorem isElliptic_iff_homogeneous (R : QuantizationPresentation (n := n) (r := 
     (R.regularizedSymbol m a.val a.property.1 a.property.2) hP).trans
       (isEllipticFullGlobalSymbol_regularizedSymbol_iff R m a.val a.property.1 a.property.2)
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the
+--   documented definition or construction.
 /-- The symbol K class of an elliptic PDO with a displayed homogeneous principal representative. -/
 def symbolKClassOfHomogeneous (R : QuantizationPresentation (n := n) (r := r) (q := q) E F)
     (a : homogeneousGlobalSymbolSpace (n := n) (r := r) (q := q) E F m)

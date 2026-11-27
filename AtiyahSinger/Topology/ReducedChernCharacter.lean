@@ -72,6 +72,9 @@ theorem chernCharacterKZeroComponent_mem_reduced (x₀ : X) (k : ℕ)
     (chernCharacterKZeroComponent X k a.val) = 0
   rw [← chernCharacterKZeroComponent_pullback f a.val k, ha, map_zero]
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the documented definition
+--   or construction.
 /-- The reduced character is the unique point-relative lift through the specified comparison. -/
 def reducedChernCharacterComponent (x₀ : X) (k : ℕ) :
     reducedComplexKZero x₀ →+
@@ -86,6 +89,9 @@ def reducedChernCharacterComponent (x₀ : X) (k : ℕ) :
   exact (pointRelativeCohomologyEquivReduced ℚ x₀ (2 * k)).symm.toLinearMap.toAddMonoidHom.comp
     reduced
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Forgetting the point-relative condition recovers the same absolute Chern character. -/
 theorem reducedChernCharacterComponent_toOrdinary (x₀ : X) (k : ℕ)
     (a : reducedComplexKZero x₀) :

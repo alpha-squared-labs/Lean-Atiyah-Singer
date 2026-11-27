@@ -29,6 +29,9 @@ variable {E₀ E₁ F₀ F₁ : Type*}
   [NormedAddCommGroup F₀] [InnerProductSpace ℂ F₀]
   [NormedAddCommGroup F₁] [InnerProductSpace ℂ F₁]
 
+-- Human-verified.
+-- - Graded closed realizations and their domains. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The original graded operator kernel is the product of its two simultaneous kernels. -/
 theorem ker_eq_prod_of_gradedJointOperator
     (P : E₀ →ₗ.[ℂ] (F₀ × F₁)) (Q : E₁ →ₗ.[ℂ] (F₀ × F₁))

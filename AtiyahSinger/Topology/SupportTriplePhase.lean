@@ -73,6 +73,9 @@ def Iso.smul (a : Iso E F) (c : ℂ) (hc : c ≠ 0) : Iso E F where
   continuous_total := (a.continuous_smul c hc).1
   continuous_symm := (a.continuous_smul c hc).2
 
+-- Human-verified.
+-- - The actual Dirac symbol and the twisted Spin Thom class. The review covers the documented
+--   definition or construction.
 /-- Nonzero scalar multiplication changes only the original exterior map. -/
 def CompactSupportTriple.smul (a : CompactSupportTriple E F) (c : ℂ) (hc : c ≠ 0) :
     CompactSupportTriple E F where
@@ -80,6 +83,9 @@ def CompactSupportTriple.smul (a : CompactSupportTriple E F) (c : ℂ) (hc : c �
   isCompact_control := a.isCompact_control
   boundary := a.boundary.smul c hc
 
+-- Human-verified.
+-- - The actual Dirac symbol and the twisted Spin Thom class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The explicit nonvanishing phase joins the i-multiplied boundary to the original boundary. -/
 theorem CompactSupportTriple.exists_iPhaseHomotopy (a : CompactSupportTriple E F) :
     ∃ H : IsoHomotopy (a.smul Complex.I Complex.I_ne_zero).boundary a.boundary,
@@ -138,6 +144,9 @@ theorem CompactSupportTriple.exists_iPhaseHomotopy (a : CompactSupportTriple E F
 
 variable [LocallyCompactSpace X] [T2Space X]
 
+-- Human-verified.
+-- - The actual Dirac symbol and the twisted Spin Thom class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The explicit i-to-one boundary homotopy leaves the actual compact-support class unchanged. -/
 theorem CompactSupportTriple.compactSupportClass_smul_I (a : CompactSupportTriple E F) :
     (a.smul Complex.I Complex.I_ne_zero).compactSupportClass = a.compactSupportClass := by

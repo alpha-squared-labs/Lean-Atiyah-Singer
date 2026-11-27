@@ -45,6 +45,9 @@ universe u
 
 variable (R : Type) [CommRing R] (X : Type u) [TopologicalSpace X]
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- Ordinary cohomology acts through the actual relative products and support colimit maps. -/
 def compactSupportCohomologyAction (p q : ℕ) :
     singularCohomology R X p →ₗ[R] compactSupportCohomology R X q →ₗ[R]
@@ -97,6 +100,9 @@ def compactSupportCohomologyAction (p q : ℕ) :
   -- Restore the ordinary-first order while retaining both linear structures.
   exact descended.hom.flip
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The action retains the same compact support and the original relative cup representative. -/
 theorem compactSupportCohomologyAction_representative (K : Compacts X) (p q : ℕ)
     (a : singularCohomology R X p)

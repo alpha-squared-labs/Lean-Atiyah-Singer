@@ -106,6 +106,9 @@ theorem exteriorBott_boundary_continuity :
     exact (Pullback.continuous_proj Unit (Bundle.Trivial V OddExterior)
       (Subtype.val : A → V)).prodMk htotal
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The actual even-to-odd exterior symbol with precisely the compact control `{0}`. -/
 def exteriorBottTriple :
     letI := modelTopology EvenExterior (Bundle.Trivial V EvenExterior)
@@ -121,6 +124,9 @@ def exteriorBottTriple :
         continuous_total := (exteriorBott_boundary_continuity V).1
         continuous_symm := (exteriorBott_boundary_continuity V).2 } }
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The support class of the specified exterior triple, using its actual boundary map. -/
 def exteriorBottClass :
     letI := FiniteDimensional.proper ℂ V

@@ -40,6 +40,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [TopologicalSpace (TotalSpace Unit E)] (A : SmoothComplexBundleAtlas (n := n) E)
 
 open Classical in
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- The existing positive forms have smooth Gram entries in every original atlas frame. -/
 def IsSmoothHermitianMetric (h : ComplexBundle.ContinuousHermitianMetric E) : Prop :=
   ∀ (i : A.Index) (a b : Fin (A.rank i)),
@@ -57,6 +60,9 @@ variable [hM : IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
 
 include hM hT hSC
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- A locally finite-rank smooth bundle admits a smooth metric on its original fibers. -/
 theorem exists_smoothHermitianMetric :
     ∃ h : ComplexBundle.ContinuousHermitianMetric E, A.IsSmoothHermitianMetric h := by

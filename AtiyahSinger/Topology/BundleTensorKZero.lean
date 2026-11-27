@@ -38,6 +38,9 @@ attribute [local instance] tensorTopology isFiniteRank_tensor
 set_option maxHeartbeats 800000 in
 
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Tensoring actual continuous bundles induces the specified multiplication on K⁰. -/
 theorem kZeroClass_tensor :
     kZeroClass (fun x ↦ E x ⊗[ℂ] F x) =

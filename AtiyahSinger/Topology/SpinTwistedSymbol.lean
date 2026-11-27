@@ -68,6 +68,9 @@ local notation "SpinPlus" => HalfSpinorBundle m hP (0 : ZMod 2)
 local notation "SpinMinus" => HalfSpinorBundle m hP (1 : ZMod 2)
 local notation "VectorProjection" => (π RealModel E)
 
+-- Human-verified.
+-- - The actual Dirac symbol and the twisted Spin Thom class. The review covers the documented
+--   definition or construction.
 /-- The original spin symbol tensored with W, on the actual pullbacks of the twisted bundles. -/
 def TopologicalSpinStructure.twistedSpinorSymbolTriple
     (S : TopologicalSpinStructure m E o hm hP) :
@@ -89,6 +92,9 @@ def TopologicalSpinStructure.twistedSpinorSymbolTriple
     (pullbackTensorIso (E := SpinPlus) (F := W) p).symm
     (pullbackTensorIso (E := SpinMinus) (F := W) p).symm
 
+-- Human-verified.
+-- - The actual Dirac symbol and the twisted Spin Thom class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The twisted raw triple retains the original zero control and the exact c tensor identity. -/
 theorem TopologicalSpinStructure.twistedSpinorSymbolTriple_properties
     (S : TopologicalSpinStructure m E o hm hP) :
@@ -117,6 +123,9 @@ theorem TopologicalSpinStructure.twistedSpinorSymbolTriple_properties
 
 variable [T2Space B]
 
+-- Human-verified.
+-- - The actual Dirac symbol and the twisted Spin Thom class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual twisted spin-symbol class is multiplication by the same original spin Thom class. -/
 theorem TopologicalSpinStructure.twistedSpinorSymbolTriple_class
     (S : TopologicalSpinStructure m E o hm hP) :
@@ -183,6 +192,9 @@ local notation "SpinPlus" => HalfSpinorBundle 0 hP (0 : ZMod 2)
 local notation "SpinMinus" => HalfSpinorBundle 0 hP (1 : ZMod 2)
 local notation "VectorProjection" => (π RealModel E)
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the documented
+--   definition or construction.
 /-- The original native zero-rank spin symbol with the unchanged right coefficient bundle. -/
 def zeroTwistedSpinorSymbolTriple :
     CompactSupportTriple
@@ -205,6 +217,9 @@ def zeroTwistedSpinorSymbolTriple :
 
 variable [T2Space B]
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The native rank-zero tensor symbol realizes its specified zero-spin Thom action. -/
 theorem zeroTwistedSpinorSymbolTriple_class :
     letI : IsFiniteRank SpinPlus :=

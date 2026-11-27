@@ -35,6 +35,9 @@ namespace AtiyahSinger
 open Manifold Topology
 open scoped ContDiff
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   documented definition or construction.
 /-- Append zero coordinates in the fixed original Fin-addition coordinate order. -/
 def euclideanZeroAppend (n k : ℕ) :
     ContMDiffMap 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) 𝓘(ℝ, EuclideanSpace ℝ (Fin (n + k)))
@@ -43,6 +46,9 @@ def euclideanZeroAppend (n k : ℕ) :
     ((EuclideanSpace.finAddEquivProd (𝕜 := ℝ) (n := n) (m := k)).symm.contDiff.comp
       (contDiff_id.prodMk contDiff_const)).contMDiff⟩
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The actual zero-coordinate inclusion is a proper smooth embedding in every dimension. -/
 theorem euclideanZeroAppend_properties (n k : ℕ) :
     IsSmoothEmbedding 𝓘(ℝ, EuclideanSpace ℝ (Fin n))

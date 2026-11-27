@@ -61,6 +61,9 @@ theorem bundleKZeroLift_bundle (E : FiniteBundle X) :
   exact hiso _ _ (presentationIso (E := E.Fiber)).symm
 
 include hiso hsum in
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- SG I.9.3: the existing K group is the group completion of geometric bundle classes.
 Only isomorphism invariance and direct-sum additivity are required of the invariant. -/
 theorem bundleKZero_universal_property :

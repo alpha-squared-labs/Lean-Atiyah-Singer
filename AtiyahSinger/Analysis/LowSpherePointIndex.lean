@@ -210,6 +210,9 @@ theorem representationRestriction_orthogonalSphereTangentIndex_eq
       (VG := OrthogonalGroupModel 2) (G := Matrix.specialOrthogonalGroup (Fin 2) ℝ))
     hmusical).trans hiv.symm)
 
+-- Human-verified.
+-- - Two-pole symbols and low-dimensional normalization. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The original O(1)-equivariant analytic index of either actual pole pushforward is one. -/
 theorem orthogonalCirclePoleIndex_eq_one (atInfinity : Bool) :
     orthogonalSphereTangentAnalyticIndex 1
@@ -230,6 +233,9 @@ theorem orthogonalCirclePoleIndex_eq_one (atInfinity : Bool) :
   · intro a
     exact analyticIndexOfComponents_circlePointPushforward a g₀ g₁ fourierCircleMeasure
 
+-- Human-verified.
+-- - Two-pole symbols and low-dimensional normalization. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Restricting the actual O(2) pole index to SO(2) gives the trivial representation. -/
 theorem specialOrthogonalPlanePoleIndex_eq_one (atInfinity : Bool) :
     representationRestrictionRingHom (specialOrthogonalGroupInclusion 2)

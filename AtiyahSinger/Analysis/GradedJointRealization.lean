@@ -30,6 +30,9 @@ variable {E₀ E₁ F₀ F₁ : Type*}
   [NormedAddCommGroup F₀] [InnerProductSpace ℂ F₀] [CompleteSpace F₀]
   [NormedAddCommGroup F₁] [InnerProductSpace ℂ F₁] [CompleteSpace F₁]
 
+-- Human-verified.
+-- - Graded closed realizations and their domains. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The same two closed joint graphs define a closed graded matrix on their exact product domain. -/
 theorem exists_closed_gradedJointOperator
     (P : E₀ →ₗ.[ℂ] (F₀ × F₁)) (Q : E₁ →ₗ.[ℂ] (F₀ × F₁))

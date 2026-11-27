@@ -29,6 +29,9 @@ attribute [local instance] sumTopology trivialTopology
 
 variable {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- A geometric relative triple, including both finite-rank bundle objects. -/
 structure BundleTriple (A : Set X) where
   /-- The source bundle on the whole base. -/
@@ -81,6 +84,9 @@ def BundleTriple.pullback (a : BundleTriple A) (f : C(Y, X)) : BundleTriple (f â
 def BundleTriple.IsIsomorphic (a b : BundleTriple A) : Prop :=
   RelativeTriple.IsIsomorphic a.boundary b.boundary
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Stable equivalence adds identity triples, with no homotopy hidden in the definition. -/
 def BundleTriple.IsStablyIsomorphic (a b : BundleTriple A) : Prop :=
   âˆƒ E F : FiniteBundle X,

@@ -43,6 +43,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
 
 include hM hT hSC hC hP hB hμ in
+-- Human-verified.
+-- - Descent of the analytic index and assembly of the cases. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- There is exactly one additive index map with the stated value on every representative. -/
 theorem existsUnique_analyticIndex :
     ∃! I : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M)) →+ ℤ,
@@ -89,6 +92,9 @@ theorem existsUnique_analyticIndex :
   rw [hclass u] at h
   exact h
 
+-- Human-verified.
+-- - Descent of the analytic index and assembly of the cases. The review covers the documented
+--   definition or construction.
 /-- The analytic index characterized by the indices of actual elliptic representatives. -/
 def analyticIndex : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M)) →+ ℤ :=
   (existsUnique_analyticIndex μ).exists.choose
@@ -126,6 +132,9 @@ theorem PseudodifferentialOperator.analyticIndex_symbolKClassOfHomogeneous {m : 
   exact hspec.trans (Q.index_eq_of_symbolKClass_eq S b hQ hj P R a hp hi hclass)
 
 include hM hT hSC hC hP hB hμ in
+-- Human-verified.
+-- - Descent of the analytic index and assembly of the cases. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Changing the smooth positive density leaves the analytic-index homomorphism unchanged. -/
 theorem analyticIndex_independent_measure
     (ν : Measure M) [hν : IsSmoothPositiveMeasure (n := n) ν] :

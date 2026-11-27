@@ -32,6 +32,9 @@ attribute [local instance] sumTopology isFiniteRank_sum
 variable {X : Type*} [TopologicalSpace X]
 
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- A compact set has a time cutoff that is zero nearby and one at infinity. -/
 theorem exists_time_cutoff [LocallyCompactSpace X] [T2Space X]
     (K : Set X) (hK : IsCompact K) :

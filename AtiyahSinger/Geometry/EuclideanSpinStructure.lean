@@ -229,6 +229,9 @@ variable (m : ℕ) {B P : Type*} (E : B → Type*)
   [ContinuousSMul (spinGroup (realSpinorQuadraticForm m))ᵐᵒᵖ P]
   {projection : P → B}
 
+-- Human-verified.
+-- - The original right principal bundle and lifts of orthonormal frames. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Changing only the spin coordinate model gives a frame-preserving equivalence of lifts. -/
 theorem exists_spinStructure_even_equiv (hm : 0 < m)
     (hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm m)) projection) :

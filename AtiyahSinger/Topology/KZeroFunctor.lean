@@ -404,10 +404,16 @@ theorem complexKZeroRankAt_point_bijective :
         fun x ↦ DFunLike.congr_fun hright x).surjective⟩
   exact (kZeroRank_bijective ℂ).comp hev
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The specified normalization K⁰(point) ≃ ℤ. -/
 def complexKZeroPointEquivInt : ComplexKZero PUnit ≃+ ℤ :=
   AddEquiv.ofBijective (complexKZeroRankAt PUnit.unit) complexKZeroRankAt_point_bijective
 
+-- Human-verified.
+-- - Rank at a point and normalization of the analytic pushforward. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Point normalization on a virtual difference of trivial bundles of ranks m and n. -/
 theorem complexKZeroPointEquivInt_sub_identity (m n : ℕ) :
     complexKZeroPointEquivInt

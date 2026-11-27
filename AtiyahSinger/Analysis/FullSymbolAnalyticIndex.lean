@@ -62,11 +62,21 @@ namespace PseudodifferentialOperator
 
 variable {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the documented
+--   definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- The standard symbol K class, choosing a full representative from original ellipticity. -/
 def fullSymbolKClass (hi : P.IsElliptic) :
     CompactSupportKZero (CotangentTotalSpace (n := n) (M := M)) :=
   AtiyahSinger.fullSymbolKClass (Classical.choose hi) (Classical.choose_spec hi).2
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Every elliptic representative of the original principal class computes the same K class. -/
 theorem fullSymbolKClass_eq_of_principalSymbol_eq (hi : P.IsElliptic)
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -81,6 +91,9 @@ end PseudodifferentialOperator
 
 include hM hT hSC hC hE hF hB hμ
 
+-- Human-verified.
+-- - Evaluation of the index on the full symbol class of the given operator P. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The actual quantization of every elliptic full symbol realizes its compact-support index. -/
 theorem QuantizationPresentation.analyticIndexOfComponents_fullSymbolKClass {m : ℝ}
     (A : QuantizationPresentation (n := n) (r := r) (q := q) E F)
@@ -166,6 +179,11 @@ theorem QuantizationPresentation.analyticIndexOfComponents_fullSymbolKClass {m :
 
 set_option maxHeartbeats 1000000 in
 -- Elaborating the full-class equality unfolds several dependent bundle maps.
+-- Human-verified.
+-- - Evaluation of the index on the full symbol class of the given operator P. The review covers the
+--   theorem statement and its documented mathematical correspondence.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The standard analytic index evaluates the same original generally elliptic operator. -/
 theorem PseudodifferentialOperator.analyticIndexOfComponents_fullSymbolKClass {m : ℝ}
     (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)

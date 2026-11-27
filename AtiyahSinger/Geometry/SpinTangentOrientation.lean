@@ -256,6 +256,9 @@ variable {m : ℕ} {M P : Type} [TopologicalSpace M] [TopologicalSpace P]
 local notation "V" => EuclideanSpace ℝ (Fin (2 * m))
 local notation "TM" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the documented
+--   definition or construction.
 /-- The original spin frame lift induces the integral orientation of the same base manifold. -/
 def TopologicalSpinStructure.homologicalOrientation :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -268,6 +271,9 @@ def TopologicalSpinStructure.homologicalOrientation :
   intro S
   exact geometricTangentHomologicalOrientation g o S.isLocallyCompatibleBundleOrientation
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The induced base orientation gives exactly the same integral spin Thom orientation. -/
 theorem TopologicalSpinStructure.tangentCohomologyOrientation_eq :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -298,12 +304,18 @@ variable {M : Type} [TopologicalSpace M]
 
 local notation "TM" => (TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin 0)) : M → Type)
 
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the documented definition or
+--   construction.
 /-- The canonical empty tangent bases give the positive homological orientation in rank zero. -/
 def zeroTangentHomologicalOrientation : HomologicalOrientation 0 M := by
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
   exact geometricTangentHomologicalOrientation g (zeroRankBundleOrientation TM)
     (isLocallyCompatibleBundleOrientation_zeroRank TM)
 
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The same positive point orientation induces the native empty-basis Thom orientation. -/
 theorem tangentCohomologyOrientation_zero :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩

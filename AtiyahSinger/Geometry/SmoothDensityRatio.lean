@@ -44,6 +44,9 @@ variable (μ ν : Measure M)
 
 include hM hT2 hSC hμ hν
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Two positive smooth densities have a unique everywhere positive smooth ratio. -/
 theorem existsUnique_smoothDensityRatio :
     ∃! w : M → ℝ, ContMDiff 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) 𝓘(ℝ, ℝ) ∞ w ∧
@@ -265,10 +268,15 @@ theorem existsUnique_smoothDensityRatio :
   exact funext (fun x ↦ huniq Set.univ isOpen_univ v w hv.1.continuous.continuousOn
     hw.continuous.continuousOn (fun y _ ↦ hv.2.1 y) (fun y _ ↦ hwpos y) heq (Set.mem_univ x))
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the documented definition or construction.
 /-- The canonical positive smooth function dν/dμ. -/
 def smoothDensityRatio : M → ℝ :=
   Classical.choose (existsUnique_smoothDensityRatio (n := n) μ ν).exists
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The canonical ratio is smooth at every base point. -/
 theorem contMDiff_smoothDensityRatio :
     ContMDiff 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) 𝓘(ℝ, ℝ) ∞ (smoothDensityRatio (n := n) μ ν) := by
@@ -276,12 +284,18 @@ theorem contMDiff_smoothDensityRatio :
   This is a global smooth representative, rather than a Radon--Nikodym a.e. class. -/
   exact (Classical.choose_spec (existsUnique_smoothDensityRatio (n := n) μ ν).exists).1
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The canonical ratio is strictly positive, including at every possible test point. -/
 theorem smoothDensityRatio_pos (x : M) : 0 < smoothDensityRatio (n := n) μ ν x := by
   /- The defining existence theorem selects a function positive at every point.
   Extract that component before taking reciprocals; no nonzero condition is inferred a.e. -/
   exact (Classical.choose_spec (existsUnique_smoothDensityRatio (n := n) μ ν).exists).2.1 x
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The ratio direction is fixed by dν = (dν/dμ) dμ. -/
 theorem withDensity_smoothDensityRatio :
     μ.withDensity (fun x ↦ ENNReal.ofReal (smoothDensityRatio (n := n) μ ν x)) = ν := by
@@ -289,6 +303,9 @@ theorem withDensity_smoothDensityRatio :
   Keeping this orientation explicit prevents reversing the weights in later kernels. -/
   exact (Classical.choose_spec (existsUnique_smoothDensityRatio (n := n) μ ν).exists).2.2.symm
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- A proposed smooth positive density quotient agrees with the canonical ratio pointwise. -/
 theorem smoothDensityRatio_eq (w : M → ℝ)
     (hw : ContMDiff 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) 𝓘(ℝ, ℝ) ∞ w)
@@ -303,6 +320,9 @@ theorem smoothDensityRatio_eq (w : M → ℝ)
     ⟨hw, hwpos, hmeasure⟩
 
 omit hν in
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- A density divided by itself is the constant one function. -/
 theorem smoothDensityRatio_self :
     smoothDensityRatio (n := n) μ μ = fun _ ↦ 1 := by
@@ -312,6 +332,9 @@ theorem smoothDensityRatio_self :
     (fun _ ↦ zero_lt_one)
   simp
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Reversing the two densities takes the reciprocal of their pointwise ratio. -/
 theorem smoothDensityRatio_swap (x : M) :
     smoothDensityRatio (n := n) ν μ x = (smoothDensityRatio (n := n) μ ν x)⁻¹ := by
@@ -336,6 +359,9 @@ theorem smoothDensityRatio_swap (x : M) :
     (Filter.Eventually.of_forall (fun y ↦ (ENNReal.ofReal_pos.mpr (hpos y)).ne'))
     (Filter.Eventually.of_forall (fun _ ↦ ENNReal.ofReal_ne_top))).symm
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Density ratios compose pointwise; the intermediate density cancels. -/
 theorem smoothDensityRatio_mul (κ : Measure M) [IsSmoothPositiveMeasure (n := n) κ]
     (x : M) :

@@ -108,6 +108,9 @@ theorem isLocallyFiniteSingularChain_submodule (n : ℕ) :
     apply h
     simp [hc0]
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The module of locally finite coefficient functions on the original singular n-simplices. -/
 def locallyFiniteSingularChainModule (n : ℕ) : Submodule R ((S).obj (op ⦋n⦌) → R) where
   carrier := IsLocallyFiniteSingularChain R X n
@@ -115,6 +118,9 @@ def locallyFiniteSingularChainModule (n : ℕ) : Submodule R ((S).obj (op ⦋n�
   add_mem' := (isLocallyFiniteSingularChain_submodule R X n).2.1 _ _
   smul_mem' := (isLocallyFiniteSingularChain_submodule R X n).2.2
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The original alternating-face boundary, with finite sums for every target coefficient. -/
 def locallyFiniteSingularBoundaryFunction (n : ℕ)
     (c : (S).obj (op ⦋n + 1⦌) → R) : (S).obj (op ⦋n⦌) → R := by
@@ -418,6 +424,9 @@ theorem locallyFiniteSingularBoundary_comp (n : ℕ) :
   exact congrArg (fun b : locallyFiniteSingularChainModule R X n ↦ b.val τ)
     (hsq finiteChain)
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The actual locally finite singular complex, with zero outgoing boundary in degree zero. -/
 def locallyFiniteSingularChains : ChainComplex (ModuleCat.{u} R) ℕ :=
   ChainComplex.of (fun n ↦ ModuleCat.of R (locallyFiniteSingularChainModule R X n))
@@ -439,6 +448,9 @@ theorem locallyFiniteSingularChainModule_finite_meeting (K : Compacts X) (n : �
   intro σ hσ
   exact ⟨⟨σ, hσ.1⟩, hσ.2, rfl⟩
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The finite sum of the actual original relative simplex classes which meet K. -/
 def locallyFiniteSingularChainRestrictionValue (K : Compacts X) (n : ℕ)
     (c : locallyFiniteSingularChainModule R X n) :
@@ -776,6 +788,9 @@ theorem locallyFiniteSingularChainRestriction_comm (K : Compacts X) (i j : ℕ) 
       (locallyFiniteSingularChains R X).shape i j hshape, comp_zero]
     exact zero_comp.symm
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The actual restriction chain map to the original compact-relative singular complex. -/
 def locallyFiniteSingularChainsRestriction (K : Compacts X) :
     locallyFiniteSingularChains R X ⟶ relativeSingularChains R ((K : Set X)ᶜ) where

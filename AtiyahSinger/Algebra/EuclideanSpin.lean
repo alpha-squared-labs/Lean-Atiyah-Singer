@@ -41,6 +41,9 @@ All statements below are proved for the original native groups and specified coo
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   documented definition or construction.
 /-- The negative Euclidean quadratic form in every real dimension. -/
 def euclideanSpinQuadraticForm (n : ℕ) : QuadraticForm ℝ (EuclideanSpace ℝ (Fin n)) :=
   -LinearMap.BilinMap.toQuadraticMap (innerₗ (EuclideanSpace ℝ (Fin n)))
@@ -395,6 +398,9 @@ theorem continuous_euclideanSpinVectorRepresentation (n : ℕ) :
   simp_rw [hconj]
   exact hproduct.comp ((hproduct.comp (hg.prodMk hv)).prodMk hinv)
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The prescribed interleaved isometry preserves the two original negative quadratic forms. -/
 theorem realSpinorCoordinateIsometry_quadraticForm (m : ℕ)
     (v : EuclideanSpace ℝ (Fin (2 * m))) :
@@ -483,6 +489,9 @@ theorem euclideanSpinCliffordEvenEquiv_mem_spinGroup (m : ℕ)
     simpa only [AlgEquiv.symm_apply_apply] using hinv
   · exact hmap _ _ e.toIsometry a
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   documented definition or construction.
 /-- Restriction of the actual Clifford equivalence to the two original even-dimensional groups. -/
 def euclideanSpinEvenEquiv (m : ℕ) :
     spinGroup (euclideanSpinQuadraticForm (2 * m)) ≃*
@@ -499,6 +508,9 @@ def euclideanSpinEvenEquiv (m : ℕ) :
 
 attribute [local instance] spinGroupTopology
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The same even-dimensional group identification is continuous in both original topologies. -/
 theorem continuous_euclideanSpinEvenEquiv (m : ℕ) :
     Continuous (euclideanSpinEvenEquiv m) ∧ Continuous (euclideanSpinEvenEquiv m).symm := by
@@ -519,6 +531,9 @@ theorem continuous_euclideanSpinEvenEquiv (m : ℕ) :
     exact (euclideanSpinCliffordEvenEquiv m).symm.toLinearMap.continuous_of_finiteDimensional.comp
       continuous_subtype_val
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The two actual vector actions agree through the same interleaved group and vector maps. -/
 theorem euclideanSpinEvenEquiv_vectorRepresentation (m : ℕ)
     (g : spinGroup (euclideanSpinQuadraticForm (2 * m)))

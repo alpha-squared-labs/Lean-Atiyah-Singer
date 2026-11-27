@@ -565,6 +565,9 @@ theorem nonempty_endpoint_pullback_iso (E : FiniteBundle (X × unitInterval)) :
         exact continuous_proj.prodMk hcont }
   exact ⟨result.toIso (fun x ↦ (L x).bijective)⟩
 
+-- Human-verified.
+-- - Bundle pullback over paracompact sources and relative smoothing. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Hatcher 1.6: homotopic maps induce isomorphic actual pullback bundles. -/
 theorem nonempty_pullback_iso_of_homotopic (E : FiniteBundle Y)
     (f g : C(X, Y)) (hfg : f.Homotopic g) :

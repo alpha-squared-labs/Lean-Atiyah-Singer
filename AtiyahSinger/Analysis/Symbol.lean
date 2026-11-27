@@ -33,6 +33,8 @@ set_option maxSynthPendingDepth 10
 
 variable {n r q : ℕ}
 
+-- Human-verified.
+-- - Local symbols. The review covers the documented definition or construction.
 /-- The mixed derivative, first in ξ and then in x, as a multilinear map. -/
 def symbolDerivative (a : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) →
     (EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin q)))
@@ -42,6 +44,8 @@ def symbolDerivative (a : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin
         (EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin q))) :=
   iteratedFDeriv ℝ i (fun y ↦ iteratedFDeriv ℝ j (a y) ξ) x
 
+-- Human-verified.
+-- - Local symbols. The review covers the documented definition or construction.
 /-- The usual S^m_(1,0) symbol estimates on an open coordinate domain U. -/
 def IsSymbol (U : Set (EuclideanSpace ℝ (Fin n))) (m : ℝ)
     (a : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) →
@@ -51,24 +55,34 @@ def IsSymbol (U : Set (EuclideanSpace ℝ (Fin n))) (m : ℝ)
       ∃ C : ℝ, 0 ≤ C ∧ ∀ x ∈ K, ∀ ξ,
         ‖symbolDerivative a i j x ξ‖ ≤ C * (1 + ‖ξ‖) ^ (m - (j : ℝ))
 
+-- Human-verified.
+-- - Local symbols. The review covers the documented definition or construction.
 /-- Positive real homogeneity of a principal symbol, away from the zero section. -/
 def IsHomogeneousSymbol (U : Set (EuclideanSpace ℝ (Fin n))) (m : ℝ)
     (a : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) →
       (EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin q))) : Prop :=
   ∀ x ∈ U, ∀ ξ, ξ ≠ 0 → ∀ t : ℝ, 0 < t → a x (t • ξ) = (t ^ m) • a x ξ
 
+-- Human-verified.
+-- - Local symbols. The review covers the documented definition or construction.
 /-- Ellipticity of a homogeneous principal symbol is invertibility for nonzero covectors. -/
 def IsEllipticSymbol (U : Set (EuclideanSpace ℝ (Fin n)))
     (a : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) →
       (EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin q))) : Prop :=
   ∀ x ∈ U, ∀ ξ, ξ ≠ 0 → Function.Bijective (a x ξ)
 
+-- Human-verified.
+-- - Local symbols. The review covers the documented definition or construction.
 /-- Symbols of arbitrarily negative order; this is a condition on symbols, not on operators. -/
 def IsSmoothingSymbol (U : Set (EuclideanSpace ℝ (Fin n)))
     (a : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) →
       (EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin q))) : Prop :=
   ∀ m : ℝ, IsSymbol U m a
 
+-- Human-verified.
+-- - Local symbols. The review covers the documented definition or construction.
+-- - Asymptotic summation for local symbols and global operators. The review covers the documented
+--   definition or construction.
 /-- The partial-sum remainder estimates at the prescribed orders `m N`.
 Strict decrease and convergence of `m` to negative infinity are separate hypotheses
 when this predicate is used for an asymptotic expansion. -/

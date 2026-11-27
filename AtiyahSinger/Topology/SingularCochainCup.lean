@@ -46,6 +46,9 @@ universe u
 
 variable (R : Type) [CommRing R] (X : Type u) [TopologicalSpace X]
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the documented
+--   definition or construction.
 /-- Generator evaluation identifies the original cochains with all singular-simplex functions. -/
 def singularCochainEquiv (n : ℕ) :
     (singularCochains R X).X n ≃ₗ[R]
@@ -92,6 +95,9 @@ def singularCochainEquiv (n : ℕ) :
     funext σ
     rfl
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the documented
+--   definition or construction.
 /-- The ordered front face consists of vertices 0 through p of the original (p + q)-simplex. -/
 def singularCupFrontFace (p q : ℕ) : ⦋p⦌ ⟶ ⦋p + q⦌ :=
   SimplexCategory.Hom.mk
@@ -99,12 +105,18 @@ def singularCupFrontFace (p q : ℕ) : ⦋p⦌ ⟶ ⦋p + q⦌ :=
         Nat.lt_of_lt_of_le i.isLt (Nat.succ_le_succ (Nat.le_add_right p q))⟩
       monotone' := fun _ _ h ↦ h }
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the documented
+--   definition or construction.
 /-- The ordered back face consists of vertices p through p + q, sharing vertex p with the front. -/
 def singularCupBackFace (p q : ℕ) : ⦋q⦌ ⟶ ⦋p + q⦌ :=
   SimplexCategory.Hom.mk
     { toFun := fun i ↦ ⟨p + i.val, Nat.add_lt_add_left i.isLt p⟩
       monotone' := fun _ _ h ↦ Nat.add_le_add_left h p }
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the documented
+--   definition or construction.
 /-- The actual Alexander--Whitney cup formula, as a bilinear map on the original cochains. -/
 def singularCochainCup (p q : ℕ) :
     (singularCochains R X).X p →ₗ[R]

@@ -79,6 +79,9 @@ variable {m : ℕ} {B : Type u} {P : Type v} {E : B → Type u}
 
 local notation "RealModel" => EuclideanSpace ℝ (Fin (2 * m))
 
+-- Human-verified.
+-- - The Chern character of the Spin Thom class with the same orientation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Below the Thom degree the original spin symbol, with any K coefficient, has zero character. -/
 theorem TopologicalSpinStructure.compactSupportChernCharacter_spinThom_eq_zero_of_lt
     (S : TopologicalSpinStructure m E o hm hP) (u : ComplexKZero B)
@@ -101,6 +104,9 @@ set_option maxHeartbeats 800000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character of the Spin Thom class with the same orientation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG Proposition 12.5 for the actual spin symbol and the normalized inverse Thom map. -/
 theorem TopologicalSpinStructure.fiberIntegral_chernCharacter_spinorThom
     (S : TopologicalSpinStructure m E o hm hP)
@@ -237,6 +243,9 @@ set_option maxHeartbeats 600000 in
 -- Normalize the original virtual coefficient and the same normalized Thom inverse.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character of the Spin Thom class with the same orientation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The same fiber-integral formula with any original virtual bundle coefficient. -/
 theorem TopologicalSpinStructure.fiberIntegral_chernCharacter_spinThom
     (S : TopologicalSpinStructure m E o hm hP)

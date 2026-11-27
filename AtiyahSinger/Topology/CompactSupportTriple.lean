@@ -36,6 +36,9 @@ variable {X : Type*} [TopologicalSpace X]
   {G : X → Type*} [∀ x, AddCommGroup (G x)] [∀ x, Module ℂ (G x)]
   [TopologicalSpace (TotalSpace Unit G)]
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- A pair of bundles with an actual isomorphism outside a compact control set. -/
 structure CompactSupportTriple (E F : X → Type*) [∀ x, AddCommGroup (E x)]
     [∀ x, Module ℂ (E x)] [∀ x, AddCommGroup (F x)] [∀ x, Module ℂ (F x)]
@@ -47,6 +50,9 @@ structure CompactSupportTriple (E F : X → Type*) [∀ x, AddCommGroup (E x)]
   /-- The actual isomorphism on the complement of the control set. -/
   boundary : RelativeTriple E F controlᶜ
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the documented definition
+--   or construction.
 /-- Enlarge the compact control set, restricting the same isomorphism at infinity. -/
 @[reducible]
 def CompactSupportTriple.enlarge (a : CompactSupportTriple E F)
@@ -55,6 +61,9 @@ def CompactSupportTriple.enlarge (a : CompactSupportTriple E F)
   isCompact_control := hK
   boundary := a.boundary.restrictTo (Set.compl_subset_compl.mpr h)
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Enlargement keeps the original boundary values wherever they remain defined. -/
 theorem CompactSupportTriple.enlarge_apply (a : CompactSupportTriple E F)
     (K : Set X) (hK : IsCompact K) (h : a.control ⊆ K) (x : (Kᶜ : Set X)) (v : E x) :
@@ -102,6 +111,9 @@ def CompactSupportTriple.sum (a : CompactSupportTriple E F)
       (b.enlarge _ (a.isCompact_control.union b.isCompact_control)
         Set.subset_union_right).boundary
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the documented definition
+--   or construction.
 /-- Homotopy at infinity requires a single compact control set for all times. -/
 def CompactSupportTriple.Homotopic (a b : CompactSupportTriple E F) : Prop :=
   ∃ K : Set X, ∃ hK : IsCompact K, ∃ ha : a.control ⊆ K, ∃ hb : b.control ⊆ K,

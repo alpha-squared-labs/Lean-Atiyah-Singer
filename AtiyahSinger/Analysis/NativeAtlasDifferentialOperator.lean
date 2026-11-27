@@ -47,6 +47,8 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin r)) E]
   [IsSmoothComplexBundle (n := n) (r := r) E]
 
+-- Human-verified.
+-- - The original smooth sections. The review covers the documented definition or construction.
 /-- The identity on the original sections identifies the atlas and native smooth section spaces. -/
 def nativeSmoothSectionLinearEquiv :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E

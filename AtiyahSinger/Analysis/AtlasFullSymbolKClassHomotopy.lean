@@ -42,6 +42,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
   [T2Space M] [SecondCountableTopology M] [CompactSpace M]
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A lower-order atlas difference has one metric exterior for its entire affine family. -/
 theorem IsEllipticFullAtlasSymbol.exists_metric_radius_affine_of_lowerOrder {m : ℝ}
     {a b : AtlasSymbolFunction (n := n) E F} (ha : IsEllipticFullAtlasSymbol A B m a)
@@ -184,6 +187,9 @@ theorem IsEllipticFullAtlasSymbol.exists_metric_radius_affine_of_lowerOrder {m :
 attribute [local instance] isFiniteRank_pullback isFiniteRank_restrict
   t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Equal genuine principal quotient classes determine the same general atlas symbol K class. -/
 theorem atlasFullSymbolKClass_eq_of_principalClass_eq {m : ℝ}
     (a b : atlasGlobalSymbolSpace A B m)

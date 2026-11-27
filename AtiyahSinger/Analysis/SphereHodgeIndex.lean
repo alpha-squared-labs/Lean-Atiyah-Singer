@@ -288,6 +288,9 @@ set_option synthInstance.maxHeartbeats 200000 in
 -- representations.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - De Rham cohomology of spheres and the action of the orthogonal group. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The full orthogonal de Rham index in positive dimension is one plus signed determinant. -/
 theorem orthogonalSphereDeRhamIndex_eq_one_add_det (r : ℕ) (hr : 0 < r) :
     orthogonalSphereDeRhamIndex r =
@@ -478,6 +481,9 @@ set_option synthInstance.maxHeartbeats 200000 in
 set_option maxHeartbeats 1500000 in
 -- The extended limit accommodates instance synthesis for the actual harmonic and quotient
 -- representations.
+-- Human-verified.
+-- - De Rham cohomology of spheres and the action of the orthogonal group. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The zero-sphere has two actual degree-zero classes and de Rham index two. -/
 theorem orthogonalSphereDeRhamIndex_zero : orthogonalSphereDeRhamIndex 0 = 2 := by
   /- The original S0 is the disjoint pair of north and south points. All

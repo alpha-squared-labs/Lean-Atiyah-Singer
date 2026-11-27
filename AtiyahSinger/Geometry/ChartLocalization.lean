@@ -38,6 +38,9 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin r)) E]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin r)) E]
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- Auxiliary frame and compact cutoff data in a specified manifold chart. -/
 structure BundleChartCutoff (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))) where
   /-- The frame used for both restriction and extension. -/
@@ -58,6 +61,9 @@ namespace BundleChartCutoff
 variable {E} {c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))}
   (A : BundleChartCutoff (r := r) E c)
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- Restrict a global section, multiply by the coordinate cutoff, and extend by zero. -/
 def localizedFunction (u : smoothSections (n := n) (r := r) E)
     (z : EuclideanSpace ℝ (Fin n)) : EuclideanSpace ℂ (Fin r) := by
@@ -87,6 +93,9 @@ theorem hasCompactSupport_localizedFunction (u : smoothSections (n := n) (r := r
   exact A.compact_support.of_isClosed_subset (isClosed_tsupport _)
     (A.tsupport_localizedFunction_subset u)
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- Send coordinate values back by the inverse frame, with a cutoff and zero extension. -/
 def extendedFunction (v : 𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r)))
     (x : M) : E x := by
@@ -208,11 +217,17 @@ theorem isSmoothSection_extendedFunction
       exact (e.linearEquivAt ℂ y hye).map_zero
     exact (contMDiffAt_const.congr_of_eventuallyEq hzero).contMDiffWithinAt
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- The actual compactly supported Schwartz localization of a global smooth section. -/
 def localize (u : smoothSections (n := n) (r := r) E) :
     𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r)) :=
   (A.hasCompactSupport_localizedFunction u).toSchwartzMap (A.contDiff_localizedFunction hc u)
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- The actual smooth section obtained by cutoff extension of a Schwartz function. -/
 def extend (v : 𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r))) :
     smoothSections (n := n) (r := r) E :=
@@ -291,6 +306,9 @@ theorem extend_smul (a : ℂ)
   · simp [extendedFunction, hx, map_smul, smul_comm (A.cutoff (c x) : ℂ) a]
   · simp [extendedFunction, hx]
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- Localization as the complex-linear map specified by the explicit coordinate formula. -/
 def localizeLinearMap : smoothSections (n := n) (r := r) E →ₗ[ℂ]
     𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r)) where
@@ -298,6 +316,9 @@ def localizeLinearMap : smoothSections (n := n) (r := r) E →ₗ[ℂ]
   map_add' := A.localize_add hc
   map_smul' := A.localize_smul hc
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- Cutoff extension as a complex-linear map to the actual smooth section space. -/
 def extendLinearMap : 𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r)) →ₗ[ℂ]
     smoothSections (n := n) (r := r) E where
@@ -305,6 +326,9 @@ def extendLinearMap : 𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r
   map_add' := A.extend_add hc
   map_smul' := A.extend_smul hc
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The round trip is cutoff squared; these two maps are not unqualified inverses. -/
 theorem localize_extend_apply
     (v : 𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r)))

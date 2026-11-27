@@ -69,6 +69,11 @@ local notation "V" => EuclideanSpace ℝ (Fin n)
 local notation "TM" => TangentBundle 𝓘(ℝ, V) M
 local notation "T" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   documented definition or construction.
 /-- The actual ordered tangent Thom equivalence with its ordinary base cohomology domain. -/
 def tangentCohomologyThomEquiv (g : SmoothTangentMetric (n := n) (M := M))
     (O : HomologicalOrientation n M) (p : ℕ) :
@@ -79,6 +84,11 @@ def tangentCohomologyThomEquiv (g : SmoothTangentMetric (n := n) (M := M))
     (compactSupportCohomologyThomEquiv ℚ n T
       (tangentCohomologyOrientation (n := n) g O).rationalization p)
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   documented definition or construction.
 /-- Integration along the original tangent fibers is the inverse of pi*(a) cup U. -/
 def tangentCohomologyFiberIntegral (g : SmoothTangentMetric (n := n) (M := M))
     (O : HomologicalOrientation n M) (p : ℕ) :
@@ -87,6 +97,11 @@ def tangentCohomologyFiberIntegral (g : SmoothTangentMetric (n := n) (M := M))
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the theorem statement and its documented mathematical correspondence.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The tangent fiber projection formula preserves the left base factor and the same orientation. -/
 theorem tangentCohomologyFiberIntegral_projection
     (g : SmoothTangentMetric (n := n) (M := M)) (O : HomologicalOrientation n M)
@@ -159,6 +174,11 @@ theorem tangentCohomologyFiberIntegral_projection
 
 variable [SecondCountableTopology M]
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the theorem statement and its documented mathematical correspondence.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Interleaved tangent evaluation is the signed integral of the same ordered fiber integral. -/
 theorem tangent_pairing_eq_base_fiberIntegral
     (g : SmoothTangentMetric (n := n) (M := M)) (O : HomologicalOrientation n M)

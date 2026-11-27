@@ -53,6 +53,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- Auxiliary local representation data for a compactly supported PDO piece.
 The symbol identity specifies the operator's action, rather than assuming an analytic estimate. -/
 structure PseudodifferentialPiece (m : ℝ) where
@@ -145,6 +148,9 @@ theorem coordinateOperator_eq_quantize
     (hasCompactSupport_cutoffAmplitude L.symbol _ _
       L.output.compact_support L.input.compact_support) v) z).symm
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- Restriction, the given local operator, and inverse-frame extension on global smooth sections. -/
 def toLinearMap : smoothSections (n := n) (r := r) E →ₗ[ℂ]
     smoothSections (n := n) (r := q) F :=
@@ -213,12 +219,18 @@ end PseudodifferentialPiece
 variable [SecondCountableTopology M] [CompactSpace M] [MeasurableSpace M] [BorelSpace M]
   (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- SG Definition 3.15: finite local PDO pieces modulo an actual smooth-kernel operator. -/
 def IsPseudodifferentialOperator (m : ℝ)
     (P : smoothSections (n := n) (r := r) E →ₗ[ℂ] smoothSections (n := n) (r := q) F) : Prop :=
   ∃ (N : ℕ) (L : Fin N → PseudodifferentialPiece (n := n) (r := r) (q := q) E F m),
     IsSmoothingOperator μ (P - ∑ j, (L j).toLinearMap)
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- A global PDO consists of its actual section action and the standard local representation. -/
 structure PseudodifferentialOperator (m : ℝ) where
   /-- The actual complex-linear action on global smooth sections. -/
@@ -374,6 +386,9 @@ theorem IsPseudodifferentialOperator.smul (m : ℝ) (a : ℂ)
   rw [hkernel, hK, smul_sub, Finset.smul_sum]
   simp only [hlocal]
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The auxiliary positive smooth density does not change the global PDO class. -/
 theorem isPseudodifferentialOperator_measure_iff
     (ν : Measure M) [IsSmoothPositiveMeasure (n := n) ν] (m : ℝ)
@@ -789,6 +804,9 @@ theorem exists_norm_smoothToSobolev_apply_le (s : ℝ) :
       add_le_add (Finset.sum_le_sum fun j _ ↦ hb j u) le_rfl
     _ = _ := by rw [← Finset.sum_mul, add_mul]
 
+-- Human-verified.
+-- - Sobolev extension of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The Sobolev extension is uniquely specified by agreement on actual smooth sections. -/
 theorem existsUnique_sobolevExtension (s : ℝ) :
     ∃! T : A.SobolevSpace s →L[ℂ] B.SobolevSpace (s - m),
@@ -814,10 +832,16 @@ theorem existsUnique_sobolevExtension (s : ℝ) :
   funext u
   exact (hR u).trans (hT u).symm
 
+-- Human-verified.
+-- - Sobolev extension of the given operator. The review covers the documented definition or
+--   construction.
 /-- The bounded realization of the specified global PDO, selected by its unique action. -/
 def sobolevExtension (s : ℝ) : A.SobolevSpace s →L[ℂ] B.SobolevSpace (s - m) :=
   Classical.choose (P.existsUnique_sobolevExtension A B s).exists
 
+-- Human-verified.
+-- - Sobolev extension of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The chosen bounded realization agrees with the original global section action. -/
 theorem sobolevExtension_smoothToSobolev (s : ℝ)
     (u : smoothSections (n := n) (r := r) E) :

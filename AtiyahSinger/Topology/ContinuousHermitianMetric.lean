@@ -55,6 +55,11 @@ variable {X : Type*} [TopologicalSpace X]
   (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)]
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
 /-- A continuous positive definite Hermitian metric on the original finite-rank bundle. -/
 structure ContinuousHermitianMetric where
   /-- The specified Hermitian form, conjugate-linear in its first argument. -/
@@ -184,6 +189,9 @@ end ContinuousHermitianMetric
 variable [hT : T2Space X] [hP : ParacompactSpace X] [hE : IsFiniteRank E]
 
 include hT hP hE in
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every locally finite-rank complex bundle over a paracompact Hausdorff base has a metric. -/
 theorem nonempty_continuousHermitianMetric : Nonempty (ContinuousHermitianMetric E) := by
   /- Stage 1: choose the original finite linear trivializations around every

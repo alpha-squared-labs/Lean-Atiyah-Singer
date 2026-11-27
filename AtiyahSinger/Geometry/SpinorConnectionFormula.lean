@@ -67,6 +67,9 @@ local notation "TModel" => EuclideanSpace ℝ (Fin (2 * m))
 namespace TopologicalSpinStructure
 
 open Classical in
+-- Human-verified.
+-- - The Levi-Civita and half-spinor connections for the same metric g. The review covers the
+--   documented definition or construction.
 /-- The standard spin-connection formula in the same lifted frames and exterior coordinates. -/
 def IsInducedHalfSpinorConnection :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩

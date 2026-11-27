@@ -70,6 +70,9 @@ def rankFlagTopology (r : ℕ) : TopologicalSpace (RankFlagBundle E h r) :=
 
 attribute [local instance] rankFlagTopology
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The original native flag projection on the actual rank-r subspace. -/
 def rankFlagProjection (r : ℕ) : C(RankFlagBundle E h r, rankStratum E r) :=
   let F := Restrict E (rankStratum E r)
@@ -81,10 +84,16 @@ def rankFlagProjection (r : ℕ) : C(RankFlagBundle E h r, rankStratum E r) :=
   letI := hF.nativeVectorBundle r (fun x ↦ x.property)
   hermitianFlagProjection r F (hF.nativeModelMetric r)
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The global flag space is the disjoint union over the original locally constant ranks. -/
 def VariableRankFlagBundle : Type (max u v) :=
   (r : ℕ) × RankFlagBundle E h r
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The topological sum of the original rank-piece flag topologies. -/
 @[reducible]
 def variableRankFlagTopology : TopologicalSpace (VariableRankFlagBundle E h) :=
@@ -92,11 +101,17 @@ def variableRankFlagTopology : TopologicalSpace (VariableRankFlagBundle E h) :=
 
 attribute [local instance] variableRankFlagTopology
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- Include an original rank-piece flag without changing its base, projections or range lines. -/
 def rankFlagInclusion (r : ℕ) : C(RankFlagBundle E h r, VariableRankFlagBundle E h) where
   toFun := fun p ↦ ⟨r, p⟩
   continuous_toFun := continuous_sigmaMk
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The actual global flag projection, with the rank-stratum inclusion on each piece. -/
 def variableRankFlagProjection : C(VariableRankFlagBundle E h, X) where
   toFun := fun p ↦ (rankFlagProjection E h p.1 p.2).val

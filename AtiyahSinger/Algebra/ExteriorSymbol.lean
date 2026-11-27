@@ -27,18 +27,36 @@ namespace AtiyahSinger
 
 variable {V : Type*} [NormedAddCommGroup V] [InnerProductSpace ℂ V]
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- Left exterior multiplication by a vector. -/
 def exteriorMultiplication (v : V) : Module.End ℂ (ExteriorAlgebra ℂ V) :=
   Algebra.lmul ℂ (ExteriorAlgebra ℂ V) (ExteriorAlgebra.ι ℂ v)
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- Contraction by the linear functional w ↦ ⟪v,w⟫. -/
 def contraction (v : V) : Module.End ℂ (ExteriorAlgebra ℂ V) :=
   CliffordAlgebra.contractLeft (Q := (0 : QuadraticForm ℂ V)) (innerₛₗ ℂ v)
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- Clifford multiplication in the negative-square convention used by Spin Geometry. -/
 def cliffordSymbol (v : V) : Module.End ℂ (ExteriorAlgebra ℂ V) :=
   exteriorMultiplication v - contraction v
 
+-- Human-verified.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- KL07: exterior multiplication squares to zero. -/
 theorem exteriorMultiplication_sq (v : V) : exteriorMultiplication v ^ 2 = 0 := by
   -- Evaluate on a multivector and bring the two copies of v together.
@@ -46,12 +64,18 @@ theorem exteriorMultiplication_sq (v : V) : exteriorMultiplication v ^ 2 = 0 := 
   change ExteriorAlgebra.ι ℂ v * (ExteriorAlgebra.ι ℂ v * x) = 0
   rw [← mul_assoc, ExteriorAlgebra.ι_sq_zero, zero_mul]
 
+-- Human-verified.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- KL07: contraction squares to zero. -/
 theorem contraction_sq (v : V) : contraction v ^ 2 = 0 := by
   -- Mathlib proves nilpotence for contraction by every linear functional.
   ext x
   exact CliffordAlgebra.contractLeft_contractLeft (innerₛₗ ℂ v) x
 
+-- Human-verified.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- KL07: the anticommutator is the Hermitian squared length. -/
 theorem exteriorMultiplication_contraction_add (v : V) :
     exteriorMultiplication v * contraction v + contraction v * exteriorMultiplication v =
@@ -65,6 +89,9 @@ theorem exteriorMultiplication_contraction_add (v : V) :
   -- The remaining coefficient is the Hermitian squared norm.
   simp [contraction, inner_self_eq_norm_sq_to_K]
 
+-- Human-verified.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- KL07: wedge plus contraction has positive square. -/
 theorem exteriorMultiplication_add_contraction_sq (v : V) :
     (exteriorMultiplication v + contraction v) ^ 2 =
@@ -74,6 +101,11 @@ theorem exteriorMultiplication_add_contraction_sq (v : V) :
   rw [← pow_two, exteriorMultiplication_sq, ← pow_two, contraction_sq, zero_add, add_zero]
   exact exteriorMultiplication_contraction_add v
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- D10/SC01: wedge minus contraction has negative square. -/
 theorem cliffordSymbol_sq (v : V) :
     cliffordSymbol v ^ 2 = -(‖v‖ ^ 2 : ℂ) • (1 : Module.End ℂ (ExteriorAlgebra ℂ V)) := by
@@ -83,6 +115,9 @@ theorem cliffordSymbol_sq (v : V) :
   rw [sub_eq_add_neg, ← neg_add, exteriorMultiplication_contraction_add]
   exact (neg_smul (‖v‖ ^ 2 : ℂ) (1 : Module.End ℂ (ExteriorAlgebra ℂ V))).symm
 
+-- Human-verified.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- KL07: the phase-family square formula, for arbitrary phase parameter and vector. -/
 theorem exteriorMultiplication_phase_contraction_sq (v : V) (z : ℂ) :
     (exteriorMultiplication v + z • contraction v) ^ 2 =
@@ -95,6 +130,9 @@ theorem exteriorMultiplication_phase_contraction_sq (v : V) (z : ℂ) :
   -- Combine the two mixed terms using the anticommutator identity.
   rw [← smul_add, exteriorMultiplication_contraction_add, smul_smul]
 
+-- Human-verified.
+-- - Exterior multiplication, contraction, and the square of Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- D10/SC01: the inverse off the zero vector is exactly -c(v)/‖v‖². -/
 theorem cliffordSymbol_inverse (v : V) (hv : v ≠ 0) :
     cliffordSymbol v * (-(‖v‖ ^ 2 : ℂ)⁻¹ • cliffordSymbol v) = 1 := by

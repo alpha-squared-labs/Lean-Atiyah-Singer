@@ -198,6 +198,9 @@ theorem isFredholm_circleFourierIndexOperator : circleFourierIndexOperator.IsFre
     infer_instance
   · exact circleFourierConstantCokernelEquiv.finiteDimensional
 
+-- Human-verified.
+-- - Two-pole symbols and low-dimensional normalization. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- ASI p.526: the actual circle operator has index `0 - 1 = -1`. -/
 theorem index_circleFourierIndexOperator : circleFourierIndexOperator.index = -1 := by
   /- Stage 1: Fredholmness justifies the finite kernel-minus-cokernel index

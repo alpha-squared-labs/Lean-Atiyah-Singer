@@ -127,6 +127,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
 attribute [local instance] isFiniteRank_pullback isFiniteRank_restrict
   t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- One metric disk controls a full-symbol affine family with a lower-order difference. -/
 theorem IsEllipticFullGlobalSymbol.exists_metric_radius_affine_of_lowerOrder {m : ℝ}
     {a b : GlobalSymbolFunction (n := n) E F}
@@ -226,6 +229,9 @@ theorem IsEllipticFullGlobalSymbol.exists_metric_radius_affine_of_lowerOrder {m 
   simpa only [ContinuousLinearMap.isInvertible_equiv_comp,
     ContinuousLinearMap.isInvertible_comp_equiv, H, Pi.add_apply, Pi.smul_apply] using hinv
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The standard full-symbol K class depends only on the genuine principal quotient class. -/
 theorem fullSymbolKClass_eq_of_principalClass_eq {m : ℝ}
     (a b : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -284,6 +290,9 @@ theorem fullSymbolKClass_eq_of_principalClass_eq {m : ℝ}
   change A.compactSupportClass = B.compactSupportClass
   exact A.compactSupportClass_eq_of_homotopic B hhom
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Any compact exterior of the same actual full symbol computes its constructed K class. -/
 theorem fullSymbolKClass_eq_tripleWithControl {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -337,6 +346,9 @@ theorem fullSymbolKClass_eq_tripleWithControl {m : ℝ}
       congrArg CompactSupportTriple.compactSupportClass heq
     _ = B.compactSupportClass := B.compactSupportClass_enlarge K hK Set.subset_union_right
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Homogeneous regularization has the original off-zero symbol's compact-support class. -/
 theorem fullSymbolKClass_regularizedSymbol {m : ℝ}
     (A : QuantizationPresentation (n := n) (r := r) (q := q) E F)

@@ -162,6 +162,9 @@ def localHomologyOpenInclusionEquiv [T2Space X]
       (fun _y hy h ↦ hy (Subtype.ext h)) k).hom
     (relativeSingularHomologyMap_openInclusion_bijective U hU x k)
 
+-- Human-verified.
+-- - The interleaved orientation of the tangent bundle and its fundamental class. The review covers
+--   the documented definition or construction.
 /-- Local chart transport through the actual source inclusion, chart, and target inclusion. -/
 def localHomologyChartEquiv [T2Space X] [T2Space Y]
     (e : OpenPartialHomeomorph X Y) (x : X) (hx : x ∈ e.source) (k : ℕ) :
@@ -172,6 +175,9 @@ def localHomologyChartEquiv [T2Space X] [T2Space Y]
       (localHomologyOpenInclusionEquiv e.target e.open_target
         (e.toHomeomorphSourceTarget ⟨x, hx⟩) k)
 
+-- Human-verified.
+-- - The interleaved orientation of the tangent bundle and its fundamental class. The review covers
+--   the documented definition or construction.
 /-- The positive local Euclidean class is the translated standard affine-simplex class. -/
 def euclideanLocalOrientationCycle (r : ℕ) (a : EuclideanSpace ℝ (Fin r)) :
     relativeSingularHomology ℤ ({a}ᶜ : Set (EuclideanSpace ℝ (Fin r))) r :=

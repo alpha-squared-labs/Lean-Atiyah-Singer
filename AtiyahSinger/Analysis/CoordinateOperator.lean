@@ -30,6 +30,9 @@ open scoped ContDiff
 
 variable {n r q m : ℕ}
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- A smooth finite-order differential expression on an open coordinate domain. -/
 structure CoordinateDifferentialOperator (n r q m : ℕ)
     (U : Set (EuclideanSpace ℝ (Fin n))) where
@@ -44,6 +47,9 @@ namespace CoordinateDifferentialOperator
 
 variable {U : Set (EuclideanSpace ℝ (Fin n))}
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The actual differential expression, including the factors (-i)^k. -/
 def apply (P : CoordinateDifferentialOperator n r q m U)
     (u : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℂ (Fin r))
@@ -52,6 +58,9 @@ def apply (P : CoordinateDifferentialOperator n r q m U)
     P.coefficient k α x (((-Complex.I) ^ k.val) •
       iteratedFDeriv ℝ k.val u x (fun j ↦ EuclideanSpace.single (α j) 1))
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The highest-degree coefficient polynomial, with no condition at ξ = 0. -/
 def principalSymbol (P : CoordinateDifferentialOperator n r q m U)
     (x ξ : EuclideanSpace ℝ (Fin n)) :
@@ -59,6 +68,9 @@ def principalSymbol (P : CoordinateDifferentialOperator n r q m U)
   ∑ α : Fin m → Fin n, (∏ j, ξ (α j)) •
     P.coefficient ⟨m, Nat.lt_succ_self m⟩ α x
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- Ellipticity is invertibility of the principal symbol off the zero section. -/
 def IsElliptic (P : CoordinateDifferentialOperator n r q m U) : Prop :=
   IsEllipticSymbol U P.principalSymbol

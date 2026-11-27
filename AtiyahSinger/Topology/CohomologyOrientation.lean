@@ -82,6 +82,9 @@ variable [VectorBundle ℝ (EuclideanSpace ℝ (Fin r)) E]
 def bundleZeroSection : C(X, TotalSpace (EuclideanSpace ℝ (Fin r)) E) :=
   ⟨zeroSection (EuclideanSpace ℝ (Fin r)) E, Trivialization.continuous_zeroSection ℝ⟩
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the documented
+--   definition or construction.
 /-- A locally compatible family of generators of the actual relative fiber cohomology. -/
 structure CohomologyOrientation where
   /-- The chosen top relative class on each original fiber. -/

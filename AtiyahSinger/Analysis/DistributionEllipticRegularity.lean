@@ -143,6 +143,9 @@ theorem memSobolevOn_distribution_of_isSmoothingOperator
     A μ (-(k : ℝ)) u (t + m) U).mpr
   exact P.memSobolevOn_of_isSmoothingOperator A B Q hQ (-(k : ℝ)) t u U hU hPu
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Full-symbol ellipticity gains m local derivatives for every distribution input. -/
 theorem memSobolevOn_distribution_of_isElliptic (hP : P.IsElliptic)
     (D : A.DistributionSection μ) (t : ℝ) (U : Set M) (hU : IsOpen U)
@@ -155,6 +158,9 @@ theorem memSobolevOn_distribution_of_isElliptic (hP : P.IsElliptic)
   obtain ⟨Q, hQ⟩ := P.exists_parametrix_of_isElliptic hP
   exact P.memSobolevOn_distribution_of_isSmoothingOperator A B Q hQ.1 D t U hU hPD
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- An elliptic PDO is locally hypoelliptic on the whole continuous distribution carrier. -/
 theorem isSmoothOn_distribution_of_isElliptic (hP : P.IsElliptic)
     (D : A.DistributionSection μ) (U : Set M) (hU : IsOpen U)
@@ -170,6 +176,9 @@ theorem isSmoothOn_distribution_of_isElliptic (hP : P.IsElliptic)
   simpa only [sub_add_cancel] using
     P.memSobolevOn_distribution_of_isElliptic A B hP D (l - m) U hU hout
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A globally elliptic PDO preserves singular support exactly on all distributions. -/
 theorem singularSupport_distributionExtension_eq_of_isElliptic (hP : P.IsElliptic)
     (D : A.DistributionSection μ) :
@@ -197,10 +206,16 @@ variable {k : ℕ} (P : DifferentialOperator (n := n) (r := r) (q := q) E F k)
   (A : SmoothBundlePresentation (n := n) (r := r) E)
   (B : SmoothBundlePresentation (n := n) (r := q) F)
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the documented
+--   definition or construction.
 /-- The original differential operator acts on distributions through its exact PDO inclusion. -/
 def distributionExtension : A.DistributionSection μ →ₗ[ℂ] B.DistributionSection μ :=
   (P.toPseudodifferentialOperator μ).distributionExtension A B
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The differential distribution action agrees with its original Sobolev extension. -/
 theorem distributionExtension_sobolevToDistribution (s : ℝ) (u : A.SobolevSpace s) :
     P.distributionExtension μ A B (A.sobolevToDistribution μ s u) =
@@ -213,6 +228,9 @@ theorem distributionExtension_sobolevToDistribution (s : ℝ) (u : A.SobolevSpac
   rw [PseudodifferentialOperator.distributionExtension_sobolevToDistribution,
     P.sobolevExtension_toPseudodifferentialOperator μ A B s]
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Local elliptic regularity for the distribution extension of the original differential map. -/
 theorem memSobolevOn_distribution_of_isElliptic (hP : P.IsElliptic)
     (D : A.DistributionSection μ) (t : ℝ) (U : Set M) (hU : IsOpen U)
@@ -231,6 +249,9 @@ theorem memSobolevOn_distribution_of_isElliptic (hP : P.IsElliptic)
     A μ (-(j : ℝ)) u (t + k) U).mpr
   exact P.memSobolevOn_of_isElliptic (μ := μ) A B hP (-(j : ℝ)) t u U hU hPu
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SG III.5.2(i) transported from all Sobolev realizations to all closed-base distributions. -/
 theorem isSmoothOn_distribution_of_isElliptic (hP : P.IsElliptic)
     (D : A.DistributionSection μ) (U : Set M) (hU : IsOpen U)

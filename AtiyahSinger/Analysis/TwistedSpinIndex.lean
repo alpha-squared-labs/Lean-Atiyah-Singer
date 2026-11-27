@@ -76,6 +76,9 @@ set_option maxHeartbeats 3000000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Orientation in positive even-dimensional T04 and cancellation of the two signs. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The twisted chiral spin index is the original ch(W) times A-hat characteristic number. -/
 theorem twistedDiracPlus_index
     (hV : letI := complexificationTopology TModel TM

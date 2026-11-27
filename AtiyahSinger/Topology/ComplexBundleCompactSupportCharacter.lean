@@ -55,6 +55,9 @@ namespace ContinuousHermitianMetric
 variable (h : ContinuousHermitianMetric E)
 
 include h in
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The same one-point comparison is bijective on the original complex bundle total space. -/
 theorem compactSupportCohomologyToOnePoint_bijective
     (R : Type) [CommRing R] (r : ℕ) (hr : ∀ x, Module.finrank ℂ (E x) = r) (n : ℕ) :
@@ -130,6 +133,9 @@ theorem compactSupportCohomologyToOnePoint_bijective
     exact (hsquare a).symm.trans ((congrArg _ ha).trans hx)
 
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the documented definition
+--   or construction.
 /-- The one-point equivalence whose forward map is the original Unit-total colimit comparison. -/
 def compactSupportCohomologyOnePointEquiv
     (R : Type) [CommRing R] (r : ℕ) (hr : ∀ x, Module.finrank ℂ (E x) = r) (n : ℕ) :
@@ -139,6 +145,9 @@ def compactSupportCohomologyOnePointEquiv
     (compactSupportCohomologyToOnePoint R (TotalSpace Unit E) n).hom
     (h.compactSupportCohomologyToOnePoint_bijective R r hr n)
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the documented definition
+--   or construction.
 /-- The supported character of the original reduced K class on the original complex total space. -/
 def compactSupportChernCharacterComponent
     (r : ℕ) (hr : ∀ x, Module.finrank ℂ (E x) = r) (k : ℕ) :
@@ -147,6 +156,9 @@ def compactSupportChernCharacterComponent
   (h.compactSupportCohomologyOnePointEquiv ℚ r hr (2 * k)).symm.toAddMonoidHom.comp
     (reducedChernCharacterComponent (∞ : OnePoint (TotalSpace Unit E)) k)
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The original comparison sends this supported character to the same point-relative character. -/
 theorem compactSupportChernCharacterComponent_toOnePoint
     (r : ℕ) (hr : ∀ x, Module.finrank ℂ (E x) = r) (k : ℕ)

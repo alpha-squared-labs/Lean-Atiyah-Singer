@@ -214,6 +214,9 @@ theorem continuous_atlasSymbolTotalMap (a : AtlasSymbolFunction (n := n) E F)
   rw [(inducing_pullbackTotalSpaceEmbedding Unit F p).continuous_iff]
   exact (continuous_subtype_val.comp hproj).prodMk houtput
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the
+--   documented definition or construction.
 /-- The given symbol as the actual exterior isomorphism of the original cotangent pullbacks. -/
 def atlasEllipticSymbolBoundary (a : AtlasSymbolFunction (n := n) E F)
     (hs : IsSmoothOffZeroAtlasSymbol A B a) (hi : IsEllipticAtlasSymbol a) :
@@ -231,6 +234,9 @@ def atlasEllipticSymbolBoundary (a : AtlasSymbolFunction (n := n) E F)
 
 variable [CompactSpace M]
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the
+--   documented definition or construction.
 /-- The raw support triple keeps both original bundles and the entire zero-section control. -/
 def atlasEllipticSymbolTriple (a : AtlasSymbolFunction (n := n) E F)
     (hs : IsSmoothOffZeroAtlasSymbol A B a) (hi : IsEllipticAtlasSymbol a) :
@@ -257,6 +263,9 @@ theorem atlasEllipticSymbolTriple_properties (a : AtlasSymbolFunction (n := n) E
 
 variable [T2Space M]
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the
+--   documented definition or construction.
 /-- The compact-support K class of the actual off-zero atlas symbol. -/
 def atlasSymbolKClass (a : AtlasSymbolFunction (n := n) E F)
     (hs : IsSmoothOffZeroAtlasSymbol A B a) (hi : IsEllipticAtlasSymbol a) :

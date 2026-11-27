@@ -50,6 +50,9 @@ variable (m : ℕ)
   [ContinuousSMul (spinGroup (realSpinorQuadraticForm m))ᵐᵒᵖ P]
   (projection : P → B)
 
+-- Human-verified.
+-- - Unified Spin input and smoothing of the same principal bundle. The review covers the documented
+--   definition or construction.
 /-- Original spin principal charts with smooth transitions in real Clifford coordinates. -/
 structure SmoothSpinPrincipalAtlas where
   /-- The original right action preserves the specified projection. -/
@@ -96,6 +99,9 @@ variable {E₀ H₀ P₀ B₀ : Type*}
   [ContinuousSMul (spinGroup (realSpinorQuadraticForm 0))ᵐᵒᵖ P₀]
   {projection₀ : P₀ → B₀}
 
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The original trivial native spin group makes every rank-zero principal atlas smooth. -/
 theorem exists_smoothSpinPrincipalAtlas_zero
     (hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm 0)) projection₀) :
@@ -121,6 +127,9 @@ theorem exists_smoothSpinPrincipalAtlas_zero
   rw [hconstant]
   exact contMDiffOn_const
 
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the documented definition or
+--   construction.
 /-- A smooth atlas selected on the same rank-zero native principal bundle. -/
 def smoothSpinPrincipalAtlasZero
     (hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm 0)) projection₀) :

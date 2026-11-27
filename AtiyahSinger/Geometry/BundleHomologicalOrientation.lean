@@ -134,6 +134,9 @@ local notation "TE" => TotalSpace F E
 
 attribute [local instance] t2Space_fiberBundleTotal bundleTotalEuclideanChartedSpace
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
 /-- The product of the original base sign and the actual fiber-cap sign in the same native chart. -/
 def bundleTotalLocalOrientationCoefficient (O : HomologicalOrientation n M)
     (o : CohomologyOrientation ℤ r E) (z : TE) : ℤ := by
@@ -152,6 +155,9 @@ def bundleTotalLocalOrientationCoefficient (O : HomologicalOrientation n M)
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Base-first charts and the two integral orientations determine one total orientation. -/
 theorem existsUnique_bundleHomologicalOrientation (O : HomologicalOrientation n M)
     (o : CohomologyOrientation ℤ r E) :
@@ -366,6 +372,9 @@ theorem existsUnique_bundleHomologicalOrientation (O : HomologicalOrientation n 
     exact (hOT' y).trans ((localHomologyChartEquiv (chartAt W y) y
       (mem_chart_source W y) (n + r)).apply_symm_apply _).symm
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
 /-- The ordered total orientation chosen from the same local chart normalization. -/
 def bundleHomologicalOrientation (O : HomologicalOrientation n M)
     (o : CohomologyOrientation ℤ r E) : HomologicalOrientation (n + r) TE :=

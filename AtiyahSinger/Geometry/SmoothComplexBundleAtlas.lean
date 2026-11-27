@@ -49,6 +49,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   (E : M → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)]
 
+-- Human-verified.
+-- - Atlases of smooth complex vector bundles. The review covers the documented definition or
+--   construction.
 /-- A covering smooth complex-linear atlas for a bundle of locally varying finite rank.
 Every chart acts on the original total space with its given topology. -/
 structure SmoothComplexBundleAtlas where
@@ -73,6 +76,9 @@ namespace SmoothComplexBundleAtlas
 
 variable {E} (A : SmoothComplexBundleAtlas (n := n) E)
 
+-- Human-verified.
+-- - Atlases of smooth complex vector bundles. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Forgetting smooth transition conditions keeps the original local finite-rank bundle. -/
 theorem isFiniteRank (A : SmoothComplexBundleAtlas (n := n) E) :
     ComplexBundle.IsFiniteRank E where
@@ -81,6 +87,8 @@ theorem isFiniteRank (A : SmoothComplexBundleAtlas (n := n) E) :
     obtain ⟨i, hx⟩ := A.covers x
     exact ⟨A.rank i, A.chart i, hx, A.linear i⟩
 
+-- Human-verified.
+-- - The original smooth sections. The review covers the documented definition or construction.
 /-- A section is smooth precisely when its actual coordinates are smooth in every atlas chart. -/
 def IsSmoothSection (s : ∀ x : M, E x) : Prop :=
   ∀ i : A.Index,

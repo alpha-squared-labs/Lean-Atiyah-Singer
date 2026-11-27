@@ -51,6 +51,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- Smoothness of an actual cotangent Hom function on the complement of the zero section. -/
 def IsSmoothOffZeroGlobalSymbol (a : GlobalSymbolFunction (n := n) E F) : Prop :=
   ∀ (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))),
@@ -63,6 +66,9 @@ def IsSmoothOffZeroGlobalSymbol (a : GlobalSymbolFunction (n := n) E F) : Prop :
         ContDiffOn ℝ ∞ (Function.uncurry (globalSymbolInChart E F a c e f))
           (symbolChartDomain E F c e f ×ˢ {ξ | ξ ≠ 0})
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- Positive real homogeneity on nonzero actual cotangent fibers, without a condition at zero. -/
 def IsHomogeneousGlobalSymbol (m : ℝ) (a : GlobalSymbolFunction (n := n) E F) : Prop :=
   ∀ x : M, ∀ ξ : TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ,

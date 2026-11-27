@@ -33,6 +33,9 @@ variable (R : Type) [CommRing R]
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the documented
+--   definition or construction.
 /-- The Kronecker pairing of an actual dual cocycle with an actual homology class. -/
 def singularCochainHomologyEvaluation (C : ChainComplex (ModuleCat.{u} R) ℕ) (n : ℕ) :
     ((singularCochainDualFunctor R).obj (op C)).homology n →ₗ[R]
@@ -213,6 +216,9 @@ theorem singularCochainHomologyEvaluation_bijective (K : Type) [Field K]
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Augmenting the actual top-degree relative cap is exactly the Kronecker evaluation. -/
 theorem relativeSingularCapProduct_augmentation
     {X : Type u} [TopologicalSpace X] (A : Set X) (n : ℕ)

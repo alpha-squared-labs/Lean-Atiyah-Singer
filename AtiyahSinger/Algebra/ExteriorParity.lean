@@ -109,6 +109,9 @@ theorem cliffordSymbol_mem_evenOdd (v : V) (i : ZMod 2) (a : ExteriorAlgebra ℂ
       (CliffordAlgebra.ι_mem_evenOdd_one (0 : QuadraticForm ℂ V) v) ha
   exact (CliffordAlgebra.evenOdd _ _).sub_mem hwedge hcontract
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
 /-- The actual Clifford symbol restricted from parity `i` to parity `i + 1`. -/
 def cliffordSymbolParity (v : V) (i : ZMod 2) :
     CliffordAlgebra.evenOdd (0 : QuadraticForm ℂ V) i →ₗ[ℂ]
@@ -149,6 +152,9 @@ theorem cliffordSymbolParity_bijective (v : V) (hv : v ≠ 0) (i : ZMod 2) :
     change cliffordSymbol v (-(‖v‖ ^ 2 : ℂ)⁻¹ • cliffordSymbol v y.val) = y.val
     rw [map_smul, hinv]
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
 /-- The off-zero exterior-symbol isomorphism, with the specified Clifford forward map. -/
 def cliffordSymbolParityEquiv (v : V) (hv : v ≠ 0) (i : ZMod 2) :
     CliffordAlgebra.evenOdd (0 : QuadraticForm ℂ V) i ≃ₗ[ℂ]
@@ -156,6 +162,9 @@ def cliffordSymbolParityEquiv (v : V) (hv : v ≠ 0) (i : ZMod 2) :
   LinearEquiv.ofBijective (cliffordSymbolParity v i)
     (cliffordSymbolParity_bijective v hv i)
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The inverse parity symbol is the same Clifford action scaled by negative inverse length. -/
 theorem cliffordSymbolParityEquiv_symm_apply (v : V) (hv : v ≠ 0) (i : ZMod 2)
     (a : CliffordAlgebra.evenOdd (0 : QuadraticForm ℂ V) (i + 1)) :

@@ -28,6 +28,9 @@ variable {X Y Z : Type*} [TopologicalSpace X] [TopologicalSpace Y] [TopologicalS
   [LocallyCompactSpace X] [T2Space X] [LocallyCompactSpace Y] [T2Space Y]
   [LocallyCompactSpace Z] [T2Space Z]
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- Extension along an open embedding, using its actual homeomorphism onto the open image. -/
 def compactSupportKZeroOpenPushforward (f : X → Y) (hf : IsOpenEmbedding f) :
     CompactSupportKZero X →+ CompactSupportKZero Y :=

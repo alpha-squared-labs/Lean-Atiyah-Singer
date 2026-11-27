@@ -39,6 +39,9 @@ open scoped Manifold ContDiff
 variable {M : Type*} (E : M → Type*)
   [∀ x, NormedAddCommGroup (E x)] [∀ x, NormedSpace ℂ (E x)]
 
+-- Human-verified.
+-- - Smooth complex vector bundles in the native presentation. The review covers the documented
+--   definition or construction.
 /-- Restrict the existing complex scalar action to real scalars on the same normed fiber.
 This is an implementation adapter, not an additional mathematical bundle structure. -/
 @[reducible]
@@ -52,6 +55,9 @@ variable {r : ℕ} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin r)) E]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin r)) E]
 
+-- Human-verified.
+-- - Smooth complex vector bundles in the native presentation. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Scalar restriction makes the original complex bundle a real vector bundle in the same atlas. -/
 theorem vectorBundle_real_of_complex : VectorBundle ℝ (EuclideanSpace ℂ (Fin r)) E := by
   /- Stage 1: restrict each original complex-linear local fiber chart to real
@@ -86,6 +92,9 @@ attribute [local instance] vectorBundle_real_of_complex
 
 variable {n : ℕ} [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]
 
+-- Human-verified.
+-- - Smooth complex vector bundles in the native presentation. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original real-smooth complex transitions give the native real smooth bundle structure. -/
 theorem contMDiffVectorBundle_real_of_complex
     [IsSmoothComplexBundle (n := n) (r := r) E] :
@@ -111,6 +120,8 @@ theorem contMDiffVectorBundle_real_of_complex
   exact (e.coordChangeL_apply (R := ℝ) e' hx v).trans
     (e.coordChangeL_apply (R := ℂ) e' hx v).symm
 
+-- Human-verified.
+-- - Smooth complex connections. The review covers the documented definition or construction.
 /-- A real connection is complex linear in differentiable sections at points of the given set.
 The native real Leibniz law and smoothness conditions are imposed separately. -/
 def IsComplexLinearConnectionOn

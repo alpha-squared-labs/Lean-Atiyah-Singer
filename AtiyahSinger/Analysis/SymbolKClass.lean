@@ -48,6 +48,9 @@ attribute [local instance] isFiniteRank_pullback t2Space_cotangent
 
 variable [CompactSpace M] [T2Space M]
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the
+--   documented definition or construction.
 /-- The compact-support K class of the original off-zero elliptic symbol. -/
 def symbolKClass (a : GlobalSymbolFunction (n := n) E F)
     (ha : IsContinuousOffZeroGlobalSymbol (r := r) (q := q) a) (hi : IsEllipticGlobalSymbol E F a) :

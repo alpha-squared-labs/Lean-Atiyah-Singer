@@ -56,6 +56,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
 
 include hM hT hSC hE hF
 
+-- Human-verified.
+-- - Bundle pullback over paracompact sources and relative smoothing. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Smooth a continuous bundle isomorphism through isomorphisms fixed on a closed region.
 Smoothness of the initial map is required on an open neighborhood of that region. -/
 theorem Iso.exists_smooth_homotopy_relative

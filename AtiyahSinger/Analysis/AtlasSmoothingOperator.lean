@@ -39,6 +39,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   {F : M → Type*} [∀ x, AddCommGroup (F x)] [∀ x, Module ℂ (F x)]
   [TopologicalSpace (TotalSpace Unit F)]
 
+-- Human-verified.
+-- - Pseudodifferential operators in the atlas presentation. The review covers the documented
+--   definition or construction.
 /-- SG's smoothing condition: bounded extension between every pair of real Sobolev orders.
 Compactness ensures that the quantified finite presentations exist. -/
 def IsAtlasSmoothingOperator

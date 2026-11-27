@@ -53,6 +53,9 @@ variable (m : ℕ) {B P : Type*} (E : B → Type*)
   [ContinuousSMul (spinGroup (realSpinorQuadraticForm m))ᵐᵒᵖ P]
   {projection : P → B}
 
+-- Human-verified.
+-- - The original right principal bundle and lifts of orthonormal frames. The review covers the
+--   documented definition or construction.
 /-- The standard equivariant double-cover lift on the specified original principal bundle. -/
 structure TopologicalSpinStructure
     [FiberBundle (EuclideanSpace ℝ (Fin (2 * m))) E]

@@ -36,6 +36,9 @@ attribute [local instance] t2Space_totalSpace locallyCompactSpace_totalSpace isF
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Finite detection of the Thom defect and the inverse Todd class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original defect pulls back along an actual isomorphism to the specified pullback bundle. -/
 theorem complexThomDefectComponent_eq_pullback_of_iso
     {X Y : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]

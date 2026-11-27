@@ -37,6 +37,9 @@ attribute [local instance] sumTopology isFiniteRank_sum trivialTopology isFinite
   isFiniteRank_restrict IdempotentMatrix.fiberTotalSpaceTopology IdempotentMatrix.isFiniteRank_fiber
 
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Descend the actual difference classes through the explicit triple relations. -/
 def tripleKZeroToRelative (A : Set X) (hA : IsClosed A) : TripleKZero A →+ RelativeKZero A hA :=
   (tripleKZero_universal_property A (fun a ↦ a.relativeClass hA)
@@ -373,11 +376,17 @@ theorem tripleKZeroToRelative_bijective (A : Set X) (hA : IsClosed A) :
   concern the same generator-wise difference map with the same closed-pair hypotheses. -/
   exact ⟨tripleKZeroToRelative_injective A hA, tripleKZeroToRelative_surjective A hA⟩
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Identify the two models through the specified difference homomorphism. -/
 def tripleKZeroRelativeEquiv (A : Set X) (hA : IsClosed A) :
     TripleKZero A ≃+ RelativeKZero A hA :=
   AddEquiv.ofBijective _ (tripleKZeroToRelative_bijective A hA)
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The equivalence keeps the specified class of every geometric triple. -/
 theorem tripleKZeroRelativeEquiv_apply (hA : IsClosed A) (a : BundleTriple A) :
     tripleKZeroRelativeEquiv A hA a.kZeroClass = a.relativeClass hA := by
@@ -386,6 +395,9 @@ theorem tripleKZeroRelativeEquiv_apply (hA : IsClosed A) (a : BundleTriple A) :
   formula for that same homomorphism, with no new choice on the forward side. -/
   exact tripleKZeroToRelative_apply hA a
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Two constructed relative classes agree exactly under stable isomorphism. -/
 theorem BundleTriple.relativeClass_eq_iff_stable (hA : IsClosed A) (a b : BundleTriple A) :
     a.relativeClass hA = b.relativeClass hA ↔ a.IsStablyIsomorphic b := by

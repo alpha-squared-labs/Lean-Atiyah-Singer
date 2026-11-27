@@ -41,11 +41,17 @@ variable {A : Type u} [NormedRing A] [NormedAlgebra ℂ A] [CompleteSpace A]
 
 namespace LaurentMatrixLoop
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the documented
+--   definition or construction.
 /-- The actual right-module quotient for multiplication by the specified z^k sigma. -/
 abbrev RightShiftedCokernel (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) : Type u :=
   RightWiener.PolynomialCokernel (p.shift (k : ℤ)).polynomial hk
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The specified shifted quotient is finitely generated as a right A-module. -/
 theorem rightShiftedCokernel_finite (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) :
@@ -81,6 +87,9 @@ theorem rightShiftedCokernel_finite (p : LaurentMatrixLoop A) (k : ℕ)
       exact Units.mul_inv u
     exact RightWiener.polynomialCokernel_finite f hk g hgf hfg
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The same original quotient is a projective right A-module. -/
 theorem rightShiftedCokernel_projective (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) :
@@ -114,6 +123,9 @@ theorem rightShiftedCokernel_projective (p : LaurentMatrixLoop A) (k : ℕ)
       exact Units.mul_inv u
     exact RightWiener.polynomialCokernel_projective f hk g hgf hfg
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KA III.1.18: a further positive shift adds exactly n*l free right generators. -/
 theorem nonempty_rightShiftedCokernel_add_equiv (p : LaurentMatrixLoop A) (k l : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) :

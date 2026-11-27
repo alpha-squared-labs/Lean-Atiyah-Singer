@@ -44,6 +44,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   (A : SmoothComplexBundleAtlas (n := n) E)
   (B : SmoothComplexBundleAtlas (n := n) F)
 
+-- Human-verified.
+-- - Pseudodifferential operators in the atlas presentation. The review covers the documented
+--   definition or construction.
 /-- One actual local Fourier operator, with the two original cutoff frame maps. -/
 structure AtlasPseudodifferentialPiece (m : ℝ) where
   /-- The common manifold chart for input and output. -/
@@ -76,6 +79,9 @@ namespace AtlasPseudodifferentialPiece
 
 variable {A B} {m : ℝ} (L : AtlasPseudodifferentialPiece A B m)
 
+-- Human-verified.
+-- - Pseudodifferential operators in the atlas presentation. The review covers the documented
+--   definition or construction.
 /-- The actual restriction, coordinate action and inverse-frame extension on sections. -/
 def toLinearMap : A.smoothSections →ₗ[ℂ] B.smoothSections :=
   (L.output.extendLinearMap L.chart_mem_atlas).comp
@@ -125,12 +131,18 @@ end AtlasPseudodifferentialPiece
 
 variable [SecondCountableTopology M] [CompactSpace M]
 
+-- Human-verified.
+-- - Pseudodifferential operators in the atlas presentation. The review covers the documented
+--   definition or construction.
 /-- SG's finite local representation modulo all-order smoothing, on original sections. -/
 def IsAtlasPseudodifferentialOperator (m : ℝ)
     (P : A.smoothSections →ₗ[ℂ] B.smoothSections) : Prop :=
   ∃ (N : ℕ) (L : Fin N → AtlasPseudodifferentialPiece A B m),
     IsAtlasSmoothingOperator A B (P - ∑ j, (L j).toLinearMap)
 
+-- Human-verified.
+-- - Pseudodifferential operators in the atlas presentation. The review covers the documented
+--   definition or construction.
 /-- The standard PDO consists of its original section action and local representation. -/
 structure AtlasPseudodifferentialOperator (m : ℝ) where
   /-- Complex-linear action on the original smooth sections. -/

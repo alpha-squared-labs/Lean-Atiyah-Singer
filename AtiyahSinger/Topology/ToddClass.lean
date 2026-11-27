@@ -43,6 +43,9 @@ variable {X : Type u} [TopologicalSpace X]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
   (h : ContinuousHermitianMetric E)
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- The degree-2k Todd class evaluates its universal polynomial in the original Chern classes. -/
 def toddClassComponent (k : ℕ) : singularCohomology ℚ X (2 * k) :=
   singularCohomologyWeightedPolynomial X (fun i : Fin k ↦ i.val + 1)
@@ -81,6 +84,9 @@ variable (F : X → Type w) [∀ x, AddCommGroup (F x)] [∀ x, Module ℂ (F x)
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Todd classes multiply under the actual direct sum, as a finite convolution in each degree. -/
 theorem toddClassComponent_sum (k : ℕ) :
     toddClassComponent (E ×ᵇ F) (h.sum hF) k =
@@ -172,6 +178,9 @@ attribute [local instance] isFiniteRank_pullback
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Pullback preserves the actual Todd component on the original pulled-back bundle. -/
 theorem toddClassComponent_pullback {Y : Type u} [TopologicalSpace Y]
     (f : C(Y, X)) (k : ℕ) :

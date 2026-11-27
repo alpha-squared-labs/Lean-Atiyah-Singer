@@ -38,6 +38,9 @@ open scoped ContDiff Topology
 -- The quotient sits over a submodule of functions valued in continuous linear maps.
 set_option maxSynthPendingDepth 10
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The ambient matrix-valued functions in a Euclidean bundle chart. -/
 abbrev SymbolFunction (n r q : ℕ) : Type :=
   EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) →
@@ -182,6 +185,9 @@ theorem IsSymbol.mono {a : SymbolFunction n r q} (ha : IsSymbol U m a)
     (Real.rpow_le_rpow_of_exponent_le (le_add_of_nonneg_right (norm_nonneg ξ))
       (sub_le_sub_right hml j)) hC)
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The standard complex vector space S^m_(1,0)(U; Hom(ℂ^r, ℂ^q)). -/
 def symbolSpace (U : Set (EuclideanSpace ℝ (Fin n))) (hU : IsOpen U)
     (m : ℝ) (r q : ℕ) : Submodule ℂ (SymbolFunction n r q) where
@@ -199,22 +205,34 @@ theorem symbolSpace_mono (hU : IsOpen U) (hml : m ≤ l) :
   -- Inclusion changes only the allowed growth order, retaining the same total symbol function.
   exact IsSymbol.mono ha hml
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- Symbols of one lower order, as a submodule of the given order-m symbol space. -/
 def lowerOrderSymbols (U : Set (EuclideanSpace ℝ (Fin n))) (hU : IsOpen U)
     (m : ℝ) (r q : ℕ) : Submodule ℂ (symbolSpace U hU m r q) :=
   (symbolSpace U hU (m - 1) r q).comap (symbolSpace U hU m r q).subtype
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- SG Definition 3.13: the actual quotient S^m / S^(m-1). -/
 abbrev PrincipalSymbolSpace (U : Set (EuclideanSpace ℝ (Fin n))) (hU : IsOpen U)
     (m : ℝ) (r q : ℕ) : Type :=
   (symbolSpace U hU m r q) ⧸ lowerOrderSymbols U hU m r q
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The canonical complex-linear projection from symbols to principal symbol classes. -/
 def principalSymbolClass (U : Set (EuclideanSpace ℝ (Fin n))) (hU : IsOpen U)
     (m : ℝ) (r q : ℕ) :
     symbolSpace U hU m r q →ₗ[ℂ] PrincipalSymbolSpace U hU m r q :=
   (lowerOrderSymbols U hU m r q).mkQ
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Equality of principal classes means precisely one-order decay of their difference. -/
 theorem principalSymbolClass_eq_iff (hU : IsOpen U)
     (a b : symbolSpace U hU m r q) :

@@ -61,6 +61,9 @@ variable {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E 
 
 set_option linter.overlappingInstances false in
 -- Retain the original explicit and inherited smooth-bundle proofs in this predicate.
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the documented definition or
+--   construction.
 /-- The same-density Hermitian integral identity for a real-order PDO and its adjoint. -/
 def IsFormalAdjoint
     (Q : PseudodifferentialOperator (n := n) (r := q) (q := r) F E μ m) : Prop :=
@@ -77,6 +80,9 @@ set_option maxRecDepth 4000 in
 set_option backward.isDefEq.respectTransparency false in
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The local adjoint calculus gives a unique global Hermitian adjoint of the same real order. -/
 theorem existsUnique_formalAdjoint :
     ∃! Q : PseudodifferentialOperator (n := n) (r := q) (q := r) F E μ m,
@@ -747,6 +753,9 @@ theorem existsUnique_formalAdjoint :
 
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the documented definition or
+--   construction.
 /-- The actual Hermitian adjoint, selected from its unique same-order PDO realization. -/
 def formalAdjoint :
     PseudodifferentialOperator (n := n) (r := q) (q := r) F E μ m :=

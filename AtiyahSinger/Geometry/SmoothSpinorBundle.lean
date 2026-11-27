@@ -456,6 +456,9 @@ def spinorBundleSmoothAtlas :
     SmoothComplexBundleAtlas.{u} (n := n) (SpinorBundle m hP) :=
   (exists_spinorBundle_smoothAtlases m hP S).choose
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- The selected half-spin atlas, with the original fixed parity label. -/
 @[reducible]
 def halfSpinorBundleSmoothAtlas (i : ZMod 2) :

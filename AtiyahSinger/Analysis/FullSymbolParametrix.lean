@@ -52,12 +52,19 @@ namespace PseudodifferentialOperator
 
 variable {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
 
+-- Human-verified.
+-- - Ellipticity of the given operator. The review covers the documented definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- Standard full-symbol ellipticity of the PDO's principal class, with no analytic conclusions. -/
 def IsElliptic : Prop :=
   ∃ a : globalSymbolSpace (n := n) (r := r) (q := q) E F m,
     P.principalSymbol = globalPrincipalSymbolClass E F m a ∧
       IsEllipticFullGlobalSymbol (r := r) (q := q) E F m a.val
 
+-- Human-verified.
+-- - Ellipticity of the given operator. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Any given representative tests the same ellipticity condition. -/
 theorem isElliptic_iff_of_principalSymbol_eq
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -157,6 +164,9 @@ theorem exists_inverse_mod_order_neg_one (hP : P.IsElliptic) :
     exact lowerF (m + -m) (by ring) (P.comp Q) (globalSymbolSpaceComp a b)
       hcomp (hb ((m + -m) - 1)).2
 
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG III.4.7: every quantitatively elliptic PDO has a two-sided smooth-kernel parametrix. -/
 theorem exists_parametrix_of_isElliptic (hP : P.IsElliptic) :
     ∃ Q : PseudodifferentialOperator (n := n) (r := q) (q := r) F E μ (-m),
@@ -172,6 +182,9 @@ theorem exists_parametrix_of_isElliptic (hP : P.IsElliptic) :
 variable (A : SmoothBundlePresentation (n := n) (r := r) E)
   (B : SmoothBundlePresentation (n := n) (r := q) F)
 
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Quantitative ellipticity makes every critical real-order Sobolev realization Fredholm. -/
 theorem isFredholm_sobolevExtension_of_isElliptic (hP : P.IsElliptic) (s : ℝ) :
     (P.sobolevExtension A B s).IsFredholm := by
@@ -182,6 +195,9 @@ theorem isFredholm_sobolevExtension_of_isElliptic (hP : P.IsElliptic) (s : ℝ) 
   exact P.isFredholm_sobolevExtension_of_isParametrix Q A B hQ s
 
 include A B in
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The kernel of the original smooth elliptic map is finite-dimensional. -/
 theorem finiteDimensional_ker_of_isElliptic (hP : P.IsElliptic) :
     FiniteDimensional ℂ P.toLinearMap.ker := by
@@ -191,6 +207,9 @@ theorem finiteDimensional_ker_of_isElliptic (hP : P.IsElliptic) :
   exact P.finiteDimensional_ker_of_isParametrix A B Q hQ
 
 include A B in
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The algebraic cokernel of the original smooth elliptic map is finite-dimensional. -/
 theorem finiteDimensional_coker_of_isElliptic (hP : P.IsElliptic) :
     FiniteDimensional ℂ (smoothSections (n := n) (r := q) F ⧸ P.toLinearMap.range) := by
@@ -199,6 +218,9 @@ theorem finiteDimensional_coker_of_isElliptic (hP : P.IsElliptic) :
   obtain ⟨Q, hQ⟩ := P.exists_parametrix_of_isElliptic hP
   exact P.finiteDimensional_coker_of_isParametrix A B Q hQ
 
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- An elliptic Sobolev solution with smooth data has a unique smooth representative. -/
 theorem existsUnique_smooth_lift_of_isElliptic (hP : P.IsElliptic)
     (s : ℝ) (u : A.SobolevSpace s) (v : smoothSections (n := n) (r := q) F)
@@ -222,6 +244,9 @@ theorem exists_estimate_of_isElliptic (hP : P.IsElliptic)
   obtain ⟨Q, hQ⟩ := P.exists_parametrix_of_isElliptic hP
   exact P.exists_estimate_of_isSmoothingOperator Q A B hQ.1 s l hls
 
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the native presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG III.5.3 for general full-symbol ellipticity, with finiteness established above. -/
 theorem index_sobolevExtension_eq_of_isElliptic (hP : P.IsElliptic) (s : ℝ) :
     (P.sobolevExtension A B s).index = P.toLinearMap.index := by
@@ -232,6 +257,9 @@ theorem index_sobolevExtension_eq_of_isElliptic (hP : P.IsElliptic) (s : ℝ) :
   exact P.index_sobolevExtension_eq_of_isParametrix A B Q hQ s
 
 include A B in
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Equal principal classes give equal smooth indices for generally elliptic PDOs. -/
 theorem index_eq_of_isElliptic_of_principalSymbol_eq (hP : P.IsElliptic)
     (R : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)

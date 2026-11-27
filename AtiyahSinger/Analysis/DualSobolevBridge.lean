@@ -41,6 +41,9 @@ namespace SmoothBundlePresentation
 
 variable (A : SmoothBundlePresentation (n := n) (r := r) E)
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- The induced dual presentation retains the original charts and cutoffs. -/
 def dualPresentation : SmoothBundlePresentation (n := n) (r := r) (DualBundle E) where
   size := A.size
@@ -138,11 +141,17 @@ theorem dualSobolevClosure_eq (s : ℝ) :
       exact ⟨β, (A.sobolevCoordinates_dualPresentation s β).symm⟩
   exact congrArg Submodule.topologicalClosure hrange
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- The identity of the common closed subspace gives the canonical isometric model comparison. -/
 def dualSobolevEquiv (s : ℝ) :
     A.DualSobolevSpace s ≃ₗᵢ[ℂ] A.dualPresentation.SobolevSpace s :=
   LinearIsometryEquiv.ofEq _ _ (A.dualSobolevClosure_eq s)
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The model comparison extends the identity of actual smooth covector sections. -/
 theorem dualSobolevEquiv_smooth (s : ℝ)
     (α : smoothDualSections (n := n) (r := r) E) :

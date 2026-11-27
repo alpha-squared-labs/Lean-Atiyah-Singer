@@ -118,6 +118,9 @@ def SmoothKernel.transpose (K : SmoothKernel (n := n) (r := r) (q := q) E F) :
 
 variable [MeasurableSpace M] {μ : Measure M}
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- The metric-free formal transpose is defined by actual dual evaluation with the same density. -/
 def IsFormalTranspose
     (μ : Measure M)
@@ -685,6 +688,9 @@ namespace PseudodifferentialOperator
 
 variable {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The formal transpose is uniquely specified among all smooth-section linear maps. -/
 theorem existsUnique_formalTranspose :
     ∃! T : smoothSections (n := n) (r := q) (DualBundle F) →ₗ[ℂ]
@@ -699,12 +705,18 @@ theorem existsUnique_formalTranspose :
   intro T' hT'
   exact IsFormalTranspose.unique P.toLinearMap T' T hT' hT
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- The actual dual-section map selected by its unique bilinear transpose identity. -/
 def formalTransposeLinearMap :
     smoothSections (n := n) (r := q) (DualBundle F) →ₗ[ℂ]
       smoothSections (n := n) (r := r) (DualBundle E) :=
   P.existsUnique_formalTranspose.exists.choose
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The selected map satisfies the same-density bilinear pairing identity. -/
 theorem isFormalTranspose_formalTransposeLinearMap :
     IsFormalTranspose μ P.toLinearMap P.formalTransposeLinearMap := by
@@ -713,6 +725,9 @@ theorem isFormalTranspose_formalTransposeLinearMap :
   ordinary complex-linear evaluation; a Hermitian metric is not part of the data. -/
   exact P.existsUnique_formalTranspose.exists.choose_spec
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- SG 3.17(iv): the specified transpose belongs to the original real PDO order. -/
 theorem isPseudodifferentialOperator_formalTranspose :
     IsPseudodifferentialOperator (DualBundle F) (DualBundle E) μ m
@@ -727,6 +742,9 @@ theorem isPseudodifferentialOperator_formalTranspose :
       P.isFormalTranspose_formalTransposeLinearMap hT
   exact heq.symm ▸ horder
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- The actual transpose map packaged with the derived same-order PDO property. -/
 def formalTranspose :
     PseudodifferentialOperator (n := n) (r := q) (q := r)

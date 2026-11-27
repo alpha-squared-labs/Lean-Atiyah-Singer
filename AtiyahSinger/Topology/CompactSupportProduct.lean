@@ -384,6 +384,9 @@ theorem existsUnique_compactSupportProduct (a : CompactSupportKZero X)
   apply hFinj
   exact (hLformula w).symm.trans (hc.trans hz.symm)
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The actual unique smash lift is biadditive. -/
 theorem existsUnique_compactSupportKZeroExternalProduct :
     ∃! μ : CompactSupportKZero X →+ CompactSupportKZero Y →+ CompactSupportKZero (X × Y),
@@ -458,11 +461,17 @@ theorem existsUnique_compactSupportKZeroExternalProduct :
   intro b
   exact hμunique a b (ν a b) (hν a b)
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The standard compact-support exterior product, determined by its smash pullback. -/
 def compactSupportKZeroExternalProduct :
     CompactSupportKZero X →+ CompactSupportKZero Y →+ CompactSupportKZero (X × Y) :=
   Classical.choose (existsUnique_compactSupportKZeroExternalProduct (X := X) (Y := Y)).exists
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The compact-support product pulls back to the prescribed absolute product. -/
 theorem compactSupportKZeroExternalProduct_pullback (a : CompactSupportKZero X)
     (b : CompactSupportKZero Y) :

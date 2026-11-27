@@ -877,6 +877,9 @@ end SmoothKernel
 
 variable (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- The standard smooth-kernel characterization of a smoothing operator on a closed base.
 The fixed positive density trivializes the input density factor of its kernel. -/
 def IsSmoothingOperator

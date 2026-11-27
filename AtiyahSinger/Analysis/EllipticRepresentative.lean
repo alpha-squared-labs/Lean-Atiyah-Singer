@@ -45,6 +45,9 @@ attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
   ComplexBundle.isFiniteRank_pullback
 
 include hM hT hC hSC hP in
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A compact preconnected base admits a smooth elliptic representative of any real degree. -/
 theorem exists_smooth_elliptic_representative_of_preconnected
     (u : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M))) (m : ℝ) :
@@ -98,6 +101,9 @@ variable [MeasurableSpace M] [hB : BorelSpace M]
   (μ : Measure M) [hμ : IsSmoothPositiveMeasure (n := n) μ]
 
 include hM hT hC hSC hP hB hμ in
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every K class on a compact preconnected base is the displayed symbol class of a PDO. -/
 theorem exists_elliptic_pseudodifferential_representative_of_preconnected
     (u : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M))) (m : ℝ) :

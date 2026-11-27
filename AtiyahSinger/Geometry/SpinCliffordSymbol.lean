@@ -68,6 +68,9 @@ def TopologicalSpinStructure.clifford (S : TopologicalSpinStructure m E o hm hP)
   let w := realSpinorCoordinateIsometry m ((S.frame p.val b p.property).symm v)
   e.toLinearMap.comp ((cliffordSymbol w).comp e.symm.toLinearMap)
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- The actual parity-changing Clifford map on the original associated half-spin fibers. -/
 def TopologicalSpinStructure.cliffordParity (S : TopologicalSpinStructure m E o hm hP)
     (b : B) (v : E b) (i : ZMod 2) :
@@ -136,6 +139,9 @@ theorem TopologicalSpinStructure.clifford_apply_mk (S : TopologicalSpinStructure
   rw [hrep, e.symm_apply_apply, ← hcoords, complexSpinRepresentation_cliffordSymbol]
   exact (hrep (cliffordSymbol w s)).symm
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The half-spin action retains the same representative and the original model parity symbol. -/
 theorem TopologicalSpinStructure.cliffordParity_apply_mk
     (S : TopologicalSpinStructure m E o hm hP) (p : P) (b : B) (hp : projection p = b)

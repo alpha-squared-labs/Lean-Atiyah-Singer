@@ -66,6 +66,9 @@ set_option synthInstance.maxHeartbeats 100000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character of the Spin Thom class with the same orientation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The self-convolution of the original real spin Thom coefficients is the complex Thom defect. -/
 theorem TopologicalSpinStructure.fiberIntegral_chernCharacter_spinorThom_square
     (S : TopologicalSpinStructure m E o hm hP)

@@ -264,6 +264,9 @@ variable [hT2 : T2Space M] [hSC : SecondCountableTopology M]
   [hE : IsSmoothComplexBundle (n := n) (r := r) E]
 
 include hG hM hA hT2 hSC hE hσ in
+-- Human-verified.
+-- - Equivariant metrics and the symbol of the given operator. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A smooth action of a compact Hausdorff group on a smooth finite-rank bundle over a
 Hausdorff second-countable smooth base admits an invariant smooth Hermitian metric. -/
 theorem exists_invariant_smoothHermitianMetric :

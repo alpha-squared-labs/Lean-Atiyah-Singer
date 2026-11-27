@@ -51,6 +51,9 @@ group or comparison with another convention for Spin(0) is asserted.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   documented definition or construction.
 /-- The negative Euclidean form on the underlying real space of complex m-space. -/
 def realSpinorQuadraticForm (m : ℕ) : QuadraticForm ℝ (EuclideanSpace ℂ (Fin m)) := by
   letI := InnerProductSpace.complexToReal (G := EuclideanSpace ℂ (Fin m))
@@ -61,6 +64,9 @@ def realSpinorGenerator (m : ℕ) :
     EuclideanSpace ℂ (Fin m) →ₗ[ℝ] Module.End ℂ (ComplexSpinor m) :=
   ((complexSpinorGenerator m).restrictScalars ℝ).comp (complexSpinorRealEmbedding m)
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The specified real generators satisfy the negative-norm Clifford relation. -/
 theorem realSpinorGenerator_sq (m : ℕ) (v : EuclideanSpace ℂ (Fin m)) :
     realSpinorGenerator m v * realSpinorGenerator m v =
@@ -97,6 +103,9 @@ def realSpinorRepresentation (m : ℕ) :
   CliffordAlgebra.lift (realSpinorQuadraticForm m)
     ⟨realSpinorGenerator m, realSpinorGenerator_sq m⟩
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Real Clifford multiplication is exactly the original Bott symbol on every generator. -/
 theorem realSpinorRepresentation_ι (m : ℕ) (v : EuclideanSpace ℂ (Fin m)) :
     realSpinorRepresentation m (CliffordAlgebra.ι (realSpinorQuadraticForm m) v) =
@@ -197,6 +206,9 @@ theorem complexSpinRepresentation_evenOdd (m : ℕ)
     rw [map_inv]
     exact (complexSpinRepresentation m g).apply_symm_apply s
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- The same spin action restricted to either of the two exterior parity subspaces. -/
 def complexSpinParityRepresentation (m : ℕ) (i : ZMod 2) :
     spinGroup (realSpinorQuadraticForm m) →*
@@ -230,6 +242,9 @@ def realSpinorVectorEmbeddingEquiv (m : ℕ) :
     simpa only [CliffordAlgebra.equivExterior, CliffordAlgebra.changeFormEquiv_apply,
       CliffordAlgebra.changeForm_ι] using h')
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   documented definition or construction.
 /-- The spin group's actual conjugation action on the original real vectors. -/
 def realSpinVectorRepresentation (m : ℕ) :
     spinGroup (realSpinorQuadraticForm m) →*
@@ -283,6 +298,9 @@ def realSpinVectorRepresentation (m : ℕ) :
             (e v : CliffordAlgebra (realSpinorQuadraticForm m)))
       simp only [map_mul, mul_smul] }
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The specified vector action is Clifford conjugation and preserves the real metric. -/
 theorem realSpinVectorRepresentation_properties (m : ℕ)
     (g : spinGroup (realSpinorQuadraticForm m)) (v : EuclideanSpace ℂ (Fin m)) :

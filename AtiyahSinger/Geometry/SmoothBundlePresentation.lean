@@ -43,6 +43,9 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin r)) E]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin r)) E]
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- A finite atlas/frame presentation with a compactly supported smooth partition of unity. -/
 structure SmoothBundlePresentation where
   /-- The number of localizations; zero is permitted for an empty base. -/
@@ -75,6 +78,9 @@ variable [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
 
 -- Preserve the original ambient assumptions while using only the partition prerequisites.
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- A compact Hausdorff second-countable smooth base admits the finite presentation
 required for Sobolev localization. -/
 theorem nonempty_smoothBundlePresentation [CompactSpace M] :
@@ -123,6 +129,9 @@ namespace SmoothBundlePresentation
 
 variable {E} (A : SmoothBundlePresentation (n := n) (r := r) E)
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
 /-- The compactly supported coordinate function of a global smooth section.
 The explicit zero extension prevents evaluation of the inverse chart outside its target. -/
 def localizedFunction (j : Fin A.size) (u : smoothSections (n := n) (r := r) E)

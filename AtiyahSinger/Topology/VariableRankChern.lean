@@ -45,6 +45,9 @@ variable {X : Type u} [TopologicalSpace X]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
   (h : ContinuousHermitianMetric E)
 
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The normalized integral classes assemble uniquely across the actual clopen rank pieces. -/
 theorem existsUnique_globalChernClass (k : ℕ) :
     ∃! c : singularCohomology ℤ X (2 * k), ∀ r : ℕ,
@@ -70,10 +73,16 @@ theorem existsUnique_globalChernClass (k : ℕ) :
   intro y hy
   exact huniq y (funext hy)
 
+-- Human-verified.
+-- - Integral Chern classes and naturality for varying rank. The review covers the documented
+--   definition or construction.
 /-- The integral Chern class of the original locally finite-rank complex bundle. -/
 def globalChernClass (k : ℕ) : singularCohomology ℤ X (2 * k) :=
   (existsUnique_globalChernClass E h k).exists.choose
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The existing normalized Chern-character components assemble on the same original base. -/
 theorem existsUnique_globalChernCharacterComponent (k : ℕ) :
     ∃! c : singularCohomology ℚ X (2 * k), ∀ r : ℕ,
@@ -96,6 +105,9 @@ theorem existsUnique_globalChernCharacterComponent (k : ℕ) :
   intro y hy
   exact huniq y (funext hy)
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the documented definition or
+--   construction.
 /-- The degree-2k rational Chern character of the original locally finite-rank bundle. -/
 def globalChernCharacterComponent (k : ℕ) : singularCohomology ℚ X (2 * k) :=
   (existsUnique_globalChernCharacterComponent E h k).exists.choose

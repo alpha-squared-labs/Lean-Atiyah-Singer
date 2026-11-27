@@ -101,6 +101,9 @@ def complexDiskComplementHomeomorph :
           ((continuous_subtype_val.comp continuous_snd).subtype_mk _)).subtype_mk _ }
   e.trans ((Homeomorph.refl X).prodCongr (Homeomorph.unitBall (E := ℂ)).symm)
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The disk pair gives the existing compact-support K-group of the plane product. -/
 def complexDiskRelativeKZeroEquiv [CompactSpace X] [T2Space X] :
     RelativeKZero (complexDiskBoundaryProduct X) (isClosed_complexDiskBoundaryProduct X) ≃+

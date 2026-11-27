@@ -39,12 +39,18 @@ variable (m : ℕ) {B : Type*} (E : B → Type*)
   [∀ x, NormedAddCommGroup (E x)] [∀ x, InnerProductSpace ℝ (E x)]
   (o : ∀ x, Orientation ℝ (E x) (Fin (2 * m)))
 
+-- Human-verified.
+-- - The original right principal bundle and lifts of orthonormal frames. The review covers the
+--   documented definition or construction.
 /-- Positive original orthogonal frames, with their actual fiber orientation condition. -/
 def OrientedOrthogonalFrameBundle : Type _ :=
   {p : OrthogonalFrameBundle (2 * m) E //
     Orientation.map (Fin (2 * m)) p.2.toLinearEquiv
       (EuclideanSpace.basisFun (Fin (2 * m)) ℝ).toBasis.orientation = o p.1}
 
+-- Human-verified.
+-- - The original right principal bundle and lifts of orthonormal frames. The review covers the
+--   documented definition or construction.
 /-- The original base point, unchanged by the orientation restriction. -/
 def orientedOrthogonalFrameProjection : OrientedOrthogonalFrameBundle m E o → B :=
   fun f ↦ f.val.1
@@ -52,6 +58,9 @@ def orientedOrthogonalFrameProjection : OrientedOrthogonalFrameBundle m E o → 
 variable [TopologicalSpace B]
   [TopologicalSpace (TotalSpace (EuclideanSpace ℝ (Fin (2 * m))) E)]
 
+-- Human-verified.
+-- - The original right principal bundle and lifts of orthonormal frames. The review covers the
+--   documented definition or construction.
 /-- The subspace topology inherited from the original orthogonal frame column topology. -/
 @[reducible]
 def orientedOrthogonalFrameTopology : TopologicalSpace (OrientedOrthogonalFrameBundle m E o) :=

@@ -35,6 +35,9 @@ variable {X : Type*} [TopologicalSpace X]
   {H : X → Type*} [∀ x, AddCommGroup (H x)] [∀ x, Module ℂ (H x)]
   [TopologicalSpace (TotalSpace Unit H)]
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Transport both bundles by conjugating the same boundary map. -/
 def CompactSupportTriple.congr (a : CompactSupportTriple E F) (e : Iso E G) (f : Iso F H) :
     CompactSupportTriple G H :=
@@ -132,6 +135,9 @@ theorem CompactSupportTriple.Homotopic.congr {a b : CompactSupportTriple E F}
 
 variable [IsFiniteRank E] [IsFiniteRank F] [IsFiniteRank G] [IsFiniteRank H]
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Package arbitrary-universe fibers using conjugation to the chosen small models. -/
 def CompactSupportTriple.toSupportBundleTriple (a : CompactSupportTriple E F) :
     SupportBundleTriple X :=
@@ -200,11 +206,17 @@ variable [hL : LocallyCompactSpace X] [hT : T2Space X]
 
 include hL hT
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- The actual compact-support K class of the original arbitrary-universe triple. -/
 def CompactSupportTriple.compactSupportClass (a : CompactSupportTriple E F) :
     CompactSupportKZero X :=
   a.toSupportBundleTriple.compactSupportClass
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The class can be calculated in any specified small model. -/
 theorem CompactSupportTriple.compactSupportClass_eq_model (a : CompactSupportTriple E F)
     (G H : FiniteBundle X) (e : Iso E G.Fiber) (f : Iso F H.Fiber) :
@@ -236,6 +248,9 @@ theorem CompactSupportTriple.compactSupportClass_congr (a : CompactSupportTriple
   exact (a.compactSupportClass_eq_model (smallBundle G) (smallBundle H)
     (e.trans (smallBundleIso G)) (f.trans (smallBundleIso H))).symm
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Uniform exterior homotopies give equal compact-support classes. -/
 theorem CompactSupportTriple.compactSupportClass_eq_of_homotopic
     (a b : CompactSupportTriple E F) (hab : a.Homotopic b) :

@@ -31,6 +31,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option maxSynthPendingDepth 40 in
 set_option maxHeartbeats 2000000 in
 -- The two original pullback reassociations are retained in the actual boundary action.
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Exterior bundle isomorphisms sharpen the control of the same homogeneous symbol K class. -/
 theorem exists_relativeHomogeneousSymbolTriple {n : ℕ} {M : Type*} [TopologicalSpace M]
     [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]

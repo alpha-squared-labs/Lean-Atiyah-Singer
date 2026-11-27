@@ -33,6 +33,11 @@ variable {X : Type*} [TopologicalSpace X]
   {G : X → Type*} [∀ x, AddCommGroup (G x)] [∀ x, Module ℂ (G x)]
   [TopologicalSpace (TotalSpace Unit G)]
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- An isomorphism of continuous complex vector bundles over one base. -/
 structure Iso (E F : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
     [∀ x, AddCommGroup (F x)] [∀ x, Module ℂ (F x)]
@@ -46,11 +51,17 @@ structure Iso (E F : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ
   continuous_symm : Continuous (fun z : TotalSpace Unit F ↦
     (⟨z.proj, (linearEquiv z.proj).symm z.snd⟩ : TotalSpace Unit E))
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- Forget only invertibility of a bundle isomorphism. -/
 def Iso.toHom (e : Iso E F) : Hom E F where
   linearMap x := (e.linearEquiv x).toLinearMap
   continuous_total := e.continuous_total
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- Reverse the fiber equivalences and exchange the continuity certificates. -/
 def Iso.symm (e : Iso E F) : Iso F E where
   linearEquiv x := (e.linearEquiv x).symm
@@ -64,6 +75,9 @@ def Iso.refl (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E
   continuous_total := continuous_id
   continuous_symm := continuous_id
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- Composition of bundle isomorphisms, first e and then f. -/
 def Iso.trans (e : Iso E F) (f : Iso F G) : Iso E G where
   linearEquiv x := (e.linearEquiv x).trans (f.linearEquiv x)

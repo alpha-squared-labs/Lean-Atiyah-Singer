@@ -177,6 +177,9 @@ private theorem exists_symbol_extension_of_isCompact
 
 set_option maxHeartbeats 800000 in
 -- Fixed-radius inversion combines local matrix derivative estimates with compact frequency bounds.
+-- Human-verified.
+-- - Two-sided local parametrices on open coordinate domains. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SL01: the high-frequency inverse has order -m after a cutoff.
 An inverse bound is explicit; pointwise invertibility of an arbitrary symbol is insufficient. -/
 theorem exists_inverse_symbol (U : Set (EuclideanSpace ℝ (Fin n))) (hU : IsOpen U)
@@ -591,6 +594,9 @@ private theorem isSymbol_tsum_of_geometric_tail
 
 set_option maxHeartbeats 1200000 in
 -- The radius selection and all remainder estimates use one locally finite symbol family.
+-- Human-verified.
+-- - Asymptotic summation for local symbols and global operators. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SR01: asymptotic summation of symbols of order tending to negative infinity. -/
 theorem exists_symbol_expansion (U : Set (EuclideanSpace ℝ (Fin n))) (hU : IsOpen U)
     (m : ℕ → ℝ) (hm : StrictAnti m) (hlim : Filter.Tendsto m Filter.atTop Filter.atBot)

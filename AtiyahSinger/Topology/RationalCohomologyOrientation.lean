@@ -170,6 +170,9 @@ theorem rationalization_fiberClass_is_generator (x : X) :
     change ev ((ev c / ev a) • a) = ev c
     rw [map_smul, smul_eq_mul, div_mul_cancel₀ _ ha]
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
 /-- The rational orientation whose fiber classes are the actual images of the integral ones. -/
 def rationalization : CohomologyOrientation ℚ r E where
   fiberClass x :=

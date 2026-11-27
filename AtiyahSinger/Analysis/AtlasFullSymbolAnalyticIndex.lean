@@ -65,6 +65,9 @@ namespace AtlasPseudodifferentialOperator
 variable {m : ℝ} (P : AtlasPseudodifferentialOperator A B m)
   (L : AtlasBundlePresentation A) (K : AtlasBundlePresentation B)
 
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the atlas presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The parametrix argument gives Fredholmness for every critical real-order Sobolev extension.
 This extends the differential-operator statement of SG III.5.2 using SG III.5.1. -/
 theorem isFredholm_sobolevExtension_of_isElliptic (hP : P.IsElliptic) (s : ℝ) :
@@ -115,6 +118,9 @@ theorem isFredholm_sobolevExtension_of_isElliptic (hP : P.IsElliptic) (s : ℝ) 
 set_option maxHeartbeats 4000000 in
 -- The natural kernel/cokernel maps elaborate nested dependent Sobolev instances.
 set_option synthInstance.maxHeartbeats 100000 in
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the atlas presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original dense smooth embeddings give the natural elliptic kernel/cokernel equivalences. -/
 theorem exists_kernel_cokernel_sobolevEquiv_of_isElliptic
     (hP : P.IsElliptic) (s : ℝ) :
@@ -225,6 +231,9 @@ theorem exists_kernel_cokernel_sobolevEquiv_of_isElliptic
   · intro v
     rfl
 
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the atlas presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The same original smooth kernel and cokernel are finite and compute every Sobolev index. -/
 theorem index_sobolevExtension_of_isElliptic (hP : P.IsElliptic) (s : ℝ) :
     FiniteDimensional ℂ P.toLinearMap.ker ∧
@@ -243,6 +252,11 @@ theorem index_sobolevExtension_of_isElliptic (hP : P.IsElliptic) (s : ℝ) :
   rw [LinearMap.index_eq_finrank_sub, LinearMap.index_eq_finrank_sub,
     ← e.finrank_eq, ← c.finrank_eq]
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
+-- - The order-zero difference between connections and the scope of the original index. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- A common full elliptic principal class preserves the original smooth index. -/
 theorem index_eq_of_principalSymbol_eq_of_isElliptic
     (P Q : AtlasPseudodifferentialOperator A B m) (hP : P.IsElliptic)
@@ -294,6 +308,11 @@ namespace AtlasPseudodifferentialOperator
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxSynthPendingDepth 40 in
+-- Human-verified.
+-- - Evaluation of the index on the full symbol class of the given operator P. The review covers the
+--   theorem statement and its documented mathematical correspondence.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original component analytic index evaluates the given arbitrary atlas full symbol. -/
 theorem analyticIndexOfComponents_atlasFullSymbolKClass
     {m : ℝ} (P : AtlasPseudodifferentialOperator A B m)
@@ -387,6 +406,9 @@ theorem analyticIndexOfComponents_atlasFullSymbolKClass
       (q c) (haU c) from hK.symm]
   exact heval c
 
+-- Human-verified.
+-- - Evaluation of the index on the full symbol class of the given operator P. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The same full-symbol class evaluates every original real-order Sobolev realization. -/
 theorem analyticIndexOfComponents_atlasFullSymbolKClass_sobolevExtension
     {m : ℝ} (P : AtlasPseudodifferentialOperator A B m)

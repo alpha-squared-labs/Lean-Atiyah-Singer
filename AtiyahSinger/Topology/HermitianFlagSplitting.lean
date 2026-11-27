@@ -37,10 +37,16 @@ variable (r : ℕ) {X : Type*} [TopologicalSpace X]
   (h : letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
     ContinuousHermitianMetric E)
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The i-th tautological line, literally a subspace of the original fiber. -/
 abbrev HermitianFlagLine (i : Fin r) (p : HermitianFlagBundle r E h) : Type _ :=
   LinearMap.range (p.2.val i).toLinearMap
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The finite sum of the actual tautological lines on the same flag base. -/
 abbrev HermitianFlagSum (p : HermitianFlagBundle r E h) : Type _ :=
   ∀ i : Fin r, HermitianFlagLine r E h i p
@@ -353,6 +359,9 @@ theorem hermitianFlagSplitting_properties :
       ((continuous_apply i).comp hc.snd).comp hb
     exact (continuous_unitTotalEquiv_symm V E).comp (hP.clm_bundle_apply hv)
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the documented
+--   definition or construction.
 /-- The actual tautological splitting of the original pullback, by summing its line vectors. -/
 def hermitianFlagSplitting :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E

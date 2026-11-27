@@ -50,12 +50,18 @@ variable (R : Type) [CommRing R] (r : ℕ) {X : Type u} [TopologicalSpace X]
   [VectorBundle ℝ (EuclideanSpace ℝ (Fin r)) E]
   (o : CohomologyOrientation R r E)
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the documented
+--   definition or construction.
 /-- The Euler class for the specified cohomological orientation, on the original base. -/
 def cohomologyEulerClass : singularCohomology R X r :=
   singularCohomologyPullback R (bundleZeroSection r E) r
     (relativeSingularCohomologyToOrdinary R (bundleNonzero r E) r
       (cohomologyThomClass R r E o))
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the documented
+--   definition or construction.
 /-- Relative fiber integration is the inverse of the actual original Thom multiplication. -/
 def cohomologyFiberIntegral (p : ℕ) :
     relativeSingularCohomology R (bundleNonzero r E) (p + r) →ₗ[R]
@@ -112,6 +118,9 @@ theorem cohomologyFiberIntegral_projection (p q : ℕ)
 
 variable [CompactSpace X]
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the documented
+--   definition or construction.
 /-- The actual zero-section image, regarded as a compact subset of the original total space. -/
 def cohomologyZeroSectionSupport : Compacts (TotalSpace (EuclideanSpace ℝ (Fin r)) E) where
   carrier := {z | z.snd = 0}
@@ -133,12 +142,18 @@ def cohomologyZeroSectionSupport : Compacts (TotalSpace (EuclideanSpace ℝ (Fin
     rw [← hzero]
     exact isCompact_range (bundleZeroSection r E).continuous
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the documented
+--   definition or construction.
 /-- The same Thom class in compactly supported cohomology, using the zero-section support. -/
 def compactSupportCohomologyThomClass :
     compactSupportCohomology R (TotalSpace (EuclideanSpace ℝ (Fin r)) E) r :=
   compactSupportCohomologyClass R (TotalSpace (EuclideanSpace ℝ (Fin r)) E)
     (cohomologyZeroSectionSupport r E) r (cohomologyThomClass R r E o)
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the documented
+--   definition or construction.
 /-- The compact-support zero-section pushforward defined by the actual Thom multiplication. -/
 def cohomologyZeroSectionPushforward (p : ℕ) :
     singularCohomology R X p →ₗ[R]
@@ -148,6 +163,9 @@ def cohomologyZeroSectionPushforward (p : ℕ) :
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Zero-section self-intersection, preserving the specified order a cup e. -/
 theorem zeroSectionPullback_cohomologyZeroSectionPushforward (p : ℕ)
     (a : singularCohomology R X p) :
@@ -203,6 +221,9 @@ theorem zeroSectionPullback_cohomologyZeroSectionPushforward (p : ℕ)
   rw [hbase]
   rfl
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- In even rank the Euler factor can be placed first without a graded sign. -/
 theorem zeroSectionPullback_cohomologyZeroSectionPushforward_of_even
     (hr : Even r) (p : ℕ) (a : singularCohomology R X p) :

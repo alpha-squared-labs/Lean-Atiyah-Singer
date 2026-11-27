@@ -63,6 +63,9 @@ set_option maxSynthPendingDepth 30 in
 set_option maxHeartbeats 1000000 in
 -- The extended limit accommodates the original open source and its two compact analytic
 -- environments.
+-- Human-verified.
+-- - Excision and noncompact open sources. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG Excision Property 13.4: two compact environments give the same index on the open source. -/
 theorem analyticIndexOfComponents_excision
     (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]

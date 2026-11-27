@@ -33,6 +33,9 @@ open scoped ContDiff Manifold
 
 attribute [local instance] tangentBundleFullChartedSpace tangentBundle_full_isManifold
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The original Euclidean tangent space in ordered base-plus-imaginary-tangent coordinates. -/
 def euclideanTangentComplexHomeomorph (n : ℕ) :
     TangentBundle 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) (EuclideanSpace ℝ (Fin n)) ≃ₜ
@@ -60,6 +63,9 @@ def euclideanTangentComplexHomeomorph (n : ℕ) :
           Complex.continuous_im.comp (continuous_apply i))) }
   exact (tangentBundleModelSpaceHomeomorph 𝓘(ℝ, EuclideanSpace ℝ (Fin n))).trans c
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The integer Bott coordinate using the actual Euclidean tangent map and positive Bott class. -/
 def euclideanTangentKZeroEquivInt (n : ℕ) :
     letI := (tangentBundle_topology (EuclideanSpace ℝ (Fin n))

@@ -154,6 +154,9 @@ attribute [local instance] sumTopology isFiniteRank_sum tensorTopology isFiniteR
 
 variable {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The even tensor bundle on the original product base, with its original induced topologies. -/
 @[reducible]
 def SupportBundleTriple.externalProductSource (a : SupportBundleTriple X)
@@ -161,6 +164,9 @@ def SupportBundleTriple.externalProductSource (a : SupportBundleTriple X)
   ((a.source.pullback ContinuousMap.fst).tensor (b.source.pullback ContinuousMap.snd)).sum
     ((a.target.pullback ContinuousMap.fst).tensor (b.target.pullback ContinuousMap.snd))
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The odd tensor bundle, ordered as E1 tensor F0 followed by E0 tensor F1. -/
 @[reducible]
 def SupportBundleTriple.externalProductTarget (a : SupportBundleTriple X)
@@ -300,6 +306,9 @@ theorem supportedExternalProduct_symbol_properties :
     (LinearEquiv.ofBijective (restricted.linearMap z.proj) (hbijective z.proj)) z.snd).trans
       ((fiberEquiv z.proj).apply_symm_apply z.snd).symm
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The actual boundary block with the supplied reciprocal cutoffs and its explicit inverse. -/
 def supportedExternalProductBoundary : RelativeTriple Source Target Controlᶜ where
   linearEquiv z := reciprocalTensorSymbolEquiv (d z.val.1) (d' z.val.1)
@@ -318,6 +327,9 @@ def supportedExternalProductBoundary : RelativeTriple Source Target Controlᶜ w
     (supportedExternalProduct_symbol_properties a b ρ U hU hcontrol hzero L hL hone
       τ V hV hbcontrol hbzero M hM hbone).2.2
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The product uses the original tensor bundles and exactly the enlarged product control. -/
 @[reducible]
 def supportedExternalProductTriple : SupportBundleTriple (X × Y) :=
@@ -333,6 +345,9 @@ set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 3600000 in
 
 open Topology in
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The actual positive-convention triple represents the existing compact-support product. -/
 theorem supportedExternalProductTriple_compactSupportClass
     [LocallyCompactSpace X] [LocallyCompactSpace Y] :

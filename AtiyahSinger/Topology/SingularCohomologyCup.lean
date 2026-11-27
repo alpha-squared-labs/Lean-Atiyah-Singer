@@ -48,6 +48,9 @@ def singularCocycleClass (n : ℕ) :
   (((singularCochains R X).sc n).moduleCatHomologyIso.inv.hom).comp
     (singularCoboundaries R X n).mkQ
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the documented
+--   definition or construction.
 /-- The actual Alexander-Whitney cup product descended to the original singular cohomology. -/
 def singularCohomologyCup (p q : ℕ) :
     singularCohomology R X p →ₗ[R] singularCohomology R X q →ₗ[R]

@@ -54,11 +54,21 @@ namespace AtlasPseudodifferentialOperator
 
 variable {m : ℝ} (P : AtlasPseudodifferentialOperator A B m)
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the documented
+--   definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- The standard symbol K class supplied by the original operator's full ellipticity. -/
 def fullSymbolKClass (hi : P.IsElliptic) :
     CompactSupportKZero (CotangentTotalSpace (n := n) (M := M)) :=
   atlasFullSymbolKClass A B (Classical.choose hi) (Classical.choose_spec hi).2
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Every complete elliptic representative of this same principal quotient gives that class. -/
 theorem fullSymbolKClass_eq_of_principalSymbol_eq (hi : P.IsElliptic)
     (a : atlasGlobalSymbolSpace A B m)

@@ -258,12 +258,18 @@ theorem bottMatrixLoopClass_blockSum (p q : IdempotentMatrix A) :
     simp at he
     omega
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the documented
+--   definition or construction.
 /-- The Bott homomorphism on the actual Grothendieck group of finite projective right modules. -/
 def kZeroBottLoop (A : Type u) [NormedRing A] [NormedAlgebra ℂ A] :
     KZero A →+ StableMatrixLoopClass A :=
   Classical.choose (kZero_universal_property bottMatrixLoopClass
     bottMatrixLoopClass_eq_of_isEquivalent bottMatrixLoopClass_blockSum).exists
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- This homomorphism takes each original idempotent class to its specified positive loop. -/
 theorem kZeroBottLoop_class (p : IdempotentMatrix A) :
     kZeroBottLoop A (kZeroClass A p) = bottMatrixLoopClass p := by

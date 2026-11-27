@@ -52,6 +52,9 @@ def affineBottIdempotentMatrix {n : ℕ} (a₀ a₁ : Matrix (Fin n) (Fin n) A)
   matrix := WienerLoop.affineBottIdempotent a₀ b
   mul_self := WienerLoop.affineBottIdempotent_isIdempotentElem a₀ a₁ hbase b hleft hright
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The original normalized affine contraction gives the Bott loop of this exact right projector. -/
 theorem affine_stableClass_eq_bott {n : ℕ} (a₀ a₁ : Matrix (Fin n) (Fin n) A)
     (hbase : a₀ + a₁ = 1)
@@ -166,6 +169,9 @@ theorem affine_stableClass_eq_bott {n : ℕ} (a₀ a₁ : Matrix (Fin n) (Fin n)
   rw [hzero, hzero]
   exact hpath
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KA III.1.25: the specified right-projective Bott homomorphism is surjective. -/
 theorem kZeroBottLoop_surjective : Function.Surjective (kZeroBottLoop A) := by
   /- Stage 1: use the existing continuous/Laurent stable comparison to

@@ -1524,6 +1524,9 @@ def stableLoopBottInverse (A : Type u) [NormedRing A] [NormedAlgebra ℂ A]
   map_zero' := stableLoopCokernelIndex_additive.1
   map_add' := stableLoopCokernelIndex_additive.2
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- This inverse evaluates to the same original quotient class at every admissible shift. -/
 theorem stableLoopBottInverse_laurent (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) :
@@ -1543,6 +1546,9 @@ theorem stableLoopBottInverse_laurent (p : LaurentMatrixLoop A) (k : ℕ)
   exact shiftedCokernelIndex_eq_of_stablyHomotopic p p _ k _ hk
     ((LaurentMatrixLoop.stableSetoid (A := A)).iseqv.refl p)
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KA III.1.20: the actual right-cokernel homomorphism is left inverse to the actual Bott map. -/
 theorem stableLoopBottInverse_left_inverse :
     Function.LeftInverse (stableLoopBottInverse A) (kZeroBottLoop A) := by

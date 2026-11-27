@@ -187,6 +187,9 @@ def complexOrientationEvaluation
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The specified complex triangle is precisely the positive real simplex in the basis `(1,I)`. -/
 theorem complexOrientationCycle_eq_realOrientationCycle :
     let b := Complex.basisOneI.map (ULift.moduleEquiv : ULift.{u} ℂ ≃ₗ[ℝ] ℂ).symm
@@ -224,11 +227,17 @@ theorem existsUnique_complexOrientationClass :
     rw [hcycle]
   simpa only [heval] using existsUnique_realOrientationClass b b.orientation
 
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the documented
+--   definition or construction.
 /-- The canonical integral local orientation of the usual complex line, with its positive sign. -/
 def complexOrientationClass :
     relativeSingularCohomology ℤ (Set.ofPred (fun z : ULift.{u} ℂ ↦ z ≠ 0)) 2 :=
   Classical.choose existsUnique_complexOrientationClass.exists
 
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The canonical orientation evaluates to one on the chosen positive triangle. -/
 theorem complexOrientationClass_evaluation :
     complexOrientationEvaluation complexOrientationClass.{u} = 1 := by

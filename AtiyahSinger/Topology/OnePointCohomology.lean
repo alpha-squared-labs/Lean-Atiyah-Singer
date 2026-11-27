@@ -78,6 +78,9 @@ theorem isIso_onePointCohomologySupportPullback (K : Compacts X) (n : ℕ) :
   exact isIso_openEmbeddingCohomologySupportPullback R
     ⟨((↑) : X → OnePoint X), OnePoint.continuous_coe⟩ OnePoint.isOpenEmbedding_coe K n
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the documented definition
+--   or construction.
 /-- A compact-support representative extended across infinity and restricted to that point. -/
 def onePointCohomologySupportMap (K : Compacts X) (n : ℕ) :
     relativeSingularCohomology R ((K : Set X)ᶜ) n ⟶
@@ -134,6 +137,9 @@ theorem onePointCohomologySupportMap_naturality
   rw [← H.map_comp]
   rfl
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the documented definition
+--   or construction.
 /-- The original compact-support colimit comparison with the one-point relative group. -/
 def compactSupportCohomologyToOnePoint (n : ℕ) :
     compactSupportCohomology R X n ⟶

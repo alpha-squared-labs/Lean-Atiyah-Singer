@@ -39,6 +39,9 @@ variable {X : Type u} [TopologicalSpace X]
   {E : X → Type u} [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
 
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the documented
+--   definition or construction.
 /-- The original rational Euler class in the canonical complex native real model. -/
 def complexCohomologyEulerClass (h : ContinuousHermitianMetric E) (r : ℕ)
     (hr : ∀ x, Module.finrank ℂ (E x) = r) : singularCohomology ℚ X (2 * r) := by
@@ -87,6 +90,9 @@ attribute [local instance] finiteSumTopology isFiniteRank_finiteSum sumTopology
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- An actual finite line splitting gives the product of the original rational first Chern roots. -/
 theorem complexCohomologyEulerClass_eq_prod_of_lineSplitting [T2Space X]
     (n : ℕ) (L : Fin n → X → Type u)

@@ -283,6 +283,9 @@ variable {q : ℕ} {F : M → Type*}
 
 namespace PseudodifferentialOperator
 
+-- Human-verified.
+-- - Radial freezing, order reduction, and the specified class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The specified spectral shift changes order while retaining the original index and K class. -/
 theorem exists_connectionLaplacian_orderShift {m : ℝ}
     (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)

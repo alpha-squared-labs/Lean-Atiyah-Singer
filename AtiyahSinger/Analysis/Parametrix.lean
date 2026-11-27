@@ -178,6 +178,9 @@ theorem PseudodifferentialOperator.principalSymbol_id :
   exact htransfer _ (Nat.cast_zero) (D.toPseudodifferentialOperator μ)
     D.principalGlobalSymbol rfl hsymbol (D.principalSymbol_toPseudodifferentialOperator μ)
 
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the native presentation. The review covers the
+--   documented definition or construction.
 /-- A two-sided parametrix means that both actual composition errors have smooth kernels. -/
 def IsParametrix
     (P : smoothSections (n := n) (r := r) E →ₗ[ℂ] smoothSections (n := n) (r := q) F)

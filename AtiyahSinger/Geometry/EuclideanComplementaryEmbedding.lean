@@ -26,6 +26,9 @@ namespace AtiyahSinger
 open Manifold Topology
 open scoped ContDiff
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   documented definition or construction.
 /-- Prepend n zero coordinates, with the original vector in the final k-coordinate block. -/
 def euclideanZeroPrepend (n k : ℕ) :
     ContMDiffMap 𝓘(ℝ, EuclideanSpace ℝ (Fin k)) 𝓘(ℝ, EuclideanSpace ℝ (Fin (n + k)))
@@ -34,6 +37,9 @@ def euclideanZeroPrepend (n k : ℕ) :
     ((EuclideanSpace.finAddEquivProd (𝕜 := ℝ) (n := n) (m := k)).symm.contDiff.comp
       (contDiff_const.prodMk contDiff_id)).contMDiff⟩
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The complementary coordinate inclusion is a proper smooth embedding, including zero ranks. -/
 theorem euclideanZeroPrepend_properties (n k : ℕ) :
     IsSmoothEmbedding 𝓘(ℝ, EuclideanSpace ℝ (Fin k))

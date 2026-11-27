@@ -172,12 +172,18 @@ theorem diskTriple_boundary_apply (p : FiniteMatrixLoop C(X, ℂ)) (x : X) (t : 
   -- The boundary homeomorphism and positive parameter retain this exact loop value.
   rw [complexDiskBoundaryHomeomorph.apply_symm_apply, p.circleMap_parameter t]
 
+-- Human-verified.
+-- - Normalized loops and the relative disk model. The review covers the documented definition or
+--   construction.
 /-- The relative difference class of the specified loop triple. -/
 def diskRelativeClass (p : FiniteMatrixLoop C(X, ℂ)) :
     RelativeKZero.{_, 0} (complexDiskBoundaryProduct X) (isClosed_complexDiskBoundaryProduct X) :=
   p.diskTriple.relativeClass (isClosed_complexDiskBoundaryProduct X)
 
 set_option backward.isDefEq.respectTransparency false in
+-- Human-verified.
+-- - Normalized loops and the relative disk model. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Karoubi III.1.6: equality of normalized disk classes is exactly stable based homotopy. -/
 theorem diskRelativeClass_eq_iff_stablyHomotopic (p q : FiniteMatrixLoop C(X, ℂ)) :
     p.diskRelativeClass = q.diskRelativeClass ↔ p.StablyHomotopic q := by
@@ -816,6 +822,9 @@ theorem diskRelativeClass_eq_iff_stablyHomotopic (p q : FiniteMatrixLoop C(X, �
         hhomotopy (cast (congrArg P h) (p.stabilize k).loop) (q.stabilize l).loop H
       _ = q.diskRelativeClass := hstabilize q l
 
+-- Human-verified.
+-- - Normalized loops and the relative disk model. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Karoubi III.1.6: every disk-pair class has a normalized finite matrix-loop representative. -/
 theorem diskRelativeClass_surjective :
     Function.Surjective (diskRelativeClass (X := X)) := by

@@ -45,6 +45,9 @@ variable {G : Type*} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
   [NormedAddCommGroup W] [NormedSpace ℂ W] [FiniteDimensional ℂ W]
   [DistribMulAction G W] [SMulCommClass G ℂ W] [ContinuousSMul G W]
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The class of the actual direct-sum representation is the original equivariant external
 product, independently of the two invariant coordinate choices. -/
 theorem equivariantRepresentationBottClass_prod :
@@ -147,6 +150,9 @@ def equivariantRepresentationBottSuspension :
         exact congrArg (fun f ↦ f b) (map_add equivariantSupportKZeroExternalProduct a c)
       map_smul' := fun r a ↦ equivariantSupportKZeroExternalProduct_smul_left r a b }
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual representation Bott multiplication commutes with covariant open extension. -/
 theorem equivariantRepresentationBottSuspension_openPushforward
     (f : C(X, Y)) (hf : IsOpenEmbedding f)

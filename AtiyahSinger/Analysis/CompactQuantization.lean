@@ -186,6 +186,9 @@ theorem isSymbol_zeroExtendedSymbol (U : Set (EuclideanSpace ℝ (Fin n)))
         (Real.rpow_nonneg (by positivity) _)
 
 set_option maxSynthPendingDepth 20 in
+-- Human-verified.
+-- - Fourier transform and quantization. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- SG 3.2 with compact spatial support: the integral specifies one continuous Schwartz map. -/
 theorem existsUnique_quantizeSchwartz (m : ℝ) (p : SymbolFunction n r q)
     (hp : IsSymbol Set.univ m p) (hc : HasCompactSupport p) :

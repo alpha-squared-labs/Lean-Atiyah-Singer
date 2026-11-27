@@ -39,6 +39,9 @@ variable (G : Type*) [Group G] [TopologicalSpace G]
   {P B : Type*} [TopologicalSpace P] [TopologicalSpace B]
   [MulAction Gᵐᵒᵖ P]
 
+-- Human-verified.
+-- - The original right principal bundle and lifts of orthonormal frames. The review covers the
+--   documented definition or construction.
 /-- A locally trivial right principal G-bundle on the specified projection and topologies. -/
 class IsPrincipalBundle [IsTopologicalGroup G] [ContinuousSMul Gᵐᵒᵖ P]
     (projection : P → B) : Prop where
@@ -51,6 +54,9 @@ class IsPrincipalBundle [IsTopologicalGroup G] [ContinuousSMul Gᵐᵒᵖ P]
 
 variable {G} [IsTopologicalGroup G] [ContinuousSMul Gᵐᵒᵖ P]
 
+-- Human-verified.
+-- - The original right principal bundle and lifts of orthonormal frames. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The actual projection of a locally trivial principal bundle is continuous, open and onto. -/
 theorem IsPrincipalBundle.projection_properties {projection : P → B}
     (hP : IsPrincipalBundle G projection) :
