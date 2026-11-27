@@ -45,6 +45,9 @@ variable [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M] [T2Space M]
 set_option maxSynthPendingDepth 20 in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Parameters from the given atlas and integral estimates on noncompact domains. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The original atlas PDO piece preserves joint smoothness in the full parameter. -/
 theorem AtlasPseudodifferentialPiece.contMDiffOn_apply_parameter {m : ℝ}
     (L : AtlasPseudodifferentialPiece A B m) (u : Y → A.smoothSections)
@@ -179,6 +182,9 @@ theorem AtlasPseudodifferentialPiece.contMDiffOn_apply_parameter {m : ℝ}
 set_option maxSynthPendingDepth 20 in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Parameters from the given atlas and integral estimates on noncompact domains. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Joint smoothness is local in an unchanged parameter chart for the same original atlas PDO. -/
 theorem AtlasPseudodifferentialPiece.contMDiffOn_apply_parameter_of_isOpen {m : ℝ}
     (L : AtlasPseudodifferentialPiece A B m) (U : Set Y) (hU : IsOpen U)

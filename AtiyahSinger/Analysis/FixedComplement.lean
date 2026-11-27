@@ -32,10 +32,16 @@ variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
   [NormedAddCommGroup F] [NormedSpace ℂ F]
   (V : Submodule ℂ E) (W : Submodule ℂ F)
 
+-- Human-verified.
+-- - A fixed Fredholm complement and the original quotient family. The review covers the documented
+--   definition or construction.
 /-- The block operator (w,v) ↦ w + Tv, with fixed complementary spaces. -/
 def complementBlock (T : E →L[ℂ] F) : W × V →L[ℂ] F :=
   W.subtypeL.coprod (T.comp V.subtypeL)
 
+-- Human-verified.
+-- - A fixed Fredholm complement and the original quotient family. The review covers the documented
+--   definition or construction.
 /-- The standard invertibility chart determined by the two fixed subspaces. -/
 def complementChartDomain : Set (E →L[ℂ] F) :=
   {T | (complementBlock V W T).IsInvertible}

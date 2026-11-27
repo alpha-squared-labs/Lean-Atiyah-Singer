@@ -44,11 +44,17 @@ universe u
 
 variable (R : Type) [CommRing R]
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- Locally finite singular homology, computed from the actual locally finite chain complex. -/
 abbrev locallyFiniteSingularHomology (X : Type u) [TopologicalSpace X] (n : ℕ) :
     ModuleCat.{u} R :=
   (locallyFiniteSingularChains R X).homology n
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- Restriction to the original compact-relative homology is induced by the actual chain map. -/
 def locallyFiniteSingularHomologyRestriction {X : Type u} [TopologicalSpace X]
     (K : Compacts X) (n : ℕ) :
@@ -106,6 +112,9 @@ theorem isLocallyFiniteSingularChain_intCast (n : ℕ)
     exact σ.property (by simp [hzero])
   exact ⟨⟨σ.val, hc⟩, hσ, rfl⟩
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The actual pointwise coefficient inclusion on the original locally finite chain modules. -/
 def locallyFiniteSingularChainRationalization (n : ℕ) :
     (locallyFiniteSingularChains ℤ X).X n ⟶
@@ -175,12 +184,18 @@ theorem locallyFiniteSingularChainRationalization_comm (i j : ℕ) :
       (locallyFiniteSingularChains ℤ X).shape i j hshape, Functor.map_zero]
     exact Eq.trans Limits.comp_zero (Eq.symm Limits.zero_comp)
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The actual same-simplex integer-to-rational chain map for locally finite chains. -/
 def locallyFiniteSingularChainsRationalization :
     locallyFiniteSingularChains ℤ X ⟶ (ℚResC).obj (locallyFiniteSingularChains ℚ X) where
   f n := locallyFiniteSingularChainRationalization X n
   comm' i j _ := locallyFiniteSingularChainRationalization_comm X i j
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The coefficient map on locally finite homology, with its scalar-restriction comparison. -/
 def locallyFiniteSingularHomologyRationalization (n : ℕ) :
     locallyFiniteSingularHomology ℤ X n ⟶
@@ -188,6 +203,9 @@ def locallyFiniteSingularHomologyRationalization (n : ℕ) :
   HomologicalComplex.homologyMap (locallyFiniteSingularChainsRationalization X) n ≫
     (((locallyFiniteSingularChains ℚ X).sc n).mapHomologyIso ℚRes).hom
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The same compact-relative restriction commutes with the original coefficient inclusion. -/
 theorem locallyFiniteSingularHomologyRationalization_restriction
     (K : Compacts X) (n : ℕ) (c : locallyFiniteSingularHomology ℤ X n) :

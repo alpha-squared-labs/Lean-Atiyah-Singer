@@ -34,12 +34,18 @@ Proofs use the original real Clifford algebra and native spin subgroup throughou
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   documented definition or construction.
 /-- The ordered real coordinate bivector in the original negative Clifford algebra. -/
 def spinPlaneBivector (m : ℕ) (j : Fin m) :
     CliffordAlgebra (realSpinorQuadraticForm m) :=
   CliffordAlgebra.ι (realSpinorQuadraticForm m) (EuclideanSpace.single j (1 : ℂ)) *
     CliffordAlgebra.ι (realSpinorQuadraticForm m) (EuclideanSpace.single j Complex.I)
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   documented definition or construction.
 /-- The actual Clifford product in increasing coordinate order, before subgroup restriction. -/
 def spinTorusProduct (m : ℕ) (theta : Fin m → ℝ) :
     CliffordAlgebra (realSpinorQuadraticForm m) :=
@@ -114,6 +120,9 @@ theorem spinTorusProduct_mem_spinGroup (m : ℕ) (theta : Fin m → ℝ) :
   obtain ⟨j, rfl⟩ := List.mem_ofFn.mp ha
   exact spinTorusFactor_mem_spinGroup m j (theta j)
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   documented definition or construction.
 /-- SG's specified coordinate angle family, as elements of the original real spin group. -/
 def spinTorusElement (m : ℕ) (theta : Fin m → ℝ) :
     spinGroup (realSpinorQuadraticForm m) :=
@@ -217,6 +226,9 @@ theorem spinTorusElement_add (m : ℕ) (theta phi : Fin m → ℝ) :
   change spinTorusProduct m (theta + phi) = spinTorusProduct m theta * spinTorusProduct m phi
   simpa only [spinTorusProduct, List.ofFn_eq_map] using hprod (List.finRange m)
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original real vector action rotates each complex coordinate through twice its angle. -/
 theorem realSpinVectorRepresentation_spinTorusElement (m : ℕ) (theta : Fin m → ℝ)
     (v : EuclideanSpace ℂ (Fin m)) (j : Fin m) :

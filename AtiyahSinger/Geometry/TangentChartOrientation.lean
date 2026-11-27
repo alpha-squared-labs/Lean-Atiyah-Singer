@@ -42,6 +42,9 @@ local notation "IT" => 𝓘(ℝ, E × E)
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - The interleaved orientation of the tangent bundle and its fundamental class. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Native tangent chart transitions have positive determinant, even over a reversing base chart. -/
 theorem exists_pos_tangentChartTransition
     (p q z : TangentBundle 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) M)

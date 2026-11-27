@@ -66,10 +66,16 @@ def negativeSubalgebra : Subalgebra ℂ (WienerLoop A) where
     change c • (lp.single (E := fun _ : ℤ ↦ A) 1 (0 : ℤ) (1 : A) n) = 0
     rw [lp.single_apply_ne (E := fun _ : ℤ ↦ A) 1 0 1 (ne_of_gt hn), smul_zero]
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the documented
+--   definition or construction.
 /-- The complementary projector yielding the Bott loop of an affine invertible series. -/
 def affineBottIdempotent (a₀ : A) (b : WienerLoop A) : A :=
   1 - a₀ * b 0
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KL06: the zero Fourier coefficient of the specified inverse gives Karoubi's projector. -/
 theorem affine_complement_isIdempotentElem (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)
@@ -107,28 +113,43 @@ theorem affineBottIdempotent_isIdempotentElem (a₀ a₁ : A) (hbase : a₀ + a�
   change (1 - a₀ * b 0) * (1 - a₀ * b 0) = 1 - a₀ * b 0
   simp only [sub_mul, mul_sub, one_mul, mul_one, hq, sub_self, sub_zero]
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the documented
+--   definition or construction.
 /-- Karoubi's positive factor p+σq, written as its actual degree-zero and degree-one series. -/
 def affinePositiveFactor (a₀ a₁ : A) (b : WienerLoop A) : WienerLoop A :=
   let p := affineBottIdempotent a₀ b
   let q := 1 - p
   affine (p + a₀ * q) (a₁ * q)
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the documented
+--   definition or construction.
 /-- Karoubi's negative factor q+z⁻¹σp, retaining the noncommutative coefficient order. -/
 def affineNegativeFactor (a₀ a₁ : A) (b : WienerLoop A) : WienerLoop A :=
   let p := affineBottIdempotent a₀ b
   let q := 1 - p
   lp.single 1 0 (q + a₁ * p) + lp.single 1 (-1) (a₀ * p)
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the documented
+--   definition or construction.
 /-- The actual positive inverse p+bq; its one-sided support is a consequence of KL05. -/
 def affinePositiveInverse (a₀ : A) (b : WienerLoop A) : WienerLoop A :=
   let p := affineBottIdempotent a₀ b
   lp.single 1 0 p + b * lp.single 1 0 (1 - p)
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the documented
+--   definition or construction.
 /-- The corrected negative inverse q+zbp; the shift is +1, not -1 as printed on p.122. -/
 def affineNegativeInverse (a₀ : A) (b : WienerLoop A) : WienerLoop A :=
   let p := affineBottIdempotent a₀ b
   lp.single 1 0 (1 - p) + shift 1 (b * lp.single 1 0 p)
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The positive factor and its inverse belong to the positive algebra and invert each other. -/
 theorem affinePositiveFactor_unit_data (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)
@@ -258,6 +279,9 @@ theorem affinePositiveFactor_unit_data (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
   exact ⟨hfactor, hinverse, eval_injective (funext fun z ↦ (hvalues z).1),
     eval_injective (funext fun z ↦ (hvalues z).2)⟩
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The negative factor and corrected inverse lie in the negative algebra and invert each other. -/
 theorem affineNegativeFactor_unit_data (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)
@@ -425,6 +449,9 @@ def affineNegativeFactorUnit (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
   val_inv := Subtype.ext (affineNegativeFactor_unit_data a₀ a₁ hbase b hleft hright).2.2.1
   inv_val := Subtype.ext (affineNegativeFactor_unit_data a₀ a₁ hbase b hleft hright).2.2.2
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KL06: factor a normalized affine series using the projector from its specified inverse. -/
 theorem affine_factorization (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)
@@ -719,6 +746,9 @@ def affineNormalizedContraction (a₀ a₁ : A) (b : WienerLoop A)
     (t : unitInterval) (z : Circle) : A :=
   affineContraction a₀ a₁ b t z * Ring.inverse (affineContraction a₀ a₁ b t 1)
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The normalized family is jointly continuous, including both parameter endpoints. -/
 theorem continuous_affineNormalizedContraction (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)
@@ -751,6 +781,9 @@ theorem continuous_affineNormalizedContraction (a₀ a₁ : A) (hbase : a₀ + a
       affineContraction a₀ a₁ b p.1 1) hbasepoint.continuousAt
   exact hfamily.mul hinverse
 
+-- Human-verified.
+-- - Affine Wiener factors and normalization of idempotents. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The normalized family has the specified endpoints and remains based and invertible. -/
 theorem affineNormalizedContraction_spec (a₀ a₁ : A) (hbase : a₀ + a₁ = 1)
     (b : WienerLoop A) (hleft : affine a₀ a₁ * b = 1)

@@ -59,6 +59,9 @@ variable (A : SmoothBundlePresentation (n := n) (r := r) E)
 
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the documented definition or
+--   construction.
 /-- Extend the geometric adjoint and normalize its target to the opposite input order. -/
 def sobolevFormalAdjoint (s : ℝ) :
     B.SobolevSpace (-(s - m)) →L[ℂ] A.SobolevSpace (-s) := by
@@ -67,6 +70,9 @@ def sobolevFormalAdjoint (s : ℝ) :
 
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The opposite-order adjoint realization acts on smooth sections by the geometric adjoint. -/
 theorem sobolevFormalAdjoint_smooth (s : ℝ)
     (v : smoothSections (n := n) (r := q) F) :
@@ -102,6 +108,9 @@ theorem sobolevTranspose_hermitian (s : ℝ) (v : B.SobolevSpace (-(s - m))) :
 
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Fredholm operators and adjoint conditions. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG (5.1) after Hermitian identification, with the actual continuous dual and orders. -/
 theorem sobolevDuality_formalAdjoint (s : ℝ) (v : B.SobolevSpace (-(s - m))) :
     A.sobolevDuality μ s (P.sobolevFormalAdjoint A B s v) =

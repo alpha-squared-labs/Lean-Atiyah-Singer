@@ -59,6 +59,9 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   (covE : CovariantDerivative 𝓘(ℝ, EuclideanSpace ℝ (Fin n))
     (EuclideanSpace ℂ (Fin r)) E)
 
+-- Human-verified.
+-- - Integer-order covariant derivatives and Fourier norms. The review covers the documented
+--   definition or construction.
 /-- The integer geometric Sobolev norm, using every actual derivative through order k. -/
 def covariantSobolevNorm (k : ℕ) (u : smoothSections (n := n) (r := r) E) : ℝ :=
   Real.sqrt (∑ j : Fin (k + 1), ∫ x,
@@ -77,6 +80,9 @@ include hT hSC hB hμ hcovT hcovE hcomplex
 
 set_option maxHeartbeats 1000000 in
 -- Compare the original tensor integrals and Fourier coordinates through the same native atlas.
+-- Human-verified.
+-- - Integer-order covariant derivatives and Fourier norms. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- SG III.2.14: the integer Fourier norm and the actual geometric norm are equivalent. -/
 theorem exists_covariantSobolevNorm_comparison (k : ℕ) :
     ∃ c C : ℝ, 0 < c ∧ 0 < C ∧

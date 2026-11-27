@@ -61,6 +61,9 @@ local notation "RealModel" => EuclideanSpace ℝ (Fin (2 * m))
 local notation "SpinPlus" => HalfSpinorBundle m hP (0 : ZMod 2)
 local notation "SpinMinus" => HalfSpinorBundle m hP (1 : ZMod 2)
 
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Below the Euler degree, the character of the original virtual half-spin class vanishes. -/
 theorem TopologicalSpinStructure.chernCharacter_halfSpinor_difference_eq_zero_of_lt
     (S : TopologicalSpinStructure m E o hm hP) (k : ℕ) (hk : k < m) :
@@ -87,6 +90,9 @@ set_option maxHeartbeats 500000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG Proposition 11.24 on the original K class, with the fixed geometric Euler and sign. -/
 theorem TopologicalSpinStructure.chernCharacter_halfSpinor_difference_add
     (S : TopologicalSpinStructure m E o hm hP)

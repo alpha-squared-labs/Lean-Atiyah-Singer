@@ -24,6 +24,9 @@ Comparison with a global analytic-index homomorphism is a separate construction.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - Rank at a point and normalization of the analytic pushforward. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Point normalization for every operator between the displayed finite-dimensional fibers. -/
 theorem index_on_point_eq_kZero_rank (r s : ℕ)
     (T : EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin s)) :

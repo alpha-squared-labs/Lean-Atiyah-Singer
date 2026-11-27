@@ -43,6 +43,9 @@ variable {X : Type*} [TopologicalSpace X]
   (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)]
 
+-- Human-verified.
+-- - Atlases of smooth complex vector bundles. The review covers the documented definition or
+--   construction.
 /-- A finite-rank continuous complex vector bundle, allowing locally varying rank.
 Each point has an open linear trivialization with some finite-dimensional complex fiber. -/
 class IsFiniteRank : Prop where

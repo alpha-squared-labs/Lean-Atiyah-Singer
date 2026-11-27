@@ -61,6 +61,9 @@ theorem schwartzSobolevCoordinate_smul (s : ℝ) (c : ℂ)
     ← SchwartzMap.fourierMultiplierCLM_ofReal ℂ hweight, map_smul]
   exact (SchwartzMap.toLpCLM ℂ _ 2 volume).map_smul c _
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the documented definition
+--   or construction.
 /-- The existing Bessel-coordinate formula, packaged as a complex-linear map. -/
 def schwartzSobolevCoordinateLinearMap (n r : ℕ) (s : ℝ) :
     𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r)) →ₗ[ℂ]
@@ -84,11 +87,17 @@ namespace SmoothBundlePresentation
 
 variable {E} (A : SmoothBundlePresentation (n := n) (r := r) E)
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the documented definition
+--   or construction.
 /-- The finite Hilbert sum containing the localized Bessel coordinates. -/
 abbrev SobolevCoordinates : Type :=
   PiLp 2 (fun _ : Fin A.size ↦
     Lp (EuclideanSpace ℂ (Fin r)) 2 (volume : Measure (EuclideanSpace ℝ (Fin n))))
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the documented definition
+--   or construction.
 /-- The actual map u ↦ (J^s(χ_j u))_j, with the finite square-sum Hilbert norm. -/
 def sobolevCoordinates (s : ℝ) :
     smoothSections (n := n) (r := r) E →ₗ[ℂ] A.SobolevCoordinates :=
@@ -157,17 +166,26 @@ theorem sobolevCoordinates_injective (s : ℝ) :
     _ = (∑ j, (A.cutoff j x : ℂ)) • v.val x := Finset.sum_smul.symm
     _ = v.val x := by rw [hsum, one_smul]
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the documented definition
+--   or construction.
 /-- The completion of smooth sections in the specified real-order Sobolev norm.
 It is realized as a closed subspace of the finite Hilbert sum of local L² spaces. -/
 abbrev SobolevSpace (s : ℝ) : Type :=
   (A.sobolevCoordinates s).range.topologicalClosure
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the documented definition
+--   or construction.
 /-- The dense linear embedding of actual smooth sections into their Sobolev completion. -/
 def smoothToSobolev (s : ℝ) :
     smoothSections (n := n) (r := r) E →ₗ[ℂ] A.SobolevSpace s :=
   (Submodule.inclusion (A.sobolevCoordinates s).range.le_topologicalClosure).comp
     (A.sobolevCoordinates s).rangeRestrict
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The embedding retains the original section, rather than quotienting distinct smooth inputs. -/
 theorem smoothToSobolev_injective (s : ℝ) : Function.Injective (A.smoothToSobolev s) := by
   /- The underlying Hilbert tuple of smoothToSobolev u is exactly sobolevCoordinates u.
@@ -176,6 +194,9 @@ theorem smoothToSobolev_injective (s : ℝ) : Function.Injective (A.smoothToSobo
   intro u v h
   exact A.sobolevCoordinates_injective s (congrArg Subtype.val h)
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Smooth sections are dense in this concrete Sobolev completion. -/
 theorem denseRange_smoothToSobolev (s : ℝ) : DenseRange (A.smoothToSobolev s) := by
   /- The space was defined as the topological closure of the range of the coordinate
@@ -187,6 +208,9 @@ theorem denseRange_smoothToSobolev (s : ℝ) : DenseRange (A.smoothToSobolev s) 
   exact hdense.comp (A.sobolevCoordinates s).surjective_rangeRestrict.denseRange
     (continuous_inclusion _)
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The norm is the square sum of the actual localized Bessel L² norms. -/
 theorem norm_smoothToSobolev_sq (s : ℝ)
     (u : smoothSections (n := n) (r := r) E) :
@@ -197,11 +221,17 @@ theorem norm_smoothToSobolev_sq (s : ℝ)
   representatives appearing on the right, by its explicit definition. -/
   exact PiLp.norm_sq_eq_of_L2 _ (A.sobolevCoordinates s u)
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the documented definition
+--   or construction.
 /-- The localized distribution χ_j u represented by a Sobolev vector. -/
 def localDistribution (s : ℝ) (j : Fin A.size) (u : A.SobolevSpace s) :
     𝓢'(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r)) :=
   besselRealization n r s (u.val j)
 
+-- Human-verified.
+-- - Sobolev completion of the original section space. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- On smooth inputs the local distribution is precisely the cutoff section in that chart. -/
 theorem localDistribution_smoothToSobolev (s : ℝ) (j : Fin A.size)
     (u : smoothSections (n := n) (r := r) E) :

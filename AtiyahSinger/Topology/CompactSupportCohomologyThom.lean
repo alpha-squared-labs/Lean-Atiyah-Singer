@@ -96,6 +96,9 @@ theorem zeroSectionPullback_cohomologyThomMap (p : ℕ) (a : singularCohomology 
 
 variable [T2Space X]
 
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the documented
+--   definition or construction.
 /-- The actual compact-support Thom map, descended from the original supported relative maps. -/
 def compactSupportCohomologyThomMap (p : ℕ) :
     compactSupportCohomology R X p →ₗ[R]
@@ -138,6 +141,9 @@ theorem compactSupportCohomologyThomMap_representative (K : Compacts X) (p : ℕ
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Thom multiplication is bijective on total compact supports, also over a noncompact base. -/
 theorem compactSupportCohomologyThomMap_bijective (p : ℕ) :
     Function.Bijective (compactSupportCohomologyThomMap R r E o p) := by
@@ -224,6 +230,9 @@ theorem compactSupportCohomologyThomMap_bijective (p : ℕ) :
       _ = compactSupportCohomologyClass R T Q (p + r) a :=
         congrArg (fun f ↦ f a) (colimit.w G (homOfLE hQD))
 
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the documented
+--   definition or construction.
 /-- The supported Thom equivalence has the actual colimit map as its forward map. -/
 def compactSupportCohomologyThomEquiv (p : ℕ) :
     compactSupportCohomology R X p ≃ₗ[R]
@@ -231,6 +240,9 @@ def compactSupportCohomologyThomEquiv (p : ℕ) :
   LinearEquiv.ofBijective (compactSupportCohomologyThomMap R r E o p)
     (compactSupportCohomologyThomMap_bijective R r E o p)
 
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the documented
+--   definition or construction.
 /-- Integration with total compact support is the inverse of that same supported Thom map. -/
 def compactSupportCohomologyThomIntegral (p : ℕ) :
     compactSupportCohomology R (TotalSpace (EuclideanSpace ℝ (Fin r)) E) (p + r) →ₗ[R]
@@ -258,6 +270,9 @@ theorem compactSupportCohomologyThomMap_thomIntegral (p : ℕ)
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Over a compact base, this map agrees with the existing original zero-section pushforward. -/
 theorem compactSupportCohomologyThomMap_compact [CompactSpace X] (p : ℕ)
     (a : compactSupportCohomology R X p) :

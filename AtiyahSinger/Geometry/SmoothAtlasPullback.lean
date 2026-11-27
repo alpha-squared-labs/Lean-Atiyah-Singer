@@ -41,6 +41,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   (f : C(N, M)) (hf : ContMDiff 𝓘(ℝ, EuclideanSpace ℝ (Fin m))
     𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ f)
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Pull back a specified chart, preserving its original fiber coordinate function. -/
 theorem exists_pullbackChart (i : A.Index) :
     ∃ e : Trivialization (Fin (A.rank i) → ℂ) (π Unit ((f : N → M) *ᵖ E)),
@@ -124,12 +127,18 @@ theorem exists_pullbackChart (i : A.Index) :
       proj_toFun := fun _ _ ↦ rfl }
   exact ⟨t, rfl, fun _ ↦ rfl⟩
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- The chosen pullback chart, retaining the original fiber coordinate function. -/
 def pullbackChart (i : A.Index) :
     Trivialization (Fin (A.rank i) → ℂ) (π Unit ((f : N → M) *ᵖ E)) :=
   (A.exists_pullbackChart f i).choose
 
 include hf in
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original covering, linearity and smooth transitions survive smooth pullback.
 This grouped certificate supplies fields of the pullback atlas. -/
 theorem pullbackChart_properties :
@@ -196,6 +205,9 @@ theorem pullbackChart_properties :
       rw [hinverse i x (by simpa only [hbase, Set.mem_preimage] using hx.1)]
       rfl
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- Smooth pullback with exactly the original index set, ranks and coordinates. -/
 def pullback : SmoothComplexBundleAtlas (n := m) (M := N)
     ((f : N → M) *ᵖ E) where
@@ -206,6 +218,9 @@ def pullback : SmoothComplexBundleAtlas (n := m) (M := N)
   linear := (A.pullbackChart_properties f hf).2.1
   contMDiffOn_coordChange := (A.pullbackChart_properties f hf).2.2
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The canonical map from the actual smooth pullback is smooth in the original atlas. -/
 theorem isSmoothAtlasBundleMapOver_pullback :
     IsSmoothAtlasBundleMapOver (A.pullback f hf) A f (fun _ ↦ LinearMap.id) := by

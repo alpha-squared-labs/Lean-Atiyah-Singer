@@ -61,6 +61,9 @@ variable {m : ℝ} (P : AtlasPseudodifferentialOperator A B m)
 
 set_option maxHeartbeats 1000000 in
 
+-- Human-verified.
+-- - Sobolev extension of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Every actual PDO extends uniquely to the critical pair of original Sobolev completions. -/
 theorem existsUnique_sobolevExtension (s : ℝ) :
     ∃! T : L.SobolevSpace s →L[ℂ] K.SobolevSpace (s - m),
@@ -247,10 +250,16 @@ theorem existsUnique_sobolevExtension (s : ℝ) :
   funext u
   exact (hR u).trans (hT u).symm
 
+-- Human-verified.
+-- - Sobolev extension of the given operator. The review covers the documented definition or
+--   construction.
 /-- The unique continuous extension of the original atlas section action. -/
 def sobolevExtension (s : ℝ) : L.SobolevSpace s →L[ℂ] K.SobolevSpace (s - m) :=
   (P.existsUnique_sobolevExtension L K s).exists.choose
 
+-- Human-verified.
+-- - Sobolev extension of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The chosen extension retains the same original section and the same PDO output. -/
 theorem sobolevExtension_smoothToSobolev (s : ℝ) (u : A.smoothSections) :
     P.sobolevExtension L K s (L.smoothToSobolev s u) =

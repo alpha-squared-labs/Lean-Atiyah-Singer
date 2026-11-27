@@ -53,6 +53,9 @@ local notation "RealModel" => EuclideanSpace ℝ (Fin 0)
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The canonically normalized rank-zero Thom inverse is ordinary zero-section restriction. -/
 theorem compactSupportCohomologyFiberIntegral_rank_zero (p : ℕ)
     (a : compactSupportCohomology ℚ (TotalSpace RealModel E) (p + 0)) :
@@ -106,6 +109,9 @@ set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 omit [IsContinuousRiemannianBundle RealModel E] in
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original rank-zero spin graph action restricts along the same zero section to its input. -/
 theorem zeroSectionPullback_zeroSpinThomHom (a : ComplexKZero B) :
     compactSupportKZeroToAbsolute

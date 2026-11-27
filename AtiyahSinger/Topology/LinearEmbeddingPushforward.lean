@@ -43,6 +43,9 @@ variable {E F : Type*}
   [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
   [NormedAddCommGroup F] [NormedSpace ℝ F] [FiniteDimensional ℝ F]
 
+-- Human-verified.
+-- - Functoriality of pushforwards and the projection formula. The review covers the documented
+--   definition or construction.
 /-- Ordered complementary real and imaginary coordinates in the original tangent spaces. -/
 def linearEmbeddingTangentProductHomeomorph (k : ℕ)
     (c : F ≃L[ℝ] E × EuclideanSpace ℝ (Fin k)) :
@@ -97,6 +100,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1000000 in
 -- Keep the original normal, scalar-extension and native trivial-bundle topologies visible.
+-- Human-verified.
+-- - Functoriality of pushforwards and the projection formula. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A complemented linear inclusion pushes forward by the positive exterior Bott product
 in its specified ordered whole tangent coordinates. -/
 theorem tangentEmbeddingPushforward_linear (k : ℕ)

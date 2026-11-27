@@ -67,6 +67,9 @@ local notation "TM" => (TangentSpace I : M → Type _)
 
 set_option maxHeartbeats 1500000 in
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual zero-dimensional twisted Dirac symbol realizes the original zero-spin Thom action. -/
 theorem zeroTwistedDiracPlus_symbolClass :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩

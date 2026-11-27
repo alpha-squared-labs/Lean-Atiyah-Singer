@@ -53,6 +53,9 @@ variable [DistribMulAction G V₀] [SMulCommClass G ℂ V₀] [ContinuousSMul G 
   (hunitary : ∀ (g : G) (u v : V₀), inner ℂ (g • u) (g • v) = inner ℂ u v)
 
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Equivariant Bott classes in dimension zero and injectivity on the specified domain. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original zero-dimensional Bott map is the transported full point coefficient map. -/
 theorem equivariantBottLinearMap_zero_eq_representationPointKZeroPullback :
     let e := Homeomorph.homeomorphOfUnique V₀ PUnit.{1}
@@ -203,6 +206,9 @@ theorem equivariantBottLinearMap_zero_eq_representationPointKZeroPullback :
   apply FreeAbelianGroup.lift_ext
   exact hgen
 
+-- Human-verified.
+-- - Equivariant Bott classes in dimension zero and injectivity on the specified domain. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original equivariant Bott map on the zero vector space is bijective. -/
 theorem equivariantBottLinearMap_zero_bijective :
     Function.Bijective (equivariantBottLinearMap hunitary) := by

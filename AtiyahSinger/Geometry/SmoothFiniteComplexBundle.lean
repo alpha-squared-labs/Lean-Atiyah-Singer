@@ -27,6 +27,9 @@ namespace AtiyahSinger
 open Bundle
 open scoped Manifold ContDiff
 
+-- Human-verified.
+-- - Smooth complex vector bundles in the native presentation. The review covers the documented
+--   definition or construction.
 /-- A smooth complex vector bundle with one fixed finite-dimensional model. -/
 structure SmoothFiniteComplexBundle {n : ℕ} (M : Type*) [TopologicalSpace M]
     [ChartedSpace (EuclideanSpace ℝ (Fin n)) M] where

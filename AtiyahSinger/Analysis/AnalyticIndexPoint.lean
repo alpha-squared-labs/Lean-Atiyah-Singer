@@ -37,6 +37,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 
 attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - Rank at a point and normalization of the analytic pushforward. The review covers the documented
+--   definition or construction.
 /-- The point rank isomorphism using the actual cotangent projection and specified base map. -/
 def cotangentKZeroPointEquivInt (hn : n = 0) (e : M ≃ₜ PUnit) :
     CompactSupportKZero (CotangentTotalSpace (n := n) (M := M)) ≃+ ℤ :=
@@ -50,6 +53,9 @@ variable [hSC : SecondCountableTopology M] [hC : CompactSpace M]
   (μ : Measure M) [hμ : IsSmoothPositiveMeasure (n := n) μ]
 
 include hM hT hSC hC hP hB hμ in
+-- Human-verified.
+-- - Rank at a point and normalization of the analytic pushforward. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- SG Property 1: the analytic-index homomorphism on a point is the specified rank map. -/
 theorem analyticIndex_eq_pointRank (hn : n = 0) (e : M ≃ₜ PUnit) :
     analyticIndex (n := n) μ = (cotangentKZeroPointEquivInt hn e).toAddMonoidHom := by

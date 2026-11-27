@@ -98,6 +98,9 @@ set_option maxHeartbeats 1600000 in
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The positive idempotent loop is the disk symbol on its original image bundle. -/
 theorem bottMatrixLoop_diskRelativeClass {X : Type*} [TopologicalSpace X]
     [CompactSpace X] [T2Space X] (p : IdempotentMatrix C(X, ℂ)) :
@@ -261,6 +264,9 @@ set_option maxHeartbeats 1600000 in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The specified disk comparison sends an idempotent Bott loop to its geometric product. -/
 theorem complexDiskRelativeKZeroEquiv_bottMatrixLoop {X : Type*} [TopologicalSpace X]
     [CompactSpace X] [T2Space X] (p : IdempotentMatrix C(X, ℂ)) :

@@ -50,6 +50,9 @@ variable {E₀ E₁ F₀ F₁ : Type*}
   [AddCommGroup E₀] [Module ℂ E₀] [AddCommGroup E₁] [Module ℂ E₁]
   [AddCommGroup F₀] [Module ℂ F₀] [AddCommGroup F₁] [Module ℂ F₁]
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The actual even-to-odd tensor block of the two specified reciprocal pairs. -/
 def reciprocalTensorSymbol (d : E₀ →ₗ[ℂ] E₁) (d' : E₁ →ₗ[ℂ] E₀)
     (e : F₀ →ₗ[ℂ] F₁) (e' : F₁ →ₗ[ℂ] F₀) :
@@ -60,6 +63,9 @@ def reciprocalTensorSymbol (d : E₀ →ₗ[ℂ] E₁) (d' : E₁ →ₗ[ℂ] E�
       ((TensorProduct.map (LinearMap.id : E₀ →ₗ[ℂ] E₀) e).coprod
         (TensorProduct.map d' (LinearMap.id : F₁ →ₗ[ℂ] F₁)))
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The actual reverse block retains the same four maps and their prescribed signs. -/
 def reciprocalTensorSymbolReverse (d : E₀ →ₗ[ℂ] E₁) (d' : E₁ →ₗ[ℂ] E₀)
     (e : F₀ →ₗ[ℂ] F₁) (e' : F₁ →ₗ[ℂ] F₀) :
@@ -103,6 +109,9 @@ theorem reciprocalTensorSymbol_square
       hd₀, hd₁, he₀, he₁, TensorProduct.smul_tmul, TensorProduct.tmul_smul,
       add_smul, add_comm]
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The prescribed inverse formula is the reciprocal scalar times the original reverse block. -/
 def reciprocalTensorSymbolInverse (d : E₀ →ₗ[ℂ] E₁) (d' : E₁ →ₗ[ℂ] E₀)
     (e : F₀ →ₗ[ℂ] F₁) (e' : F₁ →ₗ[ℂ] F₀) (r s : ℂ) :
@@ -147,6 +156,9 @@ theorem reciprocalTensorSymbol_inverse_laws
     rw [hright, LinearMap.smul_apply, LinearMap.id_apply, smul_smul,
       inv_mul_cancel₀ h, one_smul]
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The off-singular tensor equivalence has precisely the displayed forward and inverse blocks. -/
 def reciprocalTensorSymbolEquiv (d : E₀ →ₗ[ℂ] E₁) (d' : E₁ →ₗ[ℂ] E₀)
     (e : F₀ →ₗ[ℂ] F₁) (e' : F₁ →ₗ[ℂ] F₀) (r s : ℂ)

@@ -233,6 +233,9 @@ theorem exists_atlas_elliptic_representative_with_index
   exact heval.trans (P.index_sobolevExtension_of_homogeneous L K g a hs hh hP hi s).2.2.symm
 
 include g hh hP in
+-- Human-verified.
+-- - Descent of the analytic index and assembly of the cases. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Equal actual symbol K classes give equal indices, across orders and variable-rank bundles. -/
 theorem AtlasPseudodifferentialOperator.index_eq_of_atlasSymbolKClass_eq
     {E' : M → Type*} [∀ x, AddCommGroup (E' x)] [∀ x, Module ℂ (E' x)]

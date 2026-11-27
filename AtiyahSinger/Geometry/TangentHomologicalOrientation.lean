@@ -54,6 +54,9 @@ namespace AtiyahSinger
 open Bundle CategoryTheory Manifold
 open scoped ContDiff
 
+-- Human-verified.
+-- - The interleaved orientation of the tangent bundle and its fundamental class. The review covers
+--   the documented definition or construction.
 /-- The original product coordinates, interleaved in the order of x+i v. -/
 def tangentModelCoordinateEquiv (n : ℕ) :
     (EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin n)) ≃L[ℝ]
@@ -93,6 +96,9 @@ variable [T2Space M] [SecondCountableTopology M]
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The interleaved orientation of the tangent bundle and its fundamental class. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The interleaved original tangent charts determine one canonical integral orientation. -/
 theorem existsUnique_tangentHomologicalOrientation :
     letI : T2Space TM := (tangentBundle_topology E M).1
@@ -224,6 +230,9 @@ theorem existsUnique_tangentHomologicalOrientation :
     exact (hO' x x (mem_chart_source E₂ x)).trans
       (hnorm x x (mem_chart_source E₂ x)).symm
 
+-- Human-verified.
+-- - The interleaved orientation of the tangent bundle and its fundamental class. The review covers
+--   the documented definition or construction.
 /-- The canonical integral orientation fixed by every interleaved native tangent chart. -/
 def tangentHomologicalOrientation : HomologicalOrientation (2 * n) TM :=
   (existsUnique_tangentHomologicalOrientation (n := n) (M := M)).exists.choose
@@ -240,12 +249,22 @@ theorem tangentHomologicalOrientation_chart (q z : TM)
   relative inclusion maps, and positive translated simplex are unchanged. -/
   exact (existsUnique_tangentHomologicalOrientation (n := n) (M := M)).exists.choose_spec q z hz
 
+-- Human-verified.
+-- - The interleaved orientation of the tangent bundle and its fundamental class. The review covers
+--   the documented definition or construction.
+-- - The same tangent-bundle class and the top-degree pairing in T02. The review covers the
+--   documented definition or construction.
 /-- The original integral locally finite fundamental class for the canonical tangent orientation. -/
 def tangentFundamentalClass : locallyFiniteSingularHomology ℤ TM (2 * n) := by
   letI : T2Space TM := (tangentBundle_topology E M).1
   letI : SecondCountableTopology TM := (tangentBundle_topology E M).2.1
   exact locallyFiniteFundamentalClass (tangentHomologicalOrientation (n := n) (M := M))
 
+-- Human-verified.
+-- - The interleaved orientation of the tangent bundle and its fundamental class. The review covers
+--   the documented definition or construction.
+-- - The same tangent-bundle class and the top-degree pairing in T02. The review covers the
+--   documented definition or construction.
 /-- The canonical rational tangent fundamental class is the actual image of the integral class. -/
 def rationalTangentFundamentalClass : locallyFiniteSingularHomology ℚ TM (2 * n) :=
   locallyFiniteSingularHomologyRationalization TM (2 * n)

@@ -46,6 +46,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 attribute [local instance] isFiniteRank_pullback isFiniteRank_restrict
   t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the documented
+--   definition or construction.
 /-- The exact original atlas symbol as an exterior triple with specified compact control. -/
 def atlasFullSymbolTripleWithControl {m : ℝ} (a : atlasGlobalSymbolSpace A B m)
     (K : Set (CotangentTotalSpace (n := n) (M := M))) (hK : IsCompact K)
@@ -63,6 +66,9 @@ def atlasFullSymbolTripleWithControl {m : ℝ} (a : atlasGlobalSymbolSpace A B m
 
 variable [T2Space M] [SecondCountableTopology M] [CompactSpace M]
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the documented
+--   definition or construction.
 /-- Quantitative ellipticity constructs compact control for the exact original atlas symbol. -/
 def atlasFullSymbolTriple {m : ℝ} (a : atlasGlobalSymbolSpace A B m)
     (ha : IsEllipticFullAtlasSymbol A B m a.val) :
@@ -75,6 +81,9 @@ def atlasFullSymbolTriple {m : ℝ} (a : atlasGlobalSymbolSpace A B m)
   atlasFullSymbolTripleWithControl A B a {z | g.length z.proj z.snd ≤ R}
     (g.isCompact_sublevel R) (fun z hz ↦ hR.2 z.proj z.snd (lt_of_not_ge hz))
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The chosen compact exterior retains the original forward symbol map on every fiber. -/
 theorem atlasFullSymbolTriple_boundary_apply {m : ℝ} (a : atlasGlobalSymbolSpace A B m)
     (ha : IsEllipticFullAtlasSymbol A B m a.val)
@@ -83,6 +92,9 @@ theorem atlasFullSymbolTriple_boundary_apply {m : ℝ} (a : atlasGlobalSymbolSpa
       a.val z.val.proj z.val.snd v := by
   rfl
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the documented
+--   definition or construction.
 /-- The genuine compact-support K class of the original general elliptic atlas full symbol. -/
 def atlasFullSymbolKClass {m : ℝ} (a : atlasGlobalSymbolSpace A B m)
     (ha : IsEllipticFullAtlasSymbol A B m a.val) :
@@ -91,6 +103,9 @@ def atlasFullSymbolKClass {m : ℝ} (a : atlasGlobalSymbolSpace A B m)
   letI := B.isFiniteRank
   (atlasFullSymbolTriple A B a ha).compactSupportClass
 
+-- Human-verified.
+-- - The original atlas full symbol and comparison of models. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Any compact exterior of the same original atlas map computes its constructed class. -/
 theorem atlasFullSymbolKClass_eq_tripleWithControl {m : ℝ}
     (a : atlasGlobalSymbolSpace A B m) (ha : IsEllipticFullAtlasSymbol A B m a.val)

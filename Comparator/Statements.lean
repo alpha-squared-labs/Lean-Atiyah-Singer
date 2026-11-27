@@ -45,6 +45,11 @@ attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
   t2Space_fiberBundleTotal locallyCompactSpace_fiberBundleTotal
   tangentBundleFullChartedSpace tangentBundle_full_isManifold
 
+-- Human-verified.
+-- - The review covers the specification of this main target.
+-- - Base manifolds. The review covers the assumptions on the base in the specification.
+-- - The integer index formula in T01Atlas. The review covers the documented definition or
+--   construction.
 /-- T01, SG III.13.2: the same variable-rank elliptic atlas PDO and its full symbol. -/
 def T01Atlas : Prop :=
   ∀
@@ -62,6 +67,11 @@ def T01Atlas : Prop :=
     {m : ℝ} (P : AtlasPseudodifferentialOperator A B m) (hi : P.IsElliptic),
       P.toLinearMap.index = cotangentTopologicalIndex n M (P.fullSymbolKClass hi)
 
+-- Human-verified.
+-- - The review covers the specification of this main target.
+-- - Base manifolds. The review covers the assumptions on the base in the specification.
+-- - The integer index formula in T01Native. The review covers the documented definition or
+--   construction.
 /-- T01, SG III.13.2: the same native elliptic PDO with its original density. -/
 def T01Native : Prop :=
   ∀
@@ -86,6 +96,10 @@ def T01Native : Prop :=
     (hi : P.IsElliptic),
       P.toLinearMap.index = cotangentTopologicalIndex n M (P.fullSymbolKClass hi)
 
+-- Human-verified.
+-- - The review covers the specification of this main target.
+-- - The tangent-bundle total-space formula in T02Atlas. The review covers the documented definition
+--   or construction.
 /-- T02, SG (13.18): the atlas formula with no orientation premise on the base. -/
 def T02Atlas : Prop :=
   ∀
@@ -107,6 +121,10 @@ def T02Atlas : Prop :=
           (cotangentIndexCharacteristicClass (P.fullSymbolKClass hi))
           (rationalTangentFundamentalClass (n := n) (M := M))
 
+-- Human-verified.
+-- - The review covers the specification of this main target.
+-- - The tangent-bundle total-space formula in T02Native. The review covers the documented
+--   definition or construction.
 /-- T02, SG (13.18): the native formula with no orientation premise on the base. -/
 def T02Native : Prop :=
   ∀
@@ -135,6 +153,10 @@ def T02Native : Prop :=
           (cotangentIndexCharacteristicClass (P.fullSymbolKClass hi))
           (rationalTangentFundamentalClass (n := n) (M := M))
 
+-- Human-verified.
+-- - The review covers the specification of this main target.
+-- - The oriented base manifold formula in T03Atlas. The review covers the documented definition or
+--   construction.
 /-- T03, SG (13.24): the atlas formula using the same given integral orientation. -/
 def T03Atlas : Prop :=
   ∀
@@ -155,6 +177,10 @@ def T03Atlas : Prop :=
         (-1 : ℚ) ^ (n * (n + 1) / 2) * compactManifoldCohomologyIntegral O
           (cotangentBaseIndexCharacteristicClass O (P.fullSymbolKClass hi))
 
+-- Human-verified.
+-- - The review covers the specification of this main target.
+-- - The oriented base manifold formula in T03Native. The review covers the documented definition or
+--   construction.
 /-- T03, SG (13.24): the native formula using the same given integral orientation. -/
 def T03Native : Prop :=
   ∀
@@ -199,6 +225,10 @@ set_option maxHeartbeats 3000000 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The review covers the specification of this main target.
+-- - The unified independent specification of T04 and its invocation in the Comparator. The review
+--   covers the documented definition or construction.
 /-- T04, SG (13.26), with the proved native zero-dimensional positive-frame continuation. -/
 def T04 : Prop :=
   ∀ {m : ℕ} {M P : Type} [TopologicalSpace M] [TopologicalSpace P]

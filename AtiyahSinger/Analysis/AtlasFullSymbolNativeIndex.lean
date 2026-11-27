@@ -61,6 +61,9 @@ attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxSynthPendingDepth 40 in
+-- Human-verified.
+-- - Evaluation of the index on the full symbol class of the given operator P. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Compatible native models evaluate the same general full symbol of the original atlas PDO. -/
 theorem AtlasPseudodifferentialOperator.analyticIndexOfComponents_fullSymbolKClass_of_constant_rank
     {m : ℝ} (P : AtlasPseudodifferentialOperator A B m)

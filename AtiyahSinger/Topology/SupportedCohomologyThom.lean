@@ -58,6 +58,9 @@ variable (R : Type) [CommRing R] (r : ℕ) {X : Type u} [TopologicalSpace X]
   [hFiber : FiberBundle (EuclideanSpace ℝ (Fin r)) E]
   [hVector : VectorBundle ℝ (EuclideanSpace ℝ (Fin r)) E]
 
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the documented
+--   definition or construction.
 /-- The actual compact image of K under the original zero section. -/
 def supportedCohomologyThomSupport (K : Compacts X) :
     Compacts (TotalSpace (EuclideanSpace ℝ (Fin r)) E) :=
@@ -135,6 +138,9 @@ theorem supportedCohomologyThomSupport_compl (K : Compacts X) :
 
 variable (o : CohomologyOrientation R r E)
 
+-- Human-verified.
+-- - Comparison of the compactly supported Thom and Gysin maps. The review covers the documented
+--   definition or construction.
 /-- Pull back an original supported base class and cup it with the same original Thom class. -/
 def supportedCohomologyThomMap (K : Compacts X) (p : ℕ) :
     relativeSingularCohomology R ((K : Set X)ᶜ) p ⟶

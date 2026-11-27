@@ -36,6 +36,9 @@ open scoped Manifold ContDiff
 attribute [local instance] isSmoothPositiveMeasure_fourierCircleMeasure
   t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - Two-pole symbols and low-dimensional normalization. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- ASI section 8: the actual positive point Thom pushforward has analytic index one. -/
 theorem analyticIndexOfComponents_circlePointPushforward (a : Circle)
     (g₀ : SmoothTangentMetric (n := 0) (M := EuclideanSpace ℝ (Fin 0)))

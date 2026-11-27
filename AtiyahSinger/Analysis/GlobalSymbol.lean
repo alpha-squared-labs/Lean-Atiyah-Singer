@@ -39,6 +39,9 @@ set_option linter.unusedSectionVars false
 variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- Pull a coordinate covector back by the derivative of the manifold chart. -/
 def covectorFromChart (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))) (x : M)
     (η : EuclideanSpace ℝ (Fin n)) :
@@ -46,6 +49,9 @@ def covectorFromChart (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n)))
   (innerSL ℝ η).comp
     (mfderiv 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) c x)
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Reading coordinates after pulling back a covector recovers its coordinate vector. -/
 theorem covectorInChart_covectorFromChart
     [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
@@ -70,6 +76,9 @@ theorem covectorInChart_covectorFromChart
   rw [h]
   simp [EuclideanSpace.inner_single_right]
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Pulling back the coordinate components of a genuine covector recovers that covector. -/
 theorem covectorFromChart_covectorInChart
     [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
@@ -113,10 +122,16 @@ variable (E F : M → Type*)
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- Actual Hom-valued functions on the cotangent fibers; regularity is imposed separately. -/
 abbrev GlobalSymbolFunction : Type _ :=
   ∀ x : M, (TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ) → (E x →L[ℂ] F x)
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The coordinate region where the base chart and both bundle frames are valid. -/
 def symbolChartDomain (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n)))
     (e : Trivialization (EuclideanSpace ℂ (Fin r)) (π (EuclideanSpace ℂ (Fin r)) E))
@@ -137,6 +152,9 @@ theorem isOpen_symbolChartDomain
   simpa only [symbolChartDomain, Set.preimage_inter, Set.inter_assoc] using
     c.isOpen_inter_preimage_symm (e.open_baseSet.inter f.open_baseSet)
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- Coordinate expression of a genuine symbol, using Dc to pull back the frequency covector. -/
 def globalSymbolInChart (p : GlobalSymbolFunction (n := n) E F)
     (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n)))
@@ -195,6 +213,9 @@ theorem globalSymbolInChart_covectorInChart
   unfold globalSymbolInChart
   rw [c.left_inv hx, covectorFromChart_covectorInChart c hc x hx ξ]
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- SG 3.18: real smoothness and order-m estimates in every valid local presentation. -/
 def IsGlobalSymbol (m : ℝ) (p : GlobalSymbolFunction (n := n) E F) : Prop :=
   ∀ (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))),
@@ -259,6 +280,9 @@ theorem IsGlobalSymbol.mono {m l : ℝ} (hml : m ≤ l)
 
 variable (E F)
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The actual complex submodule of global Hom-valued symbols of order m. -/
 def globalSymbolSpace (m : ℝ) : Submodule ℂ (GlobalSymbolFunction (n := n) E F) where
   carrier := {p | IsGlobalSymbol (r := r) (q := q) E F m p}
@@ -266,23 +290,35 @@ def globalSymbolSpace (m : ℝ) : Submodule ℂ (GlobalSymbolFunction (n := n) E
   add_mem' := fun hp hp' ↦ hp.add hp'
   smul_mem' := fun a _ hp ↦ hp.smul a
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- Global symbols of order m-1, viewed inside the order-m symbol module. -/
 def lowerOrderGlobalSymbols (m : ℝ) :
     Submodule ℂ (globalSymbolSpace (n := n) (r := r) (q := q) E F m) :=
   (globalSymbolSpace (n := n) (r := r) (q := q) E F (m - 1)).comap
     (globalSymbolSpace (n := n) (r := r) (q := q) E F m).subtype
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The standard global principal-symbol quotient, not a homogeneous representative. -/
 abbrev GlobalPrincipalSymbolSpace (m : ℝ) : Type _ :=
   globalSymbolSpace (n := n) (r := r) (q := q) E F m ⧸
     lowerOrderGlobalSymbols (n := n) (r := r) (q := q) E F m
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The canonical complex-linear class map of the actual global symbol quotient. -/
 def globalPrincipalSymbolClass (m : ℝ) :
     globalSymbolSpace (n := n) (r := r) (q := q) E F m →ₗ[ℂ]
       GlobalPrincipalSymbolSpace (n := n) (r := r) (q := q) E F m :=
   (lowerOrderGlobalSymbols (n := n) (r := r) (q := q) E F m).mkQ
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Equality of global principal classes is exactly one lower order of their difference. -/
 theorem globalPrincipalSymbolClass_eq_iff (m : ℝ)
     (p p' : globalSymbolSpace (n := n) (r := r) (q := q) E F m) :

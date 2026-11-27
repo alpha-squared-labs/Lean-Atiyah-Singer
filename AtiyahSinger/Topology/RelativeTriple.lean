@@ -35,6 +35,9 @@ variable {X : Type*} [TopologicalSpace X]
   {G : X → Type*} [∀ x, AddCommGroup (G x)] [∀ x, Module ℂ (G x)]
   [TopologicalSpace (TotalSpace Unit G)]
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Boundary data of the triple (E,F,α), with its two bundles explicit in the type. -/
 abbrev RelativeTriple (E F : X → Type*) [∀ x, AddCommGroup (E x)]
     [∀ x, Module ℂ (E x)] [∀ x, AddCommGroup (F x)] [∀ x, Module ℂ (F x)]
@@ -43,12 +46,18 @@ abbrev RelativeTriple (E F : X → Type*) [∀ x, AddCommGroup (E x)]
 
 variable {A B : Set X}
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The identity boundary triple on a given bundle. -/
 def RelativeTriple.identity (E : X → Type*) [∀ x, AddCommGroup (E x)]
     [∀ x, Module ℂ (E x)] [TopologicalSpace (TotalSpace Unit E)] (A : Set X) :
     RelativeTriple E E A :=
   Iso.refl (Restrict E A)
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Reverse the two bundles and invert the boundary map. -/
 def RelativeTriple.inverse (a : RelativeTriple E F A) : RelativeTriple F E A :=
   a.symm
@@ -68,6 +77,9 @@ variable {H : X → Type*} [∀ x, AddCommGroup (H x)] [∀ x, Module ℂ (H x)]
 
 attribute [local instance] sumTopology isFiniteRank_sum
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The direct sum of triples uses the original two boundary maps. -/
 def RelativeTriple.sum (a : RelativeTriple E F A) (b : RelativeTriple G H A) :
     RelativeTriple (E ×ᵇ G) (F ×ᵇ H) A :=
@@ -94,6 +106,9 @@ def RelativeTriple.stabilize (a : RelativeTriple E F A) (G : X → Type*)
     [TopologicalSpace (TotalSpace Unit G)] : RelativeTriple (E ×ᵇ G) (F ×ᵇ G) A :=
   RelativeTriple.sum a (RelativeTriple.identity G A)
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Isomorphism of triples means an actual commuting boundary square. -/
 def RelativeTriple.IsIsomorphic (a : RelativeTriple E F A) (b : RelativeTriple G H A) :
     Prop :=

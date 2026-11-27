@@ -43,6 +43,9 @@ set_option backward.isDefEq.respectTransparency.types false
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
 
+-- Human-verified.
+-- - Comparison of the normal-bundle Thom construction over a noncompact tangent base. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original supported formula follows from an actual compact bundle extension and detector. -/
 theorem supportedIntegral_chernCharacter_of_compactification
     {X Y : Type u} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X]

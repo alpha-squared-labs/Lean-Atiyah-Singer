@@ -54,6 +54,9 @@ variable {X : Type*} [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X]
   {E : X → Type*} [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The original supported tensor operator, evaluated using this explicit Hermitian form. -/
 def supportedThomHom (h : ContinuousHermitianMetric E) :
     CompactSupportKZero X →+ CompactSupportKZero (TotalSpace Unit E) :=
@@ -66,6 +69,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1000000 in
 -- Isolate the common-control homotopy after retaining both original endpoint formulas.
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The specified supported Thom homomorphism is independent of the continuous Hermitian metric. -/
 theorem supportedThomHom_eq (h₀ h₁ : ContinuousHermitianMetric E) :
     h₀.supportedThomHom = h₁.supportedThomHom := by

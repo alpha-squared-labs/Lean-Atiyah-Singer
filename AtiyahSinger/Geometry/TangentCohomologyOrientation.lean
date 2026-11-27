@@ -70,6 +70,9 @@ variable {n : ℕ} {M : Type} [TopologicalSpace M]
 local notation "E" => EuclideanSpace ℝ (Fin n)
 local notation "T" => (TangentSpace 𝓘(ℝ, E) : M → Type)
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
 /-- The native tangent linear chart, translated and followed by actual local chart excision. -/
 def tangentLocalHomologyEquiv (x : M) :
     relativeSingularHomology ℤ (Set.ofPred (fun v : T x ↦ v ≠ 0)) n ≃ₗ[ℤ]
@@ -231,6 +234,9 @@ theorem tangentLocalHomologyEquiv_chartAt
   exact congrArg (fun F ↦ F z) (hmain.trans (hcomp.trans hfinal))
 
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
 /-- Original cap evaluation on the tangent local generator induced by the given base orientation. -/
 def tangentCohomologyFiberEvaluation (O : HomologicalOrientation n M) (x : M)
     (a : relativeSingularCohomology ℤ (Set.ofPred (fun v : T x ↦ v ≠ 0)) n) : ℤ :=
@@ -240,6 +246,11 @@ def tangentCohomologyFiberEvaluation (O : HomologicalOrientation n M) (x : M)
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the theorem statement and its documented mathematical correspondence.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The same oriented tangent local generator has one integral dual cohomology generator. -/
 theorem existsUnique_tangentCohomologyFiberClass (O : HomologicalOrientation n M) (x : M) :
     ∃! a : relativeSingularCohomology ℤ (Set.ofPred (fun v : T x ↦ v ≠ 0)) n,
@@ -273,6 +284,9 @@ theorem existsUnique_tangentCohomologyFiberClass (O : HomologicalOrientation n M
   intro b hb
   exact hbij.injective (hb.trans ha.symm)
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
 /-- The actual fiber class selected by evaluation one on the original oriented local generator. -/
 def tangentCohomologyFiberClass (O : HomologicalOrientation n M) (x : M) :
     relativeSingularCohomology ℤ (Set.ofPred (fun v : T x ↦ v ≠ 0)) n :=
@@ -441,6 +455,9 @@ theorem tangentCohomologyFiberClass_locally_compatible
       {v : E | v ≠ 0} n a z)).symm.trans ha
   · exact (existsUnique_tangentCohomologyFiberClass O y).exists.choose_spec
 
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the documented definition or construction.
 /-- The manifold orientation induces the integral Thom orientation of its same tangent bundle. -/
 def tangentCohomologyOrientation
     (g : SmoothTangentMetric (n := n) (M := M)) (O : HomologicalOrientation n M) :

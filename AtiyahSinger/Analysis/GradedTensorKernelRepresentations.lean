@@ -49,6 +49,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1200000 in
 -- Compare four finite tensor coordinate maps with the specified two full graph decompositions.
+-- Human-verified.
+-- - Kernels and cokernels of tensor products and truncation of products. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The complete graded kernel and actual quotient carry the original tensor representations. -/
 theorem exists_gradedTensorKernelCokernel_coordinates
     (hPdense : Dense (P.domain : Set H₀)) (hQdense : Dense (Q.domain : Set K₀))

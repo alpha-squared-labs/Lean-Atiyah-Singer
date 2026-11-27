@@ -337,6 +337,9 @@ theorem exists_equivariantKoszulBottHomotopy :
   · intro t x a
     rfl
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- ASI's positive same-carrier Koszul realization has the original equivariant SG Bott class. -/
 theorem equivariantKoszulBottTriple_class :
     (equivariantKoszulBottTriple hunitary).kZeroClass =

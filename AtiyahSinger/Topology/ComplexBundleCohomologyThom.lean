@@ -52,6 +52,9 @@ variable {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]
   (h : ContinuousHermitianMetric E) (r : ℕ)
   (hr : ∀ x : X, Module.finrank ℂ (E x) = r)
 
+-- Human-verified.
+-- - The original Thom defect and its relation to the Euler class. The review covers the documented
+--   definition or construction.
 /-- The canonically oriented rational Thom map with the original Unit total-space target. -/
 def complexCohomologyThomMap (p : ℕ) :
     singularCohomology ℚ X p →ₗ[ℚ]
@@ -70,6 +73,9 @@ def complexCohomologyThomMap (p : ℕ) :
       (cohomologyZeroSectionPushforward ℚ (2 * r) E
         (h.complexCohomologyOrientation r hr).rationalization p)
 
+-- Human-verified.
+-- - The original Thom defect and its relation to the Euler class. The review covers the documented
+--   definition or construction.
 /-- Integration is the original compact-support Thom inverse after the actual native pullback. -/
 def complexCohomologyFiberIntegral (p : ℕ) :
     compactSupportCohomology ℚ (TotalSpace Unit E) (p + 2 * r) →ₗ[ℚ]

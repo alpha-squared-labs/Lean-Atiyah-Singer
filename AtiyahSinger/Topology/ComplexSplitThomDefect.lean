@@ -39,6 +39,9 @@ attribute [local instance] finiteSumTopology isFiniteRank_finiteSum isFiniteRank
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Finite detection of the Thom defect and the inverse Todd class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original defect has its inverse Todd value for any actual finite line splitting. -/
 theorem complexThomDefectComponent_eq_inverseTodd_of_lineSplitting
     {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]

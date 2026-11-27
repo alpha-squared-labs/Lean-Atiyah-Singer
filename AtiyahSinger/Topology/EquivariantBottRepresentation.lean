@@ -130,6 +130,9 @@ theorem exteriorBottTriple_isEquivariant :
   · intro g x a
     exact LinearMap.congr_fun (cliffordSymbolParity_equivariant hunitary g x.val 0) a
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the documented
+--   definition or construction.
 /-- The original exterior Bott triple, with its specified actual equivariant structures. -/
 def equivariantExteriorBottTriple : EquivariantSupportBundleTriple G V :=
   letI := modelTopology (Parity 0) (Bundle.Trivial V (Parity 0))
@@ -144,10 +147,16 @@ def equivariantExteriorBottTriple : EquivariantSupportBundleTriple G V :=
     (exteriorParityEquivariantStructure (G := G) (V := V) 1)
     (exteriorBottTriple_isEquivariant hunitary)
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the documented
+--   definition or construction.
 /-- The actual equivariant exterior Bott class in the existing geometric support group. -/
 def equivariantExteriorBottClass : EquivariantSupportTripleKZero G V :=
   (equivariantExteriorBottTriple hunitary).kZeroClass
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Forgetting the action recovers the specified original exterior-symbol K-class. -/
 theorem equivariantExteriorBottClass_forget :
     letI := FiniteDimensional.proper ℂ V
@@ -172,6 +181,9 @@ theorem equivariantExteriorBottClass_forget :
     (FiniteBundle.ofFamily (Bundle.Trivial V (Parity 0)))
     (FiniteBundle.ofFamily (Bundle.Trivial V (Parity 1))) (exteriorBottTriple V)).symm
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the documented
+--   definition or construction.
 /-- Multiplication by the actual exterior Bott class, using the existing R(G)-module action. -/
 def equivariantBottLinearMap :
     RepresentationGrothendieckGroup G →ₗ[RepresentationGrothendieckGroup G]

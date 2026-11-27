@@ -371,6 +371,9 @@ theorem exists_sobolev_pairing_bound (s : ℝ) :
 set_option maxHeartbeats 1000000 in
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- SG III.2.15(2), Hermitian form: the opposite order represents exactly all continuous duals. -/
 theorem existsUnique_sobolevDuality (s : ℝ) :
     ∃! T : A.SobolevSpace (-s) ≃L⋆[ℂ] StrongDual ℂ (A.SobolevSpace s),
@@ -762,6 +765,9 @@ theorem existsUnique_sobolevDuality (s : ℝ) :
 
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The geometric duality equivalence uniquely specified by its integral values on smooth inputs. -/
 def sobolevDuality (s : ℝ) :
     A.SobolevSpace (-s) ≃L⋆[ℂ] StrongDual ℂ (A.SobolevSpace s) :=
@@ -769,12 +775,18 @@ def sobolevDuality (s : ℝ) :
 
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The actual opposite-order sesquilinear pairing, evaluated through its duality map. -/
 def sobolevPairing (s : ℝ) (v : A.SobolevSpace (-s)) (u : A.SobolevSpace s) : ℂ :=
   A.sobolevDuality μ s v u
 
 -- The Hermitian Prop includes smoothness; the public type retains both coherent Prop proofs.
 set_option linter.overlappingInstances false in
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- On smooth inputs Sobolev duality gives the original geometric integral. -/
 theorem sobolevPairing_smoothToSobolev (s : ℝ)
     (u v : smoothSections (n := n) (r := r) E) :

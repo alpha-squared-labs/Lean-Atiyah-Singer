@@ -53,6 +53,9 @@ variable {n m : ℕ} {M N : Type*}
 
 attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - The original external product class and integer index. The review covers the documented
+--   definition or construction.
 /-- The ordinary cotangent product is the original K product pulled back by the canonical split. -/
 def cotangentKZeroExternalProduct :
     letI := euclideanProductChartedSpace (n := n) (m := m) M N
@@ -89,6 +92,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 4000000 in
 -- Match the original factor actions, product action, and three native cotangent models.
+-- Human-verified.
+-- - The original external product class and integer index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- SG III.13.5: analytic indices multiply under the actual cotangent K external product. -/
 theorem analyticIndexOfComponents_externalProduct
     (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]

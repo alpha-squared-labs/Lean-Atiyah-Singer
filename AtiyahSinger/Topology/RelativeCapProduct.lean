@@ -418,6 +418,9 @@ theorem relativeSingularCycleCap_mem_boundaries (A : Set X) (p q : ℕ)
     rw [map_smul, hcap, smul_smul, ← pow_add, ← two_mul, pow_mul]
     simp
 
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the documented
+--   definition or construction.
 /-- The Alexander--Whitney cap pairing of the same relative pair into absolute homology. -/
 def relativeSingularCapProduct (A : Set X) (p q : ℕ) :
     relativeSingularCohomology R A p →ₗ[R]

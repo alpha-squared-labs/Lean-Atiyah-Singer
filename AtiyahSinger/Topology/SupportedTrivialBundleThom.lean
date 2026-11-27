@@ -38,6 +38,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 800000 in
 -- Normalize the compactification extension and the specified exterior Bott product.
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The original supported Thom map of a trivial bundle is external exterior Bott product. -/
 theorem supportedThomHom_trivial_externalProduct
     (X : Type*) [TopologicalSpace X] [LocallyCompactSpace X] [T2Space X]

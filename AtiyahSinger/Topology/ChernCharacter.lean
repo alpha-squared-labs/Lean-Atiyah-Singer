@@ -48,6 +48,9 @@ attribute [local instance] hermitianFlagTopology
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The normalized power-sum class of the actual line roots descends uniquely to the base. -/
 theorem existsUnique_chernCharacterComponent (k : ℕ) :
     ∃! c : singularCohomology ℚ X (2 * k),
@@ -76,6 +79,9 @@ theorem existsUnique_chernCharacterComponent (k : ℕ) :
   intro y hy
   exact hermitianFlagProjection_cohomology_injective ℚ r E h (2 * k) (hy.trans hc.symm)
 
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the documented definition or
+--   construction.
 /-- The degree-2k component of the actual rational Chern character. -/
 def chernCharacterComponent (k : ℕ) : singularCohomology ℚ X (2 * k) :=
   (existsUnique_chernCharacterComponent r E h k).exists.choose
@@ -93,6 +99,9 @@ theorem chernCharacterComponent_flag_pullback (k : ℕ) :
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character and absolute K-classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The degreewise Chern character is the normalized Newton polynomial in the Chern classes. -/
 theorem chernCharacterComponent_eq_newton (k : ℕ) :
     chernCharacterComponent r E h k = (Nat.factorial k : ℚ)⁻¹ •

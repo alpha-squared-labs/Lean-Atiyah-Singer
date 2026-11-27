@@ -43,6 +43,9 @@ namespace AtiyahSinger.MultiplicativeSequence
 
 open scoped BigOperators
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- The genuine product of the given series at n free roots, with degree recorded formally. -/
 def rootProduct (f : PowerSeries ℚ) (n : ℕ) :
     PowerSeries (MvPolynomial (Fin n) ℚ) :=
@@ -79,6 +82,9 @@ theorem isSymmetric_coeff_rootProduct (f : PowerSeries ℚ) (n k : ℕ) :
   exact (PowerSeries.coeff_map (MvPolynomial.rename σ).toRingHom k
     (rootProduct f n)).symm.trans (congrArg (PowerSeries.coeff k) hproduct)
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- The k-th universal polynomial, obtained from the actual elementary-symmetric inverse. -/
 def polynomial (f : PowerSeries ℚ) (k : ℕ) : MvPolynomial (Fin k) ℚ :=
   (MvPolynomial.esymmAlgEquiv (Fin k) ℚ (Fintype.card_fin k)).symm
@@ -192,6 +198,9 @@ theorem polynomial_isWeightedHomogeneous (f : PowerSeries ℚ) (k : ℕ) :
   rw [heval]
   exact isWeightedHomogeneous_coeff_rootProduct f k k
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The same universal polynomial gives the degree-k coefficient for any number of roots. -/
 theorem polynomial_esymm (f : PowerSeries ℚ) (hf : f.constantCoeff = 1) (n k : ℕ) :
     MvPolynomial.aeval (fun i : Fin k ↦ MvPolynomial.esymm (Fin n) ℚ ((i : ℕ) + 1))
@@ -345,6 +354,9 @@ theorem polynomial_esymm (f : PowerSeries ℚ) (hf : f.constantCoeff = 1) (n k :
 
 variable {R : Type*} [CommRing R] [Algebra ℚ R]
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- Evaluate the actual universal polynomials on the positive coefficients of b. -/
 def transform (f : PowerSeries ℚ) (b : PowerSeries R) : PowerSeries R :=
   PowerSeries.mk fun k : ℕ ↦
@@ -430,6 +442,9 @@ private theorem map_transform {S T : Type*} [CommRing S] [Algebra ℚ S]
   simp only [transform, PowerSeries.coeff_map, PowerSeries.coeff_mk]
   exact MvPolynomial.comp_aeval_apply _ φ _
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG Lemma 11.9: the constructed transformation preserves the actual Cauchy product. -/
 theorem transform_mul (f : PowerSeries ℚ) (hf : f.constantCoeff = 1)
     (b c : PowerSeries R) (hb : b.constantCoeff = 1) (hc : c.constantCoeff = 1) :

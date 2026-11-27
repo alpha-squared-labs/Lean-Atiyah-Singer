@@ -32,12 +32,18 @@ open scoped TensorProduct
 
 variable (W : Type*) [AddCommGroup W] [Module ℝ W]
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The canonical real-linear real/imaginary decomposition of a complexification. -/
 def complexificationReIm : (ℂ ⊗[ℝ] W) ≃ₗ[ℝ] W × W :=
   ((TensorProduct.congr Complex.equivRealProdLm (LinearEquiv.refl ℝ W)).trans
     (TensorProduct.prodLeft ℝ ℝ ℝ ℝ W)).trans
       ((TensorProduct.lid ℝ W).prodCongr (TensorProduct.lid ℝ W))
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Real/imaginary coordinates, their inverse, and the induced complex structure.
 These formulas fix the order and sign used by the bundle complexification. -/
 theorem complexificationReIm_properties :

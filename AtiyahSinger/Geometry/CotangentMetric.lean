@@ -35,17 +35,29 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]
   [hM : IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the documented
+--   definition or construction.
 /-- The real continuous dual of the actual tangent fiber. -/
 abbrev CotangentFiber (x : M) : Type _ :=
   TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the documented
+--   definition or construction.
 /-- The model fiber of the real cotangent bundle. -/
 abbrev CotangentModel (n : ℕ) : Type := EuclideanSpace ℝ (Fin n) →L[ℝ] ℝ
 
+-- Human-verified.
+-- - Tangent and cotangent bundles and their metric identification. The review covers the documented
+--   definition or construction.
 /-- The cotangent total space with mathlib's vector bundle topology. -/
 abbrev CotangentTotalSpace : Type _ :=
   TotalSpace (CotangentModel n) (CotangentFiber (n := n) (M := M))
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- A standard smooth positive definite metric on the real cotangent bundle. -/
 abbrev SmoothCotangentMetric : Type _ :=
   ContMDiffRiemannianMetric 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞
@@ -55,6 +67,9 @@ namespace SmoothCotangentMetric
 
 variable (g : SmoothCotangentMetric (n := n) (M := M))
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- Length for the supplied metric, without installing a new norm. -/
 def length (x : M) (ξ : CotangentFiber (n := n) x) : ℝ :=
   Real.sqrt (g.inner x ξ ξ)
@@ -203,6 +218,9 @@ theorem exists_length_bounds
   · have hbound := (hupper ⟨v, hv, rfl⟩).trans (le_max_left B 1)
     nlinarith [mul_le_mul_of_nonneg_left hbound (norm_nonneg u)]
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- A cotangent metric exists on a second countable Hausdorff smooth manifold. -/
 theorem nonempty [T2Space M] [SecondCountableTopology M] :
     Nonempty (SmoothCotangentMetric (n := n) (M := M)) := by
@@ -355,6 +373,9 @@ theorem nonempty [T2Space M] [SecondCountableTopology M] :
     (e '' Metric.ball (0 : ULift.{0} (CotangentFiber (n := n) x)) 1) at himage
   rwa [hset] at himage
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Two smooth cotangent lengths are uniformly equivalent over a compact Hausdorff base. -/
 theorem exists_comparison [T2Space M] [CompactSpace M]
     (k : SmoothCotangentMetric (n := n) (M := M)) :

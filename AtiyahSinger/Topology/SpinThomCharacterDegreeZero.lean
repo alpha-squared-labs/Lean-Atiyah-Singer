@@ -63,6 +63,9 @@ set_option maxRecDepth 4096 in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character of the Spin Thom class with the same orientation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original oriented spin Thom defect has degree-zero coefficient exactly `(-1)^m`. -/
 theorem TopologicalSpinStructure.fiberIntegral_chernCharacter_spinorThom_zero
     (S : TopologicalSpinStructure m E o hm hP) :

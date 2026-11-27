@@ -69,6 +69,9 @@ variable [hLX : LocallyCompactSpace X] [hTX : T2Space X]
 
 include hLX hTX hLY hTY
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- Transport compactly supported classes by inverse pullback along a homeomorphism. -/
 def compactSupportKZeroHomeomorph (e : X ≃ₜ Y) : CompactSupportKZero X →+ CompactSupportKZero Y :=
   compactSupportKZeroPullback ⟨e.symm, e.symm.continuous⟩ e.symm.isProperMap
@@ -107,6 +110,9 @@ theorem compactSupportKZeroHomeomorph_bijective (e : X ≃ₜ Y) :
       (compactSupportKZeroHomeomorph e) from
         fun a ↦ DFunLike.congr_fun hright a).surjective⟩
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the documented definition or construction.
 /-- The equivalence keeps the specified inverse pullback as forward map. -/
 def compactSupportKZeroHomeomorphEquiv (e : X ≃ₜ Y) :
     CompactSupportKZero X ≃+ CompactSupportKZero Y :=

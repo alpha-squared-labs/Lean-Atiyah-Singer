@@ -205,6 +205,9 @@ theorem exists_idempotent_presentation :
   obtain ⟨f, _⟩ := exists_iso_of_sectionEquiv (e.symm.trans p.imageSectionEquiv)
   exact ⟨p, ⟨f⟩⟩
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the documented definition
+--   or construction.
 /-- A finite idempotent presenting the given geometric bundle. -/
 def idempotentPresentation : IdempotentMatrix C(X, ℂ) :=
   (exists_idempotent_presentation (E := E)).choose

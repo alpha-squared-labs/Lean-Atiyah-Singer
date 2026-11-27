@@ -36,12 +36,18 @@ open scoped SchwartzMap ContDiff
 
 variable {n r q : ℕ}
 
+-- Human-verified.
+-- - Fourier transform and quantization. The review covers the documented definition or
+--   construction.
 /-- The unnormalized angular-frequency Fourier transform, obtained by frequency rescaling.
 It equals `(2π)^(n/2)` times SG III.2 (2.2); `quantize` uses its paired inverse factor. -/
 def fourierSG (u : 𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r)))
     (ξ : EuclideanSpace ℝ (Fin n)) : EuclideanSpace ℂ (Fin r) :=
   (𝓕 u) ((2 * Real.pi)⁻¹ • ξ)
 
+-- Human-verified.
+-- - Fourier transform and quantization. The review covers the documented definition or
+--   construction.
 /-- The Kohn-Nirenberg formula on Schwartz inputs, using D_j = -i ∂_j. -/
 def quantize
     (a : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin n) →
@@ -51,6 +57,9 @@ def quantize
   ((2 * Real.pi) ^ n)⁻¹ •
     ∫ ξ, Complex.exp (Complex.I * (inner ℝ x ξ : ℂ)) • a x ξ (fourierSG u ξ)
 
+-- Human-verified.
+-- - Euclidean Sobolev spaces and Fourier weights. The review covers the documented definition or
+--   construction.
 /-- The L² Bessel coordinate of a Schwartz function, for the real order s. -/
 def schwartzSobolevCoordinate (s : ℝ)
     (u : 𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r))) :
@@ -59,6 +68,9 @@ def schwartzSobolevCoordinate (s : ℝ)
   (SchwartzMap.fourierMultiplierCLM (EuclideanSpace ℂ (Fin r))
     (fun ξ ↦ ((1 + ‖ξ‖ ^ 2) ^ (s / 2) : ℝ)) u).toLp 2
 
+-- Human-verified.
+-- - Euclidean Sobolev spaces and Fourier weights. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- D04: the explicit Bessel coordinate realizes the original Schwartz distribution. -/
 theorem besselRealization_schwartzSobolevCoordinate (s : ℝ)
     (u : 𝓢(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r))) :

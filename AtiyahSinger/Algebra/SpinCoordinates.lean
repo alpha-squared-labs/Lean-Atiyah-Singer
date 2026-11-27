@@ -27,6 +27,9 @@ fixed in this project's explicit exterior spinor realization.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   documented definition or construction.
 /-- The actual interleaved real isometry into the original complex spin vector model. -/
 def realSpinorCoordinateIsometry (m : ℕ) :
     EuclideanSpace ℝ (Fin (2 * m)) ≃ₗᵢ[ℝ] EuclideanSpace ℂ (Fin m) :=

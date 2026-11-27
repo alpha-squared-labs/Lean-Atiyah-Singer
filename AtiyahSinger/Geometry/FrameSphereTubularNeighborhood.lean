@@ -50,6 +50,9 @@ set_option maxHeartbeats 1800000 in
 -- The whole original sphere chart is transported through its actual normal derivative.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Zero-dimensional spheres and the tubular map of the frame sphere bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The whole frame chart is a normalized tube after the actual radial normal identification. -/
 theorem exists_frameSphere_tubularNeighborhood :
     letI := continuousSMul_orthogonalFrame r V 𝓘(ℝ, EB)

@@ -47,9 +47,15 @@ namespace AtiyahSinger
 
 open scoped ComplexConjugate
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the documented
+--   definition or construction.
 /-- The standard complex spinor space in real dimension `2 * m`. -/
 abbrev ComplexSpinor (m : ℕ) : Type := ExteriorAlgebra ℂ (EuclideanSpace ℂ (Fin m))
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the documented
+--   definition or construction.
 /-- The complex extension of the negative Euclidean quadratic form. -/
 def complexSpinorQuadraticForm (m : ℕ) :
     QuadraticForm ℂ (EuclideanSpace ℂ (Fin m) × EuclideanSpace ℂ (Fin m)) :=
@@ -60,6 +66,9 @@ def complexSpinorQuadraticForm (m : ℕ) :
       ((EuclideanSpace.projₗ j).comp
         (LinearMap.snd ℂ (EuclideanSpace ℂ (Fin m)) (EuclideanSpace ℂ (Fin m))))
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the documented
+--   definition or construction.
 /-- The complex-linear extension of wedge minus Hermitian contraction. -/
 def complexSpinorGenerator (m : ℕ) :
     (EuclideanSpace ℂ (Fin m) × EuclideanSpace ℂ (Fin m)) →ₗ[ℂ]
@@ -378,6 +387,9 @@ def complexSpinorEquiv (m : ℕ) :
   AlgEquiv.ofBijective (complexSpinorRepresentation m)
     (complexSpinorRepresentation_bijective m)
 
+-- Human-verified.
+-- - Complex spinors and chirality defined by the volume element. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The full complex Clifford action has no proper nonzero invariant complex subspace. -/
 theorem complexSpinor_irreducible (m : ℕ) (W : Submodule ℂ (ComplexSpinor m))
     (hW : ∀ a : CliffordAlgebra (complexSpinorQuadraticForm m),

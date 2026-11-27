@@ -38,6 +38,9 @@ universe u
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Cup products, cap products, and chain-level evaluation. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The front cap pairs with ordinary-left relative cup with its graded sign. -/
 theorem relativeSingularCapProduct_evaluation (R : Type) [CommRing R]
     {X : Type u} [TopologicalSpace X] (A : Set X) (p q : ℕ)

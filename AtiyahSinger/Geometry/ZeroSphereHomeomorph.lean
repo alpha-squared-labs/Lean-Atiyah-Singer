@@ -21,6 +21,9 @@ no alternate sphere model or new pole is introduced.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - Zero-dimensional spheres and the tubular map of the frame sphere bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The two original poles identify the zero sphere with the discrete Boolean space. -/
 theorem exists_zeroSphere_homeomorph :
     ∃ e : Bool ≃ₜ OrthogonalSphere 0, ∀ b, e b = orthogonalSpherePole 0 b := by

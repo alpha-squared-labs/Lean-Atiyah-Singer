@@ -55,6 +55,9 @@ include hM hT hSC hC hμ hh
 
 set_option maxHeartbeats 1000000 in
 -- The extended limit accommodates finite chart/frame duality and its integral pairing.
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The original integral pairing uniquely gives the opposite-order continuous duality. -/
 theorem existsUnique_sobolevDuality (s : ℝ) :
     ∃! T : L.SobolevSpace (-s) ≃L⋆[ℂ] StrongDual ℂ (L.SobolevSpace s),
@@ -514,15 +517,24 @@ theorem existsUnique_sobolevDuality (s : ℝ) :
         (isClosed_eq (S _).continuous (Q _).continuous)
         (fun z ↦ (hS z w).trans (hT z w).symm))
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- Opposite-order duality selected by its values on the original smooth sections. -/
 def sobolevDuality (s : ℝ) :
     L.SobolevSpace (-s) ≃L⋆[ℂ] StrongDual ℂ (L.SobolevSpace s) :=
   Classical.choose (L.existsUnique_sobolevDuality μ h hh s).exists
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the documented definition or
+--   construction.
 /-- The completed geometric Hermitian pairing, conjugate-linear in its first argument. -/
 def sobolevPairing (s : ℝ) (v : L.SobolevSpace (-s)) (u : L.SobolevSpace s) : ℂ :=
   L.sobolevDuality μ h hh s v u
 
+-- Human-verified.
+-- - Negative-order duality and pairings. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The chosen Sobolev pairing retains the exact original metric integral on smooth inputs. -/
 theorem sobolevPairing_smoothToSobolev (s : ℝ) (u v : A.smoothSections) :
     L.sobolevPairing μ h hh s (L.smoothToSobolev (-s) v) (L.smoothToSobolev s u) =

@@ -38,6 +38,9 @@ a separate fiberwise-support construction.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The actual exterior-symbol class expressed in the standard finite complex coordinates. -/
 def exteriorBottEuclideanClass (n : ℕ) : CompactSupportKZero (Fin n → ℂ) :=
   compactSupportKZeroHomeomorph (PiLp.homeomorph 2 (fun _ : Fin n ↦ ℂ))
@@ -381,6 +384,11 @@ theorem exteriorBottEuclideanClass_add (m n : ℕ) :
   rw [← compactSupportKZeroExternalProduct_homeomorph, ← hforgot, hcomp, hcomp,
     hcoords, ← hcomp, exteriorBottClass_natural]
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
+-- - Complex spinors and chirality defined by the volume element. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual exterior-symbol class equals the specified finite external power of the line class.
 -/
 theorem exteriorBottEuclideanClass_eq_bottEuclideanClass (n : ℕ) :
@@ -432,6 +440,11 @@ theorem exteriorBottEuclideanClass_eq_bottEuclideanClass (n : ℕ) :
         rw [← hp, hcomp, hcoords, ih]
       _ = bottEuclideanClass (n + 1) := rfl
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
+-- - Complex spinors and chirality defined by the volume element. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual exterior triple has positive coordinate under the pre-existing integer normalization.
 -/
 theorem bottEuclideanClassEquivInt_exteriorBottEuclideanClass (n : ℕ) :

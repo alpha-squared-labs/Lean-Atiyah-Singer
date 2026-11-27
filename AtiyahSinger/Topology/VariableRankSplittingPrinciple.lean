@@ -45,6 +45,9 @@ variable {X : Type u} [TopologicalSpace X]
 attribute [local instance] isFiniteRank_restrict rankFlagTopology rankFlagLineTopology
   variableRankFlagTopology
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The actual global locally varying-rank flag projection is cohomologically injective. -/
 theorem variableRankFlagProjection_cohomology_injective (R : Type) [CommRing R] (k : ℕ) :
     Function.Injective
@@ -88,6 +91,9 @@ theorem variableRankFlagProjection_cohomology_injective (R : Type) [CommRing R] 
   rw [hcomp] at hr
   exact hr
 
+-- Human-verified.
+-- - Splitting on flag bundles and injectivity of pullback. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Equality of original-base classes is detected on all the actual rank-piece flags. -/
 theorem cohomology_eq_iff_rankFlag_pullbacks_eq (R : Type) [CommRing R] (k : ℕ)
     (a b : singularCohomology R X k) :

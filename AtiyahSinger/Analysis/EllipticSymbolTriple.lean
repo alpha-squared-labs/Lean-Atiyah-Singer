@@ -49,6 +49,9 @@ open ComplexBundle
 attribute [local instance] isFiniteRank_pullback t2Space_cotangent
   locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the
+--   documented definition or construction.
 /-- The original symbol on the exterior, with canonical pullback reassociation. -/
 def ellipticSymbolBoundary (a : GlobalSymbolFunction (n := n) E F)
     (ha : IsContinuousOffZeroGlobalSymbol (r := r) (q := q) a) (hi : IsEllipticGlobalSymbol E F a) :
@@ -116,6 +119,9 @@ theorem ellipticSymbolBoundary_symm_apply (a : GlobalSymbolFunction (n := n) E F
 
 variable [CompactSpace M]
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the
+--   documented definition or construction.
 /-- The support triple with the original pulled-back bundles and zero-section control. -/
 def ellipticSymbolTriple (a : GlobalSymbolFunction (n := n) E F)
     (ha : IsContinuousOffZeroGlobalSymbol (r := r) (q := q) a) (hi : IsEllipticGlobalSymbol E F a) :

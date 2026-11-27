@@ -1233,6 +1233,9 @@ variable (L : AtlasBundlePresentation A) [MeasurableSpace M] (μ : Measure M)
   (covT : CovariantDerivative 𝓘(ℝ, EuclideanSpace ℝ (Fin n))
     (EuclideanSpace ℝ (Fin n)) (TangentSpace (M := M) 𝓘(ℝ, EuclideanSpace ℝ (Fin n))))
 
+-- Human-verified.
+-- - Integer-order covariant derivatives and Fourier norms. The review covers the documented
+--   definition or construction.
 /-- The geometric integer norm of the original section, via its actual derivative tensors. -/
 def covariantSobolevNorm (k : ℕ) (u : A.smoothSections) : ℝ :=
   Real.sqrt (∑ j : Fin (k + 1), ∫ x : M,
@@ -1244,6 +1247,9 @@ variable [hT : T2Space M] [hSC : SecondCountableTopology M]
   (hcovT : CovariantDerivative.ContMDiffCovariantDerivative covT ∞)
 
 include hM hT hSC hcovT in
+-- Human-verified.
+-- - Integer-order covariant derivatives and Fourier norms. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The geometric norm does not depend on the charts or partition used to evaluate its integral. -/
 theorem covariantSobolevNorm_eq (K : AtlasBundlePresentation A)
     (k : ℕ) (u : A.smoothSections) :
@@ -1303,6 +1309,9 @@ variable [BorelSpace M] [hC : CompactSpace M]
 
 set_option backward.isDefEq.respectTransparency false in
 include hM hT hSC hcovT hC hμ hh in
+-- Human-verified.
+-- - Integer-order covariant derivatives and Fourier norms. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- SG III.2.14 for the actual varying-rank bundle: geometric and Fourier norms are equivalent. -/
 theorem exists_covariantSobolevNorm_comparison (k : ℕ) :
     ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∀ u : A.smoothSections,

@@ -44,6 +44,9 @@ variable {n : ℕ} {O M N : Type*}
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Excision and noncompact open sources. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- One original tangent class has equal indices after the two actual open differential maps. -/
 theorem tangentAnalyticIndex_excision_of_compact_targets
     (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]

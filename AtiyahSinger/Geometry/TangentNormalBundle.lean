@@ -138,6 +138,9 @@ variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
   [IsManifold 𝓘(ℝ, E) ∞ M] [IsManifold 𝓘(ℝ, F) ∞ N]
   (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, F) M N ∞)
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The actual tangent map, packaged with smoothness in the full product models. -/
 def smoothTangentMap :
     ContMDiffMap 𝓘(ℝ, E × E) 𝓘(ℝ, F × F)
@@ -169,6 +172,9 @@ set_option maxSynthPendingDepth 30 in
 set_option backward.isDefEq.respectTransparency false in
 set_option maxHeartbeats 3000000 in
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The canonical smooth normal exact sequence of the original tangent embedding. -/
 theorem exists_tangentNormal_exactSequence :
     letI := normalBundleFiberBundle f hf.isImmersion
@@ -1082,14 +1088,23 @@ theorem exists_tangentNormal_exactSequence :
       exact congrArg (fun v ↦ (⟨z.proj, v⟩ : TotalSpace V νP)) (hp z.proj z.snd))
   exact ⟨i, p, hismooth, hpsmooth, hi, hp, fun z ↦ ⟨hinj z, hsurj z, hexact z⟩⟩
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The canonical vertical normal map selected with its companion projection. -/
 def tangentNormalVerticalMap : ∀ z : TangentBundle 𝓘(ℝ, E) M, ν z.proj →L[ℝ] νT z :=
   (exists_tangentNormal_exactSequence f hf).choose
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The canonical projection selected from that same exact-sequence witness. -/
 def tangentNormalProjection : ∀ z : TangentBundle 𝓘(ℝ, E) M, νT z →L[ℝ] ν z.proj :=
   (exists_tangentNormal_exactSequence f hf).choose_spec.choose
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- A smooth splitting of the canonical normal exact sequence, with its ordered factors fixed. -/
 structure TangentNormalSplitting where
   /-- The first factor is the normal quotient direction; the second is the vertical direction. -/
@@ -1132,6 +1147,9 @@ set_option maxSynthPendingDepth 30 in
 set_option backward.isDefEq.respectTransparency false in
 set_option maxHeartbeats 3000000 in
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The canonical normal exact sequence has a smooth splitting over a paracompact source. -/
 theorem nonempty_tangentNormalSplitting [T2Space M] [ParacompactSpace M] :
     Nonempty (TangentNormalSplitting f hf) := by
@@ -1944,12 +1962,18 @@ theorem nonempty_tangentNormalSplitting [T2Space M] [ParacompactSpace M] :
     fst_equiv := hefirst
     equiv_vertical := hevertical }⟩
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- One smooth splitting, selected from the standard splitting existence theorem. -/
 def tangentNormalSplitting [T2Space M] [ParacompactSpace M] : TangentNormalSplitting f hf :=
   (nonempty_tangentNormalSplitting f hf).some
 
 namespace TangentNormalSplitting
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The actual total homeomorphism to the native double of the original pullback normal bundle. -/
 def totalHomeomorph (S : TangentNormalSplitting f hf) :
     TotalSpace VT νT ≃ₜ TotalSpace (V × V) (νP ×ᵇ νP) := by

@@ -36,6 +36,9 @@ open Bundle Topology
 
 variable (G P F : Type*) [Group G] [MulAction Gᵐᵒᵖ P] [MulAction G F]
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- The orbit relation of the diagonal right action (p,v)*g=(p*g,g inverse*v). -/
 def associatedBundleSetoid : Setoid (P × F) where
   r x y := ∃ g : G, y = (MulOpposite.op g • x.1, g⁻¹ • x.2)
@@ -64,6 +67,9 @@ def associatedBundleMk (p : P) (v : F) : AssociatedBundle G P F :=
 
 variable {G P F}
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The quotient has the standard principal/associated action convention. -/
 theorem associatedBundleMk_smul (p : P) (g : G) (v : F) :
     associatedBundleMk G P F (MulOpposite.op g • p) v =

@@ -791,12 +791,20 @@ theorem continuous_smoothSectionMap :
   rw [Finset.sup_singleton]
   exact hbound u
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- The same smooth PDO action packaged with its derivative-topology continuity. -/
 def smoothSectionMap : A.SmoothSectionSpace →L[ℂ] B.SmoothSectionSpace where
   toLinearMap := B.smoothSectionEquiv.symm.toLinearMap.comp
     (P.toLinearMap.comp A.smoothSectionEquiv.toLinearMap)
   cont := P.continuous_smoothSectionMap A B
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
+-- - The original distributions and local elliptic regularity. The review covers the documented
+--   definition or construction.
 /-- The distribution action is actual precomposition by the smooth formal transpose. -/
 def distributionExtension : A.DistributionSection μ →ₗ[ℂ] B.DistributionSection μ where
   toFun D := D.comp (P.formalTranspose.smoothSectionMap B.dualPresentation A.dualPresentation)
@@ -807,6 +815,9 @@ def distributionExtension : A.DistributionSection μ →ₗ[ℂ] B.DistributionS
     ext α
     rfl
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Distributional evaluation applies the formal transpose to the test, without conjugation. -/
 theorem distributionExtension_apply (D : A.DistributionSection μ)
     (α : B.dualPresentation.SmoothSectionSpace) :
@@ -816,6 +827,9 @@ theorem distributionExtension_apply (D : A.DistributionSection μ)
   -- Precomposition uses precisely the original bilinear transpose on this test.
   rfl
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Every original Sobolev extension represents this same distribution action. -/
 theorem distributionExtension_sobolevToDistribution (s : ℝ) (u : A.SobolevSpace s) :
     P.distributionExtension A B (A.sobolevToDistribution μ s u) =
@@ -840,6 +854,9 @@ theorem distributionExtension_sobolevToDistribution (s : ℝ) (u : A.SobolevSpac
   rw [← htranspose, P.sobolevEvaluationDuality_transpose]
   rfl
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- On smooth sections the distribution action is the original section operator. -/
 theorem distributionExtension_smoothToDistribution
     (u : smoothSections (n := n) (r := r) E) :

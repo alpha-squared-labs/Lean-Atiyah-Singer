@@ -60,6 +60,9 @@ local notation "V" => EuclideanSpace ℝ (Fin (2 * m))
 
 namespace TopologicalSpinStructure
 
+-- Human-verified.
+-- - The Levi-Civita and half-spinor connections for the same metric g. The review covers the
+--   documented definition or construction.
 /-- The actual Levi-Civita coefficient matrix, with differentiated frame index first. -/
 def liftedLeviCivitaCoefficients (S : TopologicalSpinStructure m (TM) o hm hP)
     (b x : M) : TM x →L[ℝ] (Fin (2 * m) → Fin (2 * m) → ℝ) :=
@@ -97,6 +100,9 @@ theorem contMDiffOn_liftedLeviCivitaCoefficients
     (((S.isLocalFrameOn_liftedFrameField (n := 2 * m) b).contMDiffOn a).mono hUb)
     (((S.isLocalFrameOn_liftedFrameField (n := 2 * m) b).contMDiffOn j).mono hUb)
 
+-- Human-verified.
+-- - The Levi-Civita and half-spinor connections for the same metric g. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original metric-compatible connection has a skew matrix in these same lifted frames. -/
 theorem liftedLeviCivitaCoefficients_skew
     (S : TopologicalSpinStructure m (TM) o hm hP) (b x : M)

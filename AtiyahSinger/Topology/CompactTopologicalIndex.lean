@@ -38,6 +38,11 @@ variable (E : Type*) [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimension
   (M : Type*) [TopologicalSpace M] [ChartedSpace E M] [IsManifold 𝓘(ℝ, E) ∞ M]
   [T2Space M] [CompactSpace M]
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   documented definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- One dimension and actual embedding, selected together from the same existence witness. -/
 def compactEuclideanEmbedding :
     Σ n : ℕ, { f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, EuclideanSpace ℝ (Fin n))
@@ -48,6 +53,11 @@ def compactEuclideanEmbedding :
 
 variable [SecondCountableTopology M]
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   documented definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- The topological index on the original compact-support tangent K group. -/
 def topologicalIndex :
     letI : T2Space (TangentBundle 𝓘(ℝ, E) M) := (tangentBundle_topology E M).1
@@ -59,6 +69,9 @@ def topologicalIndex :
 
 variable {E M}
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The chosen public index agrees with the formula for every actual proper Euclidean embedding. -/
 theorem topologicalIndex_eq_of_embedding {n : ℕ}
     (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, EuclideanSpace ℝ (Fin n))
@@ -74,6 +87,9 @@ variable {F : Type*} [NormedAddCommGroup F] [NormedSpace ℝ F] [FiniteDimension
   {N : Type*} [TopologicalSpace N] [ChartedSpace F N] [IsManifold 𝓘(ℝ, F) ∞ N]
   [T2Space N] [CompactSpace N] [SecondCountableTopology N]
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The compact topological index is natural for the actual tangent embedding pushforward. -/
 theorem topologicalIndex_pushforward
     (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, F) M N ∞)

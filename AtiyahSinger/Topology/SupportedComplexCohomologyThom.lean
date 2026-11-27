@@ -62,6 +62,9 @@ def supportedComplexCohomologyThomMap (p : ℕ) :
       (compactSupportCohomologyThomMap ℚ (2 * r) E
         (h.complexCohomologyOrientation r hr).rationalization p)
 
+-- Human-verified.
+-- - Comparison of the normal-bundle Thom construction over a noncompact tangent base. The review
+--   covers the documented definition or construction.
 /-- The supported complex fiber integral, using the inverse of the same native Thom map. -/
 def supportedComplexCohomologyThomIntegral (p : ℕ) :
     compactSupportCohomology ℚ (TotalSpace Unit E) (p + 2 * r) →ₗ[ℚ]

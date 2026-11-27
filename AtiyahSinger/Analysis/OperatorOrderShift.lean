@@ -53,6 +53,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
 namespace PseudodifferentialOperator
 
 include hM hT hSC hC hE hF hB hμ in
+-- Human-verified.
+-- - Order reduction for the given real-order operator and its cotangent symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- SG order reduction, retaining the original map, index and displayed symbol K class.
 
 The prescribed target order may be any real value, including zero and one.

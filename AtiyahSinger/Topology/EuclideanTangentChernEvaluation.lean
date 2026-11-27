@@ -52,6 +52,9 @@ set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 
+-- Human-verified.
+-- - Cancellation of the normal-bundle Todd class and integration after the tangent pushforward. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- The specified positive Bott coordinate is the signed canonical tangent Chern evaluation. -/
 theorem euclideanTangentKZeroEquivInt_eq_chern_evaluation (N : ℕ)
     (u : CompactSupportKZero

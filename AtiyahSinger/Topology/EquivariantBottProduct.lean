@@ -1148,6 +1148,9 @@ theorem equivariantExteriorBottClass_prod :
   exact (equivariantSupportTripleKZero_generator_relations.1 A₁ c hA₁c).symm.trans
     (hA₀A₁.symm.trans hproduct.symm)
 
+-- Human-verified.
+-- - The forward map for equivariant Bott classes and its range. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The same ordered direct-sum comparison multiplies the original full Bott coefficients. -/
 theorem equivariantBottLinearMap_prod (r s : RepresentationGrothendieckGroup G) :
     letI := FiniteDimensional.proper ℂ V

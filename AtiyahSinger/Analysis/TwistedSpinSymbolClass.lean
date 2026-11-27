@@ -76,6 +76,9 @@ namespace TopologicalSpinStructure
 
 set_option maxHeartbeats 800000 in
 -- Normalize the exact symbol of the original contracted twisted Dirac operator.
+-- Human-verified.
+-- - The positive i convention and ellipticity of the original principal symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The selected symbol of the original twisted Dirac operator is smooth and elliptic. -/
 theorem twistedDiracPlus_symbol_properties :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -146,6 +149,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 set_option maxHeartbeats 3000000 in
 -- Normalize the original twisted Dirac symbol class and the same spin Thom coefficient.
+-- Human-verified.
+-- - The actual Dirac symbol and the twisted Spin Thom class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual twisted Dirac symbol class is the original spin Thom class times the original W. -/
 theorem twistedDiracPlus_symbolClass :
     letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩

@@ -135,6 +135,9 @@ private theorem isLocallyConstant_closedZeroForm {n : ℕ} {M : Type*}
       rw [c.left_inv (mem_chart_source V x)]
       exact hx⟩
 
+-- Human-verified.
+-- - De Rham cohomology of spheres and the action of the orthogonal group. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Positive-dimensional spheres have a one-dimensional degree-zero de Rham group. -/
 theorem nonempty_deRhamCohomology_sphere_zero_equiv (r : ℕ) (hr : 0 < r) :
     Nonempty (DeRhamCohomology (n := r) (OrthogonalSphere r) 0 ≃ₗ[ℂ] ℂ) := by
@@ -208,6 +211,9 @@ theorem nonempty_deRhamCohomology_sphere_zero_equiv (r : ℕ) (hr : 0 < r) :
   exact ⟨(Q.quotEquivOfEqBot hQ).trans (LinearEquiv.ofBijective ev hbij)⟩
 
 
+-- Human-verified.
+-- - De Rham cohomology of spheres and the action of the orthogonal group. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Positive-dimensional spheres have a one-dimensional top de Rham group. -/
 theorem nonempty_deRhamCohomology_sphere_top_equiv (r : ℕ) (hr : 0 < r) :
     Nonempty (DeRhamCohomology (n := r) (OrthogonalSphere r) r ≃ₗ[ℂ] ℂ) := by
@@ -220,6 +226,9 @@ set_option maxHeartbeats 2000000 in
 -- The actual quotient is computed through the same native chart and compactly supported primitive.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - De Rham cohomology of spheres and the action of the orthogonal group. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The remaining degrees of positive-dimensional sphere cohomology vanish. -/
 theorem subsingleton_deRhamCohomology_sphere (r p : ℕ) (hr : 0 < r)
     (hp0 : p ≠ 0) (hpr : p ≠ r) :
@@ -426,6 +435,9 @@ theorem orthogonalSphereDeRhamRepresentation_top (r : ℕ) (hr : 0 < r)
       rw [hdetInv, ← he v hnear, e.map_smul]
       rfl
 
+-- Human-verified.
+-- - De Rham cohomology of spheres and the action of the orthogonal group. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The two-point sphere has two independent degree-zero classes. -/
 theorem nonempty_deRhamCohomology_zeroSphere_equiv :
     Nonempty (DeRhamCohomology (n := 0) (OrthogonalSphere 0) 0 ≃ₗ[ℂ] (ℂ × ℂ)) := by

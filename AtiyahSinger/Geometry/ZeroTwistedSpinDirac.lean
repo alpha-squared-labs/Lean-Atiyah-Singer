@@ -57,6 +57,10 @@ variable {M P : Type*} [TopologicalSpace M] [TopologicalSpace P]
 
 local notation "H" => halfSpinorBundleSmoothAtlas 0 hP A
 
+-- Human-verified.
+-- - The original Dirac operator in dimension zero, its empty contraction, and the index on
+--   sections. The review covers the theorem statement and its documented mathematical
+--   correspondence.
 /-- The native rank-zero contraction is uniquely fixed by its actual zero section action. -/
 theorem existsUnique_zeroTwistedDiracPlus :
     ∃! D : AtlasDifferentialOperator (tensorSmoothAtlas (H 0) B)
@@ -95,11 +99,18 @@ theorem existsUnique_zeroTwistedDiracPlus :
     cases hD
     rfl
 
+-- Human-verified.
+-- - The original Dirac operator in dimension zero, its empty contraction, and the index on
+--   sections. The review covers the documented definition or construction.
 /-- The actual zero-dimensional twisted Dirac operator on the original two tensor bundles. -/
 def zeroTwistedDiracPlus :
     AtlasDifferentialOperator (tensorSmoothAtlas (H 0) B) (tensorSmoothAtlas (H 1) B) 1 :=
   (existsUnique_zeroTwistedDiracPlus hP A B).exists.choose
 
+-- Human-verified.
+-- - The original Dirac operator in dimension zero, its empty contraction, and the index on
+--   sections. The review covers the theorem statement and its documented mathematical
+--   correspondence.
 /-- The selected zero-dimensional operator has zero action and the actual zero principal symbol. -/
 theorem zeroTwistedDiracPlus_properties :
     (zeroTwistedDiracPlus hP A B).toLinearMap = 0 ∧
@@ -121,6 +132,10 @@ theorem zeroTwistedDiracPlus_properties :
   have hsymbol := (zeroTwistedDiracPlus hP A B).principalSymbol_smul x ξ 0
   simpa only [Complex.ofReal_zero, zero_smul, pow_one, hξ] using hsymbol
 
+-- Human-verified.
+-- - The original Dirac operator in dimension zero, its empty contraction, and the index on
+--   sections. The review covers the theorem statement and its documented mathematical
+--   correspondence.
 /-- The same zero symbol is smooth and elliptic on its empty off-zero domain. -/
 theorem zeroTwistedDiracPlus_symbol_properties :
     IsSmoothOffZeroAtlasSymbol (tensorSmoothAtlas (H 0) B) (tensorSmoothAtlas (H 1) B)

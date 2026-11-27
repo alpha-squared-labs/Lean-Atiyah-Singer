@@ -32,6 +32,9 @@ attribute [local instance] sumTopology isFiniteRank_sum trivialTopology isFinite
 variable {X : Type*} [TopologicalSpace X]
 
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The explicit defining relations of the geometric triple group. -/
 def tripleKZeroRelations (A : Set X) : AddSubgroup (FreeAbelianGroup (BundleTriple A)) :=
   AddSubgroup.closure
@@ -41,6 +44,9 @@ def tripleKZeroRelations (A : Set X) : AddSubgroup (FreeAbelianGroup (BundleTrip
       z = FreeAbelianGroup.of (a.sum b) - FreeAbelianGroup.of a - FreeAbelianGroup.of b} ∪
     {z | ∃ E : FiniteBundle X, z = FreeAbelianGroup.of (BundleTriple.identity A E)})
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The group given by the ordinary isomorphism, sum and identity triple relations. -/
 abbrev TripleKZero (A : Set X) : Type _ :=
   FreeAbelianGroup (BundleTriple A) ⧸ tripleKZeroRelations A
@@ -72,6 +78,9 @@ theorem BundleTriple.kZeroClass_sum {A : Set X} (a b : BundleTriple A) :
   apply AddSubgroup.subset_closure
   exact Or.inl (Or.inr ⟨a, b, by abel⟩)
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The identity triple is zero. -/
 theorem BundleTriple.kZeroClass_identity (A : Set X) (E : FiniteBundle X) :
     (BundleTriple.identity A E).kZeroClass = 0 := by
@@ -378,6 +387,9 @@ theorem BundleTriple.kZeroClass_eq_zero_iff (A : Set X) (hA : IsClosed A) (a : B
     have hh := BundleTriple.kZeroClass_eq_of_isIsomorphic _ _ hi
     simpa only [BundleTriple.kZeroClass_sum, BundleTriple.kZeroClass_identity, add_zero] using hh
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Homotopies through boundary isomorphisms preserve the group class. -/
 theorem bundleTriple_kZeroClass_eq_of_homotopy (A : Set X) (hA : IsClosed A)
     (E F : FiniteBundle X) (a b : RelativeTriple E.Fiber F.Fiber A) (H : IsoHomotopy a b) :

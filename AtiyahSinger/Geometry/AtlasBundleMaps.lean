@@ -39,6 +39,9 @@ variable {n m : ℕ} {M N : Type*} [TopologicalSpace M] [TopologicalSpace N]
   [TopologicalSpace (TotalSpace Unit E)] [TopologicalSpace (TotalSpace Unit F)]
 
 open Classical in
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- Smoothness of an original complex-linear bundle map over its specified base map. -/
 def IsSmoothAtlasBundleMapOver (A : SmoothComplexBundleAtlas (n := n) E)
     (B : SmoothComplexBundleAtlas (n := m) F) (f : M → N)
@@ -53,6 +56,9 @@ def IsSmoothAtlasBundleMapOver (A : SmoothComplexBundleAtlas (n := n) E)
 variable {F' : M → Type*} [∀ x, AddCommGroup (F' x)] [∀ x, Module ℂ (F' x)]
   [TopologicalSpace (TotalSpace Unit F')]
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- Smoothness of the specified complex-linear map between two atlases on the same base. -/
 def IsSmoothAtlasBundleMap (A : SmoothComplexBundleAtlas (n := n) E)
     (B : SmoothComplexBundleAtlas (n := n) F') (a : ∀ x : M, E x →ₗ[ℂ] F' x) : Prop :=

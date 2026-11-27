@@ -32,6 +32,9 @@ variable {X : Type*} [TopologicalSpace X]
 attribute [local instance] sumTopology isFiniteRank_sum
 
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Choose a compact neighborhood using the locally compact existence theorem. -/
 def supportNeighborhood [LocallyCompactSpace X] (K : Set X) (hK : IsCompact K) : Set X :=
   (exists_compact_superset hK).choose
@@ -50,6 +53,9 @@ theorem subset_interior_supportNeighborhood [LocallyCompactSpace X]
   closed window would not suffice for the boundary map. -/
   exact (exists_compact_superset hK).choose_spec.2
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- The window boundary consists of its points outside the ambient interior. -/
 def supportWindowBoundary (L : Set X) : Set L :=
   {x | (x : X) ∉ interior L}
@@ -68,6 +74,9 @@ theorem supportWindowBoundary_subset (K L : Set X) (h : K ⊆ interior L) :
   intro x hx hxK
   exact hx (h hxK)
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Identify the open part of a window with the same ambient interior points. -/
 def supportWindowInteriorHomeomorph (L : Set X) :
     ((supportWindowBoundary L)ᶜ : Set L) ≃ₜ (interior L : Set X) where
@@ -93,6 +102,9 @@ theorem supportWindowInteriorHomeomorph_symm_apply (L : Set X) (x : interior L) 
   the original point. -/
   rfl
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Restrict the actual exterior isomorphism to the window boundary. -/
 def SupportBundleTriple.windowBoundary (a : SupportBundleTriple X) (L : Set X)
     (h : a.datum.control ⊆ interior L) :
@@ -117,6 +129,9 @@ theorem SupportBundleTriple.windowBoundary_apply (a : SupportBundleTriple X) (L 
     (RelativeTriple.pullback_apply a.datum.boundary f
       ⟨x.val, supportWindowBoundary_subset a.datum.control L h x.property⟩ v)
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- The compact-pair triple keeps both restricted bundles and the actual boundary map. -/
 def SupportBundleTriple.windowTriple (a : SupportBundleTriple X) (L : Set X)
     (h : a.datum.control ⊆ interior L) : BundleTriple (supportWindowBoundary L) :=

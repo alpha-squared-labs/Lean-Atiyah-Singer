@@ -41,6 +41,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- A fiberwise complex-linear map is smooth when all its local matrix columns are real-smooth. -/
 def IsSmoothBundleMap (a : ∀ x, E x →ₗ[ℂ] F x) : Prop :=
   ∀ (e : Trivialization (EuclideanSpace ℂ (Fin r))

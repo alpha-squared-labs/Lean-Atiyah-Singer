@@ -124,6 +124,9 @@ def gradedCompletionUnitsEquiv :
 
 namespace MultiplicativeSequence
 
+-- Human-verified.
+-- - Multiplicative sequences and the Todd series. The review covers the documented definition or
+--   construction.
 /-- SG Lemma 11.9 as the actual group homomorphism on all normalized graded formal sums. -/
 def gradedHom (f : PowerSeries ℚ) (hf : f.constantCoeff = 1) :
     gradedCompletionUnits 𝒜 →* gradedCompletionUnits 𝒜 where

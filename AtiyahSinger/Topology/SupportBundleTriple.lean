@@ -32,6 +32,9 @@ attribute [local instance] sumTopology trivialTopology
 
 variable {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Two finite-rank bundle objects with a specified isomorphism at infinity. -/
 structure SupportBundleTriple (X : Type*) [TopologicalSpace X] where
   /-- The source bundle on the original space. -/
@@ -77,6 +80,9 @@ def SupportBundleTriple.pullback (a : SupportBundleTriple X) (f : C(Y, X))
   ofBoundary (a.source.pullback f) (a.target.pullback f) (a.datum.pullback f hf)
 
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the documented definition
+--   or construction.
 /-- A global isomorphism square is required only outside one common compact set. -/
 def SupportBundleTriple.IsIsomorphic (a b : SupportBundleTriple X) : Prop :=
   ∃ K : Set X, ∃ hK : IsCompact K, ∃ ha : a.datum.control ⊆ K,
@@ -84,6 +90,9 @@ def SupportBundleTriple.IsIsomorphic (a b : SupportBundleTriple X) : Prop :=
       RelativeTriple.IsIsomorphic (a.datum.enlarge K hK ha).boundary
         (b.datum.enlarge K hK hb).boundary
 
+-- Human-verified.
+-- - Common compact control and independence of choices. The review covers the documented definition
+--   or construction.
 /-- Stable equivalence adds independent identity triples to the two sides. -/
 def SupportBundleTriple.IsStablyIsomorphic (a b : SupportBundleTriple X) : Prop :=
   ∃ E F : FiniteBundle X,

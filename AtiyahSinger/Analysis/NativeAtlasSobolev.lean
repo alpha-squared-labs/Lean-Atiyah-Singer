@@ -48,6 +48,9 @@ namespace SmoothBundlePresentation
 
 variable (L : SmoothBundlePresentation (n := n) (r := r) E)
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the documented
+--   definition or construction.
 /-- Retain the exact native charts, frames and cutoffs as a finite atlas presentation. -/
 def toAtlasBundlePresentation :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
@@ -67,6 +70,9 @@ def toAtlasBundlePresentation :
 variable [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
   [T2Space M] [SecondCountableTopology M]
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Identity on the original section values gives exactly the original Bessel coordinate map. -/
 theorem sobolevCoordinates_toAtlasBundlePresentation (s : ℝ) :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
@@ -111,6 +117,9 @@ theorem sobolevCoordinates_toAtlasBundlePresentation (s : ℝ) :
     schwartzSobolevCoordinate s (L.localize j u)
   exact congrArg (schwartzSobolevCoordinate s) (hlocal u j)
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the documented
+--   definition or construction.
 /-- The native and atlas completions are the same closed Hilbert subspace. -/
 def nativeAtlasSobolevEquiv (s : ℝ) :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
@@ -126,6 +135,9 @@ def nativeAtlasSobolevEquiv (s : ℝ) :
   -- Equality of those closed subspaces preserves their inherited Hilbert norms.
   exact LinearIsometryEquiv.ofEq _ _ (congrArg Submodule.topologicalClosure hRange)
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The canonical isometry preserves the inclusion of each original smooth section. -/
 theorem nativeAtlasSobolevEquiv_smoothToSobolev (s : ℝ)
     (u : smoothSections (n := n) (r := r) E) :

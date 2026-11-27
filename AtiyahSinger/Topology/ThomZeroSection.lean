@@ -41,6 +41,9 @@ variable {X : Type*} [TopologicalSpace X] [CompactSpace X] [T2Space X]
   (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E]
 
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   documented definition or construction.
 /-- The standard alternating exterior class, using E rather than its dual. -/
 def lambdaMinusOne : ComplexKZero X :=
   kZeroClass (fun x ↦ CliffordAlgebra.evenOdd (0 : QuadraticForm ℂ (E x)) 0) -
@@ -70,6 +73,9 @@ theorem lambdaMinusOne_sum
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG Lemma 12.3: the actual zero-section pullback of the Thom image is the exterior product. -/
 theorem zeroSectionPullback_supportedThomHom (h : ContinuousHermitianMetric E)
     (a : CompactSupportKZero X) :

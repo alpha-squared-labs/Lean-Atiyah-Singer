@@ -56,6 +56,9 @@ theorem isUnit_idempotentIntertwiner_of_norm_lt (p q : A)
     simpa only [norm_sub_rev] using h
   simpa only [sub_sub_cancel] using isUnit_one_sub_of_norm_lt_one hsmall
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KR02: a norm-continuous path of idempotents has conjugate endpoints. -/
 theorem exists_unit_conjugating_idempotent_path (p : C(I, A))
     (hp : ∀ t : I, p t * p t = p t) :

@@ -41,12 +41,18 @@ variable {A : Type u} [NormedCommRing A] [NormedAlgebra ℂ A] [CompleteSpace A]
 
 namespace LaurentMatrixLoop
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the documented
+--   definition or construction.
 /-- KA III.1.18: the actual quotient by multiplication by the polynomial z^k σ.
 The supplied certificate ensures that this multiplier preserves positive powers. -/
 abbrev ShiftedCokernel (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) : Type u :=
   PolynomialCokernel (p.shift (k : ℤ)).polynomial hk
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The repaired polynomial-cokernel theorem applies to the specified shift. -/
 theorem shiftedCokernel_finite (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) : Module.Finite A (p.ShiftedCokernel k hk) := by
@@ -56,6 +62,9 @@ theorem shiftedCokernel_finite (p : LaurentMatrixLoop A) (k : ℕ)
   exact polynomialCokernel_finite (p.shift (k : ℤ)).polynomial hk
     (p.shift (k : ℤ)).invertible
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The specified quotient is projective, without replacing it by an arbitrary module. -/
 theorem shiftedCokernel_projective (p : LaurentMatrixLoop A) (k : ℕ)
     (hk : (p.shift (k : ℤ)).IsPolynomial) :
@@ -66,6 +75,9 @@ theorem shiftedCokernel_projective (p : LaurentMatrixLoop A) (k : ℕ)
   exact polynomialCokernel_projective (p.shift (k : ℤ)).polynomial hk
     (p.shift (k : ℤ)).invertible
 
+-- Human-verified.
+-- - The Laurent shift cokernel and the correction class. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KA III.1.18: a further positive shift adds exactly n*l free generators.
 The positivity certificate and linear equivalence refer to the same shifted polynomial. -/
 theorem nonempty_shiftedCokernel_add_equiv (p : LaurentMatrixLoop A) (k l : ℕ)

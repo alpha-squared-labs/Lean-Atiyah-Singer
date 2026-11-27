@@ -42,6 +42,9 @@ universe u
 
 variable (R : Type) [CommRing R] (X : Type u) [TopologicalSpace X]
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- Evaluate a relative class against the same compact restriction of an actual LF class. -/
 def compactRelativeLocallyFinitePairing (K : Compacts X) (n : ℕ) :
     relativeSingularCohomology R ((K : Set X)ᶜ) n →ₗ[R]
@@ -86,6 +89,9 @@ theorem compactRelativeLocallyFinitePairing_support {K L : Compacts X}
   exact congrArg (fun c ↦ augmentation (relativeSingularCapProduct R ((K : Set X)ᶜ) n 0 a c))
     hrestriction
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the documented definition
+--   or construction.
 /-- The standard bilinear pairing of compact-support cohomology with actual LF homology. -/
 def compactSupportLocallyFinitePairing (n : ℕ) :
     compactSupportCohomology R X n →ₗ[R]
@@ -103,6 +109,9 @@ def compactSupportLocallyFinitePairing (n : ℕ) :
             intro z
             exact compactRelativeLocallyFinitePairing_support R X (leOfHom f) n a z } }).hom
 
+-- Human-verified.
+-- - Locally finite singular homology and its pairings. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Evaluation of a compact representative uses precisely its original relative cap pairing. -/
 theorem compactSupportLocallyFinitePairing_representative (K : Compacts X) (n : ℕ)
     (a : relativeSingularCohomology R ((K : Set X)ᶜ) n)
@@ -136,11 +145,17 @@ section Manifold
 variable {n : ℕ} {M : Type u} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M] [T2Space M] [SecondCountableTopology M]
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the documented definition or
+--   construction.
 /-- Top-degree integration is evaluation on the normalized rational LF fundamental class. -/
 def compactSupportCohomologyIntegral (O : HomologicalOrientation n M) :
     compactSupportCohomology ℚ M n →ₗ[ℚ] ℚ :=
   (compactSupportLocallyFinitePairing ℚ M n).flip (rationalLocallyFiniteFundamentalClass O)
 
+-- Human-verified.
+-- - Poincaré duality, extension by zero along open inclusions, and the Gysin map. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- Atiyah--Singer III's normalization: fundamental-class evaluation is augmentation of duality. -/
 theorem compactSupportCohomologyIntegral_eq_duality_augmentation
     (O : HomologicalOrientation n M) (a : compactSupportCohomology ℚ M n) :

@@ -45,6 +45,9 @@ local notation "ℚRes" => ModuleCat.restrictScalars (Int.castRingHom ℚ)
 local notation "ℚResC" => Functor.mapHomologicalComplex
   (ModuleCat.restrictScalars (Int.castRingHom ℚ)) (ComplexShape.up ℕ)
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Coefficient inclusion uniquely specifies the cochain map on every original simplex. -/
 theorem existsUnique_singularCochainsRationalization
     (X : Type u) [TopologicalSpace X] :
@@ -141,11 +144,17 @@ theorem existsUnique_singularCochainsRationalization
   funext σ
   exact (hG n φ σ).trans (heval n φ σ).symm
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- The actual cochain coefficient inclusion fixed by its original simplex values. -/
 def singularCochainsRationalization (X : Type u) [TopologicalSpace X] :
     singularCochains ℤ X ⟶ (ℚResC).obj (singularCochains ℚ X) :=
   Classical.choose (existsUnique_singularCochainsRationalization X).exists
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- The coefficient homomorphism into the original rational singular cohomology. -/
 def singularCohomologyRationalization (X : Type u) [TopologicalSpace X] (n : ℕ) :
     singularCohomology ℤ X n ⟶ (ℚRes).obj (singularCohomology ℚ X n) :=

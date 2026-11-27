@@ -56,6 +56,8 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   (A : SmoothComplexBundleAtlas (n := n) E)
   (B : SmoothComplexBundleAtlas (n := n) F)
 
+-- Human-verified.
+-- - Ellipticity of the given operator. The review covers the documented definition or construction.
 /-- Uniform high-frequency inverse bounds on compact subsets of every actual frame overlap. -/
 def IsEllipticFullAtlasSymbol (m : ℝ) (a : AtlasSymbolFunction (n := n) E F) : Prop :=
   ∀ (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))),
@@ -89,6 +91,9 @@ theorem IsEllipticFullAtlasSymbol.add_lowerOrder {m : ℝ}
   rw [hadd]
   exact (ha c hc i j).add_lowerOrder ε hε (hb c hc i j)
 
+-- Human-verified.
+-- - Ellipticity of the given operator. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Quantitative ellipticity is independent of the representative in the principal quotient. -/
 theorem isEllipticFullAtlasSymbol_iff_of_class_eq {m : ℝ}
     (a b : atlasGlobalSymbolSpace A B m)
@@ -130,6 +135,9 @@ theorem isEllipticFullAtlasSymbol_iff_of_class_eq {m : ℝ}
 variable [hM : IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M] [hT : T2Space M]
 
 include hM hT in
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The existing radial homogeneous realization satisfies the full-symbol definition exactly. -/
 theorem isEllipticFullAtlasSymbol_atlasRegularizedSymbol_iff
     (g : SmoothCotangentMetric (n := n) (M := M)) (m : ℝ)

@@ -30,6 +30,9 @@ open scoped ContDiff SchwartzMap
 variable {E V : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
   [NormedAddCommGroup V] [NormedSpace ℂ V] [CompleteSpace V] {n : ℕ}
 
+-- Human-verified.
+-- - Schwartz parameters and smoothness of constant-coefficient tensors. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- All continuous coordinate Schwartz derivatives give a smooth Banach-valued image. -/
 theorem contDiff_schwartzMap_of_coordinate_derivatives
     (F : List (Fin n) → (Fin n → ℝ) → 𝓢(E, ℂ))

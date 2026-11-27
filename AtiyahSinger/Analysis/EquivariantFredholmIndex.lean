@@ -47,6 +47,9 @@ section Normed
 variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
   [NormedAddCommGroup F] [NormedSpace ℂ F]
 
+-- Human-verified.
+-- - The original equivariant index and its representation-valued form. The review covers the
+--   documented definition or construction.
 /-- The actual finite kernel class minus the actual quotient-cokernel class. -/
 def equivariantFredholmIndex
     (ρ : ContRepresentation ℂ G E) (σ : ContRepresentation ℂ G F)
@@ -62,6 +65,9 @@ def equivariantFredholmIndex
     representationClass (equivariantCokernelRepresentation ρ σ T hTg)
       (continuous_equivariantCokernelRepresentation ρ σ T hTg hσ)
 
+-- Human-verified.
+-- - The original equivariant index and its representation-valued form. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Forgetting the group action recovers the original integer Fredholm index. -/
 theorem representationDimension_equivariantFredholmIndex
     (ρ : ContRepresentation ℂ G E) (σ : ContRepresentation ℂ G F)
@@ -599,6 +605,9 @@ theorem exists_radius_equivariantFredholmIndex_eq
   exact (equivariantFredholmIndex_eq_ker_sub_ker_adjoint
     ρ σ hρ hσ hρu hσu T₀ hT₀g hT₀).symm
 
+-- Human-verified.
+-- - The original equivariant index and its representation-valued form. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Operator-norm-continuous equivariant Fredholm paths preserve the representation-valued index. -/
 theorem equivariantFredholmIndex_eq_of_path
     (ρ : ContRepresentation ℂ G E) (σ : ContRepresentation ℂ G F)

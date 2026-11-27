@@ -56,6 +56,9 @@ variable {m : ℕ}
 set_option linter.unusedSectionVars false in
 set_option backward.isDefEq.respectTransparency false in
 open scoped Topology SchwartzMap in
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The leading coordinate polynomials determine a unique symbol on the original fibers. -/
 theorem existsUnique_principalSymbol (P : AtlasDifferentialOperator A B m) :
     ∃! σ : ∀ x : M,
@@ -428,6 +431,9 @@ theorem existsUnique_principalSymbol (P : AtlasDifferentialOperator A B m) :
   apply (f x).injective
   exact hτx.trans hσx.symm
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The original-fiber symbol selected from its unique local polynomial specification. -/
 def principalSymbol (P : AtlasDifferentialOperator A B m) :
     ∀ x : M, (TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ) →
@@ -483,6 +489,9 @@ theorem principalSymbol_smul (P : AtlasDifferentialOperator A B m) (x : M)
   rw [LinearMap.smul_apply, (B.linear j x hj).map_smul, map_smul]
   exact hout
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- Ellipticity is bijectivity of the actual principal symbol at every nonzero covector. -/
 def IsElliptic (P : AtlasDifferentialOperator A B m) : Prop :=
   ∀ (x : M) (ξ : TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ), ξ ≠ 0 →

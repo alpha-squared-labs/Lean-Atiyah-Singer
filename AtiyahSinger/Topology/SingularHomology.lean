@@ -43,20 +43,32 @@ universe u
 
 variable (R : Type) [CommRing R]
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Ordinary singular homology of the original chain complex. -/
 abbrev singularHomology (X : Type u) [TopologicalSpace X] (n : ℕ) : ModuleCat.{u} R :=
   (singularChains R X).homology n
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Relative singular homology of the original quotient by subspace chains. -/
 abbrev relativeSingularHomology {X : Type u} [TopologicalSpace X]
     (A : Set X) (n : ℕ) : ModuleCat.{u} R :=
   (relativeSingularChains R A).homology n
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The homology map induced by the given continuous map of the original spaces. -/
 def singularHomologyMap {X Y : Type u} [TopologicalSpace X] [TopologicalSpace Y]
     (f : C(X, Y)) (n : ℕ) : singularHomology R X n ⟶ singularHomology R Y n :=
   HomologicalComplex.homologyMap ((singularChainsFunctor R).map (TopCat.ofHom f)) n
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The relative homology map induced by the given continuous map of pairs. -/
 def relativeSingularHomologyMap {X Y : Type u}
     [TopologicalSpace X] [TopologicalSpace Y]
@@ -64,6 +76,9 @@ def relativeSingularHomologyMap {X Y : Type u}
     relativeSingularHomology R A n ⟶ relativeSingularHomology R B n :=
   HomologicalComplex.homologyMap (relativeSingularChainsMap R f hf) n
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Enlarging the subspace induces the original covariant quotient map on homology. -/
 def relativeSingularHomologyInclusion {X : Type u} [TopologicalSpace X]
     (A B : Set X) (h : A ⊆ B) (n : ℕ) :

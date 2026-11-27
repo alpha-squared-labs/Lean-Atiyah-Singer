@@ -634,6 +634,9 @@ def harmonicFormPullbackEquiv (p : ℕ) : harmonicForms gN p ≃ₗ[ℂ] harmoni
   LinearEquiv.ofBijective (harmonicFormPullback gM gN e he p)
     (harmonicFormPullback_bijective gM gN e he p)
 
+-- Human-verified.
+-- - Hodge decomposition and harmonic representatives of de Rham classes. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The canonical Hodge identification intertwines harmonic and de Rham pullbacks. -/
 theorem harmonicDeRhamEquiv_naturality [CompactSpace M] [CompactSpace N] (p : ℕ) :
     (deRhamPullback e e.contMDiff p).comp (harmonicDeRhamEquiv gN p).toLinearMap =

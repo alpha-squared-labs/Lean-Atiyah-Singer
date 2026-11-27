@@ -57,6 +57,9 @@ set_option maxHeartbeats 1000000 in
 -- Normalize the original Thom action and open tube in the projection formula.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Functoriality of pushforwards and the projection formula. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual tangent pushforward satisfies the projection formula for compact-support factors. -/
 theorem tangentEmbeddingPushforward_action :
     letI : T2Space TM := (tangentBundle_topology E M).1

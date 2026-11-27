@@ -38,6 +38,9 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   (E : M → Type*) [∀ x, NormedAddCommGroup (E x)] [∀ x, NormedSpace ℂ (E x)]
   [TopologicalSpace (TotalSpace (EuclideanSpace ℂ (Fin r)) E)]
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- Retype the original chart and its model coordinates, preserving its base and fiber vectors. -/
 def nativeFiniteBundleChart
     (e : Trivialization (EuclideanSpace ℂ (Fin r))
@@ -89,6 +92,9 @@ theorem contMDiffOn_nativeFiniteBundleChart_coordChange
     (x, e₀.symm (Pi.single a 1)))).2 = _
   exact congrArg e₀ (e.coordChangeL_apply' e' hx _).symm
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- The smooth finite-rank atlas consisting of every original designated native chart. -/
 def nativeSmoothComplexBundleAtlas :
     letI := modelTopology (EuclideanSpace ℂ (Fin r)) E
@@ -117,6 +123,9 @@ def nativeSmoothComplexBundleAtlas :
       let := j.property
       exact contMDiffOn_nativeFiniteBundleChart_coordChange E i.val j.val a }
 
+-- Human-verified.
+-- - The original smooth sections. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The converted atlas tests exactly the old smooth sections on the original fibers. -/
 theorem isSmoothSection_nativeSmoothComplexBundleAtlas_iff (s : ∀ x : M, E x) :
     (letI := modelTopology (EuclideanSpace ℂ (Fin r)) E

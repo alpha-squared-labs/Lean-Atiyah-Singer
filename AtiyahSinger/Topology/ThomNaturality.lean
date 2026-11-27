@@ -667,6 +667,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1500000 in
 -- Normalize metric transport and exterior conjugation on the same original support.
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Every complex bundle isomorphism carries the specified Thom operator to the target one. -/
 theorem supportedThomHom_iso (hE : ContinuousHermitianMetric E)
     (hF : ContinuousHermitianMetric F) (e : Iso E F) :
@@ -938,6 +941,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 500000 in
 -- Specialize the dependent pullback comparison to the original metric and total map.
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Proper base pullback commutes with the actual supported Thom map and its total-space lift. -/
 theorem supportedThomHom_pullback (h : ContinuousHermitianMetric E)
     (f : C(X, Y)) (hf : IsProperMap f) :

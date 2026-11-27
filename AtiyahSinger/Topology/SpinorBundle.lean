@@ -59,6 +59,9 @@ variable (m : ℕ) {P B : Type*} [TopologicalSpace P] [TopologicalSpace B]
 abbrev SpinorBundle (b : B) : Type _ :=
   AssociatedVectorFiber hP (complexSpinContRepresentation m) b
 
+-- Human-verified.
+-- - The given half-spinor bundles and raising the index in Clifford multiplication. The review
+--   covers the documented definition or construction.
 /-- Either half-spin bundle, with its original exterior parity representation and topology. -/
 abbrev HalfSpinorBundle (i : ZMod 2) (b : B) : Type _ :=
   AssociatedVectorFiber hP (complexSpinParityContRepresentation m i) b

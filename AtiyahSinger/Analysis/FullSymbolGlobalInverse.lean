@@ -45,6 +45,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Order reduction for the given real-order operator and its cotangent symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The actual inverse of a smooth full Hom function is smooth wherever every map is invertible. -/
 theorem isSmoothFullGlobalSymbol_inverse
     (a : GlobalSymbolFunction (n := n) E F)

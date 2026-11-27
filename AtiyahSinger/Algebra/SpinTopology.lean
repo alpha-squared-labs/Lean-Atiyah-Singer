@@ -39,6 +39,9 @@ its native spin group and both parity spaces are included.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   documented definition or construction.
 /-- Real exterior coordinates on the original real Clifford algebra. -/
 def realSpinorCliffordCoordinates (m : ℕ) :
     CliffordAlgebra (realSpinorQuadraticForm m) ≃ₗ[ℝ]
@@ -63,6 +66,9 @@ def realSpinorCliffordNormedSpace (m : ℕ) :
 
 attribute [local instance] realSpinorCliffordNormedSpace
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   documented definition or construction.
 /-- The native spin group has the subspace topology of the original real Clifford algebra. -/
 @[instance_reducible]
 def spinGroupTopology (m : ℕ) : TopologicalSpace (spinGroup (realSpinorQuadraticForm m)) :=
@@ -72,6 +78,9 @@ def spinGroupTopology (m : ℕ) : TopologicalSpace (spinGroup (realSpinorQuadrat
 
 attribute [local instance] spinGroupTopology
 
+-- Human-verified.
+-- - The negative-definite Euclidean Clifford algebra and Spin coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The native spin group is a topological group for this Clifford subspace topology. -/
 theorem spinGroup_isTopologicalGroup (m : ℕ) :
     IsTopologicalGroup (spinGroup (realSpinorQuadraticForm m)) := by

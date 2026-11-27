@@ -68,6 +68,9 @@ local notation "TModel" => EuclideanSpace ℝ (Fin (2 * m))
 
 namespace TopologicalSpinStructure
 
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the
+--   documented definition or construction.
 /-- The original half-spin connection tensored with the specified connection on W. -/
 def twistedHalfSpinorConnection :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -88,6 +91,9 @@ def twistedHalfSpinorConnection :
   intro i
   exact atlasTensorConnection (S.halfSpinorConnection g i) covW
 
+-- Human-verified.
+-- - The order-zero difference between connections and the scope of the original index. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- This same product connection preserves the actual Fock-times-W Hermitian metric. -/
 theorem twistedHalfSpinorConnection_isUnitary
     (hW : ComplexBundle.ContinuousHermitianMetric W) (hhW : B.IsSmoothHermitianMetric hW)
@@ -120,6 +126,9 @@ theorem twistedHalfSpinorConnection_isUnitary
 
 set_option maxHeartbeats 1600000 in
 -- Normalize the original dependent half-spin tensor atlases in this contraction.
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the
+--   documented definition or construction.
 /-- The canonical twisted positive Dirac operator is the actual product-connection contraction. -/
 def twistedDiracPlus :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -173,6 +182,9 @@ theorem twistedDiracPlus_apply :
   unfold twistedDiracPlus
   exact atlasConnectionContraction_apply _ _ _ _ u x
 
+-- Human-verified.
+-- - The positive i convention and ellipticity of the original principal symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The actual twisted chiral principal symbol is +i times c(sharp xi) tensor identity. -/
 theorem twistedDiracPlus_principalSymbol :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩

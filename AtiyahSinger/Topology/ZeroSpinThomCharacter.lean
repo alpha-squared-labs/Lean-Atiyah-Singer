@@ -73,6 +73,9 @@ local notation "RealModel" => EuclideanSpace ℝ (Fin 0)
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original native rank-zero spin symbol satisfies the normalized Thom character formula. -/
 theorem fiberIntegral_chernCharacter_zeroSpinorThom
     (hV : letI := complexificationTopology RealModel E
@@ -138,6 +141,9 @@ theorem fiberIntegral_chernCharacter_zeroSpinorThom
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The same native rank-zero character formula with an arbitrary original virtual coefficient. -/
 theorem fiberIntegral_chernCharacter_zeroSpinThom
     (hV : letI := complexificationTopology RealModel E

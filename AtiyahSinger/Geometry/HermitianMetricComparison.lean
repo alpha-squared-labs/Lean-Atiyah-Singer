@@ -36,6 +36,9 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin r)) E]
   (h k : SmoothHermitianMetric (n := n) (r := r) E)
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The change operator is uniquely determined by the two actual fiber forms. -/
 theorem existsUnique_change (x : M) :
     ∃! B : E x ≃L[ℂ] E x, ∀ u v : E x,
@@ -89,16 +92,25 @@ theorem existsUnique_change (x : M) :
     rw [hC, hB, sub_self]
   exact sub_eq_zero.mp ((h.toCore x).definite _ hz)
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- The canonical change operator, specified pointwise by h(u,Bv)=k(u,v). -/
 def change (x : M) : E x ≃L[ℂ] E x :=
   Classical.choose (h.existsUnique_change k x).exists
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The chosen operator satisfies its defining metric identity. -/
 theorem pairing_change (x : M) (u v : E x) :
     h.pairing x u (h.change k x v) = k.pairing x u v := by
   /- Use the defining property of the chosen unique equivalence. -/
   exact (Classical.choose_spec (h.existsUnique_change k x).exists) u v
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Nondegeneracy identifies any candidate change map by its pairing identity. -/
 theorem change_eq (x : M) (B : E x ≃L[ℂ] E x)
     (hB : ∀ u v : E x, h.pairing x u (B v) = k.pairing x u v) :
@@ -141,6 +153,9 @@ theorem change_trans (l : SmoothHermitianMetric (n := n) (r := r) E) (x : M) :
   change h.pairing x u (h.change k x (k.change l x v)) = l.pairing x u v
   rw [h.pairing_change k, k.pairing_change l]
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The change operator is self-adjoint for the starting metric. -/
 theorem pairing_change_left (x : M) (u v : E x) :
     h.pairing x (h.change k x u) v = k.pairing x u v := by
@@ -150,6 +165,9 @@ theorem pairing_change_left (x : M) (u v : E x) :
   simpa only [pairing, (h.toCore x).conj_inner_symm,
     (k.toCore x).conj_inner_symm] using heq
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The change operator is strictly positive for its starting metric. -/
 theorem re_pairing_change_pos (x : M) (u : E x) (hu : u ≠ 0) :
     0 < (h.pairing x u (h.change k x u)).re := by
@@ -158,6 +176,9 @@ theorem re_pairing_change_pos (x : M) (u : E x) (hu : u ≠ 0) :
   rw [h.pairing_change k]
   exact k.pairing_self_pos x u hu
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- In a valid frame the change matrix solves H B = K. -/
 theorem gramMatrix_mul_change
     (e : Trivialization (EuclideanSpace ℂ (Fin r)) (π (EuclideanSpace ℂ (Fin r)) E))
@@ -182,6 +203,9 @@ include hM
 
 set_option linter.unusedSectionVars false in
 -- Retain the original manifold parameter in the public change-operator interface.
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The change operator has smooth coordinate matrices on every frame domain. -/
 theorem contMDiffOn_change
     (e : Trivialization (EuclideanSpace ℂ (Fin r)) (π (EuclideanSpace ℂ (Fin r)) E))
@@ -284,6 +308,9 @@ theorem isSmoothSection_change (u : smoothSections (n := n) (r := r) E) :
   rw [← e.continuousLinearMapAt_apply_of_mem ℂ hx (u.val x),
     e.symmL_continuousLinearMapAt hx, e.continuousLinearMapAt_apply_of_mem ℂ hx]
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- The induced equivalence sends a section u to the section x ↦ B(x)u(x). -/
 def changeSections :
     smoothSections (n := n) (r := r) E ≃ₗ[ℂ] smoothSections (n := n) (r := r) E where
@@ -296,6 +323,9 @@ def changeSections :
   map_smul' := fun c u ↦
     Subtype.ext (funext (fun x ↦ (h.change k x).map_smul c (u.val x)))
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- The section equivalence uses the specified pointwise change map. -/
 theorem changeSections_apply (u : smoothSections (n := n) (r := r) E) (x : M) :
     (h.changeSections k u).val x = h.change k x (u.val x) := by

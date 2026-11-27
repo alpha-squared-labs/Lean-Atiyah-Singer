@@ -406,6 +406,9 @@ theorem FiniteMatrixLoop.exists_laurent_representative (p : FiniteMatrixLoop A) 
     exact hpaths
   exact ⟨q, hpq.symm⟩
 
+-- Human-verified.
+-- - Normalized loops and the relative disk model. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Karoubi III.1.14: stable Laurent and continuous based loop classes are in bijection. -/
 theorem stableLaurentLoopComparison_bijective :
     Function.Bijective (stableLaurentLoopComparison (A := A)) := by

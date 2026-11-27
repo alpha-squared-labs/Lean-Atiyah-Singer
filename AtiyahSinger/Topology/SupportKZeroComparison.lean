@@ -710,6 +710,9 @@ theorem SupportBundleTriple.compactSupportClass_eq_zero_iff (a : SupportBundleTr
     exact (a.compactSupportClass_eq_of_isStablyIsomorphic _ hs).trans
       (SupportBundleTriple.compactSupportClass_identity Z)
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Descend the actual compact-window class through the explicit presentation. -/
 def supportTripleKZeroToCompactSupport : SupportTripleKZero X →+ CompactSupportKZero X :=
   (supportTripleKZero_universal_property X SupportBundleTriple.compactSupportClass
@@ -1028,10 +1031,16 @@ theorem supportTripleKZeroToCompactSupport_bijective :
   exact ⟨supportTripleKZeroToCompactSupport_injective,
     supportTripleKZeroToCompactSupport_surjective⟩
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   documented definition or construction.
 /-- Identify the models through the actual compact-window forward map. -/
 def supportTripleKZeroCompactSupportEquiv : SupportTripleKZero X ≃+ CompactSupportKZero X :=
   AddEquiv.ofBijective _ supportTripleKZeroToCompactSupport_bijective
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The additive equivalence preserves the specified generator formula. -/
 theorem supportTripleKZeroCompactSupportEquiv_apply (a : SupportBundleTriple X) :
     supportTripleKZeroCompactSupportEquiv a.kZeroClass = a.compactSupportClass := by
@@ -1039,6 +1048,9 @@ theorem supportTripleKZeroCompactSupportEquiv_apply (a : SupportBundleTriple X) 
   already specified generator formula. -/
   exact supportTripleKZeroToCompactSupport_apply a
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The inverse equivalence recovers the same original triple class. -/
 theorem supportTripleKZeroCompactSupportEquiv_symm_apply (a : SupportBundleTriple X) :
     supportTripleKZeroCompactSupportEquiv.symm a.compactSupportClass = a.kZeroClass := by
@@ -1060,6 +1072,9 @@ theorem SupportBundleTriple.compactSupportClass_eq_iff_stable (a b : SupportBund
     simpa only [supportTripleKZeroToCompactSupport_apply] using h
   · exact a.compactSupportClass_eq_of_isStablyIsomorphic b
 
+-- Human-verified.
+-- - Compactly supported groups and comparison with the specified triples. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original geometric support-class function is surjective. -/
 theorem supportBundleTriple_compactSupportClass_surjective :
     Function.Surjective (SupportBundleTriple.compactSupportClass (X := X)) := by

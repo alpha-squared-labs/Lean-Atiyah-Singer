@@ -37,6 +37,8 @@ set_option maxSynthPendingDepth 15
 
 variable {n r q : ℕ} {U : Set (EuclideanSpace ℝ (Fin n))} {m : ℝ}
 
+-- Human-verified.
+-- - Quantitative ellipticity. The review covers the documented definition or construction.
 /-- High-frequency invertibility with the order-minus-m inverse bound on each compact set. -/
 def IsEllipticFullSymbol (U : Set (EuclideanSpace ℝ (Fin n))) (m : ℝ)
     (a : SymbolFunction n r q) : Prop :=
@@ -44,6 +46,9 @@ def IsEllipticFullSymbol (U : Set (EuclideanSpace ℝ (Fin n))) (m : ℝ)
     ∃ R C : ℝ, 0 < R ∧ 0 ≤ C ∧ ∀ x ∈ K, ∀ ξ, R ≤ ‖ξ‖ →
       (a x ξ).IsInvertible ∧ ‖(a x ξ).inverse‖ ≤ C * (1 + ‖ξ‖) ^ (-m)
 
+-- Human-verified.
+-- - Quantitative ellipticity. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- A strictly lower-order perturbation preserves quantitative ellipticity. -/
 theorem IsEllipticFullSymbol.add_lowerOrder {a b : SymbolFunction n r q}
     (ha : IsEllipticFullSymbol U m a) (ε : ℝ) (hε : 0 < ε)
@@ -130,6 +135,9 @@ theorem IsEllipticFullSymbol.add_lowerOrder {a b : SymbolFunction n r q}
     simpa only [hT.self_apply_inverse] using hlower (T.inverse v)
   exact hnorm.trans (by nlinarith [hinvnorm])
 
+-- Human-verified.
+-- - Quantitative ellipticity. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Ellipticity depends only on the full symbol modulo one lower order. -/
 theorem isEllipticFullSymbol_iff_of_isSymbol_sub (a b : SymbolFunction n r q)
     (hab : IsSymbol U (m - 1) (a - b)) :
@@ -162,6 +170,9 @@ theorem isEllipticFullSymbol_iff_of_isSymbol_sub (a b : SymbolFunction n r q)
     have heq : b + (a - b) = a := by abel
     rwa [heq] at h
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- For smooth homogeneous data, quantitative ellipticity of its cutoff is off-zero ellipticity. -/
 theorem isEllipticFullSymbol_frequencyCutoffSymbol_iff (hU : IsOpen U)
     (a : SymbolFunction n r q)

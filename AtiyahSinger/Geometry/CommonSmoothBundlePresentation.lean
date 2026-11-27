@@ -39,6 +39,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [TopologicalSpace (TotalSpace (EuclideanSpace ℂ (Fin q)) F)]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Two native presentations retain one chart partition and one prescribed support cover. -/
 theorem exists_common_smoothBundlePresentation_subordinate {ι : Type*}
     (U : ι → Set M) (hU : ∀ i, IsOpen (U i)) (hcover : ∀ x, ∃ i, x ∈ U i) :

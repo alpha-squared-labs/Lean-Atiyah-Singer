@@ -151,6 +151,9 @@ set_option maxHeartbeats 1800000 in
 -- Normalize the same quotient-normal splittings and tubes in the open tangent square.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - Functoriality of pushforwards and the projection formula. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual geometric tangent pushforward commutes with open extension in a smooth square. -/
 theorem tangentEmbeddingPushforward_open_naturality
     (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, F) M N ∞)

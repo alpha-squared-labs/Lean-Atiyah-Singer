@@ -51,6 +51,8 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]
   [MeasurableSpace M] [BorelSpace M]
 
+-- Human-verified.
+-- - Smooth positive densities. The review covers the documented definition or construction.
 /-- A positive smooth density, expressed as its Borel measure in each manifold chart. -/
 class IsSmoothPositiveMeasure (μ : Measure M) : Prop where
   /-- In every chart the measure has a strictly positive real-smooth density. -/
@@ -71,6 +73,9 @@ set_option maxHeartbeats 1200000 in
 -- Allow the countable bump sum and change-of-variables proof to elaborate.
 open Set Function in
 open scoped Topology in
+-- Human-verified.
+-- - Smooth positive densities. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- A Hausdorff second-countable smooth manifold without boundary admits a positive
 smooth density. -/
 theorem exists_smoothPositiveMeasure :

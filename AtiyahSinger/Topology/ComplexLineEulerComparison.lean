@@ -33,6 +33,9 @@ universe u
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original canonical complex line Euler class is the original rational first Chern class. -/
 theorem cohomologyEulerClass_complex_line
     {X : Type u} [TopologicalSpace X]

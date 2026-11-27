@@ -88,6 +88,9 @@ variable {X : Type u} [TopologicalSpace X]
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- An actual continuous conjugate-linear bundle equivalence negates the first Chern class. -/
 theorem firstChernClass_eq_neg_of_conjugateLinearEquiv
     {F : X → Type u} [∀ x, NormedAddCommGroup (F x)] [∀ x, NormedSpace ℂ (F x)]

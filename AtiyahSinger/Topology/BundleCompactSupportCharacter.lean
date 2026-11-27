@@ -62,6 +62,9 @@ variable (R : Type) [CommRing R] (r : ℕ) {X : Type u} [TopologicalSpace X]
   [hMetric : IsContinuousRiemannianBundle (EuclideanSpace ℝ (Fin r)) E]
 
 include hCompact hHausdorff hVector hMetric in
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- The actual one-point comparison is bijective for the original finite-rank bundle total space. -/
 theorem compactSupportCohomologyToOnePoint_bundle_bijective (n : ℕ) :
     Function.Bijective
@@ -88,6 +91,9 @@ theorem compactSupportCohomologyToOnePoint_bundle_bijective (n : ℕ) :
     exact contractibleSpace_bundleInfinityNeighborhood (EuclideanSpace ℝ (Fin r)) E a ha
 
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the documented definition
+--   or construction.
 /-- The equivalence whose forward map is the original compact-support colimit comparison. -/
 def bundleCompactSupportCohomologyOnePointEquiv (n : ℕ) :
     compactSupportCohomology R (TotalSpace (EuclideanSpace ℝ (Fin r)) E) n ≃ₗ[R]
@@ -97,6 +103,9 @@ def bundleCompactSupportCohomologyOnePointEquiv (n : ℕ) :
     (compactSupportCohomologyToOnePoint R (TotalSpace (EuclideanSpace ℝ (Fin r)) E) n).hom
     (compactSupportCohomologyToOnePoint_bundle_bijective R r E n)
 
+-- Human-verified.
+-- - Reduced and compactly supported Chern characters. The review covers the documented definition
+--   or construction.
 /-- The reduced Chern character transported through the actual bundle compact-support comparison. -/
 def bundleCompactSupportChernCharacterComponent (k : ℕ) :
     CompactSupportKZero (TotalSpace (EuclideanSpace ℝ (Fin r)) E) →+

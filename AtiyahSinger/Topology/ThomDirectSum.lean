@@ -461,6 +461,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 4000000 in
 -- Normalize the direct-sum supported Thom map and its prescribed iterated operator.
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Thom multiplication for an orthogonal direct sum is the prescribed iterated operator. -/
 theorem supportedThomHom_sum (hE : ContinuousHermitianMetric E)
     (hF : ContinuousHermitianMetric F) :
@@ -994,6 +997,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1000000 in
 -- Normalize the zero exterior fibers and the original zero-section homeomorphism.
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- A zero-rank Thom operator is transport by the original zero-section homeomorphism. -/
 theorem supportedThomHom_zeroRank (h : ContinuousHermitianMetric E)
     [∀ x, Subsingleton (E x)] :

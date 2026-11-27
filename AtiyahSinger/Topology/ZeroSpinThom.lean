@@ -57,12 +57,18 @@ variable {B P : Type*} [TopologicalSpace B] [TopologicalSpace P]
 
 local notation "RealModel" => EuclideanSpace ℝ (Fin 0)
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the documented
+--   definition or construction.
 /-- The original base action on the specified native rank-zero spin symbol class. -/
 def zeroSpinThomHom : ComplexKZero B →+ CompactSupportKZero (TotalSpace RealModel E) :=
   (complexKZeroCompactSupportAction
     (⟨π RealModel E, FiberBundle.continuous_proj RealModel E⟩ :
       C(TotalSpace RealModel E, B))).flip (zeroSpinorThomClass E hP)
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original native rank-zero spin class is a K-orientation in every suspended degree. -/
 theorem zeroSpinorThomClass_isKOrientation (n : ℕ) :
     Function.Bijective
@@ -208,6 +214,9 @@ theorem zeroSpinorThomClass_isKOrientation (n : ℕ) :
   rw [hmap]
   exact compactSupportKZeroHomeomorph_bijective _
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The ordinary native rank-zero spin Thom homomorphism is bijective. -/
 theorem zeroSpinThomHom_bijective : Function.Bijective (zeroSpinThomHom E hP) := by
   /- Stage 1: specialize the preceding all-degree assertion to degree zero.
@@ -237,6 +246,9 @@ theorem zeroSpinThomHom_bijective : Function.Bijective (zeroSpinThomHom E hP) :=
   exact eE.bijective.comp ((zeroSpinorThomClass_isKOrientation E hP 0).comp
     (eB.symm.bijective.comp eC.symm.bijective))
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the documented
+--   definition or construction.
 /-- The native rank-zero spin Thom equivalence retains the prescribed forward homomorphism. -/
 def zeroSpinThomEquiv : ComplexKZero B ≃+ CompactSupportKZero (TotalSpace RealModel E) :=
   AddEquiv.ofBijective (zeroSpinThomHom E hP) (zeroSpinThomHom_bijective E hP)

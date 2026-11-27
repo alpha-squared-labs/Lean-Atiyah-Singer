@@ -40,6 +40,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [TopologicalSpace (TotalSpace Unit E)] (A : SmoothComplexBundleAtlas (n := n) E)
   (U : Opens M)
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Restrict a specified chart, preserving its original fiber coordinate function. -/
 theorem exists_restrictOpenChart (i : A.Index) :
     ∃ e : Trivialization (Fin (A.rank i) → ℂ) (π Unit (ComplexBundle.Restrict E U)),
@@ -124,11 +127,17 @@ theorem exists_restrictOpenChart (i : A.Index) :
       proj_toFun := fun _ _ ↦ rfl }
   exact ⟨t, rfl, fun _ ↦ rfl⟩
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- The specified original chart restricted to the actual open subspace. -/
 def restrictOpenChart (i : A.Index) :
     Trivialization (Fin (A.rank i) → ℂ) (π Unit (ComplexBundle.Restrict E U)) :=
   (A.exists_restrictOpenChart U i).choose
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original covering, linearity and smooth transitions survive open restriction.
 This grouped certificate supplies fields of the restricted atlas. -/
 theorem restrictOpenChart_properties :
@@ -195,6 +204,9 @@ theorem restrictOpenChart_properties :
       rw [hinverse i x (by simpa only [hbase, Set.mem_preimage] using hx.1)]
       rfl
 
+-- Human-verified.
+-- - Pullback, restriction, isomorphisms, and complementary bundles. The review covers the
+--   documented definition or construction.
 /-- Open restriction with exactly the original index set, ranks and coordinates. -/
 def restrictOpen : SmoothComplexBundleAtlas (n := n) (M := U)
     (ComplexBundle.Restrict E U) where

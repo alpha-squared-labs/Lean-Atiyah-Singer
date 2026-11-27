@@ -37,6 +37,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [∀ x, AddCommGroup (F x)] [∀ x, Module ℂ (F x)]
   [TopologicalSpace (Bundle.TotalSpace Unit F)]
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- One finite scalar partition is subordinate to both specified bundle atlases. -/
 theorem exists_atlasBundlePresentation_common_frames
     (A : SmoothComplexBundleAtlas (n := n) E)

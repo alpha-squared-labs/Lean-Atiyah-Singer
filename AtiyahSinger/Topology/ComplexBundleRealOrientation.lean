@@ -355,6 +355,9 @@ theorem complexRealOrientation_locally_compatible (r : ℕ)
     -- Both retypings preserve the original point and vector, hence also the chosen orientation.
     exact (hret.comp hc).congr (fun y ↦ by rw [hvalue y]; rfl)
 
+-- Human-verified.
+-- - The original Thom defect and its relation to the Euler class. The review covers the documented
+--   definition or construction.
 /-- The original integral Thom orientation normalized by the canonical complex orientation. -/
 def complexCohomologyOrientation (r : ℕ)
     (hr : ∀ x : X, Module.finrank ℂ (E x) = r) :

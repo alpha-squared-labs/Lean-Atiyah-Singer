@@ -35,6 +35,9 @@ attribute [local instance] sumTopology isFiniteRank_sum
   IdempotentMatrix.fiberTotalSpaceTopology IdempotentMatrix.isFiniteRank_fiber isFiniteRank_pullback
 
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The two restriction charts identify seam vectors by the given boundary map. -/
 def ClutchingCompatible (a : BundleTriple A) (W : FiniteBundle (DoubleSpace A))
     (eL : Iso ((DoubleSpace.leftMap A : X → DoubleSpace A) *ᵖ W.Fiber) a.source.Fiber)
@@ -51,6 +54,9 @@ include hX hT
 set_option maxHeartbeats 1800000 in
 
 set_option backward.isDefEq.respectTransparency false in
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The specified boundary isomorphism admits a finite-rank glued bundle. -/
 theorem exists_clutchingBundle (hA : IsClosed A) (a : BundleTriple A) :
     ∃ W : FiniteBundle (DoubleSpace A),
@@ -507,6 +513,9 @@ theorem exists_clutchingBundle (hA : IsClosed A) (a : BundleTriple A) :
     _ = Mr x *ᵥ (eq.linearEquiv x (a.boundary.linearEquiv x v)).val := (hMr x _).symm
     _ = _ := (her x _).symm
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Choose the bundle from the fully specified gluing existence statement. -/
 def clutchingBundle (hA : IsClosed A) (a : BundleTriple A) : FiniteBundle (DoubleSpace A) :=
   (exists_clutchingBundle hA a).choose

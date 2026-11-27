@@ -36,6 +36,9 @@ attribute [local instance] DoubleSpace.compactSpace
   sumTopology isFiniteRank_sum isFiniteRank_pullback
 
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The absolute difference on the double, retaining the glued boundary information. -/
 def BundleTriple.doubleDifference (hA : IsClosed A) (a : BundleTriple A) :
     letI := DoubleSpace.t2Space A hA
@@ -126,6 +129,9 @@ theorem BundleTriple.doubleDifference_restriction_zero (hA : IsClosed A) (a : Bu
   rw [map_zero, ← AddMonoidHom.comp_apply, ← complexKZeroPullback_comp, hcomp] at hzero
   exact hzero
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The retract pair has a unique relative lift of the specified double difference. -/
 theorem BundleTriple.exists_unique_differenceLift (hA : IsClosed A) (a : BundleTriple A) :
     letI := DoubleSpace.t2Space A hA
@@ -150,6 +156,9 @@ theorem BundleTriple.exists_unique_differenceLift (hA : IsClosed A) (a : BundleT
   exact relativeKZeroForget_injective_of_retraction R hR
     (DoubleSpace.rightRetraction A) (DoubleSpace.rightRetraction_apply A) (hd.trans hc.symm)
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- Select the uniquely characterized relative difference on the double. -/
 def BundleTriple.differenceLift (hA : IsClosed A) (a : BundleTriple A) :
     letI := DoubleSpace.t2Space A hA
@@ -169,6 +178,9 @@ theorem BundleTriple.forget_differenceLift (hA : IsClosed A) (a : BundleTriple A
   -- The original selected existence witness already carries this exact equation.
   exact (a.exists_unique_differenceLift hA).exists.choose_spec
 
+-- Human-verified.
+-- - Compact closed pairs and relative triples. The review covers the documented definition or
+--   construction.
 /-- The actual SG difference class on the original pair. -/
 def BundleTriple.relativeClass (hA : IsClosed A) (a : BundleTriple A) : RelativeKZero A hA :=
   DoubleSpace.relativeRestriction A hA (a.differenceLift hA)

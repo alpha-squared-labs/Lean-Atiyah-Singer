@@ -63,6 +63,9 @@ variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
   {M N : Type*} [TopologicalSpace M] [ChartedSpace H M]
   [TopologicalSpace N] [ChartedSpace K N]
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   documented definition or construction.
 /-- The normal fiber is the actual cokernel of the manifold differential. -/
 abbrev NormalBundle (f : M → N) (x : M) : Type _ :=
   TangentSpace J (f x) ⧸ LinearMap.range (mfderiv I J f x).toLinearMap

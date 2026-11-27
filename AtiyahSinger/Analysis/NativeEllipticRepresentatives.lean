@@ -47,6 +47,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 
 attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent isFiniteRank_pullback
 
+-- Human-verified.
+-- - Representatives of general classes and their smooth realization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Positive cotangent dimension supplies a native representative of the original K class. -/
 theorem exists_smooth_elliptic_representative_of_pos (hn : 0 < n)
     (u : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M))) (m : ℝ) :

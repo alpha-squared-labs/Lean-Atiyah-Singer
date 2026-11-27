@@ -48,6 +48,9 @@ open TopologicalSpace
 
 universe u
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the documented definition or
+--   construction.
 /-- Standard integral local-homology orientation, with locally compatible generators. -/
 structure HomologicalOrientation (n : ℕ) (M : Type u) [TopologicalSpace M] where
   /-- The chosen integral generator at x is the image of 1 under this equivalence. -/
@@ -66,6 +69,11 @@ variable {n : ℕ} {M : Type u} [TopologicalSpace M]
 
 -- Retain the original second-countability assumption, although compact gluing needs less.
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the theorem statement and its
+--   documented mathematical correspondence.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Hatcher Lemma 3.27: the specified local orientation has a unique compact-relative class. -/
 theorem existsUnique_compactRelativeFundamentalClass
     (O : HomologicalOrientation n M) (K : Compacts M) :
@@ -171,6 +179,9 @@ theorem existsUnique_compactRelativeFundamentalClass
   intro x hx
   rw [map_sub, hw x (not_not.mp hx), hz x hx, sub_self]
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the documented definition or
+--   construction.
 /-- The unique integral relative fundamental class with the prescribed local normalization. -/
 def compactRelativeFundamentalClass (O : HomologicalOrientation n M) (K : Compacts M) :
     relativeSingularHomology ℤ ((K : Set M)ᶜ) n :=
@@ -201,6 +212,9 @@ theorem compactRelativeFundamentalClass_inclusion
     exact hcomp.trans (compactRelativeFundamentalClass_restriction O L x (h hx))
   · exact compactRelativeFundamentalClass_restriction O K
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the documented definition or
+--   construction.
 /-- The rational fundamental class is the coefficient image of the normalized integer class. -/
 def rationalCompactRelativeFundamentalClass
     (O : HomologicalOrientation n M) (K : Compacts M) :

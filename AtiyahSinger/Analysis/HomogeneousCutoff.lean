@@ -32,6 +32,9 @@ set_option maxSynthPendingDepth 20
 
 variable {n r q : ℕ}
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- The complement of a fixed smooth bump, zero on the half-ball and one outside the unit ball. -/
 def highFrequencyCutoff (n : ℕ) (ξ : EuclideanSpace ℝ (Fin n)) : ℝ :=
   1 - (⟨1 / 2, 1, by norm_num, by norm_num⟩ :
@@ -62,6 +65,9 @@ theorem highFrequencyCutoff_eq_one (ξ : EuclideanSpace ℝ (Fin n)) (hξ : 1 �
   rw [φ.zero_of_le_dist (by simpa [φ] using hξ)]
   exact sub_zero 1
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the documented
+--   definition or construction.
 /-- The actual frequency-cutoff formula, with the value at zero automatically suppressed. -/
 def frequencyCutoffSymbol (a : SymbolFunction n r q) : SymbolFunction n r q :=
   fun x ξ ↦ (highFrequencyCutoff n ξ : ℂ) • a x ξ
@@ -82,6 +88,9 @@ theorem frequencyCutoffSymbol_eq_zero_of_norm_le (a : SymbolFunction n r q)
   simp only [frequencyCutoffSymbol, highFrequencyCutoff_eq_zero ξ hξ, Complex.ofReal_zero,
     zero_smul]
 
+-- Human-verified.
+-- - Homogeneity and the scope of the classical symbol class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The explicit cutoff realizes smooth punctured homogeneous data as a genuine symbol. -/
 theorem isSymbol_frequencyCutoffSymbol (U : Set (EuclideanSpace ℝ (Fin n)))
     (hU : IsOpen U) (m : ℝ) (a : SymbolFunction n r q)

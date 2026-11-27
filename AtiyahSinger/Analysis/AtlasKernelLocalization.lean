@@ -59,6 +59,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   (B : SmoothComplexBundleAtlas (n := n) F)
 
 set_option backward.isDefEq.respectTransparency false in
+-- Human-verified.
+-- - Support in two-sided truncation and excision. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- UL03: the original exterior symbol has an elliptic representative with both residual kernels. -/
 theorem exists_atlas_relative_kernel_localization
     (a : AtlasSymbolFunction (n := n) E F)

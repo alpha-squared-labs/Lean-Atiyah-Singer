@@ -49,20 +49,32 @@ universe u
 
 variable (R : Type) [CommRing R]
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The regular coefficient module, lifted to the same universe as the topological space. -/
 abbrev singularCoefficient : ModuleCat.{u} R :=
   ModuleCat.of R (ULift.{u} R)
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The original mathlib singular chain functor with coefficients in the regular R-module. -/
 abbrev singularChainsFunctor : TopCat.{u} ⥤ ChainComplex (ModuleCat.{u} R) ℕ :=
   (AlgebraicTopology.singularChainComplexFunctor (ModuleCat.{u} R)).obj
     (singularCoefficient R)
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The ordinary singular chains, with finite sums of actual continuous singular simplices. -/
 abbrev singularChains (X : Type u) [TopologicalSpace X] :
     ChainComplex (ModuleCat.{u} R) ℕ :=
   (singularChainsFunctor R).obj (TopCat.of X)
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Algebraic dualization of actual R-module chain complexes, with differential φ ↦ φ ∘ ∂. -/
 def singularCochainDualFunctor : (ChainComplex (ModuleCat.{u} R) ℕ)ᵒᵖ ⥤
     CochainComplex (ModuleCat.{u} R) ℕ :=
@@ -70,24 +82,39 @@ def singularCochainDualFunctor : (ChainComplex (ModuleCat.{u} R) ℕ)ᵒᵖ ⥤
     (ComplexShape.down ℕ)).op) ⋙
       HomologicalComplex.unopFunctor (ModuleCat.{u} R) (ComplexShape.down ℕ)
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The contravariant ordinary singular cochain functor, obtained from the actual chain maps. -/
 abbrev singularCochainsFunctor : TopCat.{u}ᵒᵖ ⥤ CochainComplex (ModuleCat.{u} R) ℕ :=
   (singularChainsFunctor R).op ⋙ singularCochainDualFunctor R
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The algebraic singular cochain complex Hom_R(C_*(X;R),R). -/
 abbrev singularCochains (X : Type u) [TopologicalSpace X] :
     CochainComplex (ModuleCat.{u} R) ℕ :=
   (singularCochainsFunctor R).obj (op (TopCat.of X))
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The degree-n unreduced singular cohomology functor, with its actual contravariant maps. -/
 abbrev singularCohomologyFunctor (n : ℕ) : TopCat.{u}ᵒᵖ ⥤ ModuleCat.{u} R :=
   singularCochainsFunctor R ⋙
     HomologicalComplex.homologyFunctor (ModuleCat.{u} R) (ComplexShape.up ℕ) n
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Ordinary singular cohomology H^n(X;R), the cochain cocycles modulo coboundaries. -/
 abbrev singularCohomology (X : Type u) [TopologicalSpace X] (n : ℕ) : ModuleCat.{u} R :=
   (singularCohomologyFunctor R n).obj (op (TopCat.of X))
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Pullback in ordinary singular cohomology along the specified continuous map. -/
 def singularCohomologyPullback {X Y : Type u} [TopologicalSpace X] [TopologicalSpace Y]
     (f : C(X, Y)) (n : ℕ) : singularCohomology R Y n ⟶ singularCohomology R X n :=

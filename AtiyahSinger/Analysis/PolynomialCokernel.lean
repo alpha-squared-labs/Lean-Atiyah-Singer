@@ -42,12 +42,18 @@ variable {n : ℕ}
 local instance : CompleteSpace (Matrix (Fin n) (Fin n) A) :=
   inferInstanceAs (CompleteSpace (Fin n → Fin n → A))
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers with commutative coefficients. The review covers the
+--   documented definition or construction.
 /-- Multiplication by the specified matrix polynomial on its positive Wiener module. -/
 def polynomialMultiplier (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     (_hf : ∀ k : ℤ, k < 0 → f.coeff k = 0) :
     PositiveWienerModule A n →ₗ[A] PositiveWienerModule A n :=
   positiveWienerToeplitz (laurentPolynomialWiener f)
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers with commutative coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The multiplier has exactly the usual finite polynomial-convolution coefficients. -/
 theorem polynomialMultiplier_coeff (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     (hf : ∀ k : ℤ, k < 0 → f.coeff k = 0) (x : PositiveWienerModule A n) (k : ℕ) :
@@ -84,6 +90,9 @@ theorem polynomialMultiplier_coeff (f : LaurentPolynomial (Matrix (Fin n) (Fin n
         have hcast : ((k - j : ℕ) : ℤ) = (k : ℤ) - j := by omega
         rw [hcast, show k - (k - j) = j by omega]
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers with commutative coefficients. The review covers the
+--   documented definition or construction.
 /-- The actual algebraic cokernel of the polynomial multiplier. -/
 abbrev PolynomialCokernel (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     (hf : ∀ k : ℤ, k < 0 → f.coeff k = 0) : Type u :=
@@ -95,6 +104,9 @@ def polynomialCokernelMk (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     PositiveWienerModule A n →ₗ[A] PolynomialCokernel f hf :=
   (LinearMap.range (polynomialMultiplier f hf)).mkQ
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers with commutative coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- A bilateral inverse gives the actual positive Toeplitz left inverse.
 No nonnegative-support hypothesis is imposed on the inverse series. -/
 theorem polynomialMultiplier_leftInverse
@@ -267,6 +279,9 @@ theorem polynomialMultiplier_isClosed_range
   rw [hrange]
   exact isClosed_eq (T.continuous.comp S.continuous) continuous_id
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers with commutative coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- UL04: low-degree polynomials map split-surjectively onto the actual cokernel.
 The degree bound permits the zero polynomial and the zero-size matrix algebra. -/
 theorem polynomialCokernel_exists_lowDegree_section
@@ -453,6 +468,9 @@ theorem polynomialCokernel_exists_lowDegree_section
   change Q (lowPolynomialEmbedding A n d (C x)) = Q x
   rw [hembed, hquot]
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers with commutative coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The polynomial multiplier cokernel is a finitely generated A-module. -/
 theorem polynomialCokernel_finite (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))
     (hf : ∀ k : ℤ, k < 0 → f.coeff k = 0)
@@ -475,6 +493,9 @@ theorem polynomialCokernel_finite (f : LaurentPolynomial (Matrix (Fin n) (Fin n)
   intro q
   exact ⟨s q, DFunLike.congr_fun hs q⟩
 
+-- Human-verified.
+-- - Cokernels of polynomial multipliers with commutative coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The polynomial multiplier cokernel is a projective A-module. -/
 theorem polynomialCokernel_projective
     (f : LaurentPolynomial (Matrix (Fin n) (Fin n) A))

@@ -312,6 +312,9 @@ set_option maxHeartbeats 1200000 in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Cancellation of the normal-bundle Todd class and integration after the tangent pushforward. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- The original complex Thom inverse and the specified tangent tube have equal
 integrals for the canonical source and target tangent orientations. -/
 theorem compactSupportCohomologyIntegral_tangentEmbedding {n m : ℕ} (hnm : n ≤ m) {M N : Type}

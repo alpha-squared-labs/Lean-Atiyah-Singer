@@ -617,6 +617,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 500000 in
 -- Apply the original-pairing comparison to the same metric and its native pullback.
+-- Human-verified.
+-- - Naturality, direct sums, and the zero section for the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The actual supported Thom operator commutes with extension along an open embedding. -/
 theorem supportedThomHom_openPushforward (h : ContinuousHermitianMetric E)
     (f : C(X, Y)) (hf : IsOpenEmbedding f) :

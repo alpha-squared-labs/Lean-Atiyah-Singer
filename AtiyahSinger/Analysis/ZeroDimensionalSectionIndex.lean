@@ -39,6 +39,11 @@ variable {M : Type*} [TopologicalSpace M]
   [TopologicalSpace (TotalSpace Unit E)] [TopologicalSpace (TotalSpace Unit F)]
   (A : SmoothComplexBundleAtlas (n := 0) E) (B : SmoothComplexBundleAtlas (n := 0) F)
 
+-- Human-verified.
+-- - The index on the original section space in dimension zero. The review covers the documented
+--   definition or construction.
+-- - The original Dirac operator in dimension zero, its empty contraction, and the index on
+--   sections. The review covers the documented definition or construction.
 /-- Evaluation identifies the original smooth sections with all original fiberwise values. -/
 def sectionsEquivPiOfZeroDimensional : A.smoothSections ≃ₗ[ℂ] (∀ x : M, E x) := by
   let : DiscreteTopology M := ChartedSpace.discreteTopology (EuclideanSpace ℝ (Fin 0)) M
@@ -54,6 +59,14 @@ def sectionsEquivPiOfZeroDimensional : A.smoothSections ≃ₗ[ℂ] (∀ x : M, 
       map_add' := fun _ _ ↦ rfl
       map_smul' := fun _ _ ↦ rfl }
 
+-- Human-verified.
+-- - The index on the original section space in dimension zero. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Evaluation of the index on the full symbol class of the given operator P. The review covers the
+--   theorem statement and its documented mathematical correspondence.
+-- - The original Dirac operator in dimension zero, its empty contraction, and the index on
+--   sections. The review covers the theorem statement and its documented mathematical
+--   correspondence.
 /-- Finite-dimensional rank-nullity computes the index on the same finite collection of fibers. -/
 theorem index_eq_sum_finrank_of_zeroDimensional [Fintype M]
     (T : A.smoothSections →ₗ[ℂ] B.smoothSections) :

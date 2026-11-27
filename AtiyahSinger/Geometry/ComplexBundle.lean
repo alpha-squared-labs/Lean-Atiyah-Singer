@@ -38,6 +38,9 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin r)) E]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin r)) E]
 
+-- Human-verified.
+-- - Smooth complex vector bundles in the native presentation. The review covers the documented
+--   definition or construction.
 /-- A smooth complex vector bundle has real-smooth complex-linear transition functions. -/
 class IsSmoothComplexBundle : Prop where
   /-- Real smoothness on each overlap of the specified complex-linear bundle atlas. -/
@@ -51,6 +54,8 @@ class IsSmoothComplexBundle : Prop where
           EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin r)))
         (e.baseSet ∩ e'.baseSet)
 
+-- Human-verified.
+-- - The original smooth sections. The review covers the documented definition or construction.
 /-- A section is smooth if its coordinates are real-smooth in every bundle chart. -/
 def IsSmoothSection (s : ∀ x, E x) : Prop :=
   ∀ e : Trivialization (EuclideanSpace ℂ (Fin r))
@@ -93,6 +98,8 @@ theorem isSmoothSection_smul (c : ℂ) (s : ∀ x, E x)
   intro x hx
   exact (e.linearEquivAt ℂ x hx).map_smul c (s x)
 
+-- Human-verified.
+-- - The original smooth sections. The review covers the documented definition or construction.
 /-- The standard complex vector space of smooth sections, as a submodule of all sections.
 Closure follows from the three preceding smooth-section theorems. -/
 def smoothSections : Submodule ℂ (∀ x, E x) where

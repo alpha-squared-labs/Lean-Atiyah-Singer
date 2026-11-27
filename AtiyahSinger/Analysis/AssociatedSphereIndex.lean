@@ -54,6 +54,9 @@ variable [SecondCountableTopology B] [MeasurableSpace B] [BorelSpace B]
 set_option maxHeartbeats 1200000 in
 -- The extended limit accommodates the same associated full coefficient and original sphere product
 -- index.
+-- Human-verified.
+-- - Twisted multiplication on sphere bundles and coefficients in the actual associated bundles. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- SG III.13.6: the original twisted product is indexed by its associated full coefficient. -/
 theorem analyticIndex_associatedSphereTwistedProduct
     (u : CompactSupportKZero BaseCot) (v : EquivariantSupportTripleKZero OG SphereCot) :

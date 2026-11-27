@@ -48,6 +48,11 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
   isSmoothPositiveMeasure_comap_opens
 
+-- Human-verified.
+-- - Descent of the analytic index and assembly of the cases. The review covers the documented
+--   definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- The analytic-index homomorphism on an arbitrary compact base, summed over its components. -/
 def analyticIndexOfComponents :
     CompactSupportKZero (CotangentTotalSpace (n := n) (M := M)) →+ ℤ :=
@@ -58,6 +63,9 @@ def analyticIndexOfComponents :
       (μ.comap (Subtype.val : manifoldComponent (n := n) c → M))).comp
       ((Pi.evalAddMonoidHom _ c).comp (cotangentKZeroComponents (n := n) (M := M)))
 
+-- Human-verified.
+-- - Descent of the analytic index and assembly of the cases. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Component assembly agrees with the original preconnected analytic-index construction. -/
 theorem analyticIndexOfComponents_eq_analyticIndex [PreconnectedSpace M] :
     analyticIndexOfComponents (n := n) μ = analyticIndex (n := n) μ := by
@@ -140,6 +148,9 @@ theorem analyticIndexOfComponents_eq_analyticIndex [PreconnectedSpace M] :
     · intro hc
       exact False.elim (hc (Finset.mem_univ c))
 
+-- Human-verified.
+-- - Descent of the analytic index and assembly of the cases. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The component construction is independent of the auxiliary positive smooth density. -/
 theorem analyticIndexOfComponents_independent_measure
     (ν : Measure M) [IsSmoothPositiveMeasure (n := n) ν] :

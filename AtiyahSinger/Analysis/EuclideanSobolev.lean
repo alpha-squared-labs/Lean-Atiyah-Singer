@@ -44,6 +44,9 @@ open scoped SchwartzMap Topology FourierTransform
 
 variable {n r : ℕ}
 
+-- Human-verified.
+-- - Euclidean Sobolev spaces and Fourier weights. The review covers the documented definition or
+--   construction.
 /-- The Bessel realization of H^s, with the norm transported from L². -/
 def besselRealization (n r : ℕ) (s : ℝ) :
     Lp (EuclideanSpace ℂ (Fin r)) 2 (volume : Measure (EuclideanSpace ℝ (Fin n))) →L[ℂ]
@@ -216,6 +219,9 @@ theorem dense_hasCompactSupport_schwartz (n : ℕ) :
     nlinarith
   exact mem_closure_of_tendsto ht (Filter.Eventually.of_forall hcψ)
 
+-- Human-verified.
+-- - Euclidean Sobolev spaces and Fourier weights. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The Bessel realization is injective, so the transported norm is nondegenerate. -/
 theorem besselRealization_injective (n r : ℕ) (s : ℝ) :
     Function.Injective (besselRealization n r s) := by
@@ -230,6 +236,9 @@ theorem besselRealization_injective (n r : ℕ) (s : ℝ) :
   -- The canonical L² distribution embedding has zero kernel.
   exact (LinearMap.ker_eq_bot.mp Lp.ker_toTemperedDistributionCLM_eq_bot) hdist
 
+-- Human-verified.
+-- - Euclidean Sobolev spaces and Fourier weights. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Bessel coordinates give exactly the existing Fourier Sobolev predicate. -/
 theorem memSobolev_iff_exists_besselRealization (s : ℝ)
     (u : 𝓢'(EuclideanSpace ℝ (Fin n), EuclideanSpace ℂ (Fin r))) :
@@ -1082,6 +1091,9 @@ theorem rellich_compact_inclusion (n r : ℕ) (s t : ℝ) (hst : t < s)
   rw [hcoord]
   exact FourierTransform.fourierInv_fourier_eq _
 
+-- Human-verified.
+-- - Euclidean Sobolev spaces and Fourier weights. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Sobolev embedding, including the strict exponent and uniform derivative bounds. -/
 theorem sobolev_embedding (n r k : ℕ) (s : ℝ) (hs : (n : ℝ) / 2 + k < s) :
     ∃ C : ℝ, 0 ≤ C ∧ ∀ f : Lp (EuclideanSpace ℂ (Fin r)) 2

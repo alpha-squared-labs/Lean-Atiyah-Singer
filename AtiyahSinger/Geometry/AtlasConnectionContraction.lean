@@ -54,6 +54,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 include hc hs in
 
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The supplied connection and linear contraction determine one actual first-order operator. -/
 theorem existsUnique_atlasConnectionContraction :
     ∃! D : AtlasDifferentialOperator A B 1,
@@ -441,6 +444,9 @@ theorem existsUnique_atlasConnectionContraction :
     subst L
     rfl
 
+-- Human-verified.
+-- - The product connection and the original Dirac action on sections. The review covers the
+--   documented definition or construction.
 /-- The actual contraction operator selected from its specified covariant-derivative action. -/
 def atlasConnectionContraction : AtlasDifferentialOperator A B 1 :=
   (existsUnique_atlasConnectionContraction cov c hc hs).exists.choose
@@ -454,6 +460,9 @@ theorem atlasConnectionContraction_apply (u : A.smoothSections) (x : M) :
   This retains the exact connection, cotangent map and original sections. -/
   exact (existsUnique_atlasConnectionContraction cov c hc hs).exists.choose_spec u x
 
+-- Human-verified.
+-- - The positive i convention and ellipticity of the original principal symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The symbol of the actual contraction is +i times its original cotangent-linear map. -/
 theorem atlasConnectionContraction_principalSymbol (x : M)
     (ξ : CotangentFiber (n := n) x) :

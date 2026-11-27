@@ -126,6 +126,9 @@ theorem sectionFunctor_isEquivalence : (sectionFunctor X).IsEquivalence := by
     exact ObjectProperty.isoMk _ e.toModuleIso
   exact ⟨inferInstance, inferInstance, inferInstance⟩
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the documented definition
+--   or construction.
 /-- The Serre--Swan equivalence whose forward functor is exactly the original section functor. -/
 def serreSwanEquivalence : FiniteBundle X ≌ FiniteProjectiveModuleCat.{u} C(X, ℂ) := by
   letI := sectionFunctor_isEquivalence X

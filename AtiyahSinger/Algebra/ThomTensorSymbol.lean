@@ -36,6 +36,9 @@ variable {F G V : Type*} [AddCommGroup F] [Module ℂ F]
 local notation "Even" => CliffordAlgebra.evenOdd (0 : QuadraticForm ℂ V) 0
 local notation "Odd" => CliffordAlgebra.evenOdd (0 : QuadraticForm ℂ V) 1
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The even-to-odd block of the actual graded tensor sum. -/
 def thomTensorSymbol (d : F →ₗ[ℂ] G) (d' : G →ₗ[ℂ] F) (v : V) :
     ((F ⊗[ℂ] Even) × (G ⊗[ℂ] Odd)) →ₗ[ℂ]
@@ -46,6 +49,9 @@ def thomTensorSymbol (d : F →ₗ[ℂ] G) (d' : G →ₗ[ℂ] F) (v : V) :
       ((TensorProduct.map (LinearMap.id : F →ₗ[ℂ] F) (cliffordSymbolParity v 0)).coprod
         (-(TensorProduct.map d' (LinearMap.id : Odd →ₗ[ℂ] Odd))))
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The odd-to-even block uses the same reciprocal maps and the same exterior symbol. -/
 def thomTensorSymbolReverse (d : F →ₗ[ℂ] G) (d' : G →ₗ[ℂ] F) (v : V) :
     ((G ⊗[ℂ] Even) × (F ⊗[ℂ] Odd)) →ₗ[ℂ]
@@ -95,6 +101,9 @@ theorem thomTensorSymbol_square (d : F →ₗ[ℂ] G) (d' : G →ₗ[ℂ] F) (r 
       smul_zero, neg_zero, add_zero, zero_add, neg_neg, neg_add,
       add_neg_cancel, neg_add_cancel] <;> exact add_comm _ _
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The explicit inverse block whenever the sum of squares is nonzero. -/
 def thomTensorSymbolInverse (d : F →ₗ[ℂ] G) (d' : G →ₗ[ℂ] F) (r : ℝ) (v : V) :
     ((G ⊗[ℂ] Even) × (F ⊗[ℂ] Odd)) →ₗ[ℂ]
@@ -132,6 +141,9 @@ theorem thomTensorSymbol_inverse_laws
     rw [hright, LinearMap.smul_apply, LinearMap.id_apply, smul_smul,
       neg_mul_neg, inv_mul_cancel₀ hcomplex, one_smul]
 
+-- Human-verified.
+-- - Common compact support and the Thom isomorphism. The review covers the documented definition or
+--   construction.
 /-- The off-singular tensor isomorphism has the displayed forward and inverse formulas. -/
 def thomTensorSymbolEquiv (d : F →ₗ[ℂ] G) (d' : G →ₗ[ℂ] F) (r : ℝ) (v : V)
     (h₀ : d'.comp d = (r ^ 2 : ℂ) • LinearMap.id)

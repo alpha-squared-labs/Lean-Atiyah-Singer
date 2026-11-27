@@ -41,6 +41,9 @@ attribute [local instance] tangentBundleFullChartedSpace tangentBundle_full_isMa
 
 set_option maxHeartbeats 800000 in
 -- Normalize the tangent product coordinates and the same positive appended Bott coordinate.
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Appending real zero coordinates preserves the pushforward's integer Bott coordinate. -/
 theorem euclideanTangentKZeroEquivInt_pushforward_zeroAppend (n k : ℕ) :
     (euclideanTangentKZeroEquivInt (n + k)).toAddMonoidHom.comp
@@ -141,6 +144,11 @@ variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
   {M : Type*} [TopologicalSpace M] [ChartedSpace E M] [IsManifold 𝓘(ℝ, E) ∞ M]
   [T2Space M] [SecondCountableTopology M]
 
+-- Human-verified.
+-- - The tangent-bundle topological index and independence of the embedding. The review covers the
+--   documented definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- SG's topological-index formula with the actual proper Euclidean embedding kept explicit. -/
 def topologicalIndexOfEmbedding {n : ℕ}
     (f : ContMDiffMap 𝓘(ℝ, E) 𝓘(ℝ, EuclideanSpace ℝ (Fin n))

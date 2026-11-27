@@ -46,6 +46,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- The kernel matrix in the output frame f at x and the input frame e at y. -/
 def kernelInFrames
     (K : ∀ x y : M, E y →L[ℂ] F x)
@@ -55,6 +58,9 @@ def kernelInFrames
     EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin q) :=
   (f.continuousLinearMapAt ℂ z.1).comp ((K z.1 z.2).comp (e.symmL ℂ z.2))
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- Joint real smoothness of the actual kernel in all pairs of bundle frames. -/
 def IsSmoothKernel (K : ∀ x y : M, E y →L[ℂ] F x) : Prop :=
   ∀ (e : Trivialization (EuclideanSpace ℂ (Fin r))
@@ -67,6 +73,9 @@ def IsSmoothKernel (K : ∀ x y : M, E y →L[ℂ] F x) : Prop :=
       𝓘(ℝ, EuclideanSpace ℂ (Fin r) →L[ℂ] EuclideanSpace ℂ (Fin q)) ∞
       (kernelInFrames E F K e f) (f.baseSet ×ˢ e.baseSet)
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- A fiber-map family with joint real smoothness in the supplied bundle frames. -/
 structure SmoothKernel where
   /-- The genuine fiber map, with the output at x and input at y. -/
@@ -126,6 +135,9 @@ theorem dualRow_apply (x y : M) (α : DualBundle F x) (v : E y) :
 
 variable [MeasurableSpace M] (μ : Measure M)
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- Integrate in the input variable in the fixed output fiber.
 Real scalars are restricted from the specified complex action. -/
 def apply (u : smoothSections (n := n) (r := r) E) (x : M) : F x := by
@@ -274,6 +286,9 @@ theorem apply_smul (c : ℂ) (u : smoothSections (n := n) (r := r) E) :
   simp_rw [map_smul]
   exact integral_smul c _
 
+-- Human-verified.
+-- - Native operators and smoothing kernels. The review covers the documented definition or
+--   construction.
 /-- The actual integral operator on smooth sections, with its smoothness and linearity packaged. -/
 def toLinearMap :
     smoothSections (n := n) (r := r) E →ₗ[ℂ] smoothSections (n := n) (r := q) F where

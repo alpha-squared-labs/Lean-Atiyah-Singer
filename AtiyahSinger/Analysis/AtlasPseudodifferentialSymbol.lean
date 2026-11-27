@@ -54,6 +54,9 @@ namespace AtlasPseudodifferentialPiece
 
 variable {A B} {m : ℝ} (L : AtlasPseudodifferentialPiece A B m)
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the documented definition or
+--   construction.
 /-- Transport the actual two-cutoff symbol back to the original fibers, with zero extension. -/
 def globalSymbolFunction : AtlasSymbolFunction (n := n) E F := by
   classical
@@ -669,6 +672,9 @@ private theorem exists_localized_symbol
     rw [← (hnear.iteratedFDeriv ℝ i).eq_of_nhds]
     exact hbound x hx ξ
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the documented definition or
+--   construction.
 /-- The transported piece as an element of the actual global symbol module. -/
 def globalSymbol : atlasGlobalSymbolSpace A B m :=
   ⟨L.globalSymbolFunction, L.isAtlasGlobalSymbol_globalSymbolFunction⟩
@@ -1226,6 +1232,9 @@ namespace AtlasPseudodifferentialOperator
 
 variable {A B} {m : ℝ} (P : AtlasPseudodifferentialOperator A B m)
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG 3.19: all actual local representations determine one unique principal quotient class. -/
 theorem existsUnique_principalSymbol :
     ∃! σ : AtlasGlobalPrincipalSymbolSpace A B m,
@@ -1263,10 +1272,16 @@ theorem existsUnique_principalSymbol :
   intro τ hτ
   exact (hτ N L hL).symm
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the documented definition or
+--   construction.
 /-- The actual principal class selected by its representation-independent specification. -/
 def principalSymbol : AtlasGlobalPrincipalSymbolSpace A B m :=
   Classical.choose P.existsUnique_principalSymbol.exists
 
+-- Human-verified.
+-- - The principal symbol of the given operator. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Any specified finite local representation computes the same chosen principal class. -/
 theorem principalSymbol_eq_of_representation (N : ℕ)
     (L : Fin N → AtlasPseudodifferentialPiece A B m)

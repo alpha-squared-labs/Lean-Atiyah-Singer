@@ -37,6 +37,9 @@ attribute [local instance] continuousSMul_orthogonalSphereTangent
 
 set_option maxHeartbeats 800000 in
 -- Keep the original pole quotient, forgetful map and positive exterior Bott coordinates.
+-- Human-verified.
+-- - Rank at a point and normalization of the analytic pushforward. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The index on the actual sphere-chart image is the specified positive Bott coordinate. -/
 theorem tangentAnalyticIndex_sphereTangentChart (r : ℕ) (atInfinity : Bool)
     (μ : Measure (OrthogonalSphere r)) [IsSmoothPositiveMeasure (n := r) μ]

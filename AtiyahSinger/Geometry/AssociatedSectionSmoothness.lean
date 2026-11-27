@@ -55,6 +55,9 @@ set_option maxHeartbeats 1600000 in
 -- Compare finite coefficients and the original section in all prescribed quotient charts.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
+-- Human-verified.
+-- - The original smooth dual and adjoint sections. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Evaluation along the entire associated fiber preserves and detects coefficient smoothness. -/
 theorem isSmoothSection_associatedEvaluation_iff
     (s : V →ₗ[ℂ] A.smoothSections) (hs : Function.Injective s)

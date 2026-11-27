@@ -67,6 +67,9 @@ local notation "SpinMinus" => HalfSpinorBundle m hP (1 : ZMod 2)
 local notation "VectorProjection" => (π RealModel E)
 local notation "ZeroSet" => Set.range (zeroSection RealModel E)
 
+-- Human-verified.
+-- - The original Spin triple and the zero section. The review covers the documented definition or
+--   construction.
 /-- The original even-to-odd Clifford symbol is a bundle isomorphism off the zero section. -/
 def TopologicalSpinStructure.cliffordParityBoundary
     (S : TopologicalSpinStructure m E o hm hP) :
@@ -96,6 +99,9 @@ def TopologicalSpinStructure.cliffordParityBoundary
 
 variable [CompactSpace B]
 
+-- Human-verified.
+-- - The original Spin triple and the zero section. The review covers the documented definition or
+--   construction.
 /-- The spin symbol with its actual pullback fibers and the compact zero section as control. -/
 def TopologicalSpinStructure.spinorSymbolTriple
     (S : TopologicalSpinStructure m E o hm hP) :
@@ -105,6 +111,9 @@ def TopologicalSpinStructure.spinorSymbolTriple
     Bundle.Trivialization.continuous_zeroSection ℝ)
   boundary := S.cliffordParityBoundary
 
+-- Human-verified.
+-- - The original Spin triple and the zero section. The review covers the documented definition or
+--   construction.
 /-- Package the same spin symbol using the existing isomorphic small-bundle models. -/
 def TopologicalSpinStructure.spinorSupportTriple
     (S : TopologicalSpinStructure m E o hm hP) : SupportBundleTriple (TotalSpace RealModel E) :=
@@ -122,11 +131,17 @@ def TopologicalSpinStructure.spinorSupportTriple
 
 variable [T2Space B]
 
+-- Human-verified.
+-- - The original Spin triple and the zero section. The review covers the documented definition or
+--   construction.
 /-- SG (12.13): the compact-support K class of the specified positive spin Clifford symbol. -/
 def TopologicalSpinStructure.spinorThomClass
     (S : TopologicalSpinStructure m E o hm hP) : CompactSupportKZero (TotalSpace RealModel E) :=
   S.spinorSupportTriple.compactSupportClass
 
+-- Human-verified.
+-- - The original Spin triple and the zero section. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Restriction to the original zero section gives the positive-minus-negative spinor class. -/
 theorem TopologicalSpinStructure.zeroSectionPullback_spinorThomClass
     (S : TopologicalSpinStructure m E o hm hP) :

@@ -346,6 +346,9 @@ variable [hLX : LocallyCompactSpace X] [hTX : T2Space X]
   [hLY : LocallyCompactSpace Y] [hTY : T2Space Y]
 include hLX hTX hLY hTY
 
+-- Human-verified.
+-- - Proper pullback, extension by zero along open inclusions, and external products. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The specified compactification comparison commutes with proper pullback. -/
 theorem supportTripleKZeroToCompactSupport_pullback (f : C(Y, X)) (hf : IsProperMap f) :
     (supportTripleKZeroToCompactSupport (X := Y)).comp (supportTripleKZeroPullback f hf) =

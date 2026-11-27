@@ -52,16 +52,25 @@ include hM hT2 hSC hE hC hμ
 
 namespace DistributionSection
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the documented
+--   definition or construction.
 /-- Standard local Sobolev membership, computed in any actual Sobolev realization. -/
 def MemSobolevOn (D : A.DistributionSection μ) (t : ℝ) (U : Set M) : Prop :=
   ∃ s : ℝ, ∃ u : A.SobolevSpace s,
     A.sobolevToDistribution μ s u = D ∧ A.MemSobolevOn s u t U
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the documented
+--   definition or construction.
 /-- Local smoothness of the same distribution, using its actual localized Sobolev realization. -/
 def IsSmoothOn (D : A.DistributionSection μ) (U : Set M) : Prop :=
   ∃ s : ℝ, ∃ u : A.SobolevSpace s,
     A.sobolevToDistribution μ s u = D ∧ A.IsSmoothOn s u U
 
+-- Human-verified.
+-- - The original distributions and local elliptic regularity. The review covers the documented
+--   definition or construction.
 /-- The usual singular support: points without a smooth open neighborhood. -/
 def singularSupport (D : A.DistributionSection μ) : Set M :=
   {x | ¬ ∃ U : Set M, IsOpen U ∧ x ∈ U ∧ IsSmoothOn A μ D U}

@@ -45,6 +45,9 @@ variable {m : ℕ} {B P : Type*} {E : B → Type*}
   {hm : 0 < m}
   {hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm m)) projection}
 
+-- Human-verified.
+-- - The original right principal bundle and lifts of orthonormal frames. The review covers the
+--   documented definition or construction.
 /-- The very frame lifted by `p`, with its target transported to the specified original fiber. -/
 def TopologicalSpinStructure.frame (S : TopologicalSpinStructure m E o hm hP)
     (p : P) (b : B) (hp : projection p = b) :

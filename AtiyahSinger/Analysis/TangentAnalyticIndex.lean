@@ -45,6 +45,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [MeasurableSpace M] [BorelSpace M]
   (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]
 
+-- Human-verified.
+-- - Rank at a point and normalization of the analytic pushforward. The review covers the documented
+--   definition or construction.
 /-- The original analytic index transported to tangent classes using one smooth metric. -/
 def tangentAnalyticIndex :
     letI : T2Space (TangentBundle 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) M) :=
@@ -58,6 +61,9 @@ def tangentAnalyticIndex :
     Classical.choice SmoothTangentMetric.nonempty
   exact (analyticIndexOfComponents μ).comp (tangentCotangentKZeroEquiv g).toAddMonoidHom
 
+-- Human-verified.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Any supplied smooth metric gives the same analytic index on tangent classes. -/
 theorem tangentAnalyticIndex_eq (g : SmoothTangentMetric (n := n) (M := M)) :
     tangentAnalyticIndex (n := n) μ =

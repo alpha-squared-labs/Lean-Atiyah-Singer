@@ -52,6 +52,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
 
 set_option maxHeartbeats 1200000 in
 -- Compare the actual Euclidean embedding, its sphere compactification and their tangent K maps.
+-- Human-verified.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Atiyah–Singer: the original analytic and topological indices agree on all tangent K classes. -/
 theorem tangentAnalyticIndex_eq_topologicalIndex :
     tangentAnalyticIndex (n := n) μ = topologicalIndex (EuclideanSpace ℝ (Fin n)) M := by
@@ -179,6 +182,9 @@ theorem tangentAnalyticIndex_eq_topologicalIndex :
       rw [hcoord]
       rfl
 
+-- Human-verified.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The same Atiyah–Singer equality on the original cotangent compact-support K group. -/
 theorem analyticIndexOfComponents_eq_cotangentTopologicalIndex :
     analyticIndexOfComponents (n := n) μ = cotangentTopologicalIndex n M := by

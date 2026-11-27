@@ -48,6 +48,9 @@ local notation "ℚRes" => ModuleCat.restrictScalars (Int.castRingHom ℚ)
 local notation "ℚResC" => Functor.mapHomologicalComplex
   (ModuleCat.restrictScalars (Int.castRingHom ℚ)) (ComplexShape.up ℕ)
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original ordinary coefficient map uniquely restricts to the actual relative cochains. -/
 theorem existsUnique_relativeSingularCochainsRationalization
     {X : Type u} [TopologicalSpace X] (A : Set X) :
@@ -166,12 +169,18 @@ theorem existsUnique_relativeSingularCochainsRationalization
     apply Subtype.ext
     exact (congrArg (fun f ↦ f.f n φ) hG).trans (hcomponent n φ).symm
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- The actual relative coefficient inclusion fixed by the original ordinary cochain square. -/
 def relativeSingularCochainsRationalization
     {X : Type u} [TopologicalSpace X] (A : Set X) :
     relativeSingularCochains ℤ A ⟶ (ℚResC).obj (relativeSingularCochains ℚ A) :=
   Classical.choose (existsUnique_relativeSingularCochainsRationalization A).exists
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- Relative coefficient inclusion followed by the canonical homology comparison. -/
 def relativeSingularCohomologyRationalization
     {X : Type u} [TopologicalSpace X] (A : Set X) (n : ℕ) :

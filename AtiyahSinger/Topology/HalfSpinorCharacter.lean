@@ -81,6 +81,9 @@ variable {m : ℕ} {B : Type u} {P : Type v} {E : B → Type u}
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Chern character of the given difference of half-spinor bundles. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG Proposition 11.24: the half-spinor difference is signed Euler times inverse A-hat. -/
 theorem TopologicalSpinStructure.halfSpinorCharacterComponent_add
     (S : TopologicalSpinStructure m E o hm hP)

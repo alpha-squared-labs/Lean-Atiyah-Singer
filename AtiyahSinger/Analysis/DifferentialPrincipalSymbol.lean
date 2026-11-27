@@ -73,6 +73,9 @@ theorem continuous_principalSymbol (x : M)
     VectorBundle.finiteDimensional ℂ (EuclideanSpace ℂ (Fin r)) E x
   exact (P.principalSymbol x ξ).continuous_of_finiteDimensional
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The existing differential symbol, with its fiberwise continuity certificate. -/
 def principalSymbolFunction : GlobalSymbolFunction (n := n) E F :=
   fun x ξ ↦ { P.principalSymbol x ξ with cont := P.continuous_principalSymbol x ξ }
@@ -196,6 +199,9 @@ theorem isGlobalSymbol_principalSymbolFunction :
     apply mul_le_mul_of_nonneg_right _ (Real.rpow_nonneg (by positivity) _)
     exact Finset.single_le_sum (fun z _ ↦ hC z) hzt
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The differential principal polynomial as an element of the global symbol submodule. -/
 def principalGlobalSymbol : globalSymbolSpace (n := n) (r := r) (q := q) E F (m : ℝ) :=
   ⟨P.principalSymbolFunction, P.isGlobalSymbol_principalSymbolFunction⟩
@@ -500,6 +506,9 @@ theorem exists_representation_principalSymbol [CompactSpace M] :
 variable [CompactSpace M] [MeasurableSpace M] [BorelSpace M]
   (μ : Measure M) [IsSmoothPositiveMeasure (n := n) μ]
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- A differential operator regarded as a PDO of the same integer order bound. -/
 def toPseudodifferentialOperator :
     PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ (m : ℝ) where
@@ -514,6 +523,9 @@ theorem toPseudodifferentialOperator_toLinearMap :
   -- The bundled inclusion has exactly the specified original section map.
   rfl
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The PDO principal class of a differential operator is the class of its top polynomial. -/
 theorem principalSymbol_toPseudodifferentialOperator :
     (P.toPseudodifferentialOperator μ).principalSymbol =

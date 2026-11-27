@@ -91,6 +91,9 @@ theorem continuous_complexLineFiberMap (x : X) (e : E x ≃L[ℂ] ℂ) :
   rw [heq]
   exact c.left_inv hsource
 
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the documented
+--   definition or construction.
 /-- Include the positively coordinated complex plane into an original line fiber. -/
 def complexLineFiberMap (x : X) (e : E x ≃L[ℂ] ℂ) :
     C(ULift.{u} ℂ, TotalSpace Unit E) :=
@@ -102,6 +105,9 @@ set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 include hline in
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every complex line bundle has a unique Thom class with the positive complex normalization. -/
 theorem existsUnique_complexLineThomClass :
     ∃! U : relativeSingularCohomology ℤ {z : TotalSpace Unit E | z.snd ≠ 0} 2,
@@ -212,6 +218,9 @@ theorem existsUnique_complexLineThomClass :
       exact h.trans (ho x d).symm
     · exact hT
 
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the documented
+--   definition or construction.
 /-- The integral Thom class selected solely by its original complex fiber normalization. -/
 def complexLineThomClass :
     relativeSingularCohomology ℤ {z : TotalSpace Unit E | z.snd ≠ 0} 2 :=
@@ -234,6 +243,9 @@ theorem complexLineThomClass_fiber (x : X) (e : E x ≃L[ℂ] ℂ) :
   supplied complex coordinate and the fixed positive integral generator. -/
   exact (existsUnique_complexLineThomClass E hline).exists.choose_spec x e
 
+-- Human-verified.
+-- - The first Chern class and the Euler class of a line bundle. The review covers the documented
+--   definition or construction.
 /-- The first Chern class is the Euler class of the positively oriented underlying real plane. -/
 def firstChernClass : singularCohomology ℤ X 2 :=
   singularCohomologyPullback ℤ

@@ -44,6 +44,12 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   (A : SmoothComplexBundleAtlas (n := n) E)
   (B : SmoothComplexBundleAtlas (n := n) F)
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
+-- - Smooth complex connections. The review covers the documented definition or construction.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The actual section coordinates in a manifold chart and a specified bundle chart.
 The finite coordinate tuple is identified with the existing Euclidean coordinate model. -/
 def atlasSectionInChart
@@ -53,6 +59,9 @@ def atlasSectionInChart
   fun z ↦ (EuclideanSpace.equiv (Fin (A.rank i)) ℂ).symm
     ((A.chart i ⟨c.symm z, s (c.symm z)⟩).2)
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- A local differential expression represents the given map of actual smooth sections. -/
 def HasAtlasCoordinateExpression (m : ℕ)
     (P : A.smoothSections →ₗ[ℂ] B.smoothSections)
@@ -65,6 +74,9 @@ def HasAtlasCoordinateExpression (m : ℕ)
           ((B.chart j ⟨x, (P s).val x⟩).2) =
         Q.apply (atlasSectionInChart A c i s.val) (c x)
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The standard local finite-order condition, with the rank supplied separately by each chart. -/
 def IsAtlasDifferentialOperator (m : ℕ)
     (P : A.smoothSections →ₗ[ℂ] B.smoothSections) : Prop :=
@@ -76,6 +88,9 @@ def IsAtlasDifferentialOperator (m : ℕ)
             ∃ Q : CoordinateDifferentialOperator n (A.rank i) (B.rank j) m (c '' U),
               HasAtlasCoordinateExpression A B m P c i j U Q
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- A finite-order differential operator between the specified locally finite-rank bundles. -/
 structure AtlasDifferentialOperator (m : ℕ) where
   /-- The actual complex-linear action on the original smooth sections. -/
@@ -83,6 +98,9 @@ structure AtlasDifferentialOperator (m : ℕ) where
   /-- In every specified chart the action has a smooth expression of order at most m. -/
   isAtlasDifferentialOperator : IsAtlasDifferentialOperator A B m toLinearMap
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The leading polynomial identities characterizing a symbol on the original fibers.
 All local expressions for the same section operator must give this same fiber map. -/
 def HasAtlasPrincipalSymbol (m : ℕ)

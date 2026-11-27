@@ -56,6 +56,9 @@ def mayerVietorisComplementHomeomorph (A B : Set X) (hcover : A ∪ B = Set.univ
 
 variable [LocallyCompactSpace X] [T2Space X] [LocallyCompactSpace Y] [T2Space Y]
 
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   documented definition or construction.
 /-- The two actual closed restrictions form the Mayer--Vietoris diagonal map. -/
 def compactSupportKMayerVietorisRestriction (n : ℕ) (A B : Set X)
     (hA : IsClosed A) (hB : IsClosed B) :
@@ -66,6 +69,9 @@ def compactSupportKMayerVietorisRestriction (n : ℕ) (A B : Set X)
   letI := hB.locallyCompactSpace
   (compactSupportKClosedRestriction n A hA).prod (compactSupportKClosedRestriction n B hB)
 
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   documented definition or construction.
 /-- The overlap map is restriction from A minus restriction from B, in this order. -/
 def compactSupportKMayerVietorisDifference (n : ℕ) (A B : Set X)
     (hA : IsClosed A) (hB : IsClosed B) :
@@ -87,6 +93,9 @@ def compactSupportKMayerVietorisDifference (n : ℕ) (A B : Set X)
       (isProperMap_of_comp_of_t2 right.continuous continuous_subtype_val
         (hA.inter hB).isProperMap_subtypeVal)).comp (AddMonoidHom.snd _ _)
 
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   documented definition or construction.
 /-- KA II.4.18: the positive zigzag boundary for the ordered closed cover (A,B). -/
 def compactSupportKMayerVietorisBoundary (n : ℕ) (A B : Set X)
     (hA : IsClosed A) (hB : IsClosed B) (hcover : A ∪ B = Set.univ) :
@@ -109,6 +118,9 @@ def compactSupportKMayerVietorisBoundary (n : ℕ) (A B : Set X)
 set_option backward.isDefEq.respectTransparency false in
 set_option maxHeartbeats 1000000 in
 -- The two literal cylinder charts retain their dependent subspace and properness witnesses.
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- KA II.4.18: exactness at the suspended overlap. -/
 theorem range_compactSupportKMayerVietorisDifference_eq_ker_boundary
     (n : ℕ) (A B : Set X) (hA : IsClosed A) (hB : IsClosed B)
@@ -313,6 +325,9 @@ theorem range_compactSupportKMayerVietorisDifference_eq_ker_boundary
     rw [map_neg, sub_neg_eq_add, hsame]
     abel
 
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- KA II.4.18: exactness at the union, represented by the original ambient X. -/
 theorem range_compactSupportKMayerVietorisBoundary_eq_ker_restriction
     (n : ℕ) (A B : Set X) (hA : IsClosed A) (hB : IsClosed B)
@@ -395,6 +410,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option maxHeartbeats 1800000 in
 -- The matrix gluing keeps the original dependent subspaces and suspension witnesses.
 open OnePoint Topology in
+-- Human-verified.
+-- - Mayer–Vietoris in negative degrees and descent of the Thom construction. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- KA II.4.18: compatible classes on a closed cover glue in every nonpositive degree. -/
 theorem range_compactSupportKMayerVietorisRestriction_eq_ker_difference
     (n : ℕ) (A B : Set X) (hA : IsClosed A) (hB : IsClosed B)

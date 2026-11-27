@@ -39,6 +39,9 @@ section PointClasses
 variable (R : Type) [CommRing R] {X Y : Type u}
   [TopologicalSpace X] [TopologicalSpace Y]
 
+-- Human-verified.
+-- - Comparison of ranks at points and characteristic numbers in dimension zero. The review covers
+--   the documented definition or construction.
 /-- The original relative homology class of a point with coefficient one. -/
 def relativeSingularPointClass (A : Set X) (x : X) : relativeSingularHomology R A 0 :=
   relativeSingularCycleClass R A 0
@@ -144,6 +147,9 @@ theorem relativeSingularPointClass_rationalization {X : Type u} [TopologicalSpac
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The native empty tangent basis gives precisely the positive original local point class. -/
 theorem zeroTangentHomologicalOrientation_localGenerator
     {M : Type} [TopologicalSpace M]
@@ -215,6 +221,9 @@ theorem zeroTangentHomologicalOrientation_localGenerator
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Comparison of ranks at points and characteristic numbers in dimension zero. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- On a finite zero-dimensional manifold the same normalized class is the sum of its points. -/
 theorem rationalCompactRelativeFundamentalClass_zeroTangent
     {M : Type} [TopologicalSpace M]
@@ -255,6 +264,9 @@ theorem rationalCompactRelativeFundamentalClass_zeroTangent
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Comparison of ranks at points and characteristic numbers in dimension zero. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The original integral for the positive zero-dimensional orientation sums the point values. -/
 theorem compactManifoldCohomologyIntegral_zeroTangent
     {M : Type} [TopologicalSpace M]

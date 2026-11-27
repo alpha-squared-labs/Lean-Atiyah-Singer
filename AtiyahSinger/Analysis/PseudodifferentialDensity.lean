@@ -68,6 +68,9 @@ namespace PseudodifferentialOperator
 variable {μ} {m : ℝ}
   (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the documented
+--   definition or construction.
 /-- The same smooth-section map, certified as a PDO relative to the new density. -/
 def changeMeasure : PseudodifferentialOperator (n := n) (r := r) (q := q) E F ν m where
   toLinearMap := P.toLinearMap
@@ -104,6 +107,9 @@ theorem principalSymbol_changeMeasure :
   cross-density principal-class comparison to the exact section-map equality. -/
   exact (P.changeMeasure ν).principalSymbol_eq_of_toLinearMap_eq μ P rfl
 
+-- Human-verified.
+-- - Comparison of realizations and stability of the index. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Every original real-order Sobolev extension is literally unchanged by density transport. -/
 theorem sobolevExtension_changeMeasure
     (A : SmoothBundlePresentation (n := n) (r := r) E)

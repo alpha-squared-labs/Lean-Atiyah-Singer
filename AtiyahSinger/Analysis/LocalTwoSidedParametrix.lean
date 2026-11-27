@@ -424,6 +424,9 @@ private theorem exists_proper_local_inverse_of_first_inverse {n r q : ℕ}
     simp only [ContinuousLinearMap.comp_apply, sub_apply, map_sub]
     abel
 
+-- Human-verified.
+-- - Two-sided local parametrices on open coordinate domains. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- One proper local inverse works on both sides for every inner cutoff. -/
 theorem exists_local_two_sided_parametrix
     (m : ℝ) (U : Set (EuclideanSpace ℝ (Fin n))) (hU : IsOpen U)

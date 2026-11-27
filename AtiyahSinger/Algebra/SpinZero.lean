@@ -32,6 +32,9 @@ parity representations consequently act by their existing identity operators.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The original unit-generated spin group in dimension zero is the identity subgroup. -/
 theorem spinGroup_zero_eq_bot : spinGroup (realSpinorQuadraticForm 0) = ⊥ := by
   /- Stage 1: the original real vector space is EuclideanSpace C (Fin 0),

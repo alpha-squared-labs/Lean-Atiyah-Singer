@@ -40,6 +40,9 @@ variable {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]
 
 attribute [local instance] sectionModule
 
+-- Human-verified.
+-- - The original bundle and the Serre–Swan comparison. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Taking actual continuous sections preserves the original geometric K₀ class. -/
 theorem projectiveModuleKZeroClass_continuousSections :
     letI : Module.Finite C(X, ℂ) (continuousSections E) := finite_continuousSections E

@@ -74,6 +74,9 @@ set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 include hV in
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A local R-orientation extends uniquely to a class on the original total-space pair. -/
 theorem existsUnique_cohomologyThomClass :
     ∃! U : relativeSingularCohomology R (bundleNonzero r E) r,
@@ -242,10 +245,16 @@ theorem existsUnique_cohomologyThomClass :
     rw [← ModuleCat.comp_apply, ← relativeSingularCohomologyPullback_comp]
     exact (hw x).trans (hlocal 0 a x hxa).symm
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the documented
+--   definition or construction.
 /-- The unique global class determined by the specified local fiber orientation. -/
 def cohomologyThomClass : relativeSingularCohomology R (bundleNonzero r E) r :=
   (existsUnique_cohomologyThomClass R r E o).exists.choose
 
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the documented
+--   definition or construction.
 /-- The actual Thom map sends a to pi-star a cup U, in that order. -/
 def cohomologyThomMap (p : ℕ) :
     singularCohomology R X p →ₗ[R]
@@ -257,6 +266,9 @@ def cohomologyThomMap (p : ℕ) :
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The relative Thom class and the zero-section Euler class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Multiplication by the specified Thom class is bijective in every nonnegative degree. -/
 theorem cohomologyThomMap_bijective (p : ℕ) :
     Function.Bijective (cohomologyThomMap R r E o p) := by

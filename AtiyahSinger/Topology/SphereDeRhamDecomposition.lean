@@ -184,6 +184,9 @@ private theorem sphereDeRhamEndpoint_eq_sum_chart (r : ℕ)
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 1000000 in
 -- Compare the original nested support representatives through the exact chart square.
+-- Human-verified.
+-- - Two-pole symbols and low-dimensional normalization. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- ASI Lemma (3.2): the original sphere exterior symbol splits into its two actual pole classes. -/
 theorem orthogonalSphereDeRhamClass_eq_pole_sum (r : ℕ) :
     orthogonalSphereDeRhamClass r =

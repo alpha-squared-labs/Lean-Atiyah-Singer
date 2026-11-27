@@ -68,6 +68,9 @@ set_option maxHeartbeats 0 in
 
 set_option maxRecDepth 4096 in
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - Normalized loops and the relative disk model. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Banach-valued Laurent polynomials are uniformly dense in continuous circle maps. -/
 theorem exists_laurentPolynomial_uniform_approximation
     (f : C(Circle, A)) (ε : ℝ) (hε : 0 < ε) :
@@ -228,6 +231,9 @@ theorem exists_laurentPolynomial_uniform_approximation
 set_option maxHeartbeats 0 in
 
 set_option maxRecDepth 4096 in
+-- Human-verified.
+-- - Normalized loops and the relative disk model. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- KA III.1.14, surjectivity step: every normalized invertible loop has a normalized
 Laurent representative through a homotopy consisting entirely of invertible maps. -/
 theorem exists_normalized_laurent_homotopy
@@ -309,6 +315,9 @@ theorem exists_normalized_laurent_homotopy
 set_option maxHeartbeats 0 in
 
 set_option maxRecDepth 4096 in
+-- Human-verified.
+-- - Normalized loops and the relative disk model. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- KA III.1.14, injectivity step: a normalized invertible homotopy between specified
 Laurent endpoints can be replaced by one Laurent polynomial with continuous coefficients. -/
 theorem exists_laurent_homotopy_with_endpoints

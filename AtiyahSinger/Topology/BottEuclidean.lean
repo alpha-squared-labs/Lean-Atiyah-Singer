@@ -32,12 +32,18 @@ equivalence.
 
 namespace AtiyahSinger
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- Append one complex coordinate, keeping the previous coordinates in their original order. -/
 def complexFinSuccHomeomorph (n : ℕ) :
     ((Fin n → ℂ) × ℂ) ≃ₜ (Fin (n + 1) → ℂ) :=
   ((Homeomorph.refl (Fin n → ℂ)).prodCongr (Homeomorph.funUnique (Fin 1) ℂ).symm).trans
     (Fin.appendHomeomorph n 1)
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The finite external power of the specified line class, including the rank-one zero power. -/
 def bottEuclideanClass : (n : ℕ) → CompactSupportKZero (Fin n → ℂ)
   | 0 => compactSupportKZeroHomeomorph
@@ -45,12 +51,18 @@ def bottEuclideanClass : (n : ℕ) → CompactSupportKZero (Fin n → ℂ)
   | n + 1 => compactSupportKZeroHomeomorph (complexFinSuccHomeomorph n)
       (compactSupportKZeroExternalProduct (bottEuclideanClass n) bottLineClass)
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- External product with the actual finite power of the multiplication-by-z class. -/
 def bottEuclideanExternalProduct {X : Type*} [TopologicalSpace X] [LocallyCompactSpace X]
     [T2Space X] (n : ℕ) :
     CompactSupportKZero X →+ CompactSupportKZero (X × (Fin n → ℂ)) :=
   compactSupportKZeroExternalProduct.flip (bottEuclideanClass n)
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Finite-dimensional complex Bott periodicity for the prescribed external-product map. -/
 theorem bottEuclideanExternalProduct_bijective (X : Type*) [TopologicalSpace X]
     [LocallyCompactSpace X] [T2Space X] (n : ℕ) :
@@ -123,6 +135,9 @@ theorem bottEuclideanExternalProduct_bijective (X : Type*) [TopologicalSpace X]
     rw [he]
     exact hF
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The Bott equivalence whose forward map is the specified finite external product. -/
 def bottEuclideanEquiv (X : Type*) [TopologicalSpace X] [LocallyCompactSpace X]
     [T2Space X] (n : ℕ) :
@@ -130,6 +145,9 @@ def bottEuclideanEquiv (X : Type*) [TopologicalSpace X] [LocallyCompactSpace X]
   AddEquiv.ofBijective (bottEuclideanExternalProduct n)
     (bottEuclideanExternalProduct_bijective X n)
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   documented definition or construction.
 /-- The integer coordinate induced by the same finite-dimensional Bott map and point rank. -/
 def bottEuclideanClassEquivInt (n : ℕ) : CompactSupportKZero (Fin n → ℂ) ≃+ ℤ :=
   (((compactSupportKZeroHomeomorphEquiv
@@ -137,6 +155,9 @@ def bottEuclideanClassEquivInt (n : ℕ) : CompactSupportKZero (Fin n → ℂ) �
       (bottEuclideanEquiv PUnit.{1} n).symm).trans
         (compactSupportKZeroCompactEquiv PUnit.{1})).trans complexKZeroPointEquivInt
 
+-- Human-verified.
+-- - Finite-dimensional Bott periodicity and positive-integer coordinates. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The actual iterated line class is the positive generator in every finite complex dimension. -/
 theorem bottEuclideanClassEquivInt_bottEuclideanClass (n : ℕ) :
     bottEuclideanClassEquivInt n (bottEuclideanClass n) = 1 := by

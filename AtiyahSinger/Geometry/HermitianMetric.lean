@@ -46,6 +46,9 @@ variable {n r : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin r)) E]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin r)) E]
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- Positive definite Hermitian forms with smooth Gram entries and smooth transitions
 in the original complex bundle atlas. -/
 structure SmoothHermitianMetric where
@@ -66,9 +69,15 @@ namespace SmoothHermitianMetric
 
 variable {E} (h : SmoothHermitianMetric (n := n) (r := r) E)
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- The specified Hermitian form, conjugate-linear in the first variable. -/
 def pairing (x : M) (u v : E x) : ℂ := (h.toCore x).inner u v
 
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the documented definition or
+--   construction.
 /-- The local Gram matrix, with the first index in the conjugate-linear slot. -/
 def gramMatrix
     (e : Trivialization (EuclideanSpace ℂ (Fin r)) (π (EuclideanSpace ℂ (Fin r)) E))
@@ -299,6 +308,9 @@ variable [hM : IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M]
   [hE : IsSmoothComplexBundle (n := n) (r := r) E]
 
 include hM hT2 hSC hE in
+-- Human-verified.
+-- - Smooth metrics and their comparison. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- On a Hausdorff second-countable smooth base, a finite-rank smooth complex bundle
 admits a smooth Hermitian metric. -/
 theorem nonempty_smoothHermitianMetric :

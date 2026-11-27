@@ -76,6 +76,9 @@ theorem bottDisk_boundary_continuity :
     apply continuous_induced_rng.mpr
     exact (continuous_subtype_val.comp hbase).prodMk (hinverse.smul hvector)
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The standard disk-boundary Bott triple with its specified positive coordinate action. -/
 def bottDiskTriple : BundleTriple complexDiskBoundary where
   source := FiniteBundle.trivial Complex.UnitClosedDisc 1
@@ -90,10 +93,16 @@ def bottDiskTriple : BundleTriple complexDiskBoundary where
       continuous_total := bottDisk_boundary_continuity.1
       continuous_symm := bottDisk_boundary_continuity.2 }
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The relative difference class of the actual disk-boundary triple d(1,1,z). -/
 def bottDiskClass : RelativeKZero.{_, 0} complexDiskBoundary isClosed_complexDiskBoundary :=
   bottDiskTriple.relativeClass isClosed_complexDiskBoundary
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- Positive radial coordinates identify the original open disk with the complex plane. -/
 def complexDiskInteriorHomeomorph :
     (complexDiskBoundaryᶜ : Set Complex.UnitClosedDisc) ≃ₜ ℂ :=
@@ -111,6 +120,9 @@ def complexDiskInteriorHomeomorph :
       continuous_invFun := (continuous_subtype_val.subtype_mk _).subtype_mk _ }
   e.trans (Homeomorph.unitBall (E := ℂ)).symm
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The specified disk generator becomes the existing positive complex-line class. -/
 theorem bottDiskClass_toCompactSupport :
     letI := isClosed_complexDiskBoundary.isOpen_compl.locallyCompactSpace

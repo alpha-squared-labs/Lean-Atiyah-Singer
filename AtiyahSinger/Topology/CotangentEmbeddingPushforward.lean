@@ -52,6 +52,9 @@ variable {n m k : ℕ} {M N P : Type*}
   [T2Space M] [T2Space N] [T2Space P]
   [SecondCountableTopology M] [SecondCountableTopology N] [SecondCountableTopology P]
 
+-- Human-verified.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the documented definition or construction.
 /-- The original tangent pushforward transported to the actual cotangent K groups. -/
 def cotangentEmbeddingPushforward
     (f : ContMDiffMap 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) 𝓘(ℝ, EuclideanSpace ℝ (Fin m))
@@ -66,6 +69,9 @@ def cotangentEmbeddingPushforward
     ((tangentEmbeddingPushforward f hf hp).comp
       (tangentCotangentKZeroEquiv g).symm.toAddMonoidHom)
 
+-- Human-verified.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- Both supplied metrics can change without changing the actual cotangent pushforward. -/
 theorem cotangentEmbeddingPushforward_independent_metric
     (f : ContMDiffMap 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) 𝓘(ℝ, EuclideanSpace ℝ (Fin m))

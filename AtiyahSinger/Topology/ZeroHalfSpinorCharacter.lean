@@ -59,6 +59,9 @@ variable {B : Type u} {P : Type v} [TopologicalSpace B] [TopologicalSpace P]
   {projection : P → B}
   (hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm 0)) projection)
 
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The original positive rank-zero half-spin bundle has its unique vacuum trivialization. -/
 theorem existsUnique_halfSpinorBundle_zero_positive_trivial_iso :
     ∃! e : ComplexBundle.Iso (HalfSpinorBundle 0 hP 0)
@@ -168,6 +171,9 @@ theorem existsUnique_halfSpinorBundle_zero_positive_trivial_iso :
     exact congrArg (d s) (Subsingleton.elim _ _)
   rw [hs, he', he]
 
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The original negative rank-zero half-spin bundle is isomorphic to the actual zero bundle. -/
 theorem exists_halfSpinorBundle_zero_negative_trivial_iso :
     Nonempty (ComplexBundle.Iso (HalfSpinorBundle 0 hP 1)

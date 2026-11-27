@@ -36,6 +36,11 @@ variable {n : ℕ} {M : Type u} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]
   [T2Space M] [SecondCountableTopology M] [CompactSpace M]
 
+-- Human-verified.
+-- - Integral orientations and fundamental classes. The review covers the documented definition or
+--   construction.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   documented definition or construction.
 /-- Evaluation of an ordinary top-degree class on the same normalized fundamental class. -/
 def compactManifoldCohomologyIntegral (O : HomologicalOrientation n M) :
     singularCohomology ℚ M n →ₗ[ℚ] ℚ :=

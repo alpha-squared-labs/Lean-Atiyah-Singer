@@ -42,24 +42,39 @@ universe u
 
 variable (R : Type) [CommRing R] (X : Type u) [TopologicalSpace X]
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- Complementing compact supports gives the actual reversed inclusion diagram of subspaces. -/
 def compactSupportComplementFunctor : Compacts X ⥤ (Set X)ᵒᵖ where
   obj K := op ((K : Set X)ᶜ)
   map f := (homOfLE (Set.compl_subset_compl.mpr (leOfHom f))).op
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- The directed diagram K ↦ H^n(X,X\K;R) with its original relative restriction maps. -/
 def compactSupportCohomologyFunctor (n : ℕ) : Compacts X ⥤ ModuleCat.{u} R :=
   compactSupportComplementFunctor X ⋙ relativeSingularCohomologyFunctor R X n
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- Compactly supported singular cohomology, with the standard filtered-colimit definition. -/
 abbrev compactSupportCohomology (n : ℕ) : ModuleCat.{u} R :=
   colimit (compactSupportCohomologyFunctor R X n)
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- The original compact-support representative map from H^n(X,X\K;R). -/
 def compactSupportCohomologyClass (K : Compacts X) (n : ℕ) :
     relativeSingularCohomology R ((K : Set X)ᶜ) n ⟶ compactSupportCohomology R X n :=
   colimit.ι (compactSupportCohomologyFunctor R X n) K
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- Forgetting compact support uses the same canonical relative-to-ordinary cohomology maps. -/
 def compactSupportCohomologyToOrdinary (n : ℕ) :
     compactSupportCohomology R X n ⟶ singularCohomology R X n :=
@@ -68,6 +83,9 @@ def compactSupportCohomologyToOrdinary (n : ℕ) :
       ι := Functor.whiskerLeft (compactSupportComplementFunctor X)
         (relativeSingularCohomologyToOrdinaryNatTrans R X n) }
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Every compactly supported class has a representative supported in some compact set. -/
 theorem compactSupportCohomology_exists_representative (n : ℕ)
     (a : compactSupportCohomology R X n) :
@@ -93,6 +111,9 @@ theorem compactSupportCohomology_exists_representative (n : ℕ)
   exact Types.jointly_surjective_of_isColimit
     (isColimitOfPreserves (forget (ModuleCat.{u} R)) (colimit.isColimit F)) a
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Equality of compact-support representatives is detected at one common larger compact set. -/
 theorem compactSupportCohomologyClass_eq_iff {n : ℕ} {K L : Compacts X}
     (a : relativeSingularCohomology R ((K : Set X)ᶜ) n)
@@ -159,6 +180,9 @@ theorem isIso_compactSupportCohomologyToOrdinary [CompactSpace X] (n : ℕ) :
   exact IsIso.of_isIso_comp_left (colimit.ι F (⊤ : Compacts X))
     (compactSupportCohomologyToOrdinary R X n)
 
+-- Human-verified.
+-- - Compactly supported cup products with integral and rational coefficients. The review covers the
+--   documented definition or construction.
 /-- The compact-space comparison, using the original canonical map that forgets support. -/
 def compactSupportCohomologyIso [CompactSpace X] (n : ℕ) :
     compactSupportCohomology R X n ≅ singularCohomology R X n := by

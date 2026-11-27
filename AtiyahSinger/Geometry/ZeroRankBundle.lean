@@ -35,6 +35,9 @@ variable {B : Type*} [TopologicalSpace B]
   [FiberBundle (EuclideanSpace ℝ (Fin 0)) E]
   [VectorBundle ℝ (EuclideanSpace ℝ (Fin 0)) E]
 
+-- Human-verified.
+-- - The original symbol and the Spin Thom class in dimension zero. The review covers the documented
+--   definition or construction.
 /-- The original projection of a rank-zero real bundle, with its zero section as inverse. -/
 def zeroRankBundleProjectionHomeomorph :
     TotalSpace (EuclideanSpace ℝ (Fin 0)) E ≃ₜ B where

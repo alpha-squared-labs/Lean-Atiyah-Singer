@@ -33,6 +33,9 @@ universe u v w
 
 variable (R : Type u) [CommRing R]
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the documented definition or
+--   construction.
 /-- The K₀ class of a finite projective module, using an actual idempotent presentation. -/
 def projectiveModuleKZeroClass (P : Type v) [AddCommGroup P] [Module R P]
     [Module.Finite R P] [Module.Projective R P] : KZero R :=
@@ -57,6 +60,9 @@ theorem projectiveModuleKZeroClass_eq_of_linearEquiv
   apply (IdempotentMatrix.isEquivalent_iff_nonempty_linearEquiv _ _).mpr
   exact ⟨eP.trans (e.trans eQ.symm)⟩
 
+-- Human-verified.
+-- - Idempotent matrices and projective modules. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The general module class recovers the specified idempotent generator. -/
 theorem projectiveModuleKZeroClass_image (p : IdempotentMatrix R) :
     letI : Module.Finite R p.image := p.finite_image

@@ -142,6 +142,9 @@ variable
     letI := ComplexBundle.complexificationTopology G ((f : Y → X) *ᵖ V)
     ComplexBundle.ContinuousHermitianMetric (fun y ↦ ℂ ⊗[ℝ] ((f : Y → X) *ᵖ V) y))
 
+-- Human-verified.
+-- - Pontryagin classes, the A-hat class, and the Todd class of the complexification. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The original integral Pontryagin classes commute with native continuous pullback. -/
 theorem pontryaginClass_pullback (k : ℕ) :
     letI : ∀ y, AddCommGroup (((f : Y → X) *ᵖ V) y) := fun y ↦ hAdd (f y)

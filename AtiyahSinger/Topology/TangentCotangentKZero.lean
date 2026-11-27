@@ -46,6 +46,15 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [ChartedSpace (EuclideanSpace ℝ (Fin n)) M]
   [IsManifold 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) ∞ M] [T2Space M]
 
+-- Human-verified.
+-- - Relating the original symbol class to the topological index. The review covers the documented
+--   definition or construction.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the documented definition or construction.
+-- - The same tangent-bundle class and the top-degree pairing in T02. The review covers the
+--   documented definition or construction.
+-- - The actual Dirac symbol and the twisted Spin Thom class. The review covers the documented
+--   definition or construction.
 /-- The original musical homeomorphism transports actual compact-support K classes. -/
 def tangentCotangentKZeroEquiv (g : SmoothTangentMetric (n := n) (M := M)) :
     letI : T2Space (TangentBundle 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) M) :=
@@ -63,6 +72,11 @@ def tangentCotangentKZeroEquiv (g : SmoothTangentMetric (n := n) (M := M)) :
 
 set_option maxHeartbeats 1000000 in
 
+-- Human-verified.
+-- - Relating the original symbol class to the topological index. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the theorem statement and its documented mathematical correspondence.
 /-- The musical identification of compact-support K groups does not depend on the metric. -/
 theorem tangentCotangentKZeroEquiv_independent_metric
     (g h : SmoothTangentMetric (n := n) (M := M)) :

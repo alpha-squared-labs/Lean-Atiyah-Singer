@@ -71,6 +71,9 @@ theorem bottMatrix_inverse (p : IdempotentMatrix A) (z : Circle) :
   · exact hprod _ _ (by simp)
   · exact hprod _ _ (by simp)
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The actual Bott matrix unit, with its explicit complementary-projection inverse. -/
 def bottMatrixUnit (p : IdempotentMatrix A) (z : Circle) :
     (Matrix (Fin p.size) (Fin p.size) A)ˣ where
@@ -103,6 +106,9 @@ theorem bottMatrixUnit_one (p : IdempotentMatrix A) : bottMatrixUnit p 1 = 1 := 
   change (↑(1 : Circle) : ℂ) • p.matrix + (1 - p.matrix) = 1
   simp
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The positively oriented Bott path, based at the identity at both endpoints. -/
 def bottMatrixPath (p : IdempotentMatrix A) :
     Path (1 : (Matrix (Fin p.size) (Fin p.size) A)ˣ) 1 where
@@ -111,6 +117,9 @@ def bottMatrixPath (p : IdempotentMatrix A) :
   source' := by simpa using bottMatrixUnit_one p
   target' := by simpa using bottMatrixUnit_one p
 
+-- Human-verified.
+-- - The Bott generator on the complex line and comparison with the disk model. The review covers
+--   the documented definition or construction.
 /-- The finite matrix loop of the displayed idempotent, with its actual ambient size. -/
 def bottMatrixLoop (p : IdempotentMatrix A) : FiniteMatrixLoop A where
   size := p.size
@@ -253,12 +262,18 @@ theorem bottMatrixLoopClass_blockSum (p q : IdempotentMatrix A) :
     simp at he
     omega
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the documented
+--   definition or construction.
 /-- The Bott homomorphism, specified on every finite-projective generator. -/
 def kZeroBottLoop (A : Type u) [NormedCommRing A] [NormedAlgebra ℂ A] :
     KZero A →+ StableMatrixLoopClass A :=
   Classical.choose (kZero_universal_property bottMatrixLoopClass
     bottMatrixLoopClass_eq_of_isEquivalent bottMatrixLoopClass_blockSum).exists
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- The Bott homomorphism sends a projective class to its concrete scalar loop. -/
 theorem kZeroBottLoop_class (p : IdempotentMatrix A) :
     kZeroBottLoop A (kZeroClass A p) = bottMatrixLoopClass p := by

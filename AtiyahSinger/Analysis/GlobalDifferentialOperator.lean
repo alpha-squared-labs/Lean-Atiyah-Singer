@@ -54,6 +54,11 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
   [FiberBundle (EuclideanSpace ℂ (Fin q)) F]
   [VectorBundle ℂ (EuclideanSpace ℂ (Fin q)) F]
 
+-- Human-verified.
+-- - Finite presentations and localization. The review covers the documented definition or
+--   construction.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- A section written in a manifold chart and a complex bundle trivialization.
 The formula is total, but differential expressions use it only inside the chart overlap. -/
 def sectionInChart (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n)))
@@ -62,6 +67,9 @@ def sectionInChart (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n)))
     EuclideanSpace ℝ (Fin n) → EuclideanSpace ℂ (Fin r) :=
   fun z ↦ (e ⟨c.symm z, s (c.symm z)⟩).2
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The local coordinate expression of a real cotangent vector.
 It is the covector pulled back by the inverse manifold chart. -/
 def covectorInChart (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))) (x : M)
@@ -70,6 +78,9 @@ def covectorInChart (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))) (
     ξ ((mfderiv 𝓘(ℝ, EuclideanSpace ℝ (Fin n))
       𝓘(ℝ, EuclideanSpace ℝ (Fin n)) c.symm (c x)) (EuclideanSpace.single j 1))
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- A finite coordinate expression represents the global operator on an open overlap. -/
 def HasCoordinateExpression (m : ℕ)
     (P : smoothSections (n := n) (r := r) E →ₗ[ℂ]
@@ -84,6 +95,9 @@ def HasCoordinateExpression (m : ℕ)
     ∀ (s : smoothSections (n := n) (r := r) E) (x : M), x ∈ U →
       (f ⟨x, (P s).val x⟩).2 = Q.apply (sectionInChart E c e s.val) (c x)
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The usual local definition of a global differential operator of order at most m. -/
 def IsDifferentialOperator (m : ℕ)
     (P : smoothSections (n := n) (r := r) E →ₗ[ℂ]
@@ -99,6 +113,9 @@ def IsDifferentialOperator (m : ℕ)
               ∃ Q : CoordinateDifferentialOperator n r q m (c '' U),
                 HasCoordinateExpression E F m P c e f U Q
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- A global differential operator, consisting of its section action and local finite order. -/
 structure DifferentialOperator (m : ℕ) where
   /-- The actual complex-linear map between global smooth section spaces. -/
@@ -106,6 +123,9 @@ structure DifferentialOperator (m : ℕ) where
   /-- In local coordinates this map has a smooth finite differential expression. -/
   isDifferentialOperator : IsDifferentialOperator E F m toLinearMap
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The local polynomial identities characterizing the global principal symbol.
 The covector transforms by the inverse chart derivative and the fibers by bundle charts. -/
 def HasPrincipalSymbol (m : ℕ)
@@ -183,6 +203,9 @@ theorem apply_eq_of_eventually_eq
 
 set_option linter.unusedSectionVars false in
 set_option backward.isDefEq.respectTransparency false in
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- The highest-order polynomials glue to a unique global principal symbol. -/
 theorem existsUnique_principalSymbol (P : DifferentialOperator (n := n) (r := r) (q := q) E F m) :
     ∃! σ : ∀ x : M, (TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ) → (E x →ₗ[ℂ] F x),
@@ -562,6 +585,9 @@ theorem existsUnique_principalSymbol (P : DifferentialOperator (n := n) (r := r)
   simpa [LinearMap.comp_apply, (f x).linearMapAt_def_of_mem (hf x)]
     using hτx.trans hσx.symm
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- The principal symbol selected by its unique local specification. -/
 def principalSymbol (P : DifferentialOperator (n := n) (r := r) (q := q) E F m) :
     ∀ x : M, (TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ) → (E x →ₗ[ℂ] F x) :=
@@ -942,6 +968,9 @@ theorem contDiffOn_principalSymbol_in_chart
     e.linearMapAt_symm (hQ.1 hy).1.2, hcy] at hspec
   simpa only [e.symmL_apply (hQ.1 hy).1.2, ContinuousLinearMap.coe_coe] using hspec
 
+-- Human-verified.
+-- - Differential operators and embeddings. The review covers the documented definition or
+--   construction.
 /-- Ellipticity means that the principal symbol is an isomorphism off the zero section. -/
 def IsElliptic (P : DifferentialOperator (n := n) (r := r) (q := q) E F m) : Prop :=
   ∀ (x : M) (ξ : TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ), ξ ≠ 0 →

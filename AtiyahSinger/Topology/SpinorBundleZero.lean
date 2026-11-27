@@ -45,6 +45,9 @@ variable {P B : Type*} [TopologicalSpace P] [TopologicalSpace B]
   {projection : P → B}
   (hP : IsPrincipalBundle (spinGroup (realSpinorQuadraticForm 0)) projection)
 
+-- Human-verified.
+-- - Native Spin(0) and the positive empty frame. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- In dimension zero the original positive half-spin fiber is a line and the negative is zero. -/
 theorem finrank_halfSpinorBundle_zero (i : ZMod 2) (b : B) :
     Module.finrank ℂ (HalfSpinorBundle 0 hP i b) = if i = 0 then 1 else 0 := by

@@ -47,6 +47,9 @@ variable {n r q : ℕ} {M : Type*} [TopologicalSpace M]
 attribute [local instance] isFiniteRank_pullback isFiniteRank_restrict
   t2Space_cotangent locallyCompactSpace_cotangent
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the documented
+--   definition or construction.
 /-- The original full-symbol map on the exterior of a specified compact control. -/
 def fullSymbolTripleWithControl {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -71,6 +74,9 @@ def fullSymbolTripleWithControl {m : ℝ}
       rw [← he]
       exact e.bijective }
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The exterior boundary retains the exact original forward symbol map. -/
 theorem fullSymbolTripleWithControl_boundary_apply {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -92,6 +98,9 @@ variable [T2Space M] [SecondCountableTopology M] [CompactSpace M]
   [IsSmoothComplexBundle (n := n) (r := r) E]
   [IsSmoothComplexBundle (n := n) (r := q) F]
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the documented
+--   definition or construction.
 /-- Quantitative ellipticity constructs compact control for the original full-symbol triple. -/
 def fullSymbolTriple {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -109,6 +118,9 @@ def fullSymbolTriple {m : ℝ}
   fullSymbolTripleWithControl a {z | g.length z.proj z.snd ≤ R} (g.isCompact_sublevel R)
     (fun z hz ↦ hR.2 z.proj z.snd (lt_of_not_ge hz))
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The internally selected compact control does not change the original boundary map. -/
 theorem fullSymbolTriple_boundary_apply {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)
@@ -123,6 +135,9 @@ theorem fullSymbolTriple_boundary_apply {m : ℝ}
   intro z v
   rfl
 
+-- Human-verified.
+-- - The original full symbol class in the native presentation. The review covers the documented
+--   definition or construction.
 /-- The actual compact-support K class of the original generally elliptic full symbol. -/
 def fullSymbolKClass {m : ℝ}
     (a : globalSymbolSpace (n := n) (r := r) (q := q) E F m)

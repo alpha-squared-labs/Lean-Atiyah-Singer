@@ -44,6 +44,9 @@ variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
 
 -- Retain the declared finite-dimensional models in the public interface.
 set_option linter.unusedSectionVars false in
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The original tangent map of a smooth embedding is a smooth embedding. -/
 theorem isSmoothEmbedding_tangentMap
     (hf : IsSmoothEmbedding 𝓘(ℝ, E) 𝓘(ℝ, F) ∞ f) :
@@ -343,6 +346,9 @@ theorem isSmoothEmbedding_tangentMap
       exact (hlim.congr' hevent)
   exact ⟨hImm, hEmbedding⟩
 
+-- Human-verified.
+-- - The tangent map and the ordering of factors in the complex normal bundle. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- Properness passes to the actual tangent map of a finite-dimensional smooth embedding. -/
 theorem isProperMap_tangentMap [T2Space M] [T2Space N]
     (hf : IsSmoothEmbedding 𝓘(ℝ, E) 𝓘(ℝ, F) ∞ f) (hp : IsProperMap f) :

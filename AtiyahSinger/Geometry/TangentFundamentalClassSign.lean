@@ -42,6 +42,9 @@ local notation "TM" => TangentBundle 𝓘(ℝ, V) M
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- The same tangent permutation sign compares the original classes over every compact set. -/
 theorem bundleHomologicalOrientation_tangent_compactRelativeFundamentalClass
     (g : SmoothTangentMetric (n := n) (M := M)) (O : HomologicalOrientation n M)
@@ -94,6 +97,9 @@ theorem bundleHomologicalOrientation_tangent_compactRelativeFundamentalClass
 
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - Fiber integration on the tangent bundle and the sign for the same orientation O. The review
+--   covers the theorem statement and its documented mathematical correspondence.
 /-- Evaluation on the canonical tangent class is the signed integral for the grouped orientation. -/
 theorem tangent_pairing_eq_grouped_integral
     (g : SmoothTangentMetric (n := n) (M := M)) (O : HomologicalOrientation n M)

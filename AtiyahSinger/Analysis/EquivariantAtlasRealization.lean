@@ -66,6 +66,9 @@ attribute [local instance] t2Space_cotangent locallyCompactSpace_cotangent
 
 include hDim hLie hGC hGT hGB hM hT hSC hC hMB hAction
 
+-- Human-verified.
+-- - Equivariant symbol representatives and their quantization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Equivariant quantization retains the specified invariant homogeneous atlas symbol. -/
 theorem exists_equivariant_atlasPseudodifferentialOperator_of_homogeneousSymbol
     {E F : M → Type*}
@@ -125,6 +128,9 @@ set_option linter.unusedSectionVars false in
 set_option linter.unusedVariables false in
 set_option maxHeartbeats 1600000 in
 -- Preserve the K class through smooth replacement, radial degree change and atlas conversion.
+-- Human-verified.
+-- - Equivariant symbol representatives and their quantization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- Every original equivariant cotangent K class has a global smooth atlas symbol. -/
 theorem exists_equivariant_smooth_atlas_elliptic_representative (m : ℝ) :
     letI := smoothCotangentMulAction (n := n) (G := G) (M := M) 𝓘(ℝ, VG)
@@ -367,6 +373,9 @@ theorem exists_equivariant_smooth_atlas_elliptic_representative (m : ℝ) :
       _ = equivariantHomogeneousSymbolKClass 𝓘(ℝ, VG) σE σF 0 s hi hseq := hdegree
       _ = u := hsame.symm.trans hclass
 
+-- Human-verified.
+-- - Equivariant symbol representatives and their quantization. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- A single global equivariant atlas PDO realizes every original equivariant cotangent class. -/
 theorem exists_equivariant_atlas_elliptic_pseudodifferential_representative
     (g : SmoothCotangentMetric (n := n) (M := M)) (m : ℝ) :

@@ -97,6 +97,9 @@ private theorem zeroOrder_apply_eq_principalSymbol
 namespace PseudodifferentialOperator
 
 set_option backward.isDefEq.respectTransparency false in
+-- Human-verified.
+-- - Support in two-sided truncation and excision. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- Localize a zero-order representative relative to B while keeping its actual principal class. -/
 theorem exists_localized_representative
     (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ 0)
@@ -307,6 +310,9 @@ theorem exists_localized_representative
   exact (pseudodifferentialSpace E F μ (0 - 1)).sub_mem
     (isPseudodifferentialOperator_twoSidedSectionCutoff V χ χ.contMDiff) hlow
 
+-- Human-verified.
+-- - Support in two-sided truncation and excision. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- An exterior fiber isomorphism forces both localized kernels into the cutoff support. -/
 theorem ker_support_of_localization
     (P Q : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ 0)

@@ -89,6 +89,9 @@ def LaurentMatrixLoop.monomial (n : ℕ) (k : ℤ) : LaurentMatrixLoop A :=
   (LaurentMatrixLoop.affine (1 : Matrix (Fin n) (Fin n) A) 0
     (by simp) (by intro z; simp)).shift k
 
+-- Human-verified.
+-- - Polynomial loops and affine coefficients. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- KA III.1.21: the actual shifted polynomial classes give the Laurent class. -/
 theorem LaurentMatrixLoop.exists_polynomial_difference (p : LaurentMatrixLoop A) :
     ∃ k : ℕ, (p.shift (k : ℤ)).IsPolynomial ∧
@@ -474,6 +477,9 @@ theorem affine_stableClass_eq_bott {n : ℕ} (a₀ a₁ : Matrix (Fin n) (Fin n)
   rw [hzero, hzero]
   exact hpath
 
+-- Human-verified.
+-- - Paths of idempotents and the Bott map and its inverse. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- KA III.1.25 for the project's commutative Banach-algebra K₀ model. -/
 theorem kZeroBottLoop_surjective : Function.Surjective (kZeroBottLoop A) := by
   /- Choose an original finite loop representative and use

@@ -46,6 +46,9 @@ variable {X : Type u} [TopologicalSpace X] [CompactSpace X] [T2Space X]
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The original Thom defect and its relation to the Euler class. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The actual line defect times its first Chern class is the positive-degree exterior character. -/
 theorem complexThomDefectComponent_evenCup_firstChern_line (j : ℕ) :
     singularCohomologyEvenCup ℚ X j 1 (h.complexThomDefectComponent 1 hline j)

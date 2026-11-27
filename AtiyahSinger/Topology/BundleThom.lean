@@ -125,6 +125,9 @@ theorem exteriorThom_boundary_continuity :
   exact f.continuous_inverse
     (fun z ↦ (cliffordSymbolParityEquiv z.val.snd z.property 0).bijective)
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
 /-- The actual relative exterior symbol on the complement of the zero section. -/
 def exteriorThomBoundary : RelativeTriple PullEven PullOdd ZeroSectionᶜ where
   linearEquiv z := cliffordSymbolParityEquiv z.val.snd z.property 0
@@ -133,6 +136,9 @@ def exteriorThomBoundary : RelativeTriple PullEven PullOdd ZeroSectionᶜ where
 
 variable [CompactSpace X] [T2Space X]
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
 /-- The compact-base Thom triple has the actual zero section as its compact control. -/
 def exteriorThomTriple : CompactSupportTriple PullEven PullOdd where
   control := ZeroSection
@@ -149,6 +155,9 @@ def exteriorThomTriple : CompactSupportTriple PullEven PullOdd where
       rfl
   boundary := exteriorThomBoundary E hinner
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
 /-- The compact-support class of the actual even-to-odd exterior Thom triple. -/
 def exteriorThomClass : CompactSupportKZero (TotalSpace Unit E) :=
   let proj : C(TotalSpace Unit E, X) := ⟨π Unit E, continuous_proj (E := E)⟩
@@ -156,6 +165,9 @@ def exteriorThomClass : CompactSupportKZero (TotalSpace Unit E) :=
   letI := isFiniteRank_pullback (E := Odd) proj
   (exteriorThomTriple E hinner).compactSupportClass
 
+-- Human-verified.
+-- - Hermitian metrics and the Thom class over a compact base. The review covers the documented
+--   definition or construction.
 /-- The specified Thom map is the original K(X)-action on the actual exterior Thom class. -/
 def exteriorThomHom : ComplexKZero X →+ CompactSupportKZero (TotalSpace Unit E) :=
   (complexKZeroCompactSupportAction

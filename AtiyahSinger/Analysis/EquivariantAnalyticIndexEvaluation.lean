@@ -63,6 +63,9 @@ variable {VG G : Type*} [NormedAddCommGroup VG] [NormedSpace ℝ VG]
   (hσE : σE.IsSmooth (n := n) (r := r) 𝓘(ℝ, VG))
   (hσF : σF.IsSmooth (n := n) (r := q) 𝓘(ℝ, VG))
 
+-- Human-verified.
+-- - Equivariant metrics and the symbol of the given operator. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The original K-index value is the full index of this actual elliptic realization. -/
 theorem PseudodifferentialOperator.equivariantAnalyticIndexMap_symbolKClass
     (s : homogeneousGlobalSymbolSpace (n := n) (r := r) (q := q) E F 0)

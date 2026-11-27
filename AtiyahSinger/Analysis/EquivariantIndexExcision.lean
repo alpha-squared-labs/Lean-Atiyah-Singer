@@ -265,6 +265,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 set_option maxHeartbeats 4000000 in
 -- Factor both original maps through the same native open cotangent and retain the arbitrary class.
+-- Human-verified.
+-- - Equivariant excision and external products for different groups. The review covers the theorem
+--   statement and its documented mathematical correspondence.
 /-- The same arbitrary support class has equal full indices in two compact environments. -/
 theorem equivariantAnalyticIndexMap_excision
     (U : Opens M) (V : Opens N)

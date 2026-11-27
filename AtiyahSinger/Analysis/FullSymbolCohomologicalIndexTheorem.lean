@@ -59,10 +59,20 @@ local notation "V" => EuclideanSpace ℝ (Fin n)
 local notation "TM" => TangentBundle 𝓘(ℝ, V) M
 local notation "T" => (TangentSpace 𝓘(ℝ, V) : M → Type)
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the documented definition or construction.
+-- - The same tangent-bundle class and the top-degree pairing in T02. The review covers the
+--   documented definition or construction.
 /-- The native tangent metric chosen for both exposed characteristic expressions. -/
 def indexTangentMetric : SmoothTangentMetric (n := n) (M := M) :=
   Classical.choice SmoothTangentMetric.nonempty
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the documented definition or construction.
+-- - The same tangent-bundle class and the top-degree pairing in T02. The review covers the
+--   documented definition or construction.
 /-- A metric on the original tensor complexification for both exposed expressions. -/
 def indexTangentComplexMetric :
     letI := complexificationTopology V T
@@ -71,6 +81,11 @@ def indexTangentComplexMetric :
   letI := ComplexBundle.isFiniteRank_complexification V T
   exact (nonempty_continuousHermitianMetric (fun x : M ↦ ℂ ⊗[ℝ] T x)).some
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the documented definition or construction.
+-- - The same tangent-bundle class and the top-degree pairing in T02. The review covers the
+--   documented definition or construction.
 /-- The degree-2n supported class ch(u) cup pi*(A-hat(TM)^2) with native metrics internal. -/
 def cotangentIndexCharacteristicClass
     (u : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M))) :
@@ -79,6 +94,11 @@ def cotangentIndexCharacteristicClass
     (indexTangentComplexMetric (n := n) (M := M))
     ((tangentCotangentKZeroEquiv (indexTangentMetric (n := n) (M := M))).symm u)
 
+-- Human-verified.
+-- - The connection between the original symbol and the Dirac characteristic classes. The review
+--   covers the documented definition or construction.
+-- - The same integral orientation and the triangular-number sign in T03. The review covers the
+--   documented definition or construction.
 /-- The degree-n base class pi!(ch(u)) cup A-hat(TM)^2 with the original O-normalized inverse. -/
 def cotangentBaseIndexCharacteristicClass (O : HomologicalOrientation n M)
     (u : CompactSupportKZero (CotangentTotalSpace (n := n) (M := M))) :
@@ -97,6 +117,9 @@ variable {E F : M → Type}
   {A : SmoothComplexBundleAtlas (n := n) E}
   {B : SmoothComplexBundleAtlas (n := n) F}
 
+-- Human-verified.
+-- - The tangent-bundle total-space formula in T02Atlas. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- SG (13.18) for the original general atlas PDO, without an orientation on its base. -/
 theorem AtlasPseudodifferentialOperator.index_eq_tangent_characteristic_number_fullSymbol
     {m : ℝ} (P : AtlasPseudodifferentialOperator A B m) (hi : P.IsElliptic) :
@@ -118,6 +141,9 @@ theorem AtlasPseudodifferentialOperator.index_eq_tangent_characteristic_number_f
     ((tangentCotangentKZeroEquiv (indexTangentMetric (n := n) (M := M))).symm
       (P.fullSymbolKClass hi))
 
+-- Human-verified.
+-- - The oriented base manifold formula in T03Atlas. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG (13.24) for the original general atlas PDO and the same original base orientation. -/
 theorem AtlasPseudodifferentialOperator.index_eq_base_characteristic_number_fullSymbol
     (O : HomologicalOrientation n M)
@@ -157,6 +183,9 @@ variable [MeasurableSpace M] [BorelSpace M]
   [IsSmoothComplexBundle (n := n) (r := r) E]
   [IsSmoothComplexBundle (n := n) (r := q) F]
 
+-- Human-verified.
+-- - The tangent-bundle total-space formula in T02Native. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- SG (13.18) retains the same original native operator, its density and its full class. -/
 theorem PseudodifferentialOperator.index_eq_tangent_characteristic_number_fullSymbol
     {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
@@ -179,6 +208,9 @@ theorem PseudodifferentialOperator.index_eq_tangent_characteristic_number_fullSy
     ((tangentCotangentKZeroEquiv (indexTangentMetric (n := n) (M := M))).symm
       (P.fullSymbolKClass hi))
 
+-- Human-verified.
+-- - The oriented base manifold formula in T03Native. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- SG (13.24) retains the same original native operator and the original O-normalized integral. -/
 theorem PseudodifferentialOperator.index_eq_base_characteristic_number_fullSymbol
     (O : HomologicalOrientation n M)

@@ -43,6 +43,9 @@ namespace SmoothBundlePresentation
 
 variable (A : SmoothBundlePresentation (n := n) (r := r) E)
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- The actual inclusion of smooth dual tests in their independent Sobolev completion. -/
 def dualTestToSobolev (s : ℝ) :
     A.dualPresentation.SmoothSectionSpace →L[ℂ] A.DualSobolevSpace s :=
@@ -63,6 +66,11 @@ theorem dualTestToSobolev_apply (s : ℝ) (α : A.dualPresentation.SmoothSection
 
 variable [MeasurableSpace M] (μ : Measure M)
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
+-- - The original distributions and local elliptic regularity. The review covers the documented
+--   definition or construction.
 /-- Distributions relative to μ, acting complex-linearly on actual smooth covector tests. -/
 abbrev DistributionSection (_μ : Measure M) : Type _ :=
   A.dualPresentation.SmoothSectionSpace →L[ℂ] ℂ
@@ -72,6 +80,9 @@ variable [BorelSpace M] [hC : CompactSpace M]
 
 include hM hT2 hSC hE hC hμ
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- A Sobolev section acts on smooth dual tests by the existing opposite-order bilinear pairing. -/
 def sobolevToDistribution (s : ℝ) :
     A.SobolevSpace s →ₗ[ℂ] A.DistributionSection μ where
@@ -93,6 +104,9 @@ theorem sobolevToDistribution_apply (s : ℝ) (u : A.SobolevSpace s)
   order -s and evaluates on the original order-s vector; no conjugation appears. -/
   rfl
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Smooth tests distinguish different vectors in each Sobolev completion. -/
 theorem sobolevToDistribution_injective (s : ℝ) :
     Function.Injective (A.sobolevToDistribution μ s) := by
@@ -121,11 +135,17 @@ theorem sobolevToDistribution_injective (s : ℝ) :
   rw [hα] at h
   exact h
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the documented
+--   definition or construction.
 /-- The distribution of an actual smooth section, using its order-zero realization. -/
 def smoothToDistribution :
     smoothSections (n := n) (r := r) E →ₗ[ℂ] A.DistributionSection μ :=
   (A.sobolevToDistribution μ 0).comp (A.smoothToSobolev 0)
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- On smooth sections, the distribution is the same-point evaluation integral against μ. -/
 theorem smoothToDistribution_apply (u : smoothSections (n := n) (r := r) E)
     (α : A.dualPresentation.SmoothSectionSpace) :
@@ -138,6 +158,9 @@ theorem smoothToDistribution_apply (u : smoothSections (n := n) (r := r) E)
   rw [A.sobolevToDistribution_apply, A.dualTestToSobolev_apply]
   exact A.sobolevEvaluationPairing_smooth μ 0 _ u
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Every Sobolev realization of a smooth section gives the same distribution. -/
 theorem sobolevToDistribution_smoothToSobolev (s : ℝ)
     (u : smoothSections (n := n) (r := r) E) :
@@ -150,6 +173,9 @@ theorem sobolevToDistribution_smoothToSobolev (s : ℝ)
   rw [A.sobolevToDistribution_apply, A.dualTestToSobolev_apply,
     A.sobolevEvaluationPairing_smooth, A.smoothToDistribution_apply]
 
+-- Human-verified.
+-- - Distributional realizations and the original action. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Natural order-decreasing inclusion preserves the represented distribution. -/
 theorem sobolevToDistribution_sobolevInclusion (s t : ℝ) (hts : t ≤ s)
     (u : A.SobolevSpace s) :

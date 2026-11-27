@@ -41,6 +41,9 @@ variable {n : ℕ} {M : Type*} [TopologicalSpace M]
   [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
   [∀ x, AddCommGroup (F x)] [∀ x, Module ℂ (F x)]
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- Actual complex-linear Hom families over the original real cotangent fibers. -/
 abbrev AtlasSymbolFunction : Type _ :=
   ∀ x : M, (TangentSpace 𝓘(ℝ, EuclideanSpace ℝ (Fin n)) x →L[ℝ] ℝ) → (E x →ₗ[ℂ] F x)
@@ -50,12 +53,18 @@ variable {E F} [TopologicalSpace (TotalSpace Unit E)]
   (A : SmoothComplexBundleAtlas (n := n) E)
   (B : SmoothComplexBundleAtlas (n := n) F)
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The common region of a manifold chart and the two specified atlas frames. -/
 def atlasSymbolChartDomain (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n)))
     (i : A.Index) (j : B.Index) : Set (EuclideanSpace ℝ (Fin n)) :=
   c.target ∩ c.symm ⁻¹' (A.chart i).baseSet ∩ c.symm ⁻¹' (B.chart j).baseSet
 
 open scoped Classical in
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- Actual coordinate expression, extended by zero outside the common frame domains. -/
 def atlasGlobalSymbolInChart (p : AtlasSymbolFunction (n := n) E F)
     (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n)))
@@ -71,6 +80,9 @@ def atlasGlobalSymbolInChart (p : AtlasSymbolFunction (n := n) E F)
           ((p (c.symm z) (covectorFromChart c (c.symm z) η)).comp input.toLinearMap))
     else 0
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The standard order-m symbol estimates in every valid base chart and atlas-frame pair. -/
 def IsAtlasGlobalSymbol (m : ℝ) (p : AtlasSymbolFunction (n := n) E F) : Prop :=
   ∀ (c : OpenPartialHomeomorph M (EuclideanSpace ℝ (Fin n))),
@@ -135,6 +147,9 @@ theorem IsAtlasGlobalSymbol.mono {m l : ℝ} (hml : m ≤ l)
   intro c hc i j
   exact (hp c hc i j).mono hml
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The actual complex submodule of order-m atlas symbols on the original fibers. -/
 def atlasGlobalSymbolSpace (m : ℝ) : Submodule ℂ (AtlasSymbolFunction (n := n) E F) where
   carrier := {p | IsAtlasGlobalSymbol A B m p}
@@ -142,19 +157,31 @@ def atlasGlobalSymbolSpace (m : ℝ) : Submodule ℂ (AtlasSymbolFunction (n := 
   add_mem' := fun hp hq ↦ (isAtlasGlobalSymbol_closure A B m).2.1 _ _ hp hq
   smul_mem' := fun a p hp ↦ (isAtlasGlobalSymbol_closure A B m).2.2 a p hp
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- Symbols of one lower order, as a submodule of the order-m atlas symbol module. -/
 def lowerOrderAtlasGlobalSymbols (m : ℝ) : Submodule ℂ (atlasGlobalSymbolSpace A B m) :=
   (atlasGlobalSymbolSpace A B (m - 1)).comap (atlasGlobalSymbolSpace A B m).subtype
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The principal-symbol quotient for the given actual variable-rank bundle atlases. -/
 abbrev AtlasGlobalPrincipalSymbolSpace (m : ℝ) : Type _ :=
   atlasGlobalSymbolSpace A B m ⧸ lowerOrderAtlasGlobalSymbols A B m
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the documented
+--   definition or construction.
 /-- The canonical complex-linear quotient map, with no homogeneous representative chosen. -/
 def atlasGlobalPrincipalSymbolClass (m : ℝ) :
     atlasGlobalSymbolSpace A B m →ₗ[ℂ] AtlasGlobalPrincipalSymbolSpace A B m :=
   (lowerOrderAtlasGlobalSymbols A B m).mkQ
 
+-- Human-verified.
+-- - Intrinsic symbols and the principal symbol quotient. The review covers the theorem statement
+--   and its documented mathematical correspondence.
 /-- Two principal classes agree exactly when their actual difference has one lower order. -/
 theorem atlasGlobalPrincipalSymbolClass_eq_iff (m : ℝ)
     (p q : atlasGlobalSymbolSpace A B m) :

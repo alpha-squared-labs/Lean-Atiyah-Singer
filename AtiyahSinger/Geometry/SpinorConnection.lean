@@ -74,6 +74,9 @@ set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 set_option maxHeartbeats 1000000 in
 -- The assembly matches all original metric, principal and associated-atlas instances.
+-- Human-verified.
+-- - The Levi-Civita and half-spinor connections for the same metric g. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The actual Levi-Civita lift induces a unitary connection on each original half-spin atlas. -/
 theorem exists_halfSpinorConnection :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -126,6 +129,9 @@ theorem exists_halfSpinorConnection :
   -- The full original exterior-coordinate predicate uses precisely the same form.
   exact (isInducedHalfSpinorConnection_iff_coordinates g S i cov).mpr hcov
 
+-- Human-verified.
+-- - The Levi-Civita and half-spinor connections for the same metric g. The review covers the
+--   documented definition or construction.
 /-- The canonical half-spin connection selected from its actual Levi-Civita local formula. -/
 def halfSpinorConnection :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -143,6 +149,9 @@ def halfSpinorConnection :
   fun S i ↦ (S.exists_halfSpinorConnection g i).choose
 
 set_option linter.defProp false in
+-- Human-verified.
+-- - The Levi-Civita and half-spinor connections for the same metric g. The review covers the
+--   documented definition or construction.
 /-- The selected connection retains the same local spin formula and original unitary metric. -/
 def halfSpinorConnection_properties :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩
@@ -164,6 +173,9 @@ def halfSpinorConnection_properties :
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
+-- Human-verified.
+-- - The Levi-Civita and half-spinor connections for the same metric g. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- The induced half-spin connections satisfy the original Clifford-module Leibniz rule. -/
 theorem halfSpinorConnection_clifford :
   letI : RiemannianBundle TM := ⟨g.toRiemannianMetric⟩

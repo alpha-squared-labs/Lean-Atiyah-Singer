@@ -97,6 +97,9 @@ set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.defeqAttrib.useBackward true in
 set_option maxSynthPendingDepth 30 in
+-- Human-verified.
+-- - The positive i convention and ellipticity of the original principal symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The original tensor symbol has its three standard properties on a smooth base atlas. -/
 theorem tensorAtlasSymbol_properties_of_isManifold
     (A : SmoothComplexBundleAtlas (n := n) E)

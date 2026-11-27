@@ -668,12 +668,19 @@ namespace AtlasPseudodifferentialOperator
 
 variable {m : ℝ} (P : AtlasPseudodifferentialOperator A B m)
 
+-- Human-verified.
+-- - Ellipticity of the given operator. The review covers the documented definition or construction.
+-- - Evaluation on the original symbol and the topological index in T01. The review covers the
+--   documented definition or construction.
 /-- Standard ellipticity of the actual principal class, with no parametrix or Fredholm input. -/
 def IsElliptic : Prop :=
   ∃ a : atlasGlobalSymbolSpace A B m,
     P.principalSymbol = atlasGlobalPrincipalSymbolClass A B m a ∧
       IsEllipticFullAtlasSymbol A B m a.val
 
+-- Human-verified.
+-- - Ellipticity of the given operator. The review covers the theorem statement and its documented
+--   mathematical correspondence.
 /-- Any specified full representative tests the same ellipticity condition. -/
 theorem isElliptic_iff_of_principalSymbol_eq
     (a : atlasGlobalSymbolSpace A B m)
@@ -693,6 +700,9 @@ theorem isElliptic_iff_of_principalSymbol_eq
   · intro ha
     exact ⟨a, hPa, ha⟩
 
+-- Human-verified.
+-- - The original kernel, cokernel, and index in the atlas presentation. The review covers the
+--   theorem statement and its documented mathematical correspondence.
 /-- SG Remark 4.7: general full-symbol ellipticity gives one actual two-sided parametrix. -/
 theorem exists_parametrix_of_isElliptic (hP : P.IsElliptic) :
     ∃ Q : AtlasPseudodifferentialOperator B A (-m),

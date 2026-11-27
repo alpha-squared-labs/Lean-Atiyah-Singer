@@ -28,6 +28,9 @@ open scoped unitInterval
 variable {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
 
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- A continuous complex vector bundle with locally finite, possibly varying, rank. -/
 structure FiniteBundle (X : Type*) [TopologicalSpace X] where
   /-- The fibers, in one fixed universe for forming the collection of triples. -/
@@ -74,6 +77,9 @@ def FiniteBundle.pullback (E : FiniteBundle Y) (f : C(X, Y)) : FiniteBundle X wh
 def FiniteBundle.restrict (E : FiniteBundle X) (A : Set X) : FiniteBundle A :=
   E.pullback ⟨Subtype.val, continuous_subtype_val⟩
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the theorem statement and
+--   its documented mathematical correspondence.
 /-- Finite-rank bundle families in any universe admit small isomorphic models. -/
 theorem exists_small_bundle (E : X → Type*) [∀ x, AddCommGroup (E x)]
     [∀ x, Module ℂ (E x)] [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E] :
@@ -126,11 +132,17 @@ theorem exists_small_bundle (E : X → Type*) [∀ x, AddCommGroup (E x)]
   let : IsFiniteRank F := i.isFiniteRank
   exact ⟨FiniteBundle.ofFamily F, ⟨i⟩⟩
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- Choose a small model only from the isomorphic-model theorem. -/
 def smallBundle (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
     [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E] : FiniteBundle X :=
   (exists_small_bundle E).choose
 
+-- Human-verified.
+-- - Total spaces and conversion between presentations. The review covers the documented definition
+--   or construction.
 /-- The actual isomorphism to the chosen small model. -/
 def smallBundleIso (E : X → Type*) [∀ x, AddCommGroup (E x)] [∀ x, Module ℂ (E x)]
     [TopologicalSpace (TotalSpace Unit E)] [IsFiniteRank E] : Iso E (smallBundle E).Fiber :=

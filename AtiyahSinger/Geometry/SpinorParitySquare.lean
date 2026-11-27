@@ -52,6 +52,9 @@ local notation "ZeroSet" => Set.range (zeroSection RealModel E)
 
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
+-- Human-verified.
+-- - The positive i convention and ellipticity of the original principal symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The two original parity actions compose to negative squared length on this half-spin fiber. -/
 theorem TopologicalSpinStructure.cliffordParity_one_zero
     (S : TopologicalSpinStructure m E o hm hP) (b : B) (v : E b) (s : HalfSpinorBundle m hP 0 b) :
@@ -77,6 +80,9 @@ theorem TopologicalSpinStructure.cliffordParity_one_zero
 
 set_option backward.isDefEq.respectTransparency.types false in
 set_option backward.isDefEq.respectTransparency false in
+-- Human-verified.
+-- - The positive i convention and ellipticity of the original principal symbol. The review covers
+--   the theorem statement and its documented mathematical correspondence.
 /-- The two original parity actions compose to negative squared length on this half-spin fiber. -/
 theorem TopologicalSpinStructure.cliffordParity_zero_one
     (S : TopologicalSpinStructure m E o hm hP) (b : B) (v : E b) (s : HalfSpinorBundle m hP 1 b) :

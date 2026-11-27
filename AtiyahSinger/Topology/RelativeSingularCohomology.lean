@@ -47,21 +47,33 @@ universe u
 
 variable (R : Type) [CommRing R]
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The chain map induced by the actual inclusion of the subspace A into X. -/
 def singularSubspaceChains {X : Type u} [TopologicalSpace X] (A : Set X) :
     singularChains R A ⟶ singularChains R X :=
   (singularChainsFunctor R).map (TopCat.ofHom ⟨Subtype.val, continuous_subtype_val⟩)
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The relative singular chains C_*(X,A;R), the cokernel of the subspace-chain inclusion. -/
 abbrev relativeSingularChains {X : Type u} [TopologicalSpace X] (A : Set X) :
     ChainComplex (ModuleCat.{u} R) ℕ :=
   cokernel (singularSubspaceChains R A)
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The canonical projection from ordinary chains to relative chains. -/
 abbrev relativeSingularChainsProjection {X : Type u} [TopologicalSpace X] (A : Set X) :
     singularChains R X ⟶ relativeSingularChains R A :=
   cokernel.π (singularSubspaceChains R A)
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The actual relative chain map induced by a specified continuous map of pairs. -/
 def relativeSingularChainsMap {X Y : Type u} [TopologicalSpace X] [TopologicalSpace Y]
     (f : C(X, Y)) {A : Set X} {B : Set Y} (hf : Set.MapsTo f A B) :
@@ -74,6 +86,9 @@ def relativeSingularChainsMap {X Y : Type u} [TopologicalSpace X] [TopologicalSp
       simp only [singularSubspaceChains, ← Functor.map_comp]
       rfl)
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The relative chain functor for subsets of the same ambient space, ordered by inclusion. -/
 abbrev relativeSingularChainsFunctor (X : Type u) [TopologicalSpace X] :
     Set X ⥤ ChainComplex (ModuleCat.{u} R) ℕ where
@@ -87,28 +102,43 @@ abbrev relativeSingularChainsFunctor (X : Type u) [TopologicalSpace X] :
     apply (cancel_epi (relativeSingularChainsProjection R A)).mp
     simp [relativeSingularChainsMap, relativeSingularChainsProjection, ← Category.assoc]
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Relative singular cochains, the algebraic dual of the actual relative chain quotient. -/
 abbrev relativeSingularCochains {X : Type u} [TopologicalSpace X] (A : Set X) :
     CochainComplex (ModuleCat.{u} R) ℕ :=
   (singularCochainDualFunctor R).obj (op (relativeSingularChains R A))
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Relative singular cohomology H^n(X,A;R), with no closedness condition on A. -/
 abbrev relativeSingularCohomology {X : Type u} [TopologicalSpace X] (A : Set X) (n : ℕ) :
     ModuleCat.{u} R :=
   (relativeSingularCochains R A).homology n
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The contravariant relative cohomology functor on subsets of a fixed ambient space. -/
 abbrev relativeSingularCohomologyFunctor (X : Type u) [TopologicalSpace X] (n : ℕ) :
     (Set X)ᵒᵖ ⥤ ModuleCat.{u} R :=
   (relativeSingularChainsFunctor R X).op ⋙ singularCochainDualFunctor R ⋙
     HomologicalComplex.homologyFunctor (ModuleCat.{u} R) (ComplexShape.up ℕ) n
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- If A is contained in B, restriction of the relative condition gives H^n(X,B) → H^n(X,A). -/
 def relativeSingularCohomologyRestriction {X : Type u} [TopologicalSpace X]
     (A B : Set X) (h : A ⊆ B) (n : ℕ) :
     relativeSingularCohomology R B n ⟶ relativeSingularCohomology R A n :=
   (relativeSingularCohomologyFunctor R X n).map (homOfLE h).op
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- Pullback on relative cohomology along the specified continuous map of pairs. -/
 def relativeSingularCohomologyPullback {X Y : Type u}
     [TopologicalSpace X] [TopologicalSpace Y]
@@ -117,6 +147,9 @@ def relativeSingularCohomologyPullback {X Y : Type u}
   HomologicalComplex.homologyMap
     ((singularCochainDualFunctor R).map (relativeSingularChainsMap R f hf).op) n
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The canonical map from relative to ordinary cohomology, natural in the subspace. -/
 def relativeSingularCohomologyToOrdinaryNatTrans (X : Type u)
     [TopologicalSpace X] (n : ℕ) : relativeSingularCohomologyFunctor R X n ⟶
@@ -138,6 +171,9 @@ def relativeSingularCohomologyToOrdinaryNatTrans (X : Type u)
       F.map (relativeSingularChainsProjection R A.unop).op ≫ 𝟙 _
     rw [Category.comp_id, ← F.map_comp, ← op_comp, hProjection]
 
+-- Human-verified.
+-- - Singular chains and relative cohomology. The review covers the documented definition or
+--   construction.
 /-- The ordinary cohomology class obtained by forgetting the relative vanishing condition. -/
 def relativeSingularCohomologyToOrdinary {X : Type u} [TopologicalSpace X]
     (A : Set X) (n : ℕ) : relativeSingularCohomology R A n ⟶ singularCohomology R X n :=

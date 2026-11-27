@@ -57,6 +57,13 @@ variable {E F : M → Type*}
   {A : SmoothComplexBundleAtlas (n := n) E}
   {B : SmoothComplexBundleAtlas (n := n) F}
 
+-- Human-verified.
+-- - Relating the original symbol class to the topological index. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the theorem statement and its documented mathematical correspondence.
+-- - The integer index formula in T01Atlas. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG III.13.2 for the original variable-rank atlas PDO and its intrinsic full-symbol class. -/
 theorem AtlasPseudodifferentialOperator.index_eq_cotangentTopologicalIndex_fullSymbol
     {m : ℝ} (P : AtlasPseudodifferentialOperator A B m) (hi : P.IsElliptic) :
@@ -92,6 +99,13 @@ variable [MeasurableSpace M] [BorelSpace M]
   [IsSmoothComplexBundle (n := n) (r := r) E]
   [IsSmoothComplexBundle (n := n) (r := q) F]
 
+-- Human-verified.
+-- - Relating the original symbol class to the topological index. The review covers the theorem
+--   statement and its documented mathematical correspondence.
+-- - Metric transport between the tangent and cotangent bundles and the original symbol class. The
+--   review covers the theorem statement and its documented mathematical correspondence.
+-- - The integer index formula in T01Native. The review covers the theorem statement and its
+--   documented mathematical correspondence.
 /-- SG III.13.2 for the same original native PDO, with standard full ellipticity as input. -/
 theorem PseudodifferentialOperator.index_eq_cotangentTopologicalIndex_fullSymbol
     {m : ℝ} (P : PseudodifferentialOperator (n := n) (r := r) (q := q) E F μ m)
